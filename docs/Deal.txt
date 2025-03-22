@@ -1,0 +1,16 @@
+Deal
+DealProduct
+
+DealAdCampaing
+DealAdGroup
+DealAd
+DealAdAudit
+
+DealGateway
+DealEvent
+
+DealCustomer
+DealAgreement
+DealCustomerInvoice
+DealConversionLog
+DealWebhook
