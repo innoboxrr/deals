@@ -15,5 +15,18 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require-dev": {
+        "orchestra/testbench": "^9",
+        "innoboxrr/larapack-generator": "^5.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Innoboxrr\\Deals\\Providers\\AppServiceProvider",
+                "Innoboxrr\\Deals\\Providers\\AuthServiceProvider",
+                "Innoboxrr\\Deals\\Providers\\EventServiceProvider",
+                "Innoboxrr\\Deals\\Providers\\RouteServiceProvider"
+            ]
+        }
+    }
 }
