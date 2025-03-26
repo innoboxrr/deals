@@ -42,9 +42,9 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-agreement-constraint'
-	import ModelCard from '@models/deal-advertiser-agreement-constraint/widgets/ModelCard.vue'
-	import ModelProfile from '@models/deal-advertiser-agreement-constraint/widgets/ModelProfile.vue'
+	import { showModel } from '@dealsModels/deal-advertiser-agreement-constraint'
+	import ModelCard from '@dealsModels/deal-advertiser-agreement-constraint/widgets/ModelCard.vue'
+	import ModelProfile from '@dealsModels/deal-advertiser-agreement-constraint/widgets/ModelProfile.vue'
 
 	export default {
 

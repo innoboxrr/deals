@@ -15,7 +15,7 @@
 
 <script>
 
-    import { createModel } from '@models/deal-ad-campaign'
+    import { createModel } from '@dealsModels/deal-ad-campaign'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

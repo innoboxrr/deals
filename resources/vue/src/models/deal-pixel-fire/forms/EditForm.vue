@@ -15,7 +15,7 @@
 
 <script>
 
-    import { showModel, updateModel} from '@models/deal-pixel-fire'
+    import { showModel, updateModel} from '@dealsModels/deal-pixel-fire'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

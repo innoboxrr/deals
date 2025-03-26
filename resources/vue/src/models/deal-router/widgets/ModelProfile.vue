@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-router'
+	import { showModel } from '@dealsModels/deal-router'
 	
 	export default {
 

@@ -21,8 +21,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-ad-performance-snapshot'
-	import EditForm from '@models/deal-ad-performance-snapshot/forms/EditForm.vue'
+	import { getPolicy } from '@dealsModels/deal-ad-performance-snapshot'
+	import EditForm from '@dealsModels/deal-ad-performance-snapshot/forms/EditForm.vue'
 
 	export default {
 

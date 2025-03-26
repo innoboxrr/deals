@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-pixel-fire'
+	import { showModel } from '@dealsModels/deal-pixel-fire'
 	
 	export default {
 

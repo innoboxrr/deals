@@ -81,7 +81,7 @@
     import SidebarMenu from './components/SidebarMenu.vue'
     import SearchHeader from './components/SearchHeader.vue'
     import ActivityFeed from './components/ActivityFeed.vue'
-    import { useGlobalStore } from '@domainStore/globalStore.js'
+    import { useGlobalStore } from '@dealsStore/globalStore.js'
 
     export default {
         name: 'DomainDashboard',

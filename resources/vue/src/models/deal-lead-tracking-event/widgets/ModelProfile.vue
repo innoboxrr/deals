@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-lead-tracking-event'
+	import { showModel } from '@dealsModels/deal-lead-tracking-event'
 	
 	export default {
 

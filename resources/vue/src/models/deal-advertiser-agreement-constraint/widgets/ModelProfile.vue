@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-agreement-constraint'
+	import { showModel } from '@dealsModels/deal-advertiser-agreement-constraint'
 	
 	export default {
 

@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-agreement-postback'
+	import { showModel } from '@dealsModels/deal-advertiser-agreement-postback'
 	
 	export default {
 

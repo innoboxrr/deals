@@ -28,7 +28,7 @@
 
 <script>
 	
-	import DataTable from '@models/deal-advertiser-payment-method/widgets/DataTable.vue'
+	import DataTable from '@dealsModels/deal-advertiser-payment-method/widgets/DataTable.vue'
 
 	export default {
 

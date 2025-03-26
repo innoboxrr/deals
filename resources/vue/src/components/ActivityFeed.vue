@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import { useGlobalStore } from '@domainStore/globalStore.js'
+    import { useGlobalStore } from '@dealsStore/globalStore.js'
 
     export default {
         name: 'ActivityFeed',

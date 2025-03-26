@@ -28,7 +28,7 @@
 
 <script>
 	
-	import DataTable from '@models/deal-ad-performance-snapshot/widgets/DataTable.vue'
+	import DataTable from '@dealsModels/deal-ad-performance-snapshot/widgets/DataTable.vue'
 
 	export default {
 

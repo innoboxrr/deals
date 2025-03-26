@@ -31,8 +31,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-performance-snapshot'
-	import CreateForm from '@models/deal-performance-snapshot/forms/CreateForm.vue'
+	import { getPolicy } from '@dealsModels/deal-performance-snapshot'
+	import CreateForm from '@dealsModels/deal-performance-snapshot/forms/CreateForm.vue'
 
 	export default {
 

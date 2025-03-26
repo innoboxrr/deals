@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-gateway'
+	import { showModel } from '@dealsModels/deal-gateway'
 	
 	export default {
 

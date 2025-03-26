@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-agreement-config'
+	import { showModel } from '@dealsModels/deal-advertiser-agreement-config'
 	
 	export default {
 

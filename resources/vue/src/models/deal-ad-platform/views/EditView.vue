@@ -21,8 +21,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-ad-platform'
-	import EditForm from '@models/deal-ad-platform/forms/EditForm.vue'
+	import { getPolicy } from '@dealsModels/deal-ad-platform'
+	import EditForm from '@dealsModels/deal-ad-platform/forms/EditForm.vue'
 
 	export default {
 

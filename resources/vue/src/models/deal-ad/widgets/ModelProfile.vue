@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-ad'
+	import { showModel } from '@dealsModels/deal-ad'
 	
 	export default {
 

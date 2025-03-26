@@ -42,9 +42,9 @@
 
 <script>
 
-	import { showModel } from '@models/deal-ad-campaign-rule'
-	import ModelCard from '@models/deal-ad-campaign-rule/widgets/ModelCard.vue'
-	import ModelProfile from '@models/deal-ad-campaign-rule/widgets/ModelProfile.vue'
+	import { showModel } from '@dealsModels/deal-ad-campaign-rule'
+	import ModelCard from '@dealsModels/deal-ad-campaign-rule/widgets/ModelCard.vue'
+	import ModelProfile from '@dealsModels/deal-ad-campaign-rule/widgets/ModelProfile.vue'
 
 	export default {
 

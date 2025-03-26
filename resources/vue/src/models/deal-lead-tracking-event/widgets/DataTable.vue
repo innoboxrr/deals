@@ -30,8 +30,8 @@
 <script>
 	
 	import DataTable from 'innoboxrr-vue-datatable'
-	import FilterForm from '@models/deal-lead-tracking-event/forms/FilterForm.vue'
-	import * as model from '@models/deal-lead-tracking-event' 
+	import FilterForm from '@dealsModels/deal-lead-tracking-event/forms/FilterForm.vue'
+	import * as model from '@dealsModels/deal-lead-tracking-event' 
 
 	export default {
 

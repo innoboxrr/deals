@@ -21,8 +21,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-pixel-fire'
-	import EditForm from '@models/deal-pixel-fire/forms/EditForm.vue'
+	import { getPolicy } from '@dealsModels/deal-pixel-fire'
+	import EditForm from '@dealsModels/deal-pixel-fire/forms/EditForm.vue'
 
 	export default {
 

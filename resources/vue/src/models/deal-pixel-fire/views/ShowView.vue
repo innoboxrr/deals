@@ -42,9 +42,9 @@
 
 <script>
 
-	import { showModel } from '@models/deal-pixel-fire'
-	import ModelCard from '@models/deal-pixel-fire/widgets/ModelCard.vue'
-	import ModelProfile from '@models/deal-pixel-fire/widgets/ModelProfile.vue'
+	import { showModel } from '@dealsModels/deal-pixel-fire'
+	import ModelCard from '@dealsModels/deal-pixel-fire/widgets/ModelCard.vue'
+	import ModelProfile from '@dealsModels/deal-pixel-fire/widgets/ModelProfile.vue'
 
 	export default {
 

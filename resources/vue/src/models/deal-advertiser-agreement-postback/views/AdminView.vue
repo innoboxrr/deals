@@ -28,7 +28,7 @@
 
 <script>
 	
-	import DataTable from '@models/deal-advertiser-agreement-postback/widgets/DataTable.vue'
+	import DataTable from '@dealsModels/deal-advertiser-agreement-postback/widgets/DataTable.vue'
 
 	export default {
 

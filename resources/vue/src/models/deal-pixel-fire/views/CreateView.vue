@@ -31,8 +31,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-pixel-fire'
-	import CreateForm from '@models/deal-pixel-fire/forms/CreateForm.vue'
+	import { getPolicy } from '@dealsModels/deal-pixel-fire'
+	import CreateForm from '@dealsModels/deal-pixel-fire/forms/CreateForm.vue'
 
 	export default {
 

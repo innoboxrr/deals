@@ -31,8 +31,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-ad'
-	import CreateForm from '@models/deal-ad/forms/CreateForm.vue'
+	import { getPolicy } from '@dealsModels/deal-ad'
+	import CreateForm from '@dealsModels/deal-ad/forms/CreateForm.vue'
 
 	export default {
 

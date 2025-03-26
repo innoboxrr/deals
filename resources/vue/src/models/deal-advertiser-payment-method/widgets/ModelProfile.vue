@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-payment-method'
+	import { showModel } from '@dealsModels/deal-advertiser-payment-method'
 	
 	export default {
 

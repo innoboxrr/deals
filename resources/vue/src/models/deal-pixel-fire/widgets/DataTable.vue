@@ -30,8 +30,8 @@
 <script>
 	
 	import DataTable from 'innoboxrr-vue-datatable'
-	import FilterForm from '@models/deal-pixel-fire/forms/FilterForm.vue'
-	import * as model from '@models/deal-pixel-fire' 
+	import FilterForm from '@dealsModels/deal-pixel-fire/forms/FilterForm.vue'
+	import * as model from '@dealsModels/deal-pixel-fire' 
 
 	export default {
 

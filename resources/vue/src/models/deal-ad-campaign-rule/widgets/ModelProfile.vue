@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-ad-campaign-rule'
+	import { showModel } from '@dealsModels/deal-ad-campaign-rule'
 	
 	export default {
 

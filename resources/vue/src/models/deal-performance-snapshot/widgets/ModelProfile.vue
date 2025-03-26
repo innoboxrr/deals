@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-performance-snapshot'
+	import { showModel } from '@dealsModels/deal-performance-snapshot'
 	
 	export default {
 

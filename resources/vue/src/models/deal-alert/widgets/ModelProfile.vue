@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-alert'
+	import { showModel } from '@dealsModels/deal-alert'
 	
 	export default {
 

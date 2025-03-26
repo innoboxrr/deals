@@ -42,9 +42,9 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-payment-method'
-	import ModelCard from '@models/deal-advertiser-payment-method/widgets/ModelCard.vue'
-	import ModelProfile from '@models/deal-advertiser-payment-method/widgets/ModelProfile.vue'
+	import { showModel } from '@dealsModels/deal-advertiser-payment-method'
+	import ModelCard from '@dealsModels/deal-advertiser-payment-method/widgets/ModelCard.vue'
+	import ModelProfile from '@dealsModels/deal-advertiser-payment-method/widgets/ModelProfile.vue'
 
 	export default {
 

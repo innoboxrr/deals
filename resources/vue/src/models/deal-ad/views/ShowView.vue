@@ -42,9 +42,9 @@
 
 <script>
 
-	import { showModel } from '@models/deal-ad'
-	import ModelCard from '@models/deal-ad/widgets/ModelCard.vue'
-	import ModelProfile from '@models/deal-ad/widgets/ModelProfile.vue'
+	import { showModel } from '@dealsModels/deal-ad'
+	import ModelCard from '@dealsModels/deal-ad/widgets/ModelCard.vue'
+	import ModelProfile from '@dealsModels/deal-ad/widgets/ModelProfile.vue'
 
 	export default {
 

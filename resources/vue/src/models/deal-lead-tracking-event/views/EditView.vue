@@ -21,8 +21,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-lead-tracking-event'
-	import EditForm from '@models/deal-lead-tracking-event/forms/EditForm.vue'
+	import { getPolicy } from '@dealsModels/deal-lead-tracking-event'
+	import EditForm from '@dealsModels/deal-lead-tracking-event/forms/EditForm.vue'
 
 	export default {
 

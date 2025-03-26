@@ -31,8 +31,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-advertiser-agreement-invoice'
-	import CreateForm from '@models/deal-advertiser-agreement-invoice/forms/CreateForm.vue'
+	import { getPolicy } from '@dealsModels/deal-advertiser-agreement-invoice'
+	import CreateForm from '@dealsModels/deal-advertiser-agreement-invoice/forms/CreateForm.vue'
 
 	export default {
 

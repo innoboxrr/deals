@@ -42,9 +42,9 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-agreement-postback'
-	import ModelCard from '@models/deal-advertiser-agreement-postback/widgets/ModelCard.vue'
-	import ModelProfile from '@models/deal-advertiser-agreement-postback/widgets/ModelProfile.vue'
+	import { showModel } from '@dealsModels/deal-advertiser-agreement-postback'
+	import ModelCard from '@dealsModels/deal-advertiser-agreement-postback/widgets/ModelCard.vue'
+	import ModelProfile from '@dealsModels/deal-advertiser-agreement-postback/widgets/ModelProfile.vue'
 
 	export default {
 

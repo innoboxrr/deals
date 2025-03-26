@@ -1,7 +1,7 @@
 {
-  "name": "innoboxrr-domain-manager",
+  "name": "innoboxrr-deals",
   "version": "1.0.15",
-  "description": "Paquete de Vue para trabajar de la mano con el paquete innoboxrr/domain-manager",
+  "description": "Paquete de Vue para trabajar de la mano con el paquete innoboxrr/deals",
   "main": "index.js",
   "scripts": {
     "locales": "python python/main.py es en fr -t"

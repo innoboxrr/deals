@@ -31,8 +31,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-advertiser-agreement-cpl-adjustment'
-	import CreateForm from '@models/deal-advertiser-agreement-cpl-adjustment/forms/CreateForm.vue'
+	import { getPolicy } from '@dealsModels/deal-advertiser-agreement-cpl-adjustment'
+	import CreateForm from '@dealsModels/deal-advertiser-agreement-cpl-adjustment/forms/CreateForm.vue'
 
 	export default {
 

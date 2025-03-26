@@ -21,8 +21,8 @@
 
 <script>
 
-	import { getPolicy } from '@models/deal-router'
-	import EditForm from '@models/deal-router/forms/EditForm.vue'
+	import { getPolicy } from '@dealsModels/deal-router'
+	import EditForm from '@dealsModels/deal-router/forms/EditForm.vue'
 
 	export default {
 

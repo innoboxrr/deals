@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-advertiser-agreement-cpl-adjustment'
+	import { showModel } from '@dealsModels/deal-advertiser-agreement-cpl-adjustment'
 	
 	export default {
 

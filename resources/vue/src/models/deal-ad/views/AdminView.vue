@@ -28,7 +28,7 @@
 
 <script>
 	
-	import DataTable from '@models/deal-ad/widgets/DataTable.vue'
+	import DataTable from '@dealsModels/deal-ad/widgets/DataTable.vue'
 
 	export default {
 

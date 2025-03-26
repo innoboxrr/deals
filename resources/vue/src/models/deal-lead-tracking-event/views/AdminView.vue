@@ -28,7 +28,7 @@
 
 <script>
 	
-	import DataTable from '@models/deal-lead-tracking-event/widgets/DataTable.vue'
+	import DataTable from '@dealsModels/deal-lead-tracking-event/widgets/DataTable.vue'
 
 	export default {
 

@@ -25,7 +25,7 @@
 
 <script>
 
-	import { showModel } from '@models/deal-session-event'
+	import { showModel } from '@dealsModels/deal-session-event'
 	
 	export default {
 
