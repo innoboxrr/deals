@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('deal_sessions', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->foreignId('deal_lead_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_lead_id')->nullable();
             $table->foreignId('deal_gateway_id')->constrained()->onDelete('cascade');            
             $table->timestamps();
             $table->softDeletes();
