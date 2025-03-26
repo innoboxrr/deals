@@ -20,7 +20,10 @@ return new class extends Migration
             $table->timestamp('processor_date')->nullable();
             $table->string('status');
             $table->boolean('main')->default(false);
-            $table->foreignId('deal_advertiser_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('dapme_advertiser_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

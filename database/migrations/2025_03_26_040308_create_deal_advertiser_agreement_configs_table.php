@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('deal_advertiser_agreement_configs', function (Blueprint $table) {
             $table->id();
             $table->json('payload')->nullable();
-            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daacf_agreement_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

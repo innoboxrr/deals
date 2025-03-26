@@ -18,7 +18,10 @@ return new class extends Migration
             $table->decimal('before', 10, 2);
             $table->decimal('after', 10, 2);
             $table->uuid('deal_cpl_monitor_run_io');
-            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daacad_agreement_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

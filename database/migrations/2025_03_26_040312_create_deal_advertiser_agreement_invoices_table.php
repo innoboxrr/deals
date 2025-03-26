@@ -23,7 +23,10 @@ return new class extends Migration
             $table->decimal('tax', 10, 2)->default(0);
             $table->decimal('total', 12, 2);
             $table->foreignId('deal_advertiser_id')->constrained()->onDelete('cascade');
-            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daainv_agreement_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

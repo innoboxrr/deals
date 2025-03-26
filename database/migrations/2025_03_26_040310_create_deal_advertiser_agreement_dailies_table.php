@@ -23,7 +23,10 @@ return new class extends Migration
             $table->decimal('spent', 12, 2)->default(0);
             $table->decimal('progress', 5, 2)->default(0);
             $table->unsignedInteger('leads_assigned')->default(0);
-            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daad_agreement_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

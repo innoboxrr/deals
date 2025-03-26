@@ -18,7 +18,10 @@ return new class extends Migration
             $table->json('ping_config')->nullable();
             $table->json('post_config')->nullable();
             $table->json('postback_config')->nullable();
-            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');            
+            $table->foreignId('deal_advertiser_agreement_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daai_agreement_id_foreign');            
             $table->timestamps();
             $table->softDeletes();
         });

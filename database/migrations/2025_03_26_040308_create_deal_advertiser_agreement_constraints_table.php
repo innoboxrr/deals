@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('key');
             $table->string('operator');
             $table->string('value');
-            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daaco_agreement_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

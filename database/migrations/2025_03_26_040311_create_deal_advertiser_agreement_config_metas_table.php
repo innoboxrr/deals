@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('key');
             $table->longText('value');
-            $table->foreignId('deal_advertiser_agreement_config_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_config_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daacm_agreement_config_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -21,7 +21,10 @@ return new class extends Migration
             $table->unsignedInteger('leads')->default(0);
             $table->decimal('spend', 12, 2)->default(0);
             $table->decimal('cpl', 10, 2)->nullable();
-            $table->foreignId('deal_ad_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_ad_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daps_ad_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->json('request');
             $table->foreignId('deal_lead_id')->constrained()->onDelete('cascade');
-            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->index('daap_agreement_id_foreign');
             $table->timestamps();
             $table->softDeletes();
         });
