@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_advertisers', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('status')->default('active');
+            $table->json('payload')->nullable();
+            $table->foreignId('deal_id')->constrained()->onDelete('cascade');
+            $table->foreignId('agent_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

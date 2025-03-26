@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_advertiser_agreement_integrations', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->json('ping_config')->nullable();
+            $table->json('post_config')->nullable();
+            $table->json('postback_config')->nullable();
+            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');            
             $table->timestamps();
             $table->softDeletes();
         });

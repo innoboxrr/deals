@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_advertiser_agreement_cpl_adjustments', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->decimal('before', 10, 2);
+            $table->decimal('after', 10, 2);
+            $table->uuid('deal_cpl_monitor_run_io');
+            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

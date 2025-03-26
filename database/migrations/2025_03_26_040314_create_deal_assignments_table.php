@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('deal_assignments', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->json('sent_object');
+            $table->json('response')->nullable();
+            $table->foreignId('deal_lead_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_advertiser_agreement_id')->constrained()->onDelete('cascade');
+            $table->foreignId('deal_router_execution_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

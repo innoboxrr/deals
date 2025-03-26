@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('deal_advertiser_payment_methods', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('processor');
+            $table->string('processor_id');
+            $table->timestamp('processor_date')->nullable();
+            $table->string('status');
+            $table->boolean('main')->default(false);
+            $table->foreignId('deal_advertiser_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

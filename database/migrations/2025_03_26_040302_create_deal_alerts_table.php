@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('deal_alerts', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('type');
+            $table->text('message');
+            $table->string('status')->default('pending');
+            $table->timestamp('detected_at');
+            $table->foreignId('deal_id')->constrained()->onDelete('cascade');            
             $table->timestamps();
             $table->softDeletes();
         });

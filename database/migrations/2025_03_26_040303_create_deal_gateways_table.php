@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_gateways', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('status')->default('active');
+            $table->foreignId('deal_id')->constrained()->onDelete('cascade');
+            $table->string('gateway_type');
+            $table->unsignedBigInteger('gateway_id');            
             $table->timestamps();
             $table->softDeletes();
         });

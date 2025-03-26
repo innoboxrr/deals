@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_router_executions', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->timestamp('start_execution');
+            $table->timestamp('end_execution')->nullable();
+            $table->json('assignment_log');
+            $table->foreignId('deal_router_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

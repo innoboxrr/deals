@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('deal_performance_snapshots', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->unsignedBigInteger('time');
+            $table->unsignedInteger('leads_generated')->default(0);
+            $table->unsignedInteger('leads_assigned')->default(0);
+            $table->decimal('avg_cpl', 10, 2)->nullable();
+            $table->decimal('avg_conversion_rate', 5, 2)->nullable();
+            $table->decimal('avg_roi', 6, 2)->nullable();
+            $table->foreignId('deal_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

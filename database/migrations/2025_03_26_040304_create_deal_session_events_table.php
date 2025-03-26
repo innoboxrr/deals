@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('deal_session_events', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('key');
+            $table->text('value')->nullable();
+            $table->foreignId('deal_session_id')->constrained()->onDelete('cascade');            
             $table->timestamps();
             $table->softDeletes();
         });

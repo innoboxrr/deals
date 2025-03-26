@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_lead_tracking_events', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('event');
+            $table->string('status')->nullable();
+            $table->json('data')->nullable();
+            $table->foreignId('deal_lead_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

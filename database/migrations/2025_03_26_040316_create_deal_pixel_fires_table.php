@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('deal_pixel_fires', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->timestamp('fired_at');
+            $table->json('response')->nullable();
+            $table->string('platform_type');
+            $table->string('platform_id');
+            $table->foreignId('deal_lead_tracking_event_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

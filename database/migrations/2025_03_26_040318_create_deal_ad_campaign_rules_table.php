@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_ad_campaign_rules', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('condition_type');
+            $table->string('value');
+            $table->string('action');
+            $table->foreignId('deal_ad_campaign_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

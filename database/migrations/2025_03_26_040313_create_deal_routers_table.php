@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('deal_routers', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->timestamp('last_run')->nullable();
+            $table->json('queue')->nullable();
+            $table->foreignId('deal_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('deal_products', function (Blueprint $table) {
             $table->id();
-            //EDIT//
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->json('payload')->nullable();
+            $table->foreignId('deal_id')->constrained()->onDelete('cascade');            
             $table->timestamps();
             $table->softDeletes();
         });
