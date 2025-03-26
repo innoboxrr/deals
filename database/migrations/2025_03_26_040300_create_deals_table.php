@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->json('payload')->nullable();
-            $table->foreignId('deal_product_id')->constrained()->onDelete('cascade');
             $table->foreignId('workspace_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
