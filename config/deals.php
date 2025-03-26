@@ -4,7 +4,7 @@ return [
 
 	'user_class' => 'App\Models\User',
 
-	'excel_view' => 'innoboxrrdeals::excel.',
+	'excel_view' => 'deals::excel.',
 
 	'notification_via' => ['mail', 'database'],
 
