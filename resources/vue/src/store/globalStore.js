@@ -1,22 +1,19 @@
 import { defineStore } from 'pinia'
 import { HomeIcon, GlobeAltIcon, ServerIcon, ClockIcon, CreditCardIcon, Cog6ToothIcon } from '@heroicons/vue/24/outline'
 
-export const useGlobalStore = defineStore('domain-global', {
+export const useGlobalStore = defineStore('deals-global', {
     state: () => ({
         sidebarOpen: false,
         navigation: [
-            { name: 'Inicio', route: { name: 'DomainManagerDashboard' }, icon: HomeIcon, current: true },
-            { name: 'Comparar Dominios', route: { name: 'DomainManagerBuy' }, icon: GlobeAltIcon, current: false },
-            { name: 'Gestionar DNS', route: { name: 'DomainManagerDns' }, icon: ServerIcon, current: false },
-            { name: 'Renovaciones', route: { name: 'DomainManagerRenewals' }, icon: ClockIcon, current: false },
-            { name: 'Pagos & Suscripciones', route: { name: 'DomainManagerBillings' }, icon: CreditCardIcon, current: false },
-            { name: 'Configuración', route: { name: 'DomainManagerSettings' }, icon: Cog6ToothIcon, current: false },
+            { name: 'Inicio', route: { name: 'DealsDashboard' }, icon: HomeIcon, current: true },    
         ],
-        domainsList: [
-            { id: 1, name: 'example.com', route: { name: 'DomainManagerDomainDetail', params: { domain: 'example.com' } }, initial: 'E', current: true },
-            { id: 2, name: 'testdomain.net', route: { name: 'DomainManagerDomainDetail', params: { domain: 'testdomain.net' } }, initial: 'T', current: false },
-            { id: 3, name: 'mywebsite.org', route: { name: 'DomainManagerDomainDetail', params: { domain: 'mywebsite.org' } }, initial: 'M', current: false },
+        /*
+        dealsList: [
+            { id: 1, name: 'example.com', route: { name: 'DealsdealDetail', params: { deal: 'example.com' } }, initial: 'E', current: true },
+            { id: 2, name: 'testdeal.net', route: { name: 'DealsdealDetail', params: { deal: 'testdeal.net' } }, initial: 'T', current: false },
+            { id: 3, name: 'mywebsite.org', route: { name: 'DealsdealDetail', params: { deal: 'mywebsite.org' } }, initial: 'M', current: false },
         ],
+        */
         activityItems: [
             {
                 user: {

@@ -15,13 +15,13 @@
             <li>
                 <div class="text-xs font-semibold text-gray-600">Mis Dominios</div>
                 <ul role="list" class="-mx-2 mt-2 space-y-1">
-                    <li v-for="domain in domainsList" :key="domain.name">
-                        <router-link :to="domain.route"
-                                     :class="[domain.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold']">
+                    <li v-for="deal in dealsList" :key="deal.name">
+                        <router-link :to="deal.route"
+                                     :class="[deal.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold']">
                             <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-lg border border-gray-300 bg-white text-xs font-medium text-gray-600">
-                                {{ domain.initial }}
+                                {{ deal.initial }}
                             </span>
-                            <span class="truncate">{{ domain.name }}</span>
+                            <span class="truncate">{{ deal.name }}</span>
                         </router-link>
                     </li>
                 </ul>
@@ -56,8 +56,8 @@ export default {
         navigation() {
             return this.globalStore.navigation || []
         },
-        domainsList() {
-            return this.globalStore.domainsList || []
+        dealsList() {
+            return this.globalStore.dealsList || []
         },
     },
 }

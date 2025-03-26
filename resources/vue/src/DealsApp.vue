@@ -84,7 +84,7 @@
     import { useGlobalStore } from '@dealsStore/globalStore.js'
 
     export default {
-        name: 'DomainDashboard',
+        name: 'DealsDashboard',
         components: {
             Dialog,
             DialogPanel,

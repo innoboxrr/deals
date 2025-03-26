@@ -1,7 +1,7 @@
 export default [
 	{
 		path: 'dashboard',
-		name: "DomainManagerDashboard",
+		name: "DealsDashboard",
 		component: () => import("./../views/DashboardView.vue"),
 		meta: {
 			title: "Domain Manager Dashboard",

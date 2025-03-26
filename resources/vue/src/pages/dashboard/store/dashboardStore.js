@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export const useDashboardStore = defineStore('domain-manager-pages-dashboard', {
+export const useDashboardStore = defineStore('deals-pages-dashboard', {
     state: () => ({
         
     }),

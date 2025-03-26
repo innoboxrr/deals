@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="flex items-center justify-between border-b border-gray-200 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
-            <h1 class="text-base font-semibold text-gray-900">Administración de Dominios</h1>
+            <h1 class="text-base font-semibold text-gray-900">Administración de Deals</h1>
 
             <!-- Sort dropdown -->
             <Menu as="div" class="relative">
@@ -33,32 +33,32 @@
             </Menu>
         </header>
 
-        <!-- Domain list -->
+        <!-- deal list -->
         <ul role="list" class="divide-y divide-gray-200">
-            <li v-for="domain in domains" :key="domain.id" class="relative flex items-center space-x-4 px-4 py-4 sm:px-6 lg:px-8">
+            <li v-for="deal in deals" :key="deal.id" class="relative flex items-center space-x-4 px-4 py-4 sm:px-6 lg:px-8">
                 <div class="min-w-0 flex-auto">
                     <div class="flex items-center gap-x-3">
-                        <div :class="[statuses[domain.status], 'flex-none rounded-full p-1']">
+                        <div :class="[statuses[deal.status], 'flex-none rounded-full p-1']">
                             <div class="h-2 w-2 rounded-full bg-current"></div>
                         </div>
                         <h2 class="min-w-0 text-sm font-semibold text-gray-900">
-                            <a :href="domain.href" class="flex gap-x-2">
-                                <span class="truncate">{{ domain.domainName }}</span>
+                            <a :href="deal.href" class="flex gap-x-2">
+                                <span class="truncate">{{ deal.dealName }}</span>
                                 <span class="text-gray-400">|</span>
-                                <span class="whitespace-nowrap">{{ domain.registrar }}</span>
+                                <span class="whitespace-nowrap">{{ deal.registrar }}</span>
                             </a>
                         </h2>
                     </div>
                     <div class="mt-3 flex items-center gap-x-2.5 text-xs text-gray-600">
-                        <p class="truncate">{{ domain.description }}</p>
+                        <p class="truncate">{{ deal.description }}</p>
                         <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 flex-none fill-gray-300">
                             <circle cx="1" cy="1" r="1" />
                         </svg>
-                        <p class="whitespace-nowrap">{{ domain.statusText }}</p>
+                        <p class="whitespace-nowrap">{{ deal.statusText }}</p>
                     </div>
                 </div>
                 <div class="flex-none rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset text-gray-600 bg-gray-100">
-                    {{ domain.expiry }}
+                    {{ deal.expiry }}
                 </div>
                 <ChevronRightIcon class="h-5 w-5 flex-none text-gray-600" aria-hidden="true" />
             </li>
@@ -71,7 +71,7 @@
     import { ChevronUpDownIcon, ChevronRightIcon } from '@heroicons/vue/20/solid'
 
     export default {
-        name: 'DomainDashboardSection',
+        name: 'dealDashboardSection',
         components: {
             Menu,
             MenuButton,
@@ -82,11 +82,11 @@
         },
         data() {
             return {
-                domains: [
+                deals: [
                     {
                         id: 1,
                         href: '#',
-                        domainName: 'example.com',
+                        dealName: 'example.com',
                         registrar: 'GoDaddy',
                         status: 'active',
                         statusText: 'Expira en 10 días',

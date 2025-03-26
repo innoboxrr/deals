@@ -14,7 +14,7 @@ export default {
         };
 
         // Función para cargar el idioma
-        const domainManagerLoadLocale = async (lang) => {
+        const dealsLoadLocale = async (lang) => {
             try {
                 const translationsStore = getTranslationsStore();
 
@@ -42,16 +42,16 @@ export default {
         };
 
         // Registrar como propiedades globales
-        app.config.globalProperties.__domain = translate;
-        app.config.globalProperties.$domainManagerLoadLocale = domainManagerLoadLocale;
+        app.config.globalProperties.__deals = translate;
+        app.config.globalProperties.$dealsLoadLocale = dealsLoadLocale;
 
         // Registrar como inyectables
-        app.provide('__domain', translate);
-        app.provide('$domainManagerLoadLocale', domainManagerLoadLocale);
+        app.provide('__deals', translate);
+        app.provide('$dealsLoadLocale', dealsLoadLocale);
 
         // Cargar el idioma por defecto si se proporciona
         if (options.defaultLang) {
-            domainManagerLoadLocale(options.defaultLang);
+            dealsLoadLocale(options.defaultLang);
         }
     },
 };
