@@ -20,14 +20,14 @@
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="700.8118172081638" width="447.5200223728589" x="2280.0972315667987" y="1248.3385751171859"/>
+              <y:Geometry height="700.811817208164" width="447.5200223728589" x="2280.0972315667987" y="1248.3385751171857"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#B7C9E3" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="447.5200223728589" x="0.0" xml:space="preserve" y="0.0">AdsManager</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="27" topF="26.996863005978867"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="19" topF="18.64910689379758"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
@@ -49,7 +49,7 @@
               <y:Geometry height="120.95551194058567" width="117.67211396011396" x="2587.3089006633045" y="1795.0788863550567"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="43.357421875" x="37.15734604255704" xml:space="preserve" y="4.0">DealAd</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="43.357421875" x="37.15734604255704" xml:space="preserve" y="4.0">DealAd</y:NodeLabel>
               <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="100.087890625" x="2.0" xml:space="preserve" y="30.701171875">id
 name
 description
@@ -67,10 +67,10 @@ deal_ad_group_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:
               <y:Geometry height="100.18165242165242" width="114.12334025531891" x="2592.0271502460464" y="1486.193833022164"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.0546875" x="8.034326377659454" xml:space="preserve" y="4.0">DealAdCampaign</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="98.0546875" x="8.034326377659454" xml:space="preserve" y="4.0">DealAdCampaign</y:NodeLabel>
               <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="96.73046875" x="2.0" xml:space="preserve" y="30.701171875">id
 name
-description
+payload
 deal_ad_platform<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
               <y:StyleProperties>
                 <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
@@ -84,10 +84,10 @@ deal_ad_platform<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:
               <y:Geometry height="100.18165242165242" width="132.94459259259258" x="2579.672661347065" y="1640.6363596886104"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.708984375" x="28.117804108796463" xml:space="preserve" y="4.0">DealAdGroup</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.708984375" x="28.117804108796463" xml:space="preserve" y="4.0">DealAdGroup</y:NodeLabel>
               <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="121.427734375" x="2.0" xml:space="preserve" y="30.701171875">id
 name
-description
+payload
 deal_ad_campaign_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
               <y:StyleProperties>
                 <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
@@ -141,11 +141,12 @@ cpl (calculated)<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:
         <node id="n0::n5">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-              <y:Geometry height="112.11678461711381" width="103.52843356595213" x="2597.32460359073" y="1312.7119029669147"/>
+              <y:Geometry height="127.56881192263677" width="103.52843356595213" x="2597.3246035907296" y="1304.3641468547332"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.03515625" x="7.746638657975836" xml:space="preserve" y="4.0">DealAdPlatform</y:NodeLabel>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="70.029296875" x="2.0" xml:space="preserve" y="30.701171875">id
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.03515625" x="7.746638657975836" xml:space="preserve" y="4.0">DealAdPlatform</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="92.20703125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="70.029296875" x="2.0" xml:space="preserve" y="30.701171875">id
+name
 payload
  - api_key
  - api_secret
@@ -298,7 +299,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
           <y:Geometry height="189.15733333333333" width="271.9584273504274" x="3283.4275927361123" y="828.1124115481647"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="28.6796875" x="121.63936992521394" xml:space="preserve" y="4.0">Deal</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="28.6796875" x="121.63936992521394" xml:space="preserve" y="4.0">Deal</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="151.01171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="248.810546875" x="2.0" xml:space="preserve" y="30.701171875">id
 name
 description
@@ -321,7 +322,7 @@ workspace_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mode
           <y:Geometry height="115.42495726495724" width="80.0" x="3379.4068064113253" y="536.6763559926092"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="70.03515625" x="4.982421875" xml:space="preserve" y="4.0">DealProduct</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="70.03515625" x="4.982421875" xml:space="preserve" y="4.0">DealProduct</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="62.03125" x="2.0" xml:space="preserve" y="30.701171875">id
 name
 description
@@ -339,7 +340,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
           <y:Geometry height="115.42495726495724" width="97.47965811965787" x="4796.186410198526" y="864.9785995823528"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="82.697265625" x="7.39119624732939" xml:space="preserve" y="4.0">DealAdvertiser</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="82.697265625" x="7.39119624732939" xml:space="preserve" y="4.0">DealAdvertiser</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="50.04296875" x="2.0" xml:space="preserve" y="30.701171875">id
 status
 payload
@@ -357,12 +358,13 @@ agent_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPar
           <y:Geometry height="350.42576231642386" width="168.35172649572587" x="4760.750376010492" y="1132.5205945379"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="141.396484375" x="13.477621060363163" xml:space="preserve" y="4.0">DealAdvertiserAgreement</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="141.396484375" x="13.477621060363163" xml:space="preserve" y="4.0">DealAdvertiserAgreement</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="312.724609375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="138.724609375" x="2.0" xml:space="preserve" y="30.701171875">id
 status
  - active
  - pending_payment
  - innactive
+payload
 
 start_date
 end_date
@@ -374,7 +376,6 @@ budget
 estimate_cpl (al contrato)
 net_budget (0.3* budget)
 budget_spent (gastado)
-
 
 leads_assigned (total)
 
@@ -447,7 +448,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
           <y:Geometry height="199.89898104911936" width="181.69982905982943" x="5200.534076305" y="1906.4452699765438"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="176.083984375" x="2.807922342414713" xml:space="preserve" y="4.0">DealAdvertiserAgreementConfig</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="176.083984375" x="2.807922342414713" xml:space="preserve" y="4.0">DealAdvertiserAgreementConfig</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="151.01171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="166.10546875" x="2.0" xml:space="preserve" y="30.701171875">id
 payload
  - priority

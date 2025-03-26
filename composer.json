@@ -5,7 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Innoboxrr\\Deals\\": "src/"
+            "Innoboxrr\\Deals\\": "src/",
+            "Innoboxrr\\Deals\\Database\\Factories\\": "database/factories/"
         }
     },
     "authors": [
@@ -27,6 +28,11 @@
                 "Innoboxrr\\Deals\\Providers\\EventServiceProvider",
                 "Innoboxrr\\Deals\\Providers\\RouteServiceProvider"
             ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Innoboxrr\\Deals\\Tests\\": "tests/"
         }
     }
 }

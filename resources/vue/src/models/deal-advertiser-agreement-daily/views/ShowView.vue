@@ -1,0 +1,138 @@
+<template>
+
+	<div v-if="dataLoaded">
+
+		<breadcrumb-component :items="items" />
+	    
+	    <div class="uk-container uk-container-expand">
+
+	    	<div class="uk-grid-small" uk-grid>
+	    		
+	    		<div class="uk-width-1-3@m uk-width-1-1@s">
+
+					<model-card 
+						:deal-advertiser-agreement-daily="dealAdvertiserAgreementDaily" />
+
+	    		</div>
+
+	    		<div class="uk-width-expand uk-width-1-2@m uk-width-1-1@s">
+
+	    			<div v-if="this.isShowView">
+
+	    				<model-profile 
+	    					:deal-advertiser-agreement-daily="dealAdvertiserAgreementDaily" />
+	    				
+	    			</div>
+
+	    			<div v-else>
+	    				
+	    				<router-view @updateData="fetchData"></router-view>
+
+	    			</div>
+
+	    		</div>
+
+	    	</div>
+
+	    </div>
+
+	</div>
+
+</template>
+
+<script>
+
+	import { showModel } from '@models/deal-advertiser-agreement-daily'
+	import ModelCard from '@models/deal-advertiser-agreement-daily/widgets/ModelCard.vue'
+	import ModelProfile from '@models/deal-advertiser-agreement-daily/widgets/ModelProfile.vue'
+
+	export default {
+
+		components: {
+
+			ModelCard,
+
+			ModelProfile
+
+		},
+
+		mounted() {
+
+			this.fetchData();
+
+		},
+
+		data() {
+		
+			return {
+
+				dataLoaded: false,
+
+				title: undefined,
+
+				dealAdvertiserAgreementDailyId: this.$route.params.id,
+
+				dealAdvertiserAgreementDaily: {},
+
+			}
+		
+		},
+
+		computed: {
+
+			isShowView() {
+
+				return (this.$route.name == 'AdminShowDealAdvertiserAgreementDaily');
+
+			},
+
+			items() {
+
+				if(this.$route.name == 'AdminShowDealAdvertiserAgreementDaily') {
+
+					return [
+						{ text: 'DealAdvertiserAgreementDailies', path: '/admin/deal-advertiser-agreement-daily'},
+						{ text: this.deal-advertiser-agreement-daily.name ?? 'DealAdvertiserAgreementDaily', path: '/admin/deal-advertiser-agreement-daily/' + this.deal-advertiser-agreement-daily.id}
+					];
+
+				} else if(this.$route.name == 'AdminEditDealAdvertiserAgreementDaily') {
+
+					return [
+						{ text: 'DealAdvertiserAgreementDailies', path: '/admin/deal-advertiser-agreement-daily'},
+						{ text: this.deal-advertiser-agreement-daily.name ?? 'DealAdvertiserAgreementDaily' , path: '/admin/deal-advertiser-agreement-daily/' + this.deal-advertiser-agreement-daily.id},
+						{ text: 'Editar deal-advertiser-agreement-daily', path: '/admin/deal-advertiser-agreement-daily/' + this.deal-advertiser-agreement-daily.id + '/edit'}	
+					];
+
+				}
+
+			}
+
+		},
+
+		methods: {
+
+			async fetchData() {
+
+				await this.fetchDealAdvertiserAgreementDaily()
+
+				this.dataLoaded = true;
+				
+				this.title = this.dealAdvertiserAgreementDaily.name;
+
+				document.title = this.title;
+
+			},
+
+			async fetchDealAdvertiserAgreementDaily() {
+
+				let res = await showModel(this.dealAdvertiserAgreementDailyId);
+
+				this.dealAdvertiserAgreementDaily = res;
+
+            },
+
+		}
+
+	}
+
+</script>
