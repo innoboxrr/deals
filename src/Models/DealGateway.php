@@ -27,38 +27,55 @@ class DealGateway extends Model
         DealGatewayMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'status',
+        'deal_id',
+        'gateway_type',
+        'gateway_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'status',
+        'deal_id',
+        'gateway_type',
+        'gateway_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'status',
+        'deal_id',
+        'gateway_type',
+        'gateway_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'deal_id'      => 'integer',
+        'gateway_id'   => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'status',
+        'deal_id',
+        'gateway_type',
+        'gateway_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'deal',
+        'sessions',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'sessions',
+    ];    
 
     /*
     protected static function newFactory()

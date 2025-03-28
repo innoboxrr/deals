@@ -25,35 +25,59 @@ class DealAdvertiserPaymentMethod extends Model
         DealAdvertiserPaymentMethodAssignment,
         DealAdvertiserPaymentMethodOperations,
         DealAdvertiserPaymentMethodMutators;
-        
+    
     protected $fillable = [
-        //FILLABLE//
+        'processor',
+        'processor_id',
+        'processor_date',
+        'status',
+        'main',
+        'deal_advertiser_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'processor',
+        'processor_id',
+        'processor_date',
+        'status',
+        'main',
+        'deal_advertiser_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'processor',
+        'processor_id',
+        'processor_date',
+        'status',
+        'main',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'processor_date'       => 'datetime',
+        'main'                 => 'boolean',
+        'deal_advertiser_id'   => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'processor',
+        'processor_id',
+        'processor_date',
+        'status',
+        'main',
+        'deal_advertiser_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'advertiser'
     ];
 
     public static $loadable_counts = [

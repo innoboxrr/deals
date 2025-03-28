@@ -27,15 +27,23 @@ class DealAdCampaignRule extends Model
         DealAdCampaignRuleMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'condition_type',
+        'value',
+        'action',
+        'deal_ad_campaign_id',
     ];
 
     protected $creatable = [
-        //CREATABLE//
+        'condition_type',
+        'value',
+        'action',
+        'deal_ad_campaign_id',
     ];
 
     protected $updatable = [
-        //UPDATABLE//
+        'condition_type',
+        'value',
+        'action',
     ];
 
     protected $casts = [
@@ -49,11 +57,17 @@ class DealAdCampaignRule extends Model
     ];
 
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'condition_type',
+        'value',
+        'action',
+        'deal_ad_campaign_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'adCampaign',
     ];
 
     public static $loadable_counts = [

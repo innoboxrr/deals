@@ -25,35 +25,54 @@ class DealAlert extends Model
         DealAlertAssignment,
         DealAlertOperations,
         DealAlertMutators;
-        
+    
     protected $fillable = [
-        //FILLABLE//
+        'type',
+        'message',
+        'status',
+        'detected_at',
+        'deal_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'type',
+        'message',
+        'status',
+        'detected_at',
+        'deal_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'type',
+        'message',
+        'status',
+        'detected_at',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'detected_at' => 'datetime',
+        'deal_id'     => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'type',
+        'message',
+        'status',
+        'detected_at',
+        'deal_id',
+        'created_at',
+        'updated_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'deal'
     ];
 
     public static $loadable_counts = [

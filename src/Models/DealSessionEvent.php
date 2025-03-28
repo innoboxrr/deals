@@ -27,37 +27,49 @@ class DealSessionEvent extends Model
         DealSessionEventMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'key',
+        'value',
+        'deal_session_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'key',
+        'value',
+        'deal_session_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'key',
+        'value',
+        'deal_session_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'deal_session_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'key',
+        'value',
+        'deal_session_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'session'
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'session'
     ];
 
     /*

@@ -25,40 +25,65 @@ class DealAssignment extends Model
         DealAssignmentAssignment,
         DealAssignmentOperations,
         DealAssignmentMutators;
-        
+    
     protected $fillable = [
-        //FILLABLE//
+        'sent_object',
+        'response',
+        'deal_lead_id',
+        'deal_advertiser_agreement_id',
+        'deal_router_execution_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'sent_object',
+        'response',
+        'deal_lead_id',
+        'deal_advertiser_agreement_id',
+        'deal_router_execution_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'sent_object',
+        'response',
+        'deal_lead_id',
+        'deal_advertiser_agreement_id',
+        'deal_router_execution_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'sent_object'                  => 'array',
+        'response'                     => 'array',
+        'deal_lead_id'                 => 'integer',
+        'deal_advertiser_agreement_id' => 'integer',
+        'deal_router_execution_id'     => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'sent_object',
+        'response',
+        'deal_lead_id',
+        'deal_advertiser_agreement_id',
+        'deal_router_execution_id',
+        'created_at',
+        'updated_at',
     ];
-
+        
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'lead',
+        'advertiserAgreement',
+        'routerExecution',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        // No relaciones hasMany que ameriten conteo en este modelo.
+    ];    
 
     /*
     protected static function newFactory()

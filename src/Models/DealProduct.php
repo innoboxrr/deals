@@ -27,38 +27,55 @@ class DealProduct extends Model
         DealProductMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'name',
+        'description',
+        'payload',
+        'deal_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'name',
+        'description',
+        'payload',
+        'deal_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'name',
+        'description',
+        'payload',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'payload' => 'array',
+        'deal_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'name',
+        'description',
+        'payload',
+        'deal_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'deal',
+        'metas',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'metas',
+    ];    
 
     /*
     protected static function newFactory()

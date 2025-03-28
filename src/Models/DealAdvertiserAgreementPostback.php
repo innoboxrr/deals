@@ -27,38 +27,51 @@ class DealAdvertiserAgreementPostback extends Model
         DealAdvertiserAgreementPostbackMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'request',
+        'deal_lead_id',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'request',
+        'deal_lead_id',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'request',
+        'deal_lead_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'request'                      => 'array',
+        'deal_lead_id'                 => 'integer',
+        'deal_advertiser_agreement_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'request',
+        'deal_lead_id',
+        'deal_advertiser_agreement_id',
+        'created_at',
+        'updated_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'advertiserAgreement',
+        'lead',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        // No relaciones tipo hasMany que ameriten conteo.
+    ];    
 
     /*
     protected static function newFactory()

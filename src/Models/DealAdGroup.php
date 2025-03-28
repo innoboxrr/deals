@@ -27,19 +27,24 @@ class DealAdGroup extends Model
         DealAdGroupMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'name',
+        'payload',
+        'deal_ad_campaign_id',
     ];
 
     protected $creatable = [
-        //CREATABLE//
+        'name',
+        'payload',
+        'deal_ad_campaign_id',
     ];
 
     protected $updatable = [
-        //UPDATABLE//
+        'name',
+        'payload',
     ];
 
     protected $casts = [
-        //CASTS//
+        'payload' => 'array',
     ];
 
     protected $protected_metas = [];
@@ -49,16 +54,23 @@ class DealAdGroup extends Model
     ];
 
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'name',
+        'payload',
+        'deal_ad_campaign_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'metas',
+        'adCampaign',
+        'ads',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'ads',
+    ];    
 
     /*
     protected static function newFactory()

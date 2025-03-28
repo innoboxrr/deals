@@ -27,19 +27,25 @@ class Deal extends Model
         DealMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'name',
+        'description',
+        'payload',
+        'workspace_id',
     ];
 
     protected $creatable = [
-        //CREATABLE//
+        'name',
+        'description',
+        'workspace_id',
     ];
 
     protected $updatable = [
-        //UPDATABLE//
+        'name',
+        'description',
     ];
 
     protected $casts = [
-        //CASTS//
+        'payload' => 'array',
     ];
 
     protected $protected_metas = [];
@@ -49,22 +55,43 @@ class Deal extends Model
     ];
 
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'name',
+        'description',
+        'workspace_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'adPlatforms',
+        'advertiser',
+        // 'affiliateAgreements',
+        // 'affiliateInvoices',
+        'alerts',
+        'gateways',
+        'performanceSnapshots',
+        'product',
+        'metas',
+        'router',
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'adPlatforms',
+        'advertiser',
+        // 'affiliateAgreements',
+        // 'affiliateInvoices',
+        'alerts',
+        'gateways',
+        'performanceSnapshots',
+        'product',
+        'metas',
+        'router',
     ];
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealFactory::new();
     }
-    */
 
 }

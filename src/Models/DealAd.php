@@ -25,21 +25,27 @@ class DealAd extends Model
         DealAdAssignment,
         DealAdOperations,
         DealAdMutators;
-        
+    
     protected $fillable = [
-        //FILLABLE//
+        'name',
+        'description',
+        'payload',
+        'deal_ad_group_id',
     ];
 
     protected $creatable = [
-        //CREATABLE//
+        'name',
+        'description',
+        'deal_ad_group_id',
     ];
 
     protected $updatable = [
-        //UPDATABLE//
+        'name',
+        'description',
     ];
 
     protected $casts = [
-        //CASTS//
+        'payload' => 'array',
     ];
 
     protected $protected_metas = [];
@@ -49,22 +55,27 @@ class DealAd extends Model
     ];
 
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'name',
+        'description',
+        'deal_ad_group_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'metas',
+        'adGroup',
+        'performanceSnapshots',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'performanceSnapshots',
+    ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdFactory::new();
     }
-    */
 
 }

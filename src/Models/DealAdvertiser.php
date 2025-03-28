@@ -27,38 +27,59 @@ class DealAdvertiser extends Model
         DealAdvertiserMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'status',
+        'payload',
+        'deal_id',
+        'agent_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'status',
+        'payload',
+        'deal_id',
+        'agent_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'status',
+        'payload',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'payload'   => 'array',
+        'deal_id'   => 'integer',
+        'agent_id'  => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'status',
+        'payload',
+        'deal_id',
+        'agent_id',
+        'created_at',
+        'updated_at',
     ];
+        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'metas',
+        'deal',
+        'agreements',
+        'paymentMethods',
+        // 'agent', // Descomenta si el modelo Agent está implementado
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'agreements',
+        'paymentMethods',
+    ];    
 
     /*
     protected static function newFactory()

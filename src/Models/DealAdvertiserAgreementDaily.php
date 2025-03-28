@@ -27,19 +27,50 @@ class DealAdvertiserAgreementDaily extends Model
         DealAdvertiserAgreementDailyMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'date',
+        'start_hour',
+        'end_hour',
+        'cpl',
+        'budget',
+        'spent',
+        'progress',
+        'leads_assigned',
+        'deal_advertiser_agreement_id',
     ];
 
     protected $creatable = [
-        //CREATABLE//
+        'date',
+        'start_hour',
+        'end_hour',
+        'cpl',
+        'budget',
+        'spent',
+        'progress',
+        'leads_assigned',
+        'deal_advertiser_agreement_id',
     ];
 
     protected $updatable = [
-        //UPDATABLE//
+        'date',
+        'start_hour',
+        'end_hour',
+        'cpl',
+        'budget',
+        'spent',
+        'progress',
+        'leads_assigned',
     ];
 
     protected $casts = [
-        //CASTS//
+        'date'                         => 'date',
+        'start_hour'                   => 'string',
+        'end_hour'                     => 'string',
+        'cpl'                          => 'decimal:2',
+        'budget'                       => 'decimal:2',
+        'spent'                        => 'decimal:2',
+        'progress'                     => 'decimal:2',
+        'leads_assigned'               => 'integer',
+        'deal_advertiser_agreement_id' => 'integer',
     ];
 
     protected $protected_metas = [];
@@ -49,15 +80,26 @@ class DealAdvertiserAgreementDaily extends Model
     ];
 
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'date',
+        'start_hour',
+        'end_hour',
+        'cpl',
+        'budget',
+        'spent',
+        'progress',
+        'leads_assigned',
+        'deal_advertiser_agreement_id',
+        'created_at',
+        'updated_at',
+    ];    
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'advertiserAgreement'
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'advertiserAgreement'
     ];
 
     /*

@@ -27,38 +27,187 @@ class DealLead extends Model
         DealLeadMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'name',
+        'email',
+        'phone',
+        'whatsapp',
+        'gender',
+        'birth_date',
+        'address',
+        'postalcode',
+        'city',
+        'state',
+        'country',
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'ref',
+        'ip',
+        'platform',
+        'traffic_id',
+        'cpi',
+        'assigned_at',
+        'conversion_stage',
+        'deal_gateway_id',
+        'is_test',
+        'duplicates_with',
+        'notes',
+        'source_verified_at',
+        'time_on_page',
+        'interaction_count',
+        'form_steps_completed',
+        'interest_level',
+        'fraud_risk',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'name',
+        'email',
+        'phone',
+        'whatsapp',
+        'gender',
+        'birth_date',
+        'address',
+        'postalcode',
+        'city',
+        'state',
+        'country',
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'ref',
+        'ip',
+        'platform',
+        'traffic_id',
+        'cpi',
+        'assigned_at',
+        'conversion_stage',
+        'deal_gateway_id',
+        'is_test',
+        'duplicates_with',
+        'notes',
+        'source_verified_at',
+        'time_on_page',
+        'interaction_count',
+        'form_steps_completed',
+        'interest_level',
+        'fraud_risk',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'name',
+        'email',
+        'phone',
+        'whatsapp',
+        'gender',
+        'birth_date',
+        'address',
+        'postalcode',
+        'city',
+        'state',
+        'country',
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'ref',
+        'ip',
+        'platform',
+        'traffic_id',
+        'cpi',
+        'assigned_at',
+        'conversion_stage',
+        'deal_gateway_id',
+        'is_test',
+        'duplicates_with',
+        'notes',
+        'source_verified_at',
+        'time_on_page',
+        'interaction_count',
+        'form_steps_completed',
+        'interest_level',
+        'fraud_risk',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'birth_date'           => 'date',
+        'cpi'                  => 'decimal:2',
+        'assigned_at'          => 'datetime',
+        'is_test'              => 'boolean',
+        'duplicates_with'      => 'array',
+        'source_verified_at'   => 'datetime',
+        'time_on_page'         => 'integer',
+        'interaction_count'    => 'integer',
+        'form_steps_completed' => 'integer',
+        'interest_level'       => 'integer',
+        'fraud_risk'           => 'integer',
+        'deal_gateway_id'      => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'name',
+        'email',
+        'phone',
+        'whatsapp',
+        'gender',
+        'birth_date',
+        'address',
+        'postalcode',
+        'city',
+        'state',
+        'country',
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'ref',
+        'ip',
+        'platform',
+        'traffic_id',
+        'cpi',
+        'assigned_at',
+        'conversion_stage',
+        'deal_gateway_id',
+        'is_test',
+        'duplicates_with',
+        'notes',
+        'source_verified_at',
+        'time_on_page',
+        'interaction_count',
+        'form_steps_completed',
+        'interest_level',
+        'fraud_risk',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
+        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'dealGateway',
+        'sessions',
+        'postbacks',
+        'trackingEvents',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'sessions',
+        'postbacks',
+        'trackingEvents',
+    ];    
 
     /*
     protected static function newFactory()

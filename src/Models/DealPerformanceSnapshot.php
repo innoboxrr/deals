@@ -27,37 +27,70 @@ class DealPerformanceSnapshot extends Model
         DealPerformanceSnapshotMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'time',
+        'leads_generated',
+        'leads_assigned',
+        'avg_cpl',
+        'avg_conversion_rate',
+        'avg_roi',
+        'deal_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'time',
+        'leads_generated',
+        'leads_assigned',
+        'avg_cpl',
+        'avg_conversion_rate',
+        'avg_roi',
+        'deal_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'time',
+        'leads_generated',
+        'leads_assigned',
+        'avg_cpl',
+        'avg_conversion_rate',
+        'avg_roi',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'time'                 => 'integer',
+        'leads_generated'      => 'integer',
+        'leads_assigned'       => 'integer',
+        'avg_cpl'              => 'decimal:2',
+        'avg_conversion_rate'  => 'decimal:2',
+        'avg_roi'              => 'decimal:2',
+        'deal_id'              => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'time',
+        'leads_generated',
+        'leads_assigned',
+        'avg_cpl',
+        'avg_conversion_rate',
+        'avg_roi',
+        'deal_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'deal'
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'deal'
     ];
 
     /*

@@ -27,38 +27,62 @@ class DealPixelFire extends Model
         DealPixelFireMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'fired_at',
+        'response',
+        'platform_type',
+        'platform_id',
+        'deal_lead_tracking_event_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'fired_at',
+        'response',
+        'platform_type',
+        'platform_id',
+        'deal_lead_tracking_event_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'fired_at',
+        'response',
+        'platform_type',
+        'platform_id',
+        'deal_lead_tracking_event_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'fired_at'                   => 'datetime',
+        'response'                   => 'array',
+        'deal_lead_tracking_event_id'=> 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'fired_at',
+        'response',
+        'platform_type',
+        'platform_id',
+        'deal_lead_tracking_event_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'trackingEvent',
+        'adPlatform',
+        // 'affiliate', // Descomenta si el modelo está implementado
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        // No relaciones hasMany que ameriten conteo.
+    ];    
 
     /*
     protected static function newFactory()

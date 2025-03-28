@@ -27,38 +27,47 @@ class DealAdvertiserAgreementConfig extends Model
         DealAdvertiserAgreementConfigMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'payload',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'payload',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'payload',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'payload'                       => 'array',
+        'deal_advertiser_agreement_id'  => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'payload',
+        'deal_advertiser_agreement_id',
+        'created_at',
+        'updated_at',
     ];
+        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'metas',
+        'advertiserAgreement',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        // No relaciones hasMany con conteo útil en este caso.
+    ];    
 
     /*
     protected static function newFactory()

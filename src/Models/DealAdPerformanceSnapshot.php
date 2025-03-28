@@ -27,37 +27,69 @@ class DealAdPerformanceSnapshot extends Model
         DealAdPerformanceSnapshotMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'timestamp',
+        'impressions',
+        'clicks',
+        'leads',
+        'spend',
+        'cpl',
+        'deal_ad_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'timestamp',
+        'impressions',
+        'clicks',
+        'leads',
+        'spend',
+        'cpl',
+        'deal_ad_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'timestamp',
+        'impressions',
+        'clicks',
+        'leads',
+        'spend',
+        'cpl',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'timestamp'    => 'datetime',
+        'impressions'  => 'integer',
+        'clicks'       => 'integer',
+        'leads'        => 'integer',
+        'spend'        => 'decimal:2',
+        'cpl'          => 'decimal:2',
+        'deal_ad_id'   => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'timestamp',
+        'impressions',
+        'clicks',
+        'leads',
+        'spend',
+        'cpl',
+        'deal_ad_id',
+        'created_at',
+        'updated_at',
     ];
-
+    
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'ad'
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'ad'
     ];
 
     /*

@@ -27,38 +27,79 @@ class DealAdvertiserAgreementInvoice extends Model
         DealAdvertiserAgreementInvoiceMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'status',
+        'from_date',
+        'to_date',
+        'management_fee',
+        'ad_spend',
+        'tax',
+        'total',
+        'deal_advertiser_id',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'status',
+        'from_date',
+        'to_date',
+        'management_fee',
+        'ad_spend',
+        'tax',
+        'total',
+        'deal_advertiser_id',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'status',
+        'from_date',
+        'to_date',
+        'management_fee',
+        'ad_spend',
+        'tax',
+        'total',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'from_date'                    => 'date',
+        'to_date'                      => 'date',
+        'management_fee'               => 'decimal:2',
+        'ad_spend'                     => 'decimal:2',
+        'tax'                          => 'decimal:2',
+        'total'                        => 'decimal:2',
+        'deal_advertiser_id'           => 'integer',
+        'deal_advertiser_agreement_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'status',
+        'from_date',
+        'to_date',
+        'management_fee',
+        'ad_spend',
+        'tax',
+        'total',
+        'deal_advertiser_id',
+        'deal_advertiser_agreement_id',
+        'created_at',
+        'updated_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'advertiserAgreement',
+        'advertiser',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        // No relaciones tipo hasMany que ameriten conteo.
+    ];    
 
     /*
     protected static function newFactory()

@@ -27,38 +27,58 @@ class DealRouterExecution extends Model
         DealRouterExecutionMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'start_execution',
+        'end_execution',
+        'assignment_log',
+        'deal_router_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'start_execution',
+        'end_execution',
+        'assignment_log',
+        'deal_router_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'start_execution',
+        'end_execution',
+        'assignment_log',
+        'deal_router_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'start_execution' => 'datetime',
+        'end_execution'   => 'datetime',
+        'assignment_log'  => 'array',
+        'deal_router_id'  => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'start_execution',
+        'end_execution',
+        'assignment_log',
+        'deal_router_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'router',
+        'assignments',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'assignments',
+    ];    
 
     /*
     protected static function newFactory()

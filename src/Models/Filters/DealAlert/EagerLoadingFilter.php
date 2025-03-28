@@ -11,14 +11,18 @@ class EagerLoadingFilter
 
     public static function apply(Builder $query, DataContainer $data)
     {
-        /*
-
-        if ($data->load_relation == 1 || $data->load_relation == true) {
-
-            $query->with(['relation']);
-
+        if ($data->load_deal == 1 || $data->load_deal == true) {
+            $query->with(['deal']);
         }
-
+        
+        /*
+        if ($data->load_deal == 1 || $data->load_deal == true) {
+            $query->with(['deal']);
+        }
+            
+        if ($data->load_relation == 1 || $data->load_relation == true) {
+            $query->with(['relation']);
+        }
         */
 
         return $query;

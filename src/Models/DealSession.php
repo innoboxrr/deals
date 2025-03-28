@@ -27,38 +27,53 @@ class DealSession extends Model
         DealSessionMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'uuid',
+        'deal_lead_id',
+        'deal_gateway_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'uuid',
+        'deal_lead_id',
+        'deal_gateway_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'uuid',
+        'deal_lead_id',
+        'deal_gateway_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'deal_lead_id'    => 'integer',
+        'deal_gateway_id'  => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'uuid',
+        'deal_lead_id',
+        'deal_gateway_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
-
+        
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'lead',
+        'gateway',
+        'events',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'events',
+    ];    
 
     /*
     protected static function newFactory()

@@ -27,19 +27,24 @@ class DealAdCampaign extends Model
         DealAdCampaignMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'name',
+        'payload',
+        'deal_ad_platform_id',
     ];
 
     protected $creatable = [
-        //CREATABLE//
+        'name',
+        'payload',
+        'deal_ad_platform_id',
     ];
 
     protected $updatable = [
-        //UPDATABLE//
+        'name',
+        'payload',
     ];
 
     protected $casts = [
-        //CASTS//
+        'payload' => 'array',
     ];
 
     protected $protected_metas = [];
@@ -49,22 +54,28 @@ class DealAdCampaign extends Model
     ];
 
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'name',
+        'payload',
+        'deal_ad_platform_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'metas',
+        'adPlatform',
+        'adCampaignRules',
+        'adGroups',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'adCampaignRules',
+        'adGroups',
+    ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdCampaignFactory::new();
     }
-    */
-
 }

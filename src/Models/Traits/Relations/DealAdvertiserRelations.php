@@ -2,11 +2,38 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Relations;
 
-//IMPORTS//
+use Innoboxrr\Deals\Models\Deal;
+use Innoboxrr\Deals\Models\DealAdvertiserMeta;
+use Innoboxrr\Deals\Models\DealAdvertiserAgreement;
+use Innoboxrr\Deals\Models\DealAdvertiserPaymentMethod;
 // use \Znck\Eloquent\Traits\BelongsToThrough; // Docs: https://github.com/staudenmeir/belongs-to-through
 // use \Staudenmeir\EloquentHasManyDeep\HasRelationships; // Docs: https://github.com/staudenmeir/eloquent-has-many-deep
 
 trait DealAdvertiserRelations
 {
-//EDIT//
+    public function metas()
+    {
+        return $this->hasMany(DealAdvertiserMeta::class, 'advertiser_id');
+    }
+
+    public function deal()
+    {
+        return $this->belongsTo(Deal::class, 'deal_id');
+    }
+
+    // If there's an Agent model:
+    // public function agent()
+    // {
+    //     return $this->belongsTo(Agent::class, 'agent_id');
+    // }
+
+    public function agreements()
+    {
+        return $this->hasMany(DealAdvertiserAgreement::class, 'deal_advertiser_id');
+    }
+
+    public function paymentMethods()
+    {
+        return $this->hasMany(DealAdvertiserPaymentMethod::class, 'deal_advertiser_id');
+    }
 }

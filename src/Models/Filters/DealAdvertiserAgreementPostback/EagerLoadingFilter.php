@@ -8,21 +8,16 @@ use Innoboxrr\SearchSurge\Search\Support\DataContainer;
 
 class EagerLoadingFilter
 {
-
     public static function apply(Builder $query, DataContainer $data)
     {
-        /*
-
-        if ($data->load_relation == 1 || $data->load_relation == true) {
-
-            $query->with(['relation']);
-
+        if ($data->load_advertiser_agreement == 1 || $data->load_advertiser_agreement === true) {
+            $query->with(['advertiserAgreement']);
         }
 
-        */
+        if ($data->load_lead == 1 || $data->load_lead === true) {
+            $query->with(['lead']);
+        }
 
         return $query;
-
     }
-
 }

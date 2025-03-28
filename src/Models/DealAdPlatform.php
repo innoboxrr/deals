@@ -27,38 +27,51 @@ class DealAdPlatform extends Model
         DealAdPlatformMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'name',
+        'payload',
+        'deal_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'name',
+        'payload',
+        'deal_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'name',
+        'payload',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'payload' => 'array',
+        'deal_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'name',
+        'payload',
+        'deal_id',
+        'created_at',
+        'updated_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'metas',
+        'deal',
+        'adCampaigns',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'adCampaigns',
+    ];    
 
     /*
     protected static function newFactory()

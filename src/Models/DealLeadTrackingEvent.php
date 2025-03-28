@@ -27,38 +27,55 @@ class DealLeadTrackingEvent extends Model
         DealLeadTrackingEventMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'event',
+        'status',
+        'data',
+        'deal_lead_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'event',
+        'status',
+        'data',
+        'deal_lead_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'event',
+        'status',
+        'data',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'data'         => 'array',
+        'deal_lead_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'event',
+        'status',
+        'data',
+        'deal_lead_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'lead',
+        'pixelFires',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'pixelFires',
+    ];    
 
     /*
     protected static function newFactory()

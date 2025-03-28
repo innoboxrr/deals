@@ -25,39 +25,53 @@ class DealAdvertiserAgreementConstraint extends Model
         DealAdvertiserAgreementConstraintAssignment,
         DealAdvertiserAgreementConstraintOperations,
         DealAdvertiserAgreementConstraintMutators;
-        
+    
     protected $fillable = [
-        //FILLABLE//
+        'key',
+        'operator',
+        'value',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'key',
+        'operator',
+        'value',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'key',
+        'operator',
+        'value',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'deal_advertiser_agreement_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'key',
+        'operator',
+        'value',
+        'deal_advertiser_agreement_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'advertiserAgreement'
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'advertiserAgreement'
     ];
 
     /*

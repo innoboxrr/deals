@@ -27,37 +27,54 @@ class DealAdvertiserAgreementIntegration extends Model
         DealAdvertiserAgreementIntegrationMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'ping_config',
+        'post_config',
+        'postback_config',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'ping_config',
+        'post_config',
+        'postback_config',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'ping_config',
+        'post_config',
+        'postback_config',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'ping_config'                   => 'array',
+        'post_config'                   => 'array',
+        'postback_config'               => 'array',
+        'deal_advertiser_agreement_id'  => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
+        'id',
+        'ping_config',
+        'post_config',
+        'postback_config',
+        'deal_advertiser_agreement_id',
+        'created_at',
+        'updated_at',
     ];
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'advertiserAgreement'
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'advertiserAgreement'
     ];
 
     /*

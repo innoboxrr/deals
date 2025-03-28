@@ -27,37 +27,54 @@ class DealAdvertiserAgreementCplAdjustment extends Model
         DealAdvertiserAgreementCplAdjustmentMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'before',
+        'after',
+        'deal_cpl_monitor_run_io',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'before',
+        'after',
+        'deal_cpl_monitor_run_io',
+        'deal_advertiser_agreement_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'before',
+        'after',
+        'deal_cpl_monitor_run_io',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'before'                       => 'decimal:2',
+        'after'                        => 'decimal:2',
+        'deal_cpl_monitor_run_io'      => 'string',
+        'deal_advertiser_agreement_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'before',
+        'after',
+        'deal_cpl_monitor_run_io',
+        'deal_advertiser_agreement_id',
+        'created_at',
+        'updated_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'advertiserAgreement'
     ];
 
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
+        'advertiserAgreement'
     ];
 
     /*

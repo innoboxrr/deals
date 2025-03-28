@@ -469,7 +469,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
     <node id="n11">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="166.0" width="153.0" x="3624.55349219112" y="511.38883462508784"/>
+          <y:Geometry height="166.0" width="153.0" x="3624.55349219112" y="616.3503122247873"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="148.08203125" x="2.458984375" xml:space="preserve" y="4.0">DealPerformanceSnapshot</y:NodeLabel>
@@ -491,7 +491,7 @@ avg_roi
     <node id="n12">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="274.77286972931347" width="105.62500000000011" x="3070.4976847340945" y="457.0023997604311"/>
+          <y:Geometry height="274.77286972931347" width="105.62500000000011" x="3129.4440549062974" y="536.6763559926093"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="53.353515625" x="26.1357421875" xml:space="preserve" y="4.0">DealAlert</y:NodeLabel>

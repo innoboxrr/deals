@@ -27,38 +27,103 @@ class DealAdvertiserAgreement extends Model
         DealAdvertiserAgreementMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'status',
+        'payload',
+        'start_date',
+        'end_date',
+        'autorenewal',
+        'management_fee',
+        'budget',
+        'estimate_cpl',
+        'net_budget',
+        'leads_assigned',
+        'deal_advertiser_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'status',
+        'payload',
+        'start_date',
+        'end_date',
+        'autorenewal',
+        'management_fee',
+        'budget',
+        'estimate_cpl',
+        'net_budget',
+        'leads_assigned',
+        'deal_advertiser_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'status',
+        'payload',
+        'start_date',
+        'end_date',
+        'autorenewal',
+        'management_fee',
+        'budget',
+        'estimate_cpl',
+        'net_budget',
+        'leads_assigned',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'payload'            => 'array',
+        'start_date'         => 'date',
+        'end_date'           => 'date',
+        'autorenewal'        => 'boolean',
+        'management_fee'     => 'decimal:2',
+        'budget'             => 'decimal:2',
+        'estimate_cpl'       => 'decimal:2',
+        'net_budget'         => 'decimal:2',
+        'leads_assigned'     => 'integer',
+        'deal_advertiser_id' => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'status',
+        'payload',
+        'start_date',
+        'end_date',
+        'autorenewal',
+        'management_fee',
+        'budget',
+        'estimate_cpl',
+        'net_budget',
+        'leads_assigned',
+        'deal_advertiser_id',
+        'created_at',
+        'updated_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'metas',
+        'advertiser',
+        'invoices',
+        'constraints',
+        'postbacks',
+        'integrations',
+        'configs',
+        'dailies',
+        'cplAdjustments',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'invoices',
+        'constraints',
+        'postbacks',
+        'integrations',
+        'configs',
+        'dailies',
+        'cplAdjustments',
+    ];    
 
     /*
     protected static function newFactory()

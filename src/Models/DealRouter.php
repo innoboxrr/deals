@@ -27,38 +27,53 @@ class DealRouter extends Model
         DealRouterMutators;
         
     protected $fillable = [
-        //FILLABLE//
+        'last_run',
+        'queue',
+        'deal_id',
     ];
-
+    
     protected $creatable = [
-        //CREATABLE//
+        'last_run',
+        'queue',
+        'deal_id',
     ];
-
+    
     protected $updatable = [
-        //UPDATABLE//
+        'last_run',
+        'queue',
+        'deal_id',
     ];
-
+    
     protected $casts = [
-        //CASTS//
+        'last_run' => 'datetime',
+        'queue'    => 'array',
+        'deal_id'  => 'integer',
     ];
-
+    
     protected $protected_metas = [];
-
+    
     protected $editable_metas = [
         //EDITABLEMETAS//
     ];
-
+    
     public static $export_cols = [
-        //EXPORTCOLS//
-    ];
+        'id',
+        'last_run',
+        'queue',
+        'deal_id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];        
 
     public static $loadable_relations = [
-        //LOADABLERELATIONS//
+        'deal',
+        'executions',
     ];
-
+    
     public static $loadable_counts = [
-        //LOADABLECOUNTS//
-    ];
+        'executions',
+    ];    
 
     /*
     protected static function newFactory()
