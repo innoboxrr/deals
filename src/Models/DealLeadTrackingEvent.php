@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealLeadTrackingEventRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealLeadTrackingEventStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealLeadTrackingEventAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealLeadTrackingEventOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealLeadTrackingEventMutators;
+use Innoboxrr\Deals\Enums\DealLeadTrackingEvent\Status;
+use Innoboxrr\Deals\Enums\DealLeadTrackingEvent\Event;
 
 class DealLeadTrackingEvent extends Model
 {
@@ -20,6 +23,7 @@ class DealLeadTrackingEvent extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealLeadTrackingEventRelations,
         DealLeadTrackingEventStorage,
         DealLeadTrackingEventAssignment,
@@ -47,6 +51,8 @@ class DealLeadTrackingEvent extends Model
     ];
     
     protected $casts = [
+        'event'        => Event::class,
+        'status'       => Status::class,
         'data'         => 'array',
         'deal_lead_id' => 'integer',
     ];

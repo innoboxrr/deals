@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserAgreementPostbackRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserAgreementPostbackStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserAgreementPostbackAssignment;
@@ -20,6 +21,7 @@ class DealAdvertiserAgreementPostback extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserAgreementPostbackRelations,
         DealAdvertiserAgreementPostbackStorage,
         DealAdvertiserAgreementPostbackAssignment,

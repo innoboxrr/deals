@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealPerformanceSnapshotRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealPerformanceSnapshotStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealPerformanceSnapshotAssignment;
@@ -20,6 +21,7 @@ class DealPerformanceSnapshot extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealPerformanceSnapshotRelations,
         DealPerformanceSnapshotStorage,
         DealPerformanceSnapshotAssignment,

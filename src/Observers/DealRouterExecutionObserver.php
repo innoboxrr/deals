@@ -19,7 +19,7 @@ class DealRouterExecutionObserver
      */
     public function created(DealRouterExecution $dealRouterExecution): void
     {
-        // Remove if laravel-audit is used: $dealRouterExecution->log('created');
+        $dealRouterExecution->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealRouterExecutionObserver
      */
     public function updated(DealRouterExecution $dealRouterExecution): void
     {
-        // Remove if laravel-audit is used: $dealRouterExecution->log('updated');
+        $dealRouterExecution->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealRouterExecutionObserver
      */
     public function deleted(DealRouterExecution $dealRouterExecution): void
     {
-        // Remove if laravel-audit is used: $dealRouterExecution->log('deleted');
+        $dealRouterExecution->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealRouterExecutionObserver
      */
     public function restored(DealRouterExecution $dealRouterExecution): void
     {
-        // Remove if laravel-audit is used: $dealRouterExecution->log('restored');
+        $dealRouterExecution->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealRouterExecutionObserver
      */
     public function forceDeleted(DealRouterExecution $dealRouterExecution): void
     {
-        // Remove if laravel-audit is used: $dealRouterExecution->log('forceDeleted');
+        $dealRouterExecution->log('forceDeleted');
     }
 }

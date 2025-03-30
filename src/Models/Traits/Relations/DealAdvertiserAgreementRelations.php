@@ -11,6 +11,7 @@ use Innoboxrr\Deals\Models\DealAdvertiserAgreementIntegration;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementConfig;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementDaily;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementCplAdjustment;
+use Innoboxrr\Deals\Models\Deal;
 
 // use \Znck\Eloquent\Traits\BelongsToThrough; // Docs: https://github.com/staudenmeir/belongs-to-through
 // use \Staudenmeir\EloquentHasManyDeep\HasRelationships; // Docs: https://github.com/staudenmeir/eloquent-has-many-deep
@@ -60,5 +61,10 @@ trait DealAdvertiserAgreementRelations
     public function cplAdjustments()
     {
         return $this->hasMany(DealAdvertiserAgreementCplAdjustment::class, 'deal_advertiser_agreement_id');
+    }
+
+    public function deal()
+    {
+        return $this->belongsTo(Deal::class, 'deal_id');
     }
 }

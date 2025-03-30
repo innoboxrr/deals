@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealGatewayRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealGatewayStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealGatewayAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealGatewayOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealGatewayMutators;
+use Innoboxrr\Deals\Enums\DealGateway\Status;
 
 class DealGateway extends Model
 {
@@ -20,6 +22,7 @@ class DealGateway extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealGatewayRelations,
         DealGatewayStorage,
         DealGatewayAssignment,
@@ -48,6 +51,7 @@ class DealGateway extends Model
     ];
     
     protected $casts = [
+        'status'       => Status::class,
         'deal_id'      => 'integer',
         'gateway_id'   => 'integer',
     ];

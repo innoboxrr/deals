@@ -2,7 +2,7 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Storage;
 
-// use Innoboxrr\Deals\Models\DealMeta;
+use Innoboxrr\Deals\Models\DealMeta;
 
 trait DealStorage
 {
@@ -11,6 +11,8 @@ trait DealStorage
     {
 
         $deal = $this->create($request->only($this->creatable));
+
+        $deal->updateModelMetas($request);
 
         return $deal;
 
@@ -21,11 +23,12 @@ trait DealStorage
      
         $this->update($request->only($this->updatable));
 
+        $this->updateModelMetas($request);
+
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,7 +37,6 @@ trait DealStorage
         return $this;
 
     }
-    */
 
     public function deleteModel()
     {

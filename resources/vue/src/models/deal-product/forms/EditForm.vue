@@ -2,7 +2,22 @@
 	
 	<form :id="formId" @submit.prevent="onSubmit">
 
-<!-- Add more inputs -->
+		<text-input-component
+			class="jsValidator"
+			type="text"
+			name="name"
+			label="Nombre"
+			placeholder="Escribe un nombre"
+			validators="required"
+			v-model="dealProduct.name" />
+
+		<textarea-input-component
+			class="jsValidator"
+			name="description"
+			label="Descripción"
+			placeholder="Escribe una descripción"
+			validators="required"
+			v-model="dealProduct.description" />
 
         <button-component
             :custom-class="buttonClass"
@@ -10,26 +25,24 @@
             value="Actualizar" />
         
     </form>
-
 </template>
 
 <script>
 
-    import { showModel, updateModel} from '@dealsModels/deal-product'
+    import { showModel, updateModel } from '@dealsModels/deal-product'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,
+        TextareaInputComponent,
         ButtonComponent,
-//import_more_components//
     } from 'innoboxrr-form-elements'
     
-	
 	export default {
 
         components: {
             TextInputComponent,
+            TextareaInputComponent,
             ButtonComponent,
-//register_more_components//
         },
 
         props: {
@@ -40,56 +53,66 @@
             dealProductId: {
                 type: [Number, String],
                 required: true
-            },
-//props//
+            }
         },
 
         emits: ['submit'],
 
-        mounted() {
-            this.fetchData(); 
-            this.JSValidator = new JSValidator(this.formId).init();
-            this.JSValidator.status = true;
-        },
-
         data() {
             return {
                 dealProduct: {
-//model_data//
+                    name: '',
+                    description: '',
+                    deal_id: null,
                 },
                 disabled: false,
                 JSValidator: undefined,
             }
         },
 
+        async mounted() {
+            await this.fetchData()
+            this.JSValidator = new JSValidator(this.formId).init()
+            this.JSValidator.status = true
+        },
+
         methods: {
 
-            fetchData() {
-                this.fetchDealProduct();
+            async fetchData() {
+                await this.fetchDealProduct()
             },
 
-            fetchDealProduct() {
-                showModel(this.dealProductId).then( res => {
-                    this.dealProduct = res;
-                });
+            async fetchDealProduct() {
+                try {
+                    const res = await showModel(this.dealProductId)
+                    this.dealProduct = res
+                } catch (error) {
+                    console.error('Error al obtener dealProduct:', error)
+                }
             },
 
-            onSubmit() {
-                if(this.JSValidator.status) {
-                    this.disabled = true;
-                    updateModel(this.dealProduct.id, {
-//submit_data//
-                    }).then( res => {
-                        this.$emit('submit', res);
-                        setTimeout(() => { this.disabled = false; }, 2500);
-                    }).catch(error => {
-                        this.disabled = false;
-                        if(error.response.status == 422)
+            async onSubmit() {
+                if (this.JSValidator.status) {
+                    this.disabled = true
+                    try {
+                        const res = await updateModel(this.dealProduct.id, {
+                            name: this.dealProduct.name,
+                            description: this.dealProduct.description,
+                            deal_id: this.dealProduct.deal_id
+                        })
+                        this.$emit('submit', res)
+                        setTimeout(() => { this.disabled = false }, 2500)
+                    } catch (error) {
+                        this.disabled = false
+                        if (error.response?.status === 422) {
                             this.JSValidator
-                                .appendExternalErrors(error.response.data.errors);
-                    });
+                                .appendExternalErrors(error.response.data.errors)
+                        } else {
+                            console.error('Error al actualizar:', error)
+                        }
+                    }
                 } else {
-                    this.disabled = false;
+                    this.disabled = false
                 }
             }
         }

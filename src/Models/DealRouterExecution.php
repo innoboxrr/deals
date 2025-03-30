@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealRouterExecutionRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealRouterExecutionStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealRouterExecutionAssignment;
@@ -20,6 +21,7 @@ class DealRouterExecution extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealRouterExecutionRelations,
         DealRouterExecutionStorage,
         DealRouterExecutionAssignment,

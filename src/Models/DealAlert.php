@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAlertRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAlertStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAlertAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealAlertOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealAlertMutators;
+use Innoboxrr\Deals\Enums\DealAlert\Status;
+use Innoboxrr\Deals\Enums\DealAlert\Type;
 
 class DealAlert extends Model
 {
@@ -20,6 +23,7 @@ class DealAlert extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAlertRelations,
         DealAlertStorage,
         DealAlertAssignment,
@@ -50,6 +54,8 @@ class DealAlert extends Model
     ];
     
     protected $casts = [
+        'type'        => Type::class,
+        'status'      => Status::class,
         'detected_at' => 'datetime',
         'deal_id'     => 'integer',
     ];

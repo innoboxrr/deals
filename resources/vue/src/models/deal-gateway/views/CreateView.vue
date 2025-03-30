@@ -2,12 +2,6 @@
 
 	<div>
 
-		<breadcrumb-component 
-			:pages="[
-				{ link: $router.resolve({ name: 'AdminDealGateways' }).fullPath, title: 'DealGateways'},
-				{ link: $router.resolve({ name: 'AdminCreateDealGateway' }).fullPath, title: 'Crear DealGateways'}
-			]"/>
-			
 		<div class="flex justify-center items-center mt-8">
 			
 			<div class="max-w-2xl w-full">

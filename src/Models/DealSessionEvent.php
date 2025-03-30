@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealSessionEventRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealSessionEventStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealSessionEventAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealSessionEventOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealSessionEventMutators;
+use Innoboxrr\Deals\Enums\DealSessionEvent\Key;
 
 class DealSessionEvent extends Model
 {
@@ -20,6 +22,7 @@ class DealSessionEvent extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealSessionEventRelations,
         DealSessionEventStorage,
         DealSessionEventAssignment,
@@ -45,6 +48,7 @@ class DealSessionEvent extends Model
     ];
     
     protected $casts = [
+        'key' => Key::class,
         'deal_session_id' => 'integer',
     ];
     

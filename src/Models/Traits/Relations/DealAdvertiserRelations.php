@@ -2,7 +2,6 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Relations;
 
-use Innoboxrr\Deals\Models\Deal;
 use Innoboxrr\Deals\Models\DealAdvertiserMeta;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreement;
 use Innoboxrr\Deals\Models\DealAdvertiserPaymentMethod;
@@ -14,11 +13,6 @@ trait DealAdvertiserRelations
     public function metas()
     {
         return $this->hasMany(DealAdvertiserMeta::class, 'advertiser_id');
-    }
-
-    public function deal()
-    {
-        return $this->belongsTo(Deal::class, 'deal_id');
     }
 
     // If there's an Agent model:

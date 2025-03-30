@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserAgreementDailyRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserAgreementDailyStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserAgreementDailyAssignment;
@@ -20,6 +21,7 @@ class DealAdvertiserAgreementDaily extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserAgreementDailyRelations,
         DealAdvertiserAgreementDailyStorage,
         DealAdvertiserAgreementDailyAssignment,

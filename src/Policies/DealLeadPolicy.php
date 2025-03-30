@@ -15,7 +15,7 @@ class DealLeadPolicy
 
         $exceptAbilities = [];
 
-        if($user->isAdmin() && !in_array($ability, $exceptAbilities)){
+        if($user->isDealManager() && !in_array($ability, $exceptAbilities)){
         
             return true;
             

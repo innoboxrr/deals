@@ -19,7 +19,7 @@ class DealPixelFireObserver
      */
     public function created(DealPixelFire $dealPixelFire): void
     {
-        // Remove if laravel-audit is used: $dealPixelFire->log('created');
+        $dealPixelFire->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealPixelFireObserver
      */
     public function updated(DealPixelFire $dealPixelFire): void
     {
-        // Remove if laravel-audit is used: $dealPixelFire->log('updated');
+        $dealPixelFire->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealPixelFireObserver
      */
     public function deleted(DealPixelFire $dealPixelFire): void
     {
-        // Remove if laravel-audit is used: $dealPixelFire->log('deleted');
+        $dealPixelFire->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealPixelFireObserver
      */
     public function restored(DealPixelFire $dealPixelFire): void
     {
-        // Remove if laravel-audit is used: $dealPixelFire->log('restored');
+        $dealPixelFire->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealPixelFireObserver
      */
     public function forceDeleted(DealPixelFire $dealPixelFire): void
     {
-        // Remove if laravel-audit is used: $dealPixelFire->log('forceDeleted');
+        $dealPixelFire->log('forceDeleted');
     }
 }

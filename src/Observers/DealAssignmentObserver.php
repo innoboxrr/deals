@@ -19,7 +19,7 @@ class DealAssignmentObserver
      */
     public function created(DealAssignment $dealAssignment): void
     {
-        // Remove if laravel-audit is used: $dealAssignment->log('created');
+        $dealAssignment->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAssignmentObserver
      */
     public function updated(DealAssignment $dealAssignment): void
     {
-        // Remove if laravel-audit is used: $dealAssignment->log('updated');
+        $dealAssignment->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAssignmentObserver
      */
     public function deleted(DealAssignment $dealAssignment): void
     {
-        // Remove if laravel-audit is used: $dealAssignment->log('deleted');
+        $dealAssignment->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAssignmentObserver
      */
     public function restored(DealAssignment $dealAssignment): void
     {
-        // Remove if laravel-audit is used: $dealAssignment->log('restored');
+        $dealAssignment->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAssignmentObserver
      */
     public function forceDeleted(DealAssignment $dealAssignment): void
     {
-        // Remove if laravel-audit is used: $dealAssignment->log('forceDeleted');
+        $dealAssignment->log('forceDeleted');
     }
 }

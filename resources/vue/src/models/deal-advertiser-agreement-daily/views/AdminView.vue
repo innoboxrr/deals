@@ -3,11 +3,6 @@
 	<div id="AdminDealAdvertiserAgreementDailiesWrapper">
 
 		<div v-if="isHome" class="uk-section uk-section-xsmall">
-			
-			<breadcrumb-component 
-				:pages="[
-					{ link: $router.resolve({ name: 'AdminDealAdvertiserAgreementDailies' }).fullPath, title: 'DealAdvertiserAgreementDailies'}
-				]"/>
 				
 			<data-table 
 				:show-title="false"

@@ -19,7 +19,7 @@ class DealAdGroupObserver
      */
     public function created(DealAdGroup $dealAdGroup): void
     {
-        // Remove if laravel-audit is used: $dealAdGroup->log('created');
+        $dealAdGroup->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAdGroupObserver
      */
     public function updated(DealAdGroup $dealAdGroup): void
     {
-        // Remove if laravel-audit is used: $dealAdGroup->log('updated');
+        $dealAdGroup->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAdGroupObserver
      */
     public function deleted(DealAdGroup $dealAdGroup): void
     {
-        // Remove if laravel-audit is used: $dealAdGroup->log('deleted');
+        $dealAdGroup->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAdGroupObserver
      */
     public function restored(DealAdGroup $dealAdGroup): void
     {
-        // Remove if laravel-audit is used: $dealAdGroup->log('restored');
+        $dealAdGroup->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAdGroupObserver
      */
     public function forceDeleted(DealAdGroup $dealAdGroup): void
     {
-        // Remove if laravel-audit is used: $dealAdGroup->log('forceDeleted');
+        $dealAdGroup->log('forceDeleted');
     }
 }

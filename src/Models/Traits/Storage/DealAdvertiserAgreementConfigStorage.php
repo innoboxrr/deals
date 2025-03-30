@@ -2,7 +2,7 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Storage;
 
-// use Innoboxrr\Deals\Models\DealAdvertiserAgreementConfigMeta;
+use Innoboxrr\Deals\Models\DealAdvertiserAgreementConfigMeta;
 
 trait DealAdvertiserAgreementConfigStorage
 {
@@ -11,6 +11,8 @@ trait DealAdvertiserAgreementConfigStorage
     {
 
         $dealAdvertiserAgreementConfig = $this->create($request->only($this->creatable));
+
+        $dealAdvertiserAgreementConfig->updateModelMetas($request);
 
         return $dealAdvertiserAgreementConfig;
 
@@ -21,11 +23,12 @@ trait DealAdvertiserAgreementConfigStorage
      
         $this->update($request->only($this->updatable));
 
+        $this->updateModelMetas($request);
+
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,7 +37,6 @@ trait DealAdvertiserAgreementConfigStorage
         return $this;
 
     }
-    */
 
     public function deleteModel()
     {

@@ -19,7 +19,7 @@ class DealGatewayObserver
      */
     public function created(DealGateway $dealGateway): void
     {
-        // Remove if laravel-audit is used: $dealGateway->log('created');
+        $dealGateway->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealGatewayObserver
      */
     public function updated(DealGateway $dealGateway): void
     {
-        // Remove if laravel-audit is used: $dealGateway->log('updated');
+        $dealGateway->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealGatewayObserver
      */
     public function deleted(DealGateway $dealGateway): void
     {
-        // Remove if laravel-audit is used: $dealGateway->log('deleted');
+        $dealGateway->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealGatewayObserver
      */
     public function restored(DealGateway $dealGateway): void
     {
-        // Remove if laravel-audit is used: $dealGateway->log('restored');
+        $dealGateway->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealGatewayObserver
      */
     public function forceDeleted(DealGateway $dealGateway): void
     {
-        // Remove if laravel-audit is used: $dealGateway->log('forceDeleted');
+        $dealGateway->log('forceDeleted');
     }
 }

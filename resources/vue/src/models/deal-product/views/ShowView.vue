@@ -2,7 +2,6 @@
 
 	<div v-if="dataLoaded">
 
-		<breadcrumb-component :items="items" />
 	    
 	    <div class="uk-container uk-container-expand">
 
@@ -85,27 +84,6 @@
 				return (this.$route.name == 'AdminShowDealProduct');
 
 			},
-
-			items() {
-
-				if(this.$route.name == 'AdminShowDealProduct') {
-
-					return [
-						{ text: 'DealProducts', path: '/admin/deal-product'},
-						{ text: this.deal-product.name ?? 'DealProduct', path: '/admin/deal-product/' + this.deal-product.id}
-					];
-
-				} else if(this.$route.name == 'AdminEditDealProduct') {
-
-					return [
-						{ text: 'DealProducts', path: '/admin/deal-product'},
-						{ text: this.deal-product.name ?? 'DealProduct' , path: '/admin/deal-product/' + this.deal-product.id},
-						{ text: 'Editar deal-product', path: '/admin/deal-product/' + this.deal-product.id + '/edit'}	
-					];
-
-				}
-
-			}
 
 		},
 

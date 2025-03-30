@@ -19,7 +19,7 @@ class DealAlertObserver
      */
     public function created(DealAlert $dealAlert): void
     {
-        // Remove if laravel-audit is used: $dealAlert->log('created');
+        $dealAlert->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAlertObserver
      */
     public function updated(DealAlert $dealAlert): void
     {
-        // Remove if laravel-audit is used: $dealAlert->log('updated');
+        $dealAlert->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAlertObserver
      */
     public function deleted(DealAlert $dealAlert): void
     {
-        // Remove if laravel-audit is used: $dealAlert->log('deleted');
+        $dealAlert->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAlertObserver
      */
     public function restored(DealAlert $dealAlert): void
     {
-        // Remove if laravel-audit is used: $dealAlert->log('restored');
+        $dealAlert->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAlertObserver
      */
     public function forceDeleted(DealAlert $dealAlert): void
     {
-        // Remove if laravel-audit is used: $dealAlert->log('forceDeleted');
+        $dealAlert->log('forceDeleted');
     }
 }

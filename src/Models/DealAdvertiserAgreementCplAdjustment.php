@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserAgreementCplAdjustmentRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserAgreementCplAdjustmentStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserAgreementCplAdjustmentAssignment;
@@ -20,6 +21,7 @@ class DealAdvertiserAgreementCplAdjustment extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserAgreementCplAdjustmentRelations,
         DealAdvertiserAgreementCplAdjustmentStorage,
         DealAdvertiserAgreementCplAdjustmentAssignment,

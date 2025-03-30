@@ -2,7 +2,22 @@
 	
 	<form :id="formId" @submit.prevent="onSubmit">      
 
-<!-- Add more inputs -->
+		<text-input-component
+			class="jsValidator"
+			type="text"
+			name="name"
+			label="Nombre"
+			placeholder="Escribe un nombre"
+			validators="required"
+			v-model="name" />
+
+		<textarea-input-component
+			class="jsValidator"
+			name="description"
+			label="Descripción"
+			placeholder="Escribe una descripción"
+			validators="required"
+			v-model="description" />
 
         <button-component
             :custom-class="buttonClass"
@@ -10,7 +25,6 @@
             value="Crear" />
         
     </form>
-
 </template>
 
 <script>
@@ -19,33 +33,37 @@
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,
+        TextareaInputComponent,
         ButtonComponent,
-//import_more_components//
     } from 'innoboxrr-form-elements'
 	
 	export default {
 
         components: {
             TextInputComponent,
+            TextareaInputComponent,
             ButtonComponent,
-//register_more_components//
         },
 
         props: {
         	formId: {
         		type: String,
         		default: 'createDealProductForm',
-        	}
-//props//
+        	},
+			dealId: {
+				type: [String, Number],
+				required: true
+			}
         },
 
         emits: ['submit'],
 
         data() {
             return {
+                name: '',
+                description: '',
                 disabled: false,
                 JSValidator: undefined,
-//add_more_data//
             }
         },
 
@@ -62,7 +80,9 @@
                 if(this.JSValidator.status) {
                     this.disabled = true;
                     createModel({
-//submit_data//
+                        name: this.name,
+                        description: this.description,
+                        deal_id: this.dealId
                     }).then( res => {
                         this.$emit('submit', res);
                         setTimeout(() => { this.disabled = false; }, 2500);

@@ -2,7 +2,7 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Storage;
 
-// use Innoboxrr\Deals\Models\DealAdCampaignMeta;
+use Innoboxrr\Deals\Models\DealAdCampaignMeta;
 
 trait DealAdCampaignStorage
 {
@@ -11,6 +11,8 @@ trait DealAdCampaignStorage
     {
 
         $dealAdCampaign = $this->create($request->only($this->creatable));
+
+        $dealAdCampaign->updateModelMetas($request);
 
         return $dealAdCampaign;
 
@@ -21,11 +23,12 @@ trait DealAdCampaignStorage
      
         $this->update($request->only($this->updatable));
 
+        $this->updateModelMetas($request);
+
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,8 +37,7 @@ trait DealAdCampaignStorage
         return $this;
 
     }
-    */
-
+    
     public function deleteModel()
     {
 

@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserPaymentMethodRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserPaymentMethodStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserPaymentMethodAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealAdvertiserPaymentMethodOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealAdvertiserPaymentMethodMutators;
+use Innoboxrr\Deals\Enums\DealAdvertiserPaymentMethod\Status;
+use Innoboxrr\Deals\Enums\DealAdvertiserPaymentMethod\Processor;
 
 class DealAdvertiserPaymentMethod extends Model
 {
@@ -20,6 +23,7 @@ class DealAdvertiserPaymentMethod extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserPaymentMethodRelations,
         DealAdvertiserPaymentMethodStorage,
         DealAdvertiserPaymentMethodAssignment,
@@ -53,6 +57,8 @@ class DealAdvertiserPaymentMethod extends Model
     ];
     
     protected $casts = [
+        'status'              => Status::class,
+        'processor'           => Processor::class,
         'processor_date'       => 'datetime',
         'main'                 => 'boolean',
         'deal_advertiser_id'   => 'integer',

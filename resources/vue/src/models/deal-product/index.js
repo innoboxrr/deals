@@ -1,6 +1,6 @@
 import makeHttpRequest from 'innoboxrr-http-request'
 
-export const API_ROUTE_PREFIX = 'api.deal_product.'; // Reemplaza con la ruta adecuada
+export const API_ROUTE_PREFIX = 'api.innoboxrr.deals.deal_product.'; // Reemplaza con la ruta adecuada
 
 export const CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Reemplaza con el token adecuado
 
@@ -60,27 +60,35 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'name',
+			value: 'Nombre',
 			sortable: true,
 			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
 		},
-		*/
+		{
+			id: 'description',
+			value: 'Descripción',
+			sortable: false,
+			html: true,
+			parser: (value) => {
+				const shortText = value?.length > 70 ? value.substring(0, 70) + '…' : value;
+				return `
+					<p class="text-gray-700 dark:text-gray-300 text-sm leading-snug">
+						${shortText}
+					</p>
+				`;
+			}
+		}
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        description: 'asc',
 	};
 };
 

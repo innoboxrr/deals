@@ -19,7 +19,7 @@ class DealAdvertiserAgreementConstraintObserver
      */
     public function created(DealAdvertiserAgreementConstraint $dealAdvertiserAgreementConstraint): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConstraint->log('created');
+        $dealAdvertiserAgreementConstraint->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAdvertiserAgreementConstraintObserver
      */
     public function updated(DealAdvertiserAgreementConstraint $dealAdvertiserAgreementConstraint): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConstraint->log('updated');
+        $dealAdvertiserAgreementConstraint->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAdvertiserAgreementConstraintObserver
      */
     public function deleted(DealAdvertiserAgreementConstraint $dealAdvertiserAgreementConstraint): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConstraint->log('deleted');
+        $dealAdvertiserAgreementConstraint->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAdvertiserAgreementConstraintObserver
      */
     public function restored(DealAdvertiserAgreementConstraint $dealAdvertiserAgreementConstraint): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConstraint->log('restored');
+        $dealAdvertiserAgreementConstraint->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAdvertiserAgreementConstraintObserver
      */
     public function forceDeleted(DealAdvertiserAgreementConstraint $dealAdvertiserAgreementConstraint): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConstraint->log('forceDeleted');
+        $dealAdvertiserAgreementConstraint->log('forceDeleted');
     }
 }

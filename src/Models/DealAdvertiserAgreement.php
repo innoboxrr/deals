@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserAgreementRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserAgreementStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserAgreementAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealAdvertiserAgreementOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealAdvertiserAgreementMutators;
+use Innoboxrr\Deals\Enums\DealAdvertiserAgreement\Status;
 
 class DealAdvertiserAgreement extends Model
 {
@@ -20,6 +22,7 @@ class DealAdvertiserAgreement extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserAgreementRelations,
         DealAdvertiserAgreementStorage,
         DealAdvertiserAgreementAssignment,
@@ -37,6 +40,7 @@ class DealAdvertiserAgreement extends Model
         'estimate_cpl',
         'net_budget',
         'leads_assigned',
+        'deal_id',
         'deal_advertiser_id',
     ];
     
@@ -51,6 +55,7 @@ class DealAdvertiserAgreement extends Model
         'estimate_cpl',
         'net_budget',
         'leads_assigned',
+        'deal_id',
         'deal_advertiser_id',
     ];
     
@@ -68,6 +73,7 @@ class DealAdvertiserAgreement extends Model
     ];
     
     protected $casts = [
+        'status'             => Status::class,
         'payload'            => 'array',
         'start_date'         => 'date',
         'end_date'           => 'date',
@@ -77,6 +83,7 @@ class DealAdvertiserAgreement extends Model
         'estimate_cpl'       => 'decimal:2',
         'net_budget'         => 'decimal:2',
         'leads_assigned'     => 'integer',
+        'deal_id'            => 'integer',
         'deal_advertiser_id' => 'integer',
     ];
     
@@ -98,6 +105,7 @@ class DealAdvertiserAgreement extends Model
         'estimate_cpl',
         'net_budget',
         'leads_assigned',
+        'deal_id',
         'deal_advertiser_id',
         'created_at',
         'updated_at',
@@ -113,6 +121,7 @@ class DealAdvertiserAgreement extends Model
         'configs',
         'dailies',
         'cplAdjustments',
+        'deal',
     ];
     
     public static $loadable_counts = [
@@ -123,6 +132,7 @@ class DealAdvertiserAgreement extends Model
         'configs',
         'dailies',
         'cplAdjustments',
+        'deal'
     ];    
 
     /*

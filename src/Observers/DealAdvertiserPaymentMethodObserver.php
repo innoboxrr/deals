@@ -19,7 +19,7 @@ class DealAdvertiserPaymentMethodObserver
      */
     public function created(DealAdvertiserPaymentMethod $dealAdvertiserPaymentMethod): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserPaymentMethod->log('created');
+        $dealAdvertiserPaymentMethod->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAdvertiserPaymentMethodObserver
      */
     public function updated(DealAdvertiserPaymentMethod $dealAdvertiserPaymentMethod): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserPaymentMethod->log('updated');
+        $dealAdvertiserPaymentMethod->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAdvertiserPaymentMethodObserver
      */
     public function deleted(DealAdvertiserPaymentMethod $dealAdvertiserPaymentMethod): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserPaymentMethod->log('deleted');
+        $dealAdvertiserPaymentMethod->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAdvertiserPaymentMethodObserver
      */
     public function restored(DealAdvertiserPaymentMethod $dealAdvertiserPaymentMethod): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserPaymentMethod->log('restored');
+        $dealAdvertiserPaymentMethod->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAdvertiserPaymentMethodObserver
      */
     public function forceDeleted(DealAdvertiserPaymentMethod $dealAdvertiserPaymentMethod): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserPaymentMethod->log('forceDeleted');
+        $dealAdvertiserPaymentMethod->log('forceDeleted');
     }
 }

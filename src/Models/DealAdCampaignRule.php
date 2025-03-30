@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdCampaignRuleRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdCampaignRuleStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdCampaignRuleAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealAdCampaignRuleOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealAdCampaignRuleMutators;
+use Innoboxrr\Deals\Enums\DealAdCampaignRule\ConditionType;
+use Innoboxrr\Deals\Enums\DealAdCampaignRule\Action;
 
 class DealAdCampaignRule extends Model
 {
@@ -20,6 +23,7 @@ class DealAdCampaignRule extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdCampaignRuleRelations,
         DealAdCampaignRuleStorage,
         DealAdCampaignRuleAssignment,
@@ -47,7 +51,10 @@ class DealAdCampaignRule extends Model
     ];
 
     protected $casts = [
-        //CASTS//
+        'condition_type' => ConditionType::class,
+        'value' => 'string',
+        'action' => Action::class,
+        'deal_ad_campaign_id' => 'integer',
     ];
 
     protected $protected_metas = [];

@@ -3,9 +3,12 @@
         <ul role="list" class="flex flex-1 flex-col gap-y-7">
             <li>
                 <ul role="list" class="-mx-2 space-y-1">
-                    <li v-for="item in navigation" :key="item.name">
-                        <router-link :to="item.route"
-                                     :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold']">
+                    <li 
+                        v-for="item in navigation" 
+                        :key="item.name">
+                        <router-link 
+                            :to="item.route"
+                            :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold']">
                             <component :is="item.icon" class="h-6 w-6 flex-shrink-0" aria-hidden="true" />
                             {{ item.name }}
                         </router-link>
@@ -13,14 +16,17 @@
                 </ul>
             </li>
             <li>
-                <div class="text-xs font-semibold text-gray-600">Mis Dominios</div>
+                <div class="text-xs font-semibold text-gray-600">
+                    {{ __deals('Last Deals') }}
+                </div>
                 <ul role="list" class="-mx-2 mt-2 space-y-1">
-                    <li v-for="deal in dealsList" :key="deal.name">
-                        <router-link :to="deal.route"
-                                     :class="[deal.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold']">
-                            <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-lg border border-gray-300 bg-white text-xs font-medium text-gray-600">
-                                {{ deal.initial }}
-                            </span>
+                    <li 
+                        v-for="deal in dealsList" 
+                        :key="deal.name">
+                        <router-link 
+                            :to="deal.route"
+                            :class="[deal.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold']">
+                            <i class="fa-solid fa-file-invoice h" aria-hidden="true"></i>
                             <span class="truncate">{{ deal.name }}</span>
                         </router-link>
                     </li>

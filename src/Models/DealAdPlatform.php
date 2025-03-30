@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdPlatformRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdPlatformStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdPlatformAssignment;
@@ -20,6 +21,7 @@ class DealAdPlatform extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdPlatformRelations,
         DealAdPlatformStorage,
         DealAdPlatformAssignment,

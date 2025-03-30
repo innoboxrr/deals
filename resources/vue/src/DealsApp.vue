@@ -1,6 +1,5 @@
 <template>
     <div v-if="dataLoaded">
-        <!-- Mobile Sidebar -->
         <TransitionRoot as="template" :show="sidebarOpen">
             <Dialog class="relative z-50 xl:hidden" @close="sidebarOpen = false">
                 <TransitionChild
@@ -38,7 +37,7 @@
                                     </button>
                                 </div>
                             </TransitionChild>
-                            <div class="flex grow flex-col gap-y-5 ml-14 overflow-y-auto bg-white px-6 ring-1 ring-gray-200">
+                            <div class="flex grow flex-col gap-y-5 md:ml-14 ml-0 overflow-y-auto bg-white px-6 ring-1 ring-gray-200">
                                 <div class="flex h-16 shrink-0 items-center">
                                     <img
                                         class="h-8 w-auto"
@@ -53,31 +52,26 @@
             </Dialog>
         </TransitionRoot>
 
-        <!-- Desktop Sidebar -->
         <div class="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col">
-            <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-50 px-6 ring-1 ring-gray-200">
-                <div class="flex h-16 shrink-0 items-center">
-                    <img
-                        class="h-8 w-auto"
-                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company" />
-                </div>
-                <sidebar-menu />
+            <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-50 px-6 ring-1 ring-gray-200 mt-12">
+                <sidebar-menu class="mt-4" />
             </div>
         </div>
-        <div class="xl:pl-72">
+        <div class="xl:pl-72 flex flex-col" style="height: calc(100vh - 54px);">
             <SearchHeader @open-sidebar="sidebarOpen = true" />
-            <main class="lg:pr-96">
-                <router-view />
-            </main>
-            <activity-feed />
+            <div class="flex flex-1 overflow-hidden">
+                <main class="flex-1 overflow-y-auto">
+                    <router-view />
+                </main>
+                <activity-feed />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
-    import { XMarkIcon, HomeIcon, GlobeAltIcon, ServerIcon, ClockIcon, CreditCardIcon, Cog6ToothIcon } from '@heroicons/vue/24/outline'
+    import { XMarkIcon } from '@heroicons/vue/24/outline'
     import SidebarMenu from './components/SidebarMenu.vue'
     import SearchHeader from './components/SearchHeader.vue'
     import ActivityFeed from './components/ActivityFeed.vue'

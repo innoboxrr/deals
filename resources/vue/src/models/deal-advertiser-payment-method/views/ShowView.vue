@@ -2,7 +2,6 @@
 
 	<div v-if="dataLoaded">
 
-		<breadcrumb-component :items="items" />
 	    
 	    <div class="uk-container uk-container-expand">
 
@@ -85,27 +84,6 @@
 				return (this.$route.name == 'AdminShowDealAdvertiserPaymentMethod');
 
 			},
-
-			items() {
-
-				if(this.$route.name == 'AdminShowDealAdvertiserPaymentMethod') {
-
-					return [
-						{ text: 'DealAdvertiserPaymentMethods', path: '/admin/deal-advertiser-payment-method'},
-						{ text: this.deal-advertiser-payment-method.name ?? 'DealAdvertiserPaymentMethod', path: '/admin/deal-advertiser-payment-method/' + this.deal-advertiser-payment-method.id}
-					];
-
-				} else if(this.$route.name == 'AdminEditDealAdvertiserPaymentMethod') {
-
-					return [
-						{ text: 'DealAdvertiserPaymentMethods', path: '/admin/deal-advertiser-payment-method'},
-						{ text: this.deal-advertiser-payment-method.name ?? 'DealAdvertiserPaymentMethod' , path: '/admin/deal-advertiser-payment-method/' + this.deal-advertiser-payment-method.id},
-						{ text: 'Editar deal-advertiser-payment-method', path: '/admin/deal-advertiser-payment-method/' + this.deal-advertiser-payment-method.id + '/edit'}	
-					];
-
-				}
-
-			}
 
 		},
 

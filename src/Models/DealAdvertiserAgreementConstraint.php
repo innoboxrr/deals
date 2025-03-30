@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserAgreementConstraintRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserAgreementConstraintStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserAgreementConstraintAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealAdvertiserAgreementConstraintOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealAdvertiserAgreementConstraintMutators;
+use Innoboxrr\Deals\Enums\DealAdvertiserAgreementConstraint\Operator;
+use Innoboxrr\Deals\Enums\DealAdvertiserAgreementConstraint\Key;
 
 class DealAdvertiserAgreementConstraint extends Model
 {
@@ -20,6 +23,7 @@ class DealAdvertiserAgreementConstraint extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserAgreementConstraintRelations,
         DealAdvertiserAgreementConstraintStorage,
         DealAdvertiserAgreementConstraintAssignment,
@@ -47,6 +51,8 @@ class DealAdvertiserAgreementConstraint extends Model
     ];
     
     protected $casts = [
+        'key' => Key::class,
+        'operator' => Operator::class,
         'deal_advertiser_agreement_id' => 'integer',
     ];
     

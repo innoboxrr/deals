@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealSessionRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealSessionStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealSessionAssignment;
@@ -20,6 +21,7 @@ class DealSession extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealSessionRelations,
         DealSessionStorage,
         DealSessionAssignment,

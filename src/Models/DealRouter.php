@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealRouterRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealRouterStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealRouterAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealRouterOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealRouterMutators;
+use Innoboxrr\Deals\Enums\DealRouter\Queue;
 
 class DealRouter extends Model
 {
@@ -20,6 +22,7 @@ class DealRouter extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealRouterRelations,
         DealRouterStorage,
         DealRouterAssignment,
@@ -45,6 +48,7 @@ class DealRouter extends Model
     ];
     
     protected $casts = [
+        'queue'    => Queue::class,
         'last_run' => 'datetime',
         'queue'    => 'array',
         'deal_id'  => 'integer',

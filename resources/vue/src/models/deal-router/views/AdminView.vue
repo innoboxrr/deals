@@ -3,11 +3,6 @@
 	<div id="AdminDealRoutersWrapper">
 
 		<div v-if="isHome" class="uk-section uk-section-xsmall">
-			
-			<breadcrumb-component 
-				:pages="[
-					{ link: $router.resolve({ name: 'AdminDealRouters' }).fullPath, title: 'DealRouters'}
-				]"/>
 				
 			<data-table 
 				:show-title="false"

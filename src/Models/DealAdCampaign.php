@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdCampaignRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdCampaignStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdCampaignAssignment;
@@ -20,6 +21,7 @@ class DealAdCampaign extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdCampaignRelations,
         DealAdCampaignStorage,
         DealAdCampaignAssignment,

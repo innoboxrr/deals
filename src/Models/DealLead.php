@@ -7,11 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealLeadRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealLeadStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealLeadAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealLeadOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealLeadMutators;
+use Innoboxrr\Deals\Enums\DealLead\ConversionStage;
+use Innoboxrr\Deals\Enums\DealLead\InterestLevel;
+use Innoboxrr\Deals\Enums\DealLead\FraudRisk;
+use Innoboxrr\Deals\Enums\DealLead\Gender;
+use Innoboxrr\Deals\Enums\DealLead\Platform;
 
 class DealLead extends Model
 {
@@ -20,6 +26,7 @@ class DealLead extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealLeadRelations,
         DealLeadStorage,
         DealLeadAssignment,
@@ -135,6 +142,11 @@ class DealLead extends Model
     ];
     
     protected $casts = [
+        'conversion_stage'     => ConversionStage::class,
+        'interest_level'       => InterestLevel::class,
+        'gender'               => Gender::class,
+        'fraud_risk'           => FraudRisk::class,
+        'platform'             => Platform::class,
         'birth_date'           => 'date',
         'cpi'                  => 'decimal:2',
         'assigned_at'          => 'datetime',
@@ -144,8 +156,6 @@ class DealLead extends Model
         'time_on_page'         => 'integer',
         'interaction_count'    => 'integer',
         'form_steps_completed' => 'integer',
-        'interest_level'       => 'integer',
-        'fraud_risk'           => 'integer',
         'deal_gateway_id'      => 'integer',
     ];
     

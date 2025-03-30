@@ -2,7 +2,6 @@
 
 	<div v-if="dataLoaded">
 
-		<breadcrumb-component :items="items" />
 	    
 	    <div class="uk-container uk-container-expand">
 
@@ -85,27 +84,6 @@
 				return (this.$route.name == 'AdminShowDealAdvertiserAgreement');
 
 			},
-
-			items() {
-
-				if(this.$route.name == 'AdminShowDealAdvertiserAgreement') {
-
-					return [
-						{ text: 'DealAdvertiserAgreements', path: '/admin/deal-advertiser-agreement'},
-						{ text: this.deal-advertiser-agreement.name ?? 'DealAdvertiserAgreement', path: '/admin/deal-advertiser-agreement/' + this.deal-advertiser-agreement.id}
-					];
-
-				} else if(this.$route.name == 'AdminEditDealAdvertiserAgreement') {
-
-					return [
-						{ text: 'DealAdvertiserAgreements', path: '/admin/deal-advertiser-agreement'},
-						{ text: this.deal-advertiser-agreement.name ?? 'DealAdvertiserAgreement' , path: '/admin/deal-advertiser-agreement/' + this.deal-advertiser-agreement.id},
-						{ text: 'Editar deal-advertiser-agreement', path: '/admin/deal-advertiser-agreement/' + this.deal-advertiser-agreement.id + '/edit'}	
-					];
-
-				}
-
-			}
 
 		},
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAssignmentRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAssignmentStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAssignmentAssignment;
@@ -20,6 +21,7 @@ class DealAssignment extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAssignmentRelations,
         DealAssignmentStorage,
         DealAssignmentAssignment,

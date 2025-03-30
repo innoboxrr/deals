@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserAgreementIntegrationRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserAgreementIntegrationStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserAgreementIntegrationAssignment;
@@ -20,6 +21,7 @@ class DealAdvertiserAgreementIntegration extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserAgreementIntegrationRelations,
         DealAdvertiserAgreementIntegrationStorage,
         DealAdvertiserAgreementIntegrationAssignment,

@@ -19,7 +19,7 @@ class DealSessionObserver
      */
     public function created(DealSession $dealSession): void
     {
-        // Remove if laravel-audit is used: $dealSession->log('created');
+        $dealSession->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealSessionObserver
      */
     public function updated(DealSession $dealSession): void
     {
-        // Remove if laravel-audit is used: $dealSession->log('updated');
+        $dealSession->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealSessionObserver
      */
     public function deleted(DealSession $dealSession): void
     {
-        // Remove if laravel-audit is used: $dealSession->log('deleted');
+        $dealSession->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealSessionObserver
      */
     public function restored(DealSession $dealSession): void
     {
-        // Remove if laravel-audit is used: $dealSession->log('restored');
+        $dealSession->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealSessionObserver
      */
     public function forceDeleted(DealSession $dealSession): void
     {
-        // Remove if laravel-audit is used: $dealSession->log('forceDeleted');
+        $dealSession->log('forceDeleted');
     }
 }

@@ -1,8 +1,6 @@
 <template>
 
 	<div v-if="dataLoaded">
-
-		<breadcrumb-component :items="items" />
 	    
 	    <div class="uk-container uk-container-expand">
 
@@ -85,27 +83,6 @@
 				return (this.$route.name == 'AdminShowDealAdGroup');
 
 			},
-
-			items() {
-
-				if(this.$route.name == 'AdminShowDealAdGroup') {
-
-					return [
-						{ text: 'DealAdGroups', path: '/admin/deal-ad-group'},
-						{ text: this.deal-ad-group.name ?? 'DealAdGroup', path: '/admin/deal-ad-group/' + this.deal-ad-group.id}
-					];
-
-				} else if(this.$route.name == 'AdminEditDealAdGroup') {
-
-					return [
-						{ text: 'DealAdGroups', path: '/admin/deal-ad-group'},
-						{ text: this.deal-ad-group.name ?? 'DealAdGroup' , path: '/admin/deal-ad-group/' + this.deal-ad-group.id},
-						{ text: 'Editar deal-ad-group', path: '/admin/deal-ad-group/' + this.deal-ad-group.id + '/edit'}	
-					];
-
-				}
-
-			}
 
 		},
 

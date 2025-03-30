@@ -11,8 +11,35 @@
 					v-model="id" />
 			</div>
 
-<!-- Add more inputs -->
+			<div>
+				<text-input-component
+					:custom-class="inputClass"
+					type="text"
+					name="name"
+					label="Nombre"
+					placeholder="Nombre"
+					v-model="name" />
+			</div>
 
+			<div>
+				<text-input-component
+					:custom-class="inputClass"
+					type="text"
+					name="description"
+					label="Descripción"
+					placeholder="Descripción"
+					v-model="description" />
+			</div>
+
+			<div>
+				<text-input-component
+					:custom-class="inputClass"
+					type="text"
+					name="deal_id"
+					label="Deal ID"
+					placeholder="ID del Deal"
+					v-model="deal_id" />
+			</div>
 		</div>
 
 		<div class="uk-flex uk-flex-right uk-child-width-auto@m uk-child-width-1-1@m" uk-grid>
@@ -36,14 +63,12 @@
 	
 	import { 
 		TextInputComponent,
-//import_more_components//
 	} from 'innoboxrr-form-elements'
 
 	export default {
 
 		components: {
 			TextInputComponent,
-//register_more_components//
 		},
 
 		emits: ['submit'],
@@ -51,20 +76,28 @@
 		data() {
 			return {
 				id: null,
-//add_more_data//
+				name: null,
+				description: null,
+				deal_id: null,
 			}
-
 		},
 
 		methods: {
 
 			onSubmit() {
-				this.$emit('submit', this.$data);
+				this.$emit('submit', {
+					id: this.id,
+					name: this.name,
+					description: this.description,
+					deal_id: this.deal_id,
+				});
 			},
 
 			resetForm() {
 				this.id = null;
-//reset_inputs//
+				this.name = null;
+				this.description = null;
+				this.deal_id = null;
 				this.onSubmit();
 			}
 		}

@@ -19,7 +19,7 @@ class DealAdCampaignRuleObserver
      */
     public function created(DealAdCampaignRule $dealAdCampaignRule): void
     {
-        // Remove if laravel-audit is used: $dealAdCampaignRule->log('created');
+        $dealAdCampaignRule->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAdCampaignRuleObserver
      */
     public function updated(DealAdCampaignRule $dealAdCampaignRule): void
     {
-        // Remove if laravel-audit is used: $dealAdCampaignRule->log('updated');
+        $dealAdCampaignRule->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAdCampaignRuleObserver
      */
     public function deleted(DealAdCampaignRule $dealAdCampaignRule): void
     {
-        // Remove if laravel-audit is used: $dealAdCampaignRule->log('deleted');
+        $dealAdCampaignRule->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAdCampaignRuleObserver
      */
     public function restored(DealAdCampaignRule $dealAdCampaignRule): void
     {
-        // Remove if laravel-audit is used: $dealAdCampaignRule->log('restored');
+        $dealAdCampaignRule->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAdCampaignRuleObserver
      */
     public function forceDeleted(DealAdCampaignRule $dealAdCampaignRule): void
     {
-        // Remove if laravel-audit is used: $dealAdCampaignRule->log('forceDeleted');
+        $dealAdCampaignRule->log('forceDeleted');
     }
 }

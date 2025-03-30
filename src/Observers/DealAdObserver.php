@@ -19,7 +19,7 @@ class DealAdObserver
      */
     public function created(DealAd $dealAd): void
     {
-        // Remove if laravel-audit is used: $dealAd->log('created');
+        $dealAd->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAdObserver
      */
     public function updated(DealAd $dealAd): void
     {
-        // Remove if laravel-audit is used: $dealAd->log('updated');
+        $dealAd->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAdObserver
      */
     public function deleted(DealAd $dealAd): void
     {
-        // Remove if laravel-audit is used: $dealAd->log('deleted');
+        $dealAd->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAdObserver
      */
     public function restored(DealAd $dealAd): void
     {
-        // Remove if laravel-audit is used: $dealAd->log('restored');
+        $dealAd->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAdObserver
      */
     public function forceDeleted(DealAd $dealAd): void
     {
-        // Remove if laravel-audit is used: $dealAd->log('forceDeleted');
+        $dealAd->log('forceDeleted');
     }
 }

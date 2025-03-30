@@ -1,19 +1,51 @@
 import { defineStore } from 'pinia'
-import { HomeIcon, GlobeAltIcon, ServerIcon, ClockIcon, CreditCardIcon, Cog6ToothIcon } from '@heroicons/vue/24/outline'
+import { __deals } from './../utils/translate.js'
+import { 
+    HomeIcon,
+    CubeIcon,
+    MegaphoneIcon,
+    BriefcaseIcon,
+    UserGroupIcon,
+    ShareIcon,
+    BuildingStorefrontIcon,
+    DocumentTextIcon,
+    UsersIcon,
+} from '@heroicons/vue/24/outline'
 
 export const useGlobalStore = defineStore('deals-global', {
     state: () => ({
         sidebarOpen: false,
         navigation: [
-            { name: 'Inicio', route: { name: 'DealsDashboard' }, icon: HomeIcon, current: true },    
+            { name: __deals('Dashboard'), route: { name: 'DealsDashboard' }, icon: HomeIcon, current: true },
+            { name: __deals('Products'), route: { name: 'DealsDashboard' }, icon: CubeIcon, current: false },
+            { name: __deals('Ads Platforms'), route: { name: 'DealsDashboard' }, icon: MegaphoneIcon, current: false },
+            { name: __deals('Deals'), route: { name: 'DealsDashboard' }, icon: BriefcaseIcon, current: false },
+            { name: __deals('Leads'), route: { name: 'DealsDashboard' }, icon: UserGroupIcon, current: false },
+            { name: __deals('Routing'), route: { name: 'DealsDashboard' }, icon: ShareIcon, current: false },
+            { name: __deals('Advertisers'), route: { name: 'DealsDashboard' }, icon: BuildingStorefrontIcon, current: false },
+            { name: __deals('Agreements'), route: { name: 'DealsDashboard' }, icon: DocumentTextIcon, current: false },
+            { name: __deals('Affiliates'), route: { name: 'DealsDashboard' }, icon: UsersIcon, current: false },
         ],
-        /*
         dealsList: [
-            { id: 1, name: 'example.com', route: { name: 'DealsdealDetail', params: { deal: 'example.com' } }, initial: 'E', current: true },
-            { id: 2, name: 'testdeal.net', route: { name: 'DealsdealDetail', params: { deal: 'testdeal.net' } }, initial: 'T', current: false },
-            { id: 3, name: 'mywebsite.org', route: { name: 'DealsdealDetail', params: { deal: 'mywebsite.org' } }, initial: 'M', current: false },
+            {
+                id: 1,
+                name: 'Deals 1 ',
+                description: 'Deals description',
+                status: 'active',
+                route: { name: 'DealsDashboard' },
+                createdAt: '2023-01-23T11:00',
+                updatedAt: '2023-01-23T11:00',
+            },
+            {
+                id: 2,
+                name: 'Deals 2',
+                description: 'Deals 2 description',
+                status: 'inactive',
+                route: { name: 'DealsDashboard' },
+                createdAt: '2023-01-23T11:00',
+                updatedAt: '2023-01-23T11:00',
+            },
         ],
-        */
         activityItems: [
             {
                 user: {

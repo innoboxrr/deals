@@ -2,7 +2,6 @@
 
 	<div v-if="dataLoaded">
 
-		<breadcrumb-component :items="items" />
 	    
 	    <div class="uk-container uk-container-expand">
 
@@ -85,27 +84,6 @@
 				return (this.$route.name == 'AdminShowDealAdvertiserAgreementCplAdjustment');
 
 			},
-
-			items() {
-
-				if(this.$route.name == 'AdminShowDealAdvertiserAgreementCplAdjustment') {
-
-					return [
-						{ text: 'DealAdvertiserAgreementCplAdjustments', path: '/admin/deal-advertiser-agreement-cpl-adjustment'},
-						{ text: this.deal-advertiser-agreement-cpl-adjustment.name ?? 'DealAdvertiserAgreementCplAdjustment', path: '/admin/deal-advertiser-agreement-cpl-adjustment/' + this.deal-advertiser-agreement-cpl-adjustment.id}
-					];
-
-				} else if(this.$route.name == 'AdminEditDealAdvertiserAgreementCplAdjustment') {
-
-					return [
-						{ text: 'DealAdvertiserAgreementCplAdjustments', path: '/admin/deal-advertiser-agreement-cpl-adjustment'},
-						{ text: this.deal-advertiser-agreement-cpl-adjustment.name ?? 'DealAdvertiserAgreementCplAdjustment' , path: '/admin/deal-advertiser-agreement-cpl-adjustment/' + this.deal-advertiser-agreement-cpl-adjustment.id},
-						{ text: 'Editar deal-advertiser-agreement-cpl-adjustment', path: '/admin/deal-advertiser-agreement-cpl-adjustment/' + this.deal-advertiser-agreement-cpl-adjustment.id + '/edit'}	
-					];
-
-				}
-
-			}
 
 		},
 

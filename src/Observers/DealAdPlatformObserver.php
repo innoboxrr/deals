@@ -19,7 +19,7 @@ class DealAdPlatformObserver
      */
     public function created(DealAdPlatform $dealAdPlatform): void
     {
-        // Remove if laravel-audit is used: $dealAdPlatform->log('created');
+        $dealAdPlatform->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAdPlatformObserver
      */
     public function updated(DealAdPlatform $dealAdPlatform): void
     {
-        // Remove if laravel-audit is used: $dealAdPlatform->log('updated');
+        $dealAdPlatform->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAdPlatformObserver
      */
     public function deleted(DealAdPlatform $dealAdPlatform): void
     {
-        // Remove if laravel-audit is used: $dealAdPlatform->log('deleted');
+        $dealAdPlatform->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAdPlatformObserver
      */
     public function restored(DealAdPlatform $dealAdPlatform): void
     {
-        // Remove if laravel-audit is used: $dealAdPlatform->log('restored');
+        $dealAdPlatform->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAdPlatformObserver
      */
     public function forceDeleted(DealAdPlatform $dealAdPlatform): void
     {
-        // Remove if laravel-audit is used: $dealAdPlatform->log('forceDeleted');
+        $dealAdPlatform->log('forceDeleted');
     }
 }

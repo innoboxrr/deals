@@ -2,7 +2,7 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Storage;
 
-// use Innoboxrr\Deals\Models\DealAdPlatformMeta;
+use Innoboxrr\Deals\Models\DealAdPlatformMeta;
 
 trait DealAdPlatformStorage
 {
@@ -11,6 +11,8 @@ trait DealAdPlatformStorage
     {
 
         $dealAdPlatform = $this->create($request->only($this->creatable));
+
+        $dealAdPlatform->updateModelMetas($request);
 
         return $dealAdPlatform;
 
@@ -21,11 +23,12 @@ trait DealAdPlatformStorage
      
         $this->update($request->only($this->updatable));
 
+        $this->updateModelMetas($request);
+
         return $this;
 
     }
 
-    /*
     public function updateModelMetas($request)
     {
 
@@ -34,7 +37,6 @@ trait DealAdPlatformStorage
         return $this;
 
     }
-    */
 
     public function deleteModel()
     {

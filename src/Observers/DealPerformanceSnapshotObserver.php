@@ -19,7 +19,7 @@ class DealPerformanceSnapshotObserver
      */
     public function created(DealPerformanceSnapshot $dealPerformanceSnapshot): void
     {
-        // Remove if laravel-audit is used: $dealPerformanceSnapshot->log('created');
+        $dealPerformanceSnapshot->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealPerformanceSnapshotObserver
      */
     public function updated(DealPerformanceSnapshot $dealPerformanceSnapshot): void
     {
-        // Remove if laravel-audit is used: $dealPerformanceSnapshot->log('updated');
+        $dealPerformanceSnapshot->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealPerformanceSnapshotObserver
      */
     public function deleted(DealPerformanceSnapshot $dealPerformanceSnapshot): void
     {
-        // Remove if laravel-audit is used: $dealPerformanceSnapshot->log('deleted');
+        $dealPerformanceSnapshot->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealPerformanceSnapshotObserver
      */
     public function restored(DealPerformanceSnapshot $dealPerformanceSnapshot): void
     {
-        // Remove if laravel-audit is used: $dealPerformanceSnapshot->log('restored');
+        $dealPerformanceSnapshot->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealPerformanceSnapshotObserver
      */
     public function forceDeleted(DealPerformanceSnapshot $dealPerformanceSnapshot): void
     {
-        // Remove if laravel-audit is used: $dealPerformanceSnapshot->log('forceDeleted');
+        $dealPerformanceSnapshot->log('forceDeleted');
     }
 }

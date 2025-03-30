@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Innoboxrr\Traits\MetaOperations;
 use Innoboxrr\Traits\ModelAppendsTrait;
+use Innoboxrr\LaravelAudit\Support\Traits\Auditable;
 use Innoboxrr\Deals\Models\Traits\Relations\DealAdvertiserAgreementInvoiceRelations;
 use Innoboxrr\Deals\Models\Traits\Storage\DealAdvertiserAgreementInvoiceStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAdvertiserAgreementInvoiceAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealAdvertiserAgreementInvoiceOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealAdvertiserAgreementInvoiceMutators;
+use Innoboxrr\Deals\Enums\DealAdvertiserAgreementInvoice\Status;
 
 class DealAdvertiserAgreementInvoice extends Model
 {
@@ -20,6 +22,7 @@ class DealAdvertiserAgreementInvoice extends Model
         SoftDeletes,
         MetaOperations,
         ModelAppendsTrait,
+        Auditable,
         DealAdvertiserAgreementInvoiceRelations,
         DealAdvertiserAgreementInvoiceStorage,
         DealAdvertiserAgreementInvoiceAssignment,
@@ -61,6 +64,7 @@ class DealAdvertiserAgreementInvoice extends Model
     ];
     
     protected $casts = [
+        'status'                        => Status::class,
         'from_date'                    => 'date',
         'to_date'                      => 'date',
         'management_fee'               => 'decimal:2',

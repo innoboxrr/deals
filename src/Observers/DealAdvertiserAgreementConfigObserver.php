@@ -19,7 +19,7 @@ class DealAdvertiserAgreementConfigObserver
      */
     public function created(DealAdvertiserAgreementConfig $dealAdvertiserAgreementConfig): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConfig->log('created');
+        $dealAdvertiserAgreementConfig->log('created');
     }
  
     /**
@@ -27,7 +27,7 @@ class DealAdvertiserAgreementConfigObserver
      */
     public function updated(DealAdvertiserAgreementConfig $dealAdvertiserAgreementConfig): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConfig->log('updated');
+        $dealAdvertiserAgreementConfig->log('updated');
     }
  
     /**
@@ -35,7 +35,7 @@ class DealAdvertiserAgreementConfigObserver
      */
     public function deleted(DealAdvertiserAgreementConfig $dealAdvertiserAgreementConfig): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConfig->log('deleted');
+        $dealAdvertiserAgreementConfig->log('deleted');
     }
  
     /**
@@ -43,7 +43,7 @@ class DealAdvertiserAgreementConfigObserver
      */
     public function restored(DealAdvertiserAgreementConfig $dealAdvertiserAgreementConfig): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConfig->log('restored');
+        $dealAdvertiserAgreementConfig->log('restored');
     }
  
     /**
@@ -51,6 +51,6 @@ class DealAdvertiserAgreementConfigObserver
      */
     public function forceDeleted(DealAdvertiserAgreementConfig $dealAdvertiserAgreementConfig): void
     {
-        // Remove if laravel-audit is used: $dealAdvertiserAgreementConfig->log('forceDeleted');
+        $dealAdvertiserAgreementConfig->log('forceDeleted');
     }
 }
