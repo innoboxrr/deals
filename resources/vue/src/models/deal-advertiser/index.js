@@ -54,27 +54,66 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
-		{
-			id: 'id',
-			value: 'ID',
-			sortable: true,
-			html: false,
-		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
-			sortable: true,
-			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
-		},
-		*/
-	];
+        {
+            id: 'agent_name',
+            value: 'Agente',
+            sortable: false,
+            html: true,
+            parser: (_, body) => {
+                const user = body.agent?.user;
+                if (!user) return `<span class="text-sm text-gray-500">Sin asignar</span>`;
+                return `
+                    <div class="flex items-center space-x-2">
+                        <img src="${user.avatar || 'https://via.placeholder.com/32'}" alt="${user.name}" class="w-6 h-6 rounded-full object-cover" />
+                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">${user.name}</span>
+                    </div>
+                `;
+            }
+        },
+        {
+            id: 'contact',
+            value: 'Contacto',
+            sortable: false,
+            html: true,
+            parser: (_, body) => {
+                const user = body.agent?.user || {};
+                return `
+                    <div class="text-sm leading-snug text-gray-700 dark:text-gray-300 space-y-0.5">
+                        <p><strong>Email:</strong> ${user.email || '—'}</p>
+                        <p><strong>Tel:</strong> ${user.phone || '—'}</p>
+                        <p><strong>WhatsApp:</strong> ${user.whatsapp || '—'}</p>
+                    </div>
+                `;
+            }
+        },
+        {
+            id: 'status',
+            value: 'Estado',
+            sortable: true,
+            html: true,
+            parser: (value) => {
+                const statusColors = {
+                    pending: 'bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-100',
+                    active: 'bg-green-200 text-green-800 dark:bg-green-700 dark:text-green-200',
+                    rejected: 'bg-red-200 text-red-800 dark:bg-red-700 dark:text-red-100',
+                    inactive: 'bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200'
+                };
+                const className = statusColors[value] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
+                return `<span class="px-2 py-1 rounded text-xs font-medium ${className}">${value}</span>`;
+            }
+        },
+        {
+            id: 'notes',
+            value: 'Notas',
+            sortable: false,
+            html: true,
+            parser: (_, body) => {
+                const notes = body.payload?.notes || '';
+                const short = notes.length > 30 ? notes.slice(0, 30) + '…' : notes;
+                return `<p class="text-xs text-gray-600 dark:text-gray-300 leading-snug">${short}</p>`;
+            }
+        }
+    ];
 };
 
 export const dataTableSort = () => {

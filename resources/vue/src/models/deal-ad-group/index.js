@@ -60,27 +60,31 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'name',
+			value: 'Nombre del Grupo',
 			sortable: true,
-			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
+			html: true,
+			parser: (value) => `<span class="font-medium text-sky-700 dark:text-sky-300">${value}</span>`,
 		},
-		*/
+		{
+			id: 'deal_ad_campaign_id',
+			value: 'Campaña',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-semibold text-purple-800 bg-purple-100 rounded dark:bg-purple-900 dark:text-purple-200">Campaña #${value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        deal_ad_campaign_id: 'asc',
 	};
 };
 

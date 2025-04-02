@@ -60,27 +60,43 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'name',
+			value: 'Nombre',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				return `<span class="font-semibold text-gray-800 dark:text-white">${value}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'description',
+			value: 'Descripción',
+			sortable: false,
+			html: true,
+			parser: (value) => {
+				return `<span class="text-sm text-gray-600 dark:text-gray-300 truncate max-w-[300px] inline-block" title="${value}">${value}</span>`;
+			},
+		},
+		{
+			id: 'deal_ad_group_id',
+			value: 'Grupo',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 rounded dark:bg-indigo-900 dark:text-indigo-200">#${value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        description: 'asc',
+        deal_ad_group_id: 'asc',
 	};
 };
 

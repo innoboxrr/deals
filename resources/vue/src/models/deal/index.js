@@ -54,33 +54,85 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
-		{
-			id: 'id',
-			value: 'ID',
-			sortable: true,
-			html: false,
-		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
-			sortable: true,
-			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
-		},
-		*/
-	];
+        {
+            id: 'name',
+            value: 'Nombre',
+            sortable: true,
+            html: false,
+        },
+        {
+            id: 'description',
+            value: 'Descripción',
+            sortable: false,
+            html: true,
+            parser: (value) => {
+                const shortText = value?.length > 70 ? value.substring(0, 70) + '…' : value;
+                return `
+                    <p class="text-gray-700 dark:text-gray-300 text-sm leading-snug">
+                        ${shortText}
+                    </p>
+                `;
+            }
+        },
+        {
+            id: 'status',
+            value: 'Estado',
+            sortable: true,
+            html: true,
+            parser: (value) => {
+                const statusColors = {
+                    draft: 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200',
+                    waiting_for_advertisers: 'bg-yellow-200 text-yellow-800 dark:bg-yellow-700 dark:text-yellow-200',
+                    queued: 'bg-blue-200 text-blue-800 dark:bg-blue-700 dark:text-blue-200',
+                    active: 'bg-green-200 text-green-800 dark:bg-green-700 dark:text-green-200',
+                    paused: 'bg-red-200 text-red-800 dark:bg-red-700 dark:text-red-200',
+                    completed: 'bg-gray-300 text-gray-900 dark:bg-gray-600 dark:text-gray-100'
+                };
+    
+                const className = statusColors[value] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
+    
+                return `<span class="px-2 py-1 rounded text-xs font-medium ${className}">${value.replace(/_/g, ' ')}</span>`;
+            }
+        },
+        {
+            id: 'advertisers',
+            value: 'Anunciantes',
+            sortable: false,
+            html: true,
+            parser: (_, body) => {
+                const { min_advertisers_required, max_advertisers_allowed, current_advertisers_count } = body.payload;
+                const max = max_advertisers_allowed === 0 ? '∞' : max_advertisers_allowed;
+                return `
+                    <span class="text-sm text-gray-800 dark:text-gray-300 font-medium">
+                        ${current_advertisers_count}/${min_advertisers_required} / ${max}
+                    </span>
+                `;
+            }
+        },
+        {
+            id: 'cpl',
+            value: 'CPL Estimado',
+            sortable: true,
+            html: true,
+            parser: (_, body) => {
+                const value = body.payload.cpl_estimated;
+                return `
+                    <span class="text-sm font-semibold text-indigo-700 dark:text-indigo-400">
+                        $${value?.toFixed(2) ?? '0.00'}
+                    </span>
+                `;
+            }
+        }
+    ];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        status: 'asc',
+        advertisers: 'asc',
+        cpl: 'asc',
 	};
 };
 

@@ -27,7 +27,7 @@
         <div>
             <label class="uk-form-label">Imagen</label>
             <file-input-component 
-                :upload-url="uploadUrl"
+                :upload-url="fileUploadUrl"
                 :auto-upload="true"
                 :show-top-preview="true"
                 :hide-on-max-files-reached="true"
@@ -89,7 +89,6 @@
                 description: '',
                 price: '',
                 image: '', // ruta final de la imagen después de subirla
-                uploadUrl: route('file.upload'),
                 disabled: false,
                 JSValidator: undefined,
             }

@@ -55,27 +55,71 @@ export const crudActions = () => {
 export const dataTableHead = () => {
 	return [
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'deal_ad_id',
+			value: 'Anuncio',
 			sortable: true,
-			html: false,
+			html: true,
+			parser: (value) => `<span class="text-xs text-indigo-600 dark:text-indigo-300">#${value}</span>`,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'from_date',
+			value: 'Desde',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				const d = new Date(value);
+				return `<span class="text-sm text-gray-800 dark:text-gray-200">${d.toLocaleDateString()}</span>`;
+			},
+		},
+		{
+			id: 'to_date',
+			value: 'Hasta',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				const d = new Date(value);
+				return `<span class="text-sm text-gray-800 dark:text-gray-200">${d.toLocaleDateString()}</span>`;
+			},
+		},
+		{
+			id: 'impressions',
+			value: 'Imp.',
 			sortable: true,
 			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
 		},
-		*/
+		{
+			id: 'clicks',
+			value: 'Clicks',
+			sortable: true,
+			html: false,
+		},
+		{
+			id: 'leads',
+			value: 'Leads',
+			sortable: true,
+			html: false,
+		},
+		{
+			id: 'spend',
+			value: 'Gasto',
+			sortable: true,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+		{
+			id: 'cpl',
+			value: 'CPL',
+			sortable: false,
+			html: true,
+			parser: (value, body) => {
+				const cpl = body.leads > 0 ? (body.spend / body.leads).toFixed(2) : '—';
+				return `<span class="inline-block px-2 py-1 text-xs font-medium bg-emerald-100 text-emerald-800 rounded dark:bg-emerald-900 dark:text-emerald-200">$${cpl}</span>`;
+			},
+		},
 	];
 };
+
+
 
 export const dataTableSort = () => {
 	return {

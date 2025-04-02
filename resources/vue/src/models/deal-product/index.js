@@ -55,12 +55,6 @@ export const crudActions = () => {
 export const dataTableHead = () => {
 	return [
 		{
-			id: 'id',
-			value: 'ID',
-			sortable: true,
-			html: false,
-		},
-		{
 			id: 'name',
 			value: 'Nombre',
 			sortable: true,
@@ -79,7 +73,31 @@ export const dataTableHead = () => {
 					</p>
 				`;
 			}
-		}
+		},
+		{
+			id: 'image',
+			value: 'Imagen',
+			sortable: false,
+			html: true,
+			parser: (value, body) => {
+				return `
+					<img src="${body.payload.image}" alt="${body.name}" class="w-12 h-12 rounded-md object-cover shadow-md" />
+				`;
+			}
+		},
+		{
+			id: 'price',
+			value: 'Precio',
+			sortable: true,
+			html: true,
+			parser: (value, body) => {
+				return `
+					<span class="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">
+						$${body.payload.price.toFixed(2)}
+					</span>
+				`;
+			}
+		}		
 	];
 };
 
@@ -89,6 +107,7 @@ export const dataTableSort = () => {
 		id: 'asc',
         name: 'asc',
         description: 'asc',
+		price: 'asc',
 	};
 };
 

@@ -60,27 +60,34 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'name',
+			value: 'Nombre de la campaña',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				return `<span class="font-semibold text-blue-700 dark:text-blue-300">${value}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'deal_ad_platform',
+			value: 'Plataforma',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded dark:bg-green-900 dark:text-green-200">${value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        description: 'asc',
+        deal_ad_platform: 'asc',
 	};
 };
 

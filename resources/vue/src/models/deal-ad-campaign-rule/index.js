@@ -55,32 +55,56 @@ export const crudActions = () => {
 export const dataTableHead = () => {
 	return [
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'deal_ad_campaign_id',
+			value: 'Campaña',
 			sortable: true,
-			html: false,
+			html: true,
+			parser: (value) => `<span class="text-sm font-medium text-indigo-700 dark:text-indigo-300">#${value}</span>`,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'condition_type',
+			value: 'Condición',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				const labels = {
+					'cost_per_lead_greater_than': 'CPL >',
+					'conversion_rate_lower_than': 'CR <'
+				};
+				return `<span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded dark:bg-yellow-900 dark:text-yellow-200">${labels[value] || value}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'value',
+			value: 'Valor',
+			sortable: true,
+			html: true,
+			parser: (value) => `<span class="text-sm text-gray-700 dark:text-gray-300 font-semibold">${value}</span>`,
+		},
+		{
+			id: 'action',
+			value: 'Acción',
+			sortable: false,
+			html: true,
+			parser: (value) => {
+				const actions = {
+					'pause': '⏸️ Pausar',
+					'notify': '🔔 Notificar',
+					'increase_budget': '💰 Aumentar presupuesto',
+				};
+				return `<span class="inline-flex items-center text-xs font-semibold bg-slate-200 text-slate-800 px-2 py-1 rounded dark:bg-slate-700 dark:text-slate-100">${actions[value] || value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        deal_ad_campaign_id: 'asc',
+        condition_type: 'asc',
+        value: 'asc',
 	};
 };
 
