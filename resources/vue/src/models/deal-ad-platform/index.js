@@ -54,33 +54,29 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'name',
+			value: 'Nombre',
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
+        
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'deal_id',
+			value: 'Deal ID',
 			sortable: true,
 			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
 		},
-		*/
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        deal_id: 'asc',
 	};
 };
 

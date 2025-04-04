@@ -1,72 +1,121 @@
-<template>	
-	<form id="dealPerformanceSnapshotFilterForm" @submit.prevent="onSubmit">
-		<div class="uk-flex uk-flex-left uk-child-width-1-4@m uk-child-width-1-1@s" uk-grid>
-			<div>
-				<text-input-component
-					:custom-class="inputClass"
-					type="text"
-					name="id"
-					label="ID"
-					placeholder="ID" 
-					v-model="id" />
-			</div>
+<template>
 
-<!-- Add more inputs -->
+    <form id="dealPerformanceSnapshotFilterForm" @submit.prevent="onSubmit">
 
-		</div>
+        <div class="uk-child-width-1-3@m uk-child-width-1-1@s" uk-grid>
 
-		<div class="uk-flex uk-flex-right uk-child-width-auto@m uk-child-width-1-1@m" uk-grid>
-			<div>
-				<button :class="buttonClass">
-					{{ __('Search') }}
-				</button>
-			</div>
-			<div>
-				<button 
-					:class="buttonClass + ' bg-gray-400'"
-					@click.prevent="resetForm()">
-					{{ __('Reset') }}
-				</button>
-			</div>
-		</div>
-	</form>
+            <!-- DEAL ID -->
+            <text-input-component
+                :custom-class="inputClass"
+                name="deal_id"
+                label="ID del Deal"
+                v-model="deal_id" />
+
+            <!-- TIME -->
+            <text-input-component
+                :custom-class="inputClass"
+                name="time"
+                label="Fecha / Hora"
+                placeholder="YYYY-MM-DD"
+                v-model="time" />
+
+            <!-- LEADS GENERATED -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="number"
+                name="leads_generated"
+                label="Leads generados"
+                v-model="leads_generated" />
+
+            <!-- LEADS ASSIGNED -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="number"
+                name="leads_assigned"
+                label="Leads asignados"
+                v-model="leads_assigned" />
+
+            <!-- AVG CPL -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="number"
+                name="avg_cpl"
+                label="CPL promedio"
+                v-model="avg_cpl" />
+
+            <!-- AVG CONVERSION RATE -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="number"
+                name="avg_conversion_rate"
+                label="Conversión promedio"
+                v-model="avg_conversion_rate" />
+
+            <!-- AVG ROI -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="number"
+                name="avg_roi"
+                label="ROI promedio"
+                v-model="avg_roi" />
+
+        </div>
+
+        <div class="uk-flex uk-flex-right uk-child-width-auto@m uk-child-width-1-1@m" uk-grid>
+            <div>
+                <button :class="buttonClass">
+                    Buscar
+                </button>
+            </div>
+            <div>
+                <button 
+                    :class="buttonClass + ' bg-gray-400'"
+                    @click.prevent="resetForm()">
+                    Resetear
+                </button>
+            </div>
+        </div>
+
+    </form>
+
 </template>
 
 <script>
-	
-	import { 
-		TextInputComponent,
-//import_more_components//
-	} from 'innoboxrr-form-elements'
 
-	export default {
+import { TextInputComponent } from 'innoboxrr-form-elements'
 
-		components: {
-			TextInputComponent,
-//register_more_components//
-		},
+export default {
 
-		emits: ['submit'],
+    components: {
+        TextInputComponent,
+    },
 
-		data() {
-			return {
-				id: null,
-//add_more_data//
-			}
+    emits: ['submit'],
 
-		},
+    data() {
+        return {
+            deal_id: '',
+            time: '',
+            leads_generated: '',
+            leads_assigned: '',
+            avg_cpl: '',
+            avg_conversion_rate: '',
+            avg_roi: '',
+        }
+    },
 
-		methods: {
+    methods: {
 
-			onSubmit() {
-				this.$emit('submit', this.$data);
-			},
+        onSubmit() {
+            this.$emit('submit', { ...this.$data })
+        },
 
-			resetForm() {
-				this.id = null;
-//reset_inputs//
-				this.onSubmit();
-			}
-		}
-	}
+        resetForm() {
+            Object.assign(this.$data, this.$options.data())
+            this.onSubmit()
+        }
+
+    }
+
+}
 </script>

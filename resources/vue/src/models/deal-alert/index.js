@@ -54,33 +54,72 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'deal_id',
+			value: 'ID del Deal',
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
+
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'type',
+			value: 'Tipo',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				const map = {
+					high_cpl: 'red',
+					low_conversion: 'orange',
+					lead_overload: 'yellow',
+					no_feedback: 'blue',
+				};
+				const color = map[value] || 'gray';
+				return `<span class="px-2 py-1 text-xs font-semibold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value.replace('_', ' ')}</span>`;
+			},
 		},
-		*/
+
+		{
+			id: 'message',
+			value: 'Mensaje',
+			sortable: false,
+			html: false,
+		},
+
+		{
+			id: 'status',
+			value: 'Estado',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				const color = {
+					pending: 'yellow',
+					resolved: 'green',
+					ignored: 'gray',
+				}[value] || 'gray';
+				return `<span class="px-2 py-1 text-xs font-medium text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
+		},
+
+		{
+			id: 'detected_at',
+			value: 'Detectado En',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleString()}</span>`,
+		},
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        type: 'asc',
+        message: 'asc',
+        status: 'asc',
+        detected_at: 'asc',
 	};
 };
 

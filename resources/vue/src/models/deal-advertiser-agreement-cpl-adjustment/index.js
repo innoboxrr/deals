@@ -54,33 +54,49 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'before',
+			value: 'Antes',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-xs text-red-700 dark:text-red-400 font-medium">$${parseFloat(value).toFixed(2)}</span>`,
+		},
+
+		{
+			id: 'after',
+			value: 'Después',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-xs text-green-700 dark:text-green-400 font-medium">$${parseFloat(value).toFixed(2)}</span>`,
+		},
+
+		{
+			id: 'deal_performance_snapshot_id',
+			value: 'Snapshot ID',
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
+        {
+			id: 'deal_advertiser_agreement_id',
+			value: 'Snapshot ID',
 			sortable: true,
 			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
 		},
-		*/
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        before: 'asc',
+        after: 'asc',
+        deal_performance_snapshot_id: 'asc',
+        deal_advertiser_agreement_id: 'asc',
 	};
 };
 

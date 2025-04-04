@@ -54,33 +54,88 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'date',
+			value: 'Fecha',
 			sortable: true,
-			html: false,
+			html: true,
+			parser: (value) => `<span class="text-sm text-gray-800 dark:text-gray-200">${new Date(value).toLocaleDateString()}</span>`,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
+
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'start_hour',
+			value: 'Inicio',
+			sortable: false,
+			html: true,
+			parser: (value) => `<span class="text-xs text-gray-600">${value}:00</span>`,
+		},
+
+		{
+			id: 'end_hour',
+			value: 'Fin',
+			sortable: false,
+			html: true,
+			parser: (value) => `<span class="text-xs text-gray-600">${value}:00</span>`,
+		},
+
+		{
+			id: 'cpl',
+			value: 'CPL',
 			sortable: true,
-			html: false,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+
+		{
+			id: 'budget',
+			value: 'Presupuesto',
+			sortable: true,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+
+		{
+			id: 'spent',
+			value: 'Gastado',
+			sortable: true,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+
+		{
+			id: 'progress',
+			value: 'Progreso (%)',
+			sortable: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				const percent = parseFloat(value).toFixed(1);
+				const color = percent >= 100 ? 'red' : percent >= 80 ? 'orange' : 'green';
+				return `<span class="px-2 py-1 text-xs font-semibold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${percent}%</span>`;
+			},
 		},
-		*/
+
+		{
+			id: 'leads_assigned',
+			value: 'Leads Asignados',
+			sortable: true,
+			html: false,
+		},
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        date: 'asc',
+        start_hour: 'asc',
+        end_hour: 'asc',
+        cpl: 'asc',
+        budget: 'asc',
+        spent: 'asc',
+        progress: 'asc',
+        leads_assigned: 'asc',
 	};
 };
 

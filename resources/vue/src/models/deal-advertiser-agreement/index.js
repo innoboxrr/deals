@@ -54,33 +54,95 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'status',
+			value: 'Estado',
 			sortable: true,
-			html: false,
-		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
-			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				const colorMap = {
+					draft: 'gray',
+					active: 'green',
+					paused: 'orange',
+					pending_payment: 'yellow',
+					cancelled: 'red',
+					completed: 'blue',
+				};
+				const color = colorMap[value] || 'gray';
+				return `<span class="px-2 py-1 text-xs font-semibold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
 		},
-		*/
+
+		{
+			id: 'budget',
+			value: 'Presupuesto',
+			sortable: true,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+
+		{
+			id: 'net_budget',
+			value: 'Presupuesto Neto',
+			sortable: false,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+
+		{
+			id: 'budget_spent',
+			value: 'Gastado',
+			sortable: false,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+
+		{
+			id: 'actual_cpl',
+			value: 'CPL Actual',
+			sortable: false,
+			html: true,
+			parser: (value) => `$${parseFloat(value).toFixed(2)}`,
+		},
+
+		{
+			id: 'start_date',
+			value: 'Inicio',
+			sortable: true,
+			html: true,
+			parser: (value) => `<span class="text-xs">${new Date(value).toLocaleDateString()}</span>`,
+		},
+
+		{
+			id: 'end_date',
+			value: 'Fin',
+			sortable: true,
+			html: true,
+			parser: (value) => `<span class="text-xs">${new Date(value).toLocaleDateString()}</span>`,
+		},
+
+		{
+			id: 'leads_assigned',
+			value: 'Leads',
+			sortable: true,
+			html: false,
+		},
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        status: 'asc',
+        budget: 'asc',
+        net_budget: 'asc',
+        budget_spent: 'asc',
+        actual_cpl: 'asc',
+        start_date: 'asc',
+        end_date: 'asc',
+        leads_assigned: 'asc',
 	};
 };
 

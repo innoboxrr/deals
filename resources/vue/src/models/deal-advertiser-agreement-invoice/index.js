@@ -54,33 +54,89 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'status',
+			value: 'Estado',
 			sortable: true,
-			html: false,
-		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
-			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				const color = {
+					pending: 'yellow',
+					paid: 'green',
+					cancelled: 'red',
+				}[value?.toLowerCase()] || 'gray';
+				return `<span class="px-2 py-1 text-xs font-semibold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
 		},
-		*/
+
+		{
+			id: 'from_date',
+			value: 'Desde',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleDateString()}</span>`,
+		},
+
+		{
+			id: 'to_date',
+			value: 'Hasta',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleDateString()}</span>`,
+		},
+
+		{
+			id: 'total',
+			value: 'Total',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="font-semibold text-gray-800 dark:text-gray-200">$${parseFloat(value).toFixed(2)}</span>`,
+		},
+
+		{
+			id: 'management_fee',
+			value: 'Fee',
+			sortable: false,
+			html: true,
+			parser: (value) =>
+				`<span class="text-xs text-gray-600 dark:text-gray-400">$${parseFloat(value).toFixed(2)}</span>`,
+		},
+
+		{
+			id: 'ad_spend',
+			value: 'Ad Spend',
+			sortable: false,
+			html: true,
+			parser: (value) =>
+				`<span class="text-xs text-blue-700 dark:text-blue-300">$${parseFloat(value).toFixed(2)}</span>`,
+		},
+
+		{
+			id: 'tax',
+			value: 'Impuesto',
+			sortable: false,
+			html: true,
+			parser: (value) =>
+				`<span class="text-xs text-purple-700 dark:text-purple-300">$${parseFloat(value).toFixed(2)}</span>`,
+		},
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        status: 'asc',
+        from_date: 'asc',
+        to_date: 'asc',
+        total: 'asc',
+        management_fee: 'asc',
+        ad_spend: 'asc',
+        tax: 'asc',
 	};
 };
 

@@ -60,27 +60,43 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'start_execution',
+			value: 'Inicio',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				return `<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleString()}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'end_execution',
+			value: 'Fin',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleString()}</span>`;
+			},
+		},
+		{
+			id: 'deal_router_id',
+			value: 'Router',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium text-indigo-800 bg-indigo-100 rounded dark:bg-indigo-900 dark:text-indigo-300">${value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        start_execution: 'asc',
+        end_execution: 'asc',
+        deal_router_id: 'asc',
 	};
 };
 

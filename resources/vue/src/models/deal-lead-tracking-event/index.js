@@ -60,27 +60,50 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'event',
+			value: 'Evento',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				return `<span class="text-sm font-medium text-gray-800 dark:text-gray-200">${value}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'status',
+			value: 'Estado',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				const colorMap = {
+					success: 'green',
+					error: 'red',
+					pending: 'yellow',
+				};
+				const color = colorMap[value?.toLowerCase()] || 'gray';
+				return `<span class="px-2 py-1 text-xs font-semibold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
+		},
+		{
+			id: 'deal_lead_id',
+			value: 'Lead ID',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="text-xs text-blue-700 dark:text-blue-300">${value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        event: 'asc',
+        status: 'asc',
+        data: 'asc',
+        deal_lead_id: 'asc',
 	};
 };
 

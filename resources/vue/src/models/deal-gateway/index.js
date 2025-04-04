@@ -54,33 +54,35 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+        { id: 'name', value: 'Nombre', sortable: true },
+		{ id: 'deal_id', value: 'ID del Deal', sortable: true },
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'gateway_type',
+			value: 'Tipo de Gateway',
 			sortable: true,
-			html: false,
-		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
-			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				return `<span class="px-2 py-1 text-xs font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">${value}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'gateway_id',
+			value: 'ID de Gateway',
+			sortable: true,
+			html: false,
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        deal_id: 'asc',
+        gateway_type: 'asc',
+        gateway_id: 'asc',
 	};
 };
 

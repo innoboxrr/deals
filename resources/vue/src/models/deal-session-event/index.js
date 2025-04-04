@@ -60,27 +60,37 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'key',
+			value: 'Clave',
 			sortable: true,
 			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
 		},
-		*/
+		{
+			id: 'value',
+			value: 'Valor',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">${value}</span>`;
+			},
+		},
+		{
+			id: 'deal_session_id',
+			value: 'ID de Sesión',
+			sortable: true,
+			html: false,
+		}
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        key: 'asc',
+        value: 'asc',
+        deal_session_id: 'asc',
 	};
 };
 

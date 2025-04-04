@@ -60,27 +60,55 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'fired_at',
+			value: 'Disparado En',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				return `<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleString()}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'platform_type',
+			value: 'Tipo de Plataforma',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				let color = value === 'Affiliate' ? 'green' : 'blue';
+				return `<span class="px-2 py-1 text-xs font-medium text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
+		},
+		{
+			id: 'platform_id',
+			value: 'ID Plataforma',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="text-xs text-gray-600 dark:text-gray-400">${value}</span>`;
+			},
+		},
+		{
+			id: 'deal_lead_traking_event_id',
+			value: 'Lead Tracking',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="text-xs text-gray-600 dark:text-gray-400">${value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        fired_at: 'asc',
+        response: 'asc',
+        platform_type: 'asc',
+        platform_id: 'asc',
+        deal_lead_traking_event_id: 'asc',
 	};
 };
 

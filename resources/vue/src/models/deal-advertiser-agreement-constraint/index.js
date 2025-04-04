@@ -54,33 +54,51 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'key',
+			value: 'Campo',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-xs font-medium text-gray-800 dark:text-gray-200">${value}</span>`,
+		},
+
+		{
+			id: 'operator',
+			value: 'Operador',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">${value}</span>`,
+		},
+
+		{
+			id: 'value',
+			value: 'Valor',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-xs text-gray-700 dark:text-gray-300">${value}</span>`,
+		},
+
+		{
+			id: 'deal_advertiser_agreement_id',
+			value: 'Acuerdo ID',
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
-			sortable: true,
-			html: false,
-			parser: (value) => {
-
-				return value;
-
-			}
-		},
-		*/
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        key: 'asc',
+        operator: 'asc',
+        value: 'asc',
+        deal_advertiser_agreement_id: 'asc',
 	};
 };
 

@@ -54,33 +54,74 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'processor',
+			value: 'Procesador',
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
+
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'processor_id',
+			value: 'ID Externo',
 			sortable: true,
-			html: false,
+			html: true,
+			parser: (value) => `<span class="text-xs text-gray-700 dark:text-gray-300">${value}</span>`,
+		},
+
+		{
+			id: 'processor_date',
+			value: 'Vinculado En',
+			sortable: true,
+			html: true,
+			parser: (value) =>
+				`<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleDateString()}</span>`,
+		},
+
+		{
+			id: 'status',
+			value: 'Estado',
+			sortable: true,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				const color = value === 'active' ? 'green' : 'red';
+				return `<span class="px-2 py-1 text-xs font-semibold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
 		},
-		*/
+
+		{
+			id: 'main',
+			value: 'Principal',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return value
+					? `<span class="text-green-600 dark:text-green-400 font-bold">✔</span>`
+					: `<span class="text-gray-400">—</span>`;
+			},
+		},
+
+		{
+			id: 'deal_advertiser_id',
+			value: 'Anunciante',
+			sortable: true,
+			html: false,
+		},
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        processor: 'asc',
+        processor_id: 'asc',
+        processor_date: 'asc',
+        status: 'asc',
+        main: 'asc',
+        deal_advertiser_id: 'asc',
+        // Add other fields as needed
 	};
 };
 

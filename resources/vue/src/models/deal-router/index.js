@@ -60,27 +60,44 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'last_run',
+			value: 'Última Ejecución',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				if (!value) return `<span class="text-gray-400 italic">Nunca</span>`;
+				return `<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleString()}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'queue',
+			value: 'Cola',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium text-orange-800 bg-orange-100 rounded dark:bg-orange-900 dark:text-orange-300">${value}</span>`;
+			},
+		},
+		{
+			id: 'deal_id',
+			value: 'Deal',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium text-cyan-800 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-300">${value}</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        last_run: 'desc',
+        queue: 'asc',
+        deal_id: 'asc',
 	};
 };
 

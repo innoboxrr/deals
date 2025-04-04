@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('ad_performance_snapshots_tables', function (Blueprint $table) {
+        Schema::table('deal_ad_performance_snapshots', function (Blueprint $table) {
             $table->dropColumn('timestamp');
             $table->unsignedBigInteger('from_date')->after('deal_ad_id')->nullable();
             $table->unsignedBigInteger('to_date')->after('from_date')->nullable();
@@ -27,7 +27,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('ad_performance_snapshots_tables', function (Blueprint $table) {
+        Schema::table('deal_ad_performance_snapshots', function (Blueprint $table) {
             $table->dropColumn('from_date');
             $table->dropColumn('to_date');
             $table->unsignedBigInteger('timestamp')->after('deal_ad_id')->nullable();

@@ -60,27 +60,84 @@ export const dataTableHead = () => {
 			sortable: true,
 			html: false,
 		},
-//DATA_TABLE_COLUMNS//
-		/*
 		{
-			id: 'column',
-			value: 'Column',
+			id: 'deal_id',
+			value: 'ID del Deal',
 			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				return `<span class="text-xs text-cyan-800 dark:text-cyan-300">${value}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'time',
+			value: 'Fecha',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="text-sm text-gray-700 dark:text-gray-300">${new Date(value).toLocaleString()}</span>`;
+			},
+		},
+		{
+			id: 'leads_generated',
+			value: 'Leads Generados',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium text-blue-800 bg-blue-100 rounded dark:bg-blue-900 dark:text-blue-300">${value}</span>`;
+			},
+		},
+		{
+			id: 'leads_assigned',
+			value: 'Leads Asignados',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium text-purple-800 bg-purple-100 rounded dark:bg-purple-900 dark:text-purple-300">${value}</span>`;
+			},
+		},
+		{
+			id: 'avg_cpl',
+			value: 'CPL Promedio',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="text-xs font-semibold text-gray-800 dark:text-gray-200">$${parseFloat(value).toFixed(2)}</span>`;
+			},
+		},
+		{
+			id: 'avg_conversion_rate',
+			value: 'Tasa de Conversión',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				return `<span class="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300">${parseFloat(value).toFixed(2)}%</span>`;
+			},
+		},
+		{
+			id: 'avg_roi',
+			value: 'ROI Promedio',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				const color = value >= 0 ? 'emerald' : 'red';
+				return `<span class="px-2 py-1 text-xs font-medium text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${parseFloat(value).toFixed(2)}%</span>`;
+			},
+		},
 	];
 };
+
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        deal_id: 'asc',
+        time: 'asc',
+        leads_generated: 'asc',
+        leads_assigned: 'asc',
+        avg_cpl: 'asc',
+        avg_conversion_rate: 'asc',
+        avg_roi: 'asc',
 	};
 };
 

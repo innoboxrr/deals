@@ -54,33 +54,59 @@ export const crudActions = () => {
 
 export const dataTableHead = () => {
 	return [
+		{ id: 'id', value: 'ID', sortable: true },
+		{ id: 'name', value: 'Nombre', sortable: true },
+		{ id: 'email', value: 'Email', sortable: true },
+		{ id: 'phone', value: 'Teléfono', sortable: true },
 		{
-			id: 'id',
-			value: 'ID',
+			id: 'status',
+			value: 'Estado',
 			sortable: true,
-			html: false,
-		},
-//DATA_TABLE_COLUMNS//
-		/*
-		{
-			id: 'column',
-			value: 'Column',
-			sortable: true,
-			html: false,
+			html: true,
 			parser: (value) => {
-
-				return value;
-
-			}
+				const colorMap = {
+					new: 'gray',
+					assigned: 'blue',
+					rejected: 'red',
+					sold: 'green',
+				};
+				const color = colorMap[value] || 'gray';
+				return `<span class="px-2 py-1 text-xs font-semibold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
 		},
-		*/
+		{
+			id: 'score',
+			value: 'Score',
+			sortable: true,
+			html: true,
+			parser: (value) => `<span class="text-sm font-semibold text-gray-800 dark:text-gray-300">${parseFloat(value).toFixed(2)}</span>`,
+		},
+		{
+			id: 'fraud_risk',
+			value: 'Fraude',
+			sortable: true,
+			html: true,
+			parser: (value) => {
+				const color = {
+					low: 'green',
+					medium: 'orange',
+					high: 'red',
+				}[value] || 'gray';
+				return `<span class="px-2 py-1 text-xs font-bold text-${color}-800 bg-${color}-100 rounded dark:bg-${color}-900 dark:text-${color}-300">${value}</span>`;
+			},
+		},
 	];
 };
 
 export const dataTableSort = () => {
 	return {
 		id: 'asc',
-//DATA_TABLE_SORT//
+        name: 'asc',
+        email: 'asc',
+        phone: 'asc',
+        status: 'asc',
+        score: 'asc',
+        fraud_risk: 'asc',
 	};
 };
 
