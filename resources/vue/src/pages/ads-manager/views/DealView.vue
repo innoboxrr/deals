@@ -14,7 +14,7 @@
                     <button
                         type="button"
                         @click="togglePause"
-                        :class="buttonClass">
+                        :class="btnClass">
                         <span v-if="isPaused">
                             <i class="fas fa-play mr-2"></i>
                             Activar 
@@ -320,7 +320,6 @@ export default {
                 category: "Electrónica",
                 imageUrl: "" // Podrías poner un link real o uno de tu CDN
             },
-            isDetailView: true,
             filters: {
                 dateRange: '',
                 campaignStatus: ''
@@ -372,7 +371,7 @@ export default {
         }
     },
     computed: {
-        buttonClass() {
+        btnClass() {
             return this.isPaused
                 ? "inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                 : "inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
