@@ -1,5 +1,6 @@
 <template>
     <div v-if="dataLoaded">
+        <!-- Sidebar -->
         <TransitionRoot as="template" :show="sidebarOpen">
             <Dialog class="relative z-50 xl:hidden" @close="sidebarOpen = false">
                 <TransitionChild
@@ -31,18 +32,23 @@
                                 leave-from="opacity-100"
                                 leave-to="opacity-0">
                                 <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
-                                    <button type="button" class="-m-2.5 p-2.5" @click="sidebarOpen = false">
+                                    <button
+                                        type="button"
+                                        class="-m-2.5 p-2.5"
+                                        @click="sidebarOpen = false">
                                         <span class="sr-only">Cerrar sidebar</span>
-                                        <XMarkIcon class="h-6 w-6 text-gray-900" aria-hidden="true" />
+                                        <XMarkIcon
+                                            class="h-6 w-6 text-gray-900"
+                                            aria-hidden="true"/>
                                     </button>
                                 </div>
                             </TransitionChild>
                             <div class="flex grow flex-col gap-y-5 md:ml-14 ml-0 overflow-y-auto bg-white px-6 ring-1 ring-gray-200">
                                 <div class="flex h-16 shrink-0 items-center">
-                                    <img
-                                        class="h-8 w-auto"
-                                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                                        alt="Your Company" />
+                                <img
+                                    class="h-8 w-auto"
+                                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                                    alt="Your Company" />
                                 </div>
                                 <sidebar-menu />
                             </div>
@@ -52,62 +58,77 @@
             </Dialog>
         </TransitionRoot>
 
-        <div class="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col">
+        <div v-if="showSidebar" class="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col sm:w-full md:w-1/2">
             <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-50 px-6 ring-1 ring-gray-200 mt-12">
                 <sidebar-menu class="mt-4" />
             </div>
         </div>
-        <div class="xl:pl-72 flex flex-col" style="height: calc(100vh - 54px);">
-            <SearchHeader @open-sidebar="sidebarOpen = true" />
+
+        <div 
+			class="flex flex-col"
+			:class="{'xl:pl-72': showSidebar}"
+			style="height: calc(100vh - 54px)">
+            <SearchHeader @open-sidebar="toggleSidebar" />
             <div class="flex flex-1 overflow-hidden">
                 <main class="flex-1 overflow-y-auto">
                     <router-view />
                 </main>
-                <activity-feed />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
-    import { XMarkIcon } from '@heroicons/vue/24/outline'
-    import SidebarMenu from './components/SidebarMenu.vue'
-    import SearchHeader from './components/SearchHeader.vue'
-    import ActivityFeed from './components/ActivityFeed.vue'
-    import { useGlobalStore } from '@dealsStore/globalStore.js'
+import {
+	Dialog,
+	DialogPanel,
+	TransitionChild,
+	TransitionRoot,
+} from "@headlessui/vue";
+import { XMarkIcon } from "@heroicons/vue/24/outline";
+import SidebarMenu from "./components/SidebarMenu.vue";
+import SearchHeader from "./components/SearchHeader.vue";
+import ActivityFeed from "./components/ActivityFeed.vue";
+import { useGlobalStore } from "@dealsStore/globalStore.js";
 
-    export default {
-        name: 'DealsDashboard',
-        components: {
-            Dialog,
-            DialogPanel,
-            TransitionChild,
-            TransitionRoot,
-            XMarkIcon,
-            SidebarMenu,
-            SearchHeader,
-            ActivityFeed,
-        },
-        data() {
-            return {
-                dataLoaded: false,
-                globalStore: undefined,
-            }
-        },
-        async mounted() {
-            this.globalStore = await useGlobalStore();
-            this.dataLoaded = true;
-        },
-        computed: {
-            sidebarOpen: {
-                get() {
-                    return this.globalStore.sidebarOpen || false
-                },
-                set(value) {
-                    this.globalStore.sidebarOpen = value
-                },
-            }
-        },
-    }
+export default {
+	name: "DealsDashboard",
+	components: {
+		Dialog,
+		DialogPanel,
+		TransitionChild,
+		TransitionRoot,
+		XMarkIcon,
+		SidebarMenu,
+		SearchHeader,
+		ActivityFeed,
+	},
+	data() {
+		return {
+			dataLoaded: false,
+			globalStore: undefined,
+			showSidebar: true,
+		};
+	},
+	async mounted() {
+		this.globalStore = await useGlobalStore();
+		this.dataLoaded = true;
+	},
+	computed: {
+		sidebarOpen: {
+			get() {
+				return this.globalStore.sidebarOpen || false;
+			},
+			set(value) {
+				this.globalStore.sidebarOpen = value;
+			},
+		},
+	},
+	methods: {
+		toggleSidebar() {
+			this.showSidebar = !this.showSidebar;
+			this.sidebarOpen = true;
+		},
+	},
+};
 </script>

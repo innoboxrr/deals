@@ -17,16 +17,16 @@ export const useGlobalStore = defineStore('deals-global', {
         sidebarOpen: false,
         navigation: [
             { name: __deals('Dashboard'), route: { name: 'DealsDashboard' }, icon: HomeIcon, current: true },
-            { name: __deals('Products'), route: { name: 'DealsDashboard' }, icon: CubeIcon, current: false },
-            { name: __deals('Ads Platforms'), route: { name: 'DealsDashboard' }, icon: MegaphoneIcon, current: false },
-            { name: __deals('Deals'), route: { name: 'DealsDashboard' }, icon: BriefcaseIcon, current: false },
-            { name: __deals('Leads'), route: { name: 'DealsDashboard' }, icon: UserGroupIcon, current: false },
-            { name: __deals('Routing'), route: { name: 'DealsDashboard' }, icon: ShareIcon, current: false },
-            { name: __deals('Advertisers'), route: { name: 'DealsDashboard' }, icon: BuildingStorefrontIcon, current: false },
-            { name: __deals('Agreements'), route: { name: 'DealsDashboard' }, icon: DocumentTextIcon, current: false },
-            { name: __deals('Affiliates'), route: { name: 'DealsDashboard' }, icon: UsersIcon, current: false },
+            { name: __deals('Deals'), route: { name: 'DealsManager' }, icon: BriefcaseIcon, current: false },
+            // { name: __deals('Routing'), route: { name: 'DealsDashboard' }, icon: ShareIcon, current: false },
+            { name: __deals('Advertisers'), route: { name: 'DealsAdvertisersManager' }, icon: BuildingStorefrontIcon, current: false },
+            // { name: __deals('Agreements'), route: { name: 'DealsAgreementsManager' }, icon: DocumentTextIcon, current: false },
+            { name: __deals('Ads'), route: { name: 'DealsAdsManager' }, icon: MegaphoneIcon, current: false },
+            // { name: __deals('Affiliates'), route: { name: 'DealsDashboard' }, icon: UsersIcon, current: false },
+            { name: __deals('Leads'), route: { name: 'DealsLeadsManager' }, icon: UserGroupIcon, current: false },
         ],
         dealsList: [
+            /*
             {
                 id: 1,
                 name: 'Deals 1 ',
@@ -45,8 +45,10 @@ export const useGlobalStore = defineStore('deals-global', {
                 createdAt: '2023-01-23T11:00',
                 updatedAt: '2023-01-23T11:00',
             },
+            */
         ],
         activityItems: [
+            /*
             {
                 user: {
                     name: 'Michael Foster',
@@ -56,9 +58,14 @@ export const useGlobalStore = defineStore('deals-global', {
                 date: 'Hace 1h',
                 dateTime: '2023-01-23T11:00',
             },
+            */
         ],
     }),
     actions: {
-        // Aquí puedes agregar acciones si lo requieres
+        setCurrentRoute(routeName) {
+            this.navigation.forEach(item => {
+                item.current = item.route.name === routeName;
+            });
+        },
     },
 })

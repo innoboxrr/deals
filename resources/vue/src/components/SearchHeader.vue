@@ -1,6 +1,7 @@
 <template>
-    <div class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-gray-200 bg-white px-4 shadow-sm sm:px-6 lg:px-8">
-        <button type="button" class="-m-2.5 p-2.5 text-gray-900 xl:hidden" @click="$emit('open-sidebar')">
+    <div class="sticky top-0 z-40 flex h-12 shrink-0 items-center gap-x-6 border-b border-gray-200 bg-white px-4 shadow-sm sm:px-6 lg:px-8">
+        <!-- Primer botón (solo visible en pantallas pequeñas con xl:hidden) -->
+        <button type="button" class="-m-2.5 p-2.5 text-gray-900 " @click="$emit('open-sidebar')">
             <span class="sr-only">Abrir sidebar</span>
             <Bars3Icon class="h-5 w-5" aria-hidden="true" />
         </button>
