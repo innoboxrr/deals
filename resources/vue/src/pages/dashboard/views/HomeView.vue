@@ -149,7 +149,7 @@
             <div class="w-full mx-auto">
                 <div class="flex justify-between items-center mb-4">
                     <div class="flex w-full px-2">
-                        <DonutChart />
+                        <AreaChart />
                     </div>
                     <div class="flex w-full px-2">
                         <LineChart />
@@ -166,6 +166,17 @@
                     </div>
                 </div>
             </div>
+            <div class="w-full mx-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex w-full px-2">
+                        <PieChart />
+                    </div>
+                    <div class="flex w-full px-2">
+                        <DonutChart />
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Tabla de anunciantes -->
@@ -943,10 +954,12 @@
     import {
         ChevronDownIcon,
     } from '@heroicons/vue/20/solid'
-    import DonutChart from '@dealsComponents/charts/DonutChart.vue';
+    import AreaChart from '@dealsComponents/charts/AreaChart.vue';
     import LineChart from '@dealsComponents/charts/LineChart.vue';
     import ColumnChart from '@dealsComponents/charts/ColumnChart.vue';
     import BarChart from '@dealsComponents/charts/BarChart.vue';
+    import PieChart from '@dealsComponents/charts/PieChart.vue';
+    import DonutChart from '@dealsComponents/charts/DonutChart.vue';
 
     export default {
         name: "dealDashboardSection",
@@ -956,10 +969,12 @@
             MenuItem,
             MenuItems,
             ChevronDownIcon,
-            DonutChart,
+            AreaChart,
             LineChart,
             ColumnChart,
             BarChart,
+            PieChart,
+            DonutChart,
         },
         data() {
             return {
@@ -974,4 +989,11 @@
             };
         },
     };
+</script>
+
+<script >
+body {
+    overflow-x: hidden;
+}
+
 </script>

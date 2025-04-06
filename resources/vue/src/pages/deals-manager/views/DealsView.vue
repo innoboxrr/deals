@@ -149,7 +149,7 @@
             <div class="w-full mx-auto">
                 <div class="flex justify-between items-center mb-4">
                     <div class="flex w-full px-2">
-                        <DonutChart />
+                        <AreaChart />
                     </div>
                     <div class="flex w-full px-2">
                         <LineChart />
@@ -943,7 +943,7 @@
     import {
         ChevronDownIcon,
     } from '@heroicons/vue/20/solid'
-    import DonutChart from '@dealsComponents/charts/DonutChart.vue';
+    import AreaChart from '@dealsComponents/charts/AreaChart.vue';
     import LineChart from '@dealsComponents/charts/LineChart.vue';
     import ColumnChart from '@dealsComponents/charts/ColumnChart.vue';
     import BarChart from '@dealsComponents/charts/BarChart.vue';
@@ -956,7 +956,7 @@
             MenuItem,
             MenuItems,
             ChevronDownIcon,
-            DonutChart,
+            AreaChart,
             LineChart,
             ColumnChart,
             BarChart,
