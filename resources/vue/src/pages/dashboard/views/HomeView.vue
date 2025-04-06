@@ -176,6 +176,13 @@
                     </div>
                 </div>
             </div>
+            <div class="w-full mx-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex w-full px-2">
+                        <RadialChart />
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -960,6 +967,7 @@
     import BarChart from '@dealsComponents/charts/BarChart.vue';
     import PieChart from '@dealsComponents/charts/PieChart.vue';
     import DonutChart from '@dealsComponents/charts/DonutChart.vue';
+    import RadialChart from '@dealsComponents/charts/RadialChart.vue';
 
     export default {
         name: "dealDashboardSection",
@@ -975,6 +983,7 @@
             BarChart,
             PieChart,
             DonutChart,
+            RadialChart,
         },
         data() {
             return {
@@ -991,9 +1000,8 @@
     };
 </script>
 
-<script >
-body {
-    overflow-x: hidden;
+<style>
+html {
+    overflow: hidden;
 }
-
-</script>
+</style>
