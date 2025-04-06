@@ -11,18 +11,22 @@
                                 </h5>
                             </div>
                             <div class="flex items-center space-x-2 md:space-x-4">
-                                <button 
-                                    type="button"
-                                    class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-white bg-indigo-600 border border-gray-200 rounded-lg fhover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 focus:z-10 focus:ring-4 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                <router-link 
+                                    :to="{
+                                        name: 'DealsProductsManagerCreate',
+                                    }"
+                                    class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-white bg-indigo-600 border border-gray-200 rounded-lg fhover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 focus:z-10 focus:ring-4 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 hover:text-white hover:bg-indigo-700">
                                     <i class="h-5 w-5 pt-1 mr-2 text-white fa-solid fa-plus"></i>
                                     {{ __deals('Add new') }}
-                                </button>
-                                <button 
-                                    type="button"
+                                </router-link>
+                                <router-link 
+                                    :to="{
+                                        name: 'DealsProductsManagerShowcase',
+                                    }"
                                     class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                                    <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-download"></i>
-                                    {{ __deals('Export') }}
-                                </button>
+                                    <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-eye"></i>
+                                    {{ __deals('Showcase') }}
+                                </router-link>
                             </div>
                         </div>
                     </div>

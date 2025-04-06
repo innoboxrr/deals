@@ -146,45 +146,49 @@
         </div>
 
         <div class="flex flex-col p-2">
+            <!-- Primera fila: AreaChart y LineChart -->
             <div class="w-full mx-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex w-full px-2">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                    <div class="w-full px-2 mb-4 md:mb-0">
                         <AreaChart />
                     </div>
-                    <div class="flex w-full px-2">
+                    <div class="w-full px-2">
                         <LineChart />
                     </div>
                 </div>
             </div>
+            <!-- Segunda fila: ColumnChart y BarChart -->
             <div class="w-full mx-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex w-full px-2">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                    <div class="w-full px-2 mb-4 md:mb-0">
                         <ColumnChart />
                     </div>
-                    <div class="flex w-full px-2">
+                    <div class="w-full px-2">
                         <BarChart />
                     </div>
                 </div>
             </div>
+            <!-- Tercera fila: PieChart y DonutChart -->
             <div class="w-full mx-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex w-full px-2">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                    <div class="w-full px-2 mb-4 md:mb-0">
                         <PieChart />
                     </div>
-                    <div class="flex w-full px-2">
+                    <div class="w-full px-2">
                         <DonutChart />
                     </div>
                 </div>
             </div>
+            <!-- Cuarta fila: RadialChart ocupa todo el ancho -->
             <div class="w-full mx-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex w-full px-2">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                    <div class="w-full px-2">
                         <RadialChart />
                     </div>
                 </div>
             </div>
-
         </div>
+
 
         <!-- Tabla de anunciantes -->
         <section>

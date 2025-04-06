@@ -17,6 +17,11 @@ export default [
 				path: 'showcase',
 				name: "DealsProductsManagerShowcase",
 				component: () => import("./../views/ShowcaseView.vue"),
+			},
+			{
+				path: 'create',
+				name: "DealsProductsManagerCreate",
+				component: () => import("./../views/CreateView.vue"),
 			}
 		]
 	}
