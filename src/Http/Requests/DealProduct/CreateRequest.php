@@ -18,15 +18,16 @@ class CreateRequest extends FormRequest
 
     public function authorize()
     {
-
         return $this->user()->can('create', DealProduct::class);
-
     }
 
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
+            'image' => 'nullable|image|max:2048',
+            'price' => 'required|numeric|min:0',
         ];
     }
 
@@ -51,15 +52,10 @@ class CreateRequest extends FormRequest
 
     public function handle()
     {
-
         $dealProduct = (new DealProduct)->createModel($this);
-
         $response = new DealProductResource($dealProduct);
-
         event(new CreateEvent($dealProduct, $this->all(), $response));
-
         return $response;
-
     }
     
 }

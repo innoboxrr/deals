@@ -3,15 +3,77 @@ export default [
 		path: 'deals-manager',
 		name: "DealsManager",
 		component: () => import("./../layout/DealsManagerLayout.vue"),
-		redirect: { name: "DealsManagerDeals" },
+		redirect: { name: "DealsManagerDashboard" },
 		meta: {
 			title: "Deals Manager Dashboard",
 		},
 		children: [
 			{
-				path: 'deals',
-				name: "DealsManagerDeals",
-				component: () => import("./../views/DealsView.vue"),
+				path: 'dashboard',
+				name: "DealsManagerDashboard",
+				component: () => import("./../views/DashboardView.vue"),
+			},
+			{
+				path: 'deal',
+				name: "DealsManagerDeal",
+				component: () => import("./../layout/DealLayout.vue"),
+				children: [
+					{
+						path: 'create',
+						name: "DealsManagerDealCreate",
+						component: () => import("./../views/deal/CreateView.vue"),
+						meta: {
+							title: "Create Deal",
+						},
+					},
+					{
+						path: ':dealId',
+						name: "DealsManagerDealDetails",
+						component: () => import("./../views/deal/ShowView.vue"),
+						meta: {
+							title: "Deal Details",
+						},
+					},
+					{
+						path: ':dealId/edit',
+						name: "DealsManagerDealEdit",
+						component: () => import("./../views/deal/EditView.vue"),
+						meta: {
+							title: "Edit Deal",
+						},
+					}
+				]
+			},
+			{
+				path: 'deal-product',
+				name: "DealsManagerDealProduct",
+				component: () => import("./../layout/DealProductLayout.vue"),
+				children: [
+					{
+						path: 'create',
+						name: "DealsManagerDealProductCreate",
+						component: () => import("./../views/deal-product/CreateView.vue"),
+						meta: {
+							title: "Create DealProduct",
+						},
+					},
+					{
+						path: ':dealProductId',
+						name: "DealsManagerDealProductDetails",
+						component: () => import("./../views/deal-product/ShowView.vue"),
+						meta: {
+							title: "DealProduct Details",
+						},
+					},
+					{
+						path: ':dealProductId/edit',
+						name: "DealsManagerDealProductEdit",
+						component: () => import("./../views/deal-product/EditView.vue"),
+						meta: {
+							title: "Edit DealProduct",
+						},
+					}
+				]
 			}
 		]
 	}

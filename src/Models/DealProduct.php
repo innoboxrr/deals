@@ -38,7 +38,6 @@ class DealProduct extends Model
     protected $creatable = [
         'name',
         'description',
-        'payload',
         'deal_id',
     ];
     
@@ -56,8 +55,36 @@ class DealProduct extends Model
     protected $protected_metas = [];
     
     protected $editable_metas = [
-        //EDITABLEMETAS//
-    ];
+        // Información general y creativa
+        'image',             // URL de la imagen principal
+        'gallery',           // Galería de imágenes adicionales (array)
+        'video_url',         // URL del video promocional (si aplica)
+        'tagline',           // Eslogan o lema breve
+        'description',       // Descripción detallada del producto
+        'features',          // Lista de características principales (array)
+        'benefits',          // Lista de beneficios clave (array)
+    
+        // Detalles del producto
+        'category',          // Categoría principal (ej.: seguros, salud, automóviles)
+        'sub_category',      // Subcategoría (si aplica)
+        'brand',             // Marca o proveedor
+        'model',             // Modelo o versión del producto
+        'price_range',       // Rango de precios o nivel de precio (ej.: "$$", "$$$")
+        'warranty',          // Detalles de garantía (si aplica)
+        'availability',      // Información de disponibilidad o stock
+    
+        // Público objetivo del producto
+        'min_age',           // Edad mínima recomendada
+        'max_age',           // Edad máxima recomendada
+        'gender',            // Género(s) a los que se dirige (ej.: ['male', 'female'])
+        'ideal_interests',   // Intereses o estilos de vida que definen al cliente ideal (array)
+        'usage_context',     // Escenarios o situaciones en que se usa el producto
+    
+        // Información de marketing
+        'key_message',       // Mensaje clave o propuesta de valor
+        'differentiators',   // Elementos diferenciadores frente a la competencia
+        'testimonials',      // Testimonios o reseñas (opcional)
+    ];    
     
     public static $export_cols = [
         'id',

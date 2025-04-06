@@ -1,19 +1,18 @@
 <template>	
-	<form :id="formId" @submit.prevent="onSubmit">
+	<form id="dealProductFilterForm" @submit.prevent="onSubmit">
 		<div class="uk-flex uk-flex-left uk-child-width-1-4@m uk-child-width-1-1@s" uk-grid>
-			
-            <!-- ID -->
-            <div>
+			<!-- ID -->
+			<div>
 				<text-input-component
 					:custom-class="inputClass"
 					type="text"
 					name="id"
 					label="ID"
 					placeholder="ID" 
-					v-model="filters.id" />
+					v-model="id" />
 			</div>
 
-            <!-- NAME -->
+			<!-- Nombre -->
 			<div>
 				<text-input-component
 					:custom-class="inputClass"
@@ -21,35 +20,30 @@
 					name="name"
 					label="Nombre"
 					placeholder="Nombre del producto"
-					:min_length="3"
-					validators="length"
-					v-model="filters.name" />
+					v-model="name" />
 			</div>
 
-            <!-- PRICE MIN -->
+			<!-- Categoría -->
 			<div>
 				<text-input-component
 					:custom-class="inputClass"
-					type="number"
-					name="price_min"
-					label="Precio mínimo"
-					placeholder="Desde"
-					validators="decimal"
-					v-model="filters.price_min" />
+					type="text"
+					name="category"
+					label="Categoría"
+					placeholder="Ej. seguros, salud"
+					v-model="category" />
 			</div>
 
-            <!-- PRICE MAX -->
+			<!-- Marca -->
 			<div>
 				<text-input-component
 					:custom-class="inputClass"
-					type="number"
-					name="price_max"
-					label="Precio máximo"
-					placeholder="Hasta"
-					validators="decimal"
-					v-model="filters.price_max" />
+					type="text"
+					name="brand"
+					label="Marca"
+					placeholder="Marca o proveedor"
+					v-model="brand" />
 			</div>
-
 		</div>
 
 		<div class="uk-flex uk-flex-right uk-child-width-auto@m uk-child-width-1-1@m" uk-grid>
@@ -61,8 +55,8 @@
 			<div>
 				<button 
 					:class="buttonClass + ' bg-gray-400'"
-					@click.prevent="resetForm">
-					{{ __('Resetear') }}
+					@click.prevent="resetForm()">
+					{{ __('Restablecer') }}
 				</button>
 			</div>
 		</div>
@@ -70,49 +64,34 @@
 </template>
 
 <script>
-	import { 
-		TextInputComponent
-	} from 'innoboxrr-form-elements'
+	import { TextInputComponent } from 'innoboxrr-form-elements'
 
 	export default {
-
 		components: {
-			TextInputComponent,
-		},
-
-		props: {
-			formId: {
-				type: String,
-				default: 'dealProductFilterForm'
-			},
+			TextInputComponent
 		},
 
 		emits: ['submit'],
 
 		data() {
 			return {
-				filters: {
-					id: null,
-					name: '',
-					price_min: '',
-					price_max: '',
-				}
+				id: null,
+				name: null,
+				category: null,
+				brand: null,
 			}
 		},
 
 		methods: {
-
 			onSubmit() {
-				this.$emit('submit', this.filters);
+				this.$emit('submit', this.$data);
 			},
 
 			resetForm() {
-				this.filters = {
-					id: null,
-					name: '',
-					price_min: '',
-					price_max: '',
-				}
+				this.id = null;
+				this.name = null;
+				this.category = null;
+				this.brand = null;
 				this.onSubmit();
 			}
 		}

@@ -4,6 +4,29 @@ export const API_ROUTE_PREFIX = 'api.innoboxrr.deals.deal_product.'; // Reemplaz
 
 export const CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Reemplaza con el token adecuado
 
+export const categoryData = {
+	'Seguros': [
+		'Autos', 
+		'Vida', 
+		'Salud'
+	],
+	'Salud': [
+		'Médico general', 
+		'Especialistas', 
+		'Planes'
+	],
+	'Tecnología': [
+		'Celulares', 
+		'Laptops', 
+		'Accesorios'
+	],
+	'Hogar': [
+		'Electrodomésticos', 
+		'Muebles', 
+		'Decoración'
+	]
+}
+
 export let filters = {}
 
 export const setFilters = (newFilters = {}) => {

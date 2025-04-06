@@ -3,7 +3,6 @@
 namespace Innoboxrr\Deals\Models\Traits\Relations;
 
 use Innoboxrr\Deals\Models\DealAdPlatform;
-use Innoboxrr\Deals\Models\DealAdvertiser;
 // use Innoboxrr\Deals\Models\DealAffiliateAgreement;
 // use Innoboxrr\Deals\Models\DealAffiliateInvoice;
 use Innoboxrr\Deals\Models\DealAlert;
@@ -18,14 +17,18 @@ use Innoboxrr\Deals\Models\DealAdvertiserAgreement;
 
 trait DealRelations
 {
+    public function product()
+    {
+        return $this->hasOne(DealProduct::class, 'deal_id');
+    }
+
+    //////
+    //////
+    //////
+
     public function adPlatforms()
     {
         return $this->hasMany(DealAdPlatform::class, 'deal_id');
-    }
-
-    public function advertiser()
-    {
-        return $this->hasOne(DealAdvertiser::class, 'deal_id');
     }
 
     /*
@@ -55,11 +58,6 @@ trait DealRelations
     public function performanceSnapshots()
     {
         return $this->hasMany(DealPerformanceSnapshot::class, 'deal_id');
-    }
-
-    public function product()
-    {
-        return $this->belongsTo(DealProduct::class, 'deal_product_id');
     }
 
     public function metas()
