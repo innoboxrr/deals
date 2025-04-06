@@ -1,70 +1,74 @@
 <template>
-    <div class="min-h-screen bg-gray-50">
-        <header class="border-b border-gray-200 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-
-                <!-- Título del Dashboard -->
-                <h1 class="text-xl font-semibold text-gray-900">
-                    {{ __deals('Ads Management Dashboard') }}
-                </h1>
-
-                <div class="flex items-center gap-4 justify-between sm:justify-end">
-                    
-                    <!-- Selector de Deal -->
-                    <div class="flex items-center">
-                        <label for="deal-select" class="mr-2 text-sm font-medium text-gray-700">
-                            Deal:
-                        </label>
-                        <select
-                            id="deal-select"
-                            v-model="dealId"
-                            class="block w-48 rounded-md border-gray-300 bg-white py-2 px-3 text-sm focus:outline-none">
-                            <option disabled value="">-- Selecciona un Deal --</option>
-                            <option 
-                                v-for="deal in deals" 
-                                :key="deal.id" 
-                                :value="deal.id">
-                                {{ deal.name }}
-                            </option>
-                        </select>
-                    </div>
-
-                    <!-- Métricas del Deal seleccionado -->
-                    <Menu as="div" class="relative inline-block text-left">
-                        <div>
-                            <MenuButton class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                <span class="hidden sm:inline">Acciones Globales</span>
-                                <span class="sm:hidden">Acciones</span>
-                                <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-                            </MenuButton>
-                        </div>
-                        <transition
-                            enter-active-class="transition ease-out duration-100"
-                            enter-from-class="transform opacity-0 scale-95"
-                            enter-to-class="transform opacity-100 scale-100"
-                            leave-active-class="transition ease-in duration-75"
-                            leave-from-class="transform opacity-100 scale-100"
-                            leave-to-class="transform opacity-0 scale-95">
-                            <MenuItems class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
-                                <div class="py-1">
-                                    <MenuItem v-slot="{ active }">
-                                        <a
-                                            href="#"
-                                            @click.prevent="viewReports"
-                                            :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                            Ver Reportes
-                                        </a>
-                                    </MenuItem>
+    <div class="min-h-screen">
+        <section class="flex items-center bg-gray-50 dark:bg-gray-900">
+            <div class="w-full">
+                <div class="relative dark:bg-gray-800 border-b">
+                    <div class="px-4 divide-y dark:divide-gray-700">
+                        <div class="flex items-center justify-between py-3">
+                            <div class="flex items-center flex-1 space-x-2">
+                                <h5 class="font-semibold dark:text-white">
+                                    Dashboard de anunciantes
+                                </h5>
+                            </div>
+                            <div class="flex items-center gap-4 justify-between sm:justify-end">
+                                
+                                <!-- Selector de Deal -->
+                                <div class="flex items-center">
+                                    <label for="deal-select" class="mr-2 text-sm font-medium text-gray-700">
+                                        Deal:
+                                    </label>
+                                    <select
+                                        id="deal-select"
+                                        v-model="dealId"
+                                        class="block w-48 rounded-md border-gray-300 bg-white py-2 px-3 text-sm focus:outline-none">
+                                        <option disabled value="">-- Selecciona un Deal --</option>
+                                        <option 
+                                            v-for="deal in deals" 
+                                            :key="deal.id" 
+                                            :value="deal.id">
+                                            {{ deal.name }}
+                                        </option>
+                                    </select>
                                 </div>
-                            </MenuItems>
-                        </transition>
-                    </Menu>
 
+                                <!-- Métricas del Deal seleccionado -->
+                                <Menu as="div" class="relative inline-block text-left">
+                                    <div>
+                                        <MenuButton class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                                            <span class="hidden sm:inline">Acciones Globales</span>
+                                            <span class="sm:hidden">Acciones</span>
+                                            <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                        </MenuButton>
+                                    </div>
+                                    <transition
+                                        enter-active-class="transition ease-out duration-100"
+                                        enter-from-class="transform opacity-0 scale-95"
+                                        enter-to-class="transform opacity-100 scale-100"
+                                        leave-active-class="transition ease-in duration-75"
+                                        leave-from-class="transform opacity-100 scale-100"
+                                        leave-to-class="transform opacity-0 scale-95">
+                                        <MenuItems class="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                                            <div class="py-1">
+                                                <MenuItem v-slot="{ active }">
+                                                    <a
+                                                        href="#"
+                                                        @click.prevent="viewReports"
+                                                        :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                                                        Ver Reportes
+                                                    </a>
+                                                </MenuItem>
+                                            </div>
+                                        </MenuItems>
+                                    </transition>
+                                </Menu>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </header>
+        </section>
         
-        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-white">
 
             <!-- Columna Platforms -->
             <div v-if="selectedDeal" class="border border-gray-200 p-4">
@@ -584,12 +588,10 @@
                 </Menu>
             </div>
 
-        </main>
+        </section>
 
         <!-- Views -->
-        <section 
-            v-if="selectedDeal" 
-            class="border-t border-gray-200">
+        <section v-if="selectedDeal" class="border-t border-gray-200">
             <router-view />
         </section>
         <section 

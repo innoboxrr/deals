@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div v-flowbite>
         <section class="flex items-center bg-gray-50 dark:bg-gray-900">
             <div class="w-full">
-                <div class="relative dark:bg-gray-800 border-b">
+                <div class="relative overflow-hidden dark:bg-gray-800 border-b">
                     <div class="px-4 divide-y dark:divide-gray-700">
                         <div class="flex items-center justify-between py-3">
                             <div class="flex items-center flex-1 space-x-2">
@@ -10,57 +10,57 @@
                                     Dashboard de anunciantes
                                 </h5>
                             </div>
-                            <div class="flex items-center gap-4 justify-between sm:justify-end">
-                                
-                                <!-- Selector de Deal -->
-                                <div class="flex items-center">
-                                    <label for="deal-select" class="mr-2 text-sm font-medium text-gray-700">
-                                        Deal:
-                                    </label>
-                                    <select
-                                        id="deal-select"
-                                        v-model="dealId"
-                                        class="block w-48 rounded-md border-gray-300 bg-white py-2 px-3 text-sm focus:outline-none">
-                                        <option disabled value="">-- Selecciona un Deal --</option>
-                                        <option 
-                                            v-for="deal in deals" 
-                                            :key="deal.id" 
-                                            :value="deal.id">
-                                            {{ deal.name }}
-                                        </option>
+                            <div class="flex items-center space-x-2 md:space-x-4">
+                                <button 
+                                    type="button"
+                                    class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-white bg-indigo-600 border border-gray-200 rounded-lg fhover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 focus:z-10 focus:ring-4 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                    <i class="h-5 w-5 pt-1 mr-2 text-white fa-solid fa-plus"></i>
+                                    Añadir anunciante
+                                </button>
+                                <button 
+                                    type="button"
+                                    class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                    <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-download"></i>
+                                    Export
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-stretch py-4 md:flex-row md:items-center">
+                            <div class="flex flex-col space-y-3 md:flex-row md:items-center w-full md:space-y-0 justify-between">
+                                <div class="flex flex-col space-y-1 md:space-y-0 md:flex-row md:items-center md:mr-5">
+                                    <span class="mx-auto text-gray-500 md:mx-4 pt-2 px-3">
+                                        Results from: 
+                                    </span>
+                                    <div class="relative min-w-[12rem]">
+                                        <input 
+                                            name="start" 
+                                            type="date" 
+                                            id="start" 
+                                            placeholder="Select start date"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    </div>
+                                    <span class="mx-auto text-gray-500 md:mx-4 pt-2 px-3">to</span>
+                                    <div class="relative min-w-[12rem]">
+                                        <input 
+                                            name="end" 
+                                            type="date" 
+                                            placeholder="Select end date"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    </div>
+                                </div>
+                                <div class="ml-auto md:mr-4 min-w-[10rem]">
+                                    <select 
+                                        id="compare"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option selected>Compare to</option>
+                                        <option value="last_year">Last Year</option>
+                                        <option value="last_month">Last Month</option>
+                                        <option value="yesterday">Yesterday</option>
+                                        <option value="last_week">Last Week</option>
+                                        <option value="last_3_months">Last 3 Months</option>
+                                        <option value="last_6_months">Last 6 Months</option>
                                     </select>
                                 </div>
-
-                                <!-- Métricas del Deal seleccionado -->
-                                <Menu as="div" class="relative inline-block text-left">
-                                    <div>
-                                        <MenuButton class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                            <span class="hidden sm:inline">Acciones Globales</span>
-                                            <span class="sm:hidden">Acciones</span>
-                                            <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                        </MenuButton>
-                                    </div>
-                                    <transition
-                                        enter-active-class="transition ease-out duration-100"
-                                        enter-from-class="transform opacity-0 scale-95"
-                                        enter-to-class="transform opacity-100 scale-100"
-                                        leave-active-class="transition ease-in duration-75"
-                                        leave-from-class="transform opacity-100 scale-100"
-                                        leave-to-class="transform opacity-0 scale-95">
-                                        <MenuItems class="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
-                                            <div class="py-1">
-                                                <MenuItem v-slot="{ active }">
-                                                    <a
-                                                        href="#"
-                                                        @click.prevent="viewReports"
-                                                        :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                        Ver Reportes
-                                                    </a>
-                                                </MenuItem>
-                                            </div>
-                                        </MenuItems>
-                                    </transition>
-                                </Menu>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
             </div>
         </section>
 
-        <div class="px-4 mt-4 mb-2 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="px-4 my-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <div class="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:p-6">
                 <i class="mb-2 h-6 w-6 text-gray-400 fa-solid fa-users"></i>
                 <h3 class="text-gray-500 dark:text-gray-400">
@@ -145,30 +145,6 @@
             </div>
         </div>
 
-        <div class="flex flex-col p-2">
-            <div class="w-full mx-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex w-full px-2">
-                        <DonutChart />
-                    </div>
-                    <div class="flex w-full px-2">
-                        <LineChart />
-                    </div>
-                </div>
-            </div>
-            <div class="w-full mx-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex w-full px-2">
-                        <ColumnChart />
-                    </div>
-                    <div class="flex w-full px-2">
-                        <BarChart />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tabla de anunciantes -->
         <section>
             <div class="px-4 mx-auto">
                 <div class="relative overflow-hidden bg-white dark:bg-gray-800 sm:rounded-lg border">
@@ -366,8 +342,7 @@
 
         <div class="py-4"></div>
 
-        <!-- Tabla de acuerdos -->
-        <section class="mb-4">
+        <section>
             <div class="px-4 mx-auto">
                 <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg">
                     <div class="border-b dark:border-gray-700 mx-4">
@@ -938,39 +913,16 @@
 </template>
 
 <script>
-    import { indexModel as indexDealModel, showModel as showDealModel } from '@dealsModels/deal'
-    import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-    import {
-        ChevronDownIcon,
-    } from '@heroicons/vue/20/solid'
-    import DonutChart from '@dealsComponents/charts/DonutChart.vue';
-    import LineChart from '@dealsComponents/charts/LineChart.vue';
-    import ColumnChart from '@dealsComponents/charts/ColumnChart.vue';
-    import BarChart from '@dealsComponents/charts/BarChart.vue';
+    import { MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
 
     export default {
-        name: "dealDashboardSection",
+        name: "AdvertisersManagerLayout",
         components: {
-            Menu,
-            MenuButton,
-            MenuItem,
-            MenuItems,
-            ChevronDownIcon,
-            DonutChart,
-            LineChart,
-            ColumnChart,
-            BarChart,
+            MagnifyingGlassIcon,
         },
         data() {
             return {
                 visibleRow: null,
-                dealId: 1,
-                deals: [
-                    { id: 0, name: 'All' },
-                    { id: 1, name: 'Deal 1' },
-                    { id: 2, name: 'Deal 2' },
-                    { id: 3, name: 'Deal 3' },
-                ],
             };
         },
         methods: {
@@ -980,3 +932,7 @@
         },
     };
 </script>
+
+<style scoped>
+/* Ajusta estilos adicionales si lo deseas */
+</style>

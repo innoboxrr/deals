@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-50 flex flex-col">
-        <header class="border-b border-gray-200 bg-white px-8 py-6 shadow">
+    <div class="min-h-screen flex flex-col">
+        <header class="border-b border-gray-200 bg-white px-8 py-6">
             <div class="flex items-center justify-between">
                 <div>
                     <h1 class="text-3xl font-bold text-gray-900">

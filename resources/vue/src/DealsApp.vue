@@ -86,9 +86,9 @@ import {
 	TransitionRoot,
 } from "@headlessui/vue";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
-import SidebarMenu from "./components/SidebarMenu.vue";
-import SearchHeader from "./components/SearchHeader.vue";
-import ActivityFeed from "./components/ActivityFeed.vue";
+import SidebarMenu from "./components/partials/SidebarMenu.vue";
+import SearchHeader from "./components/partials/SearchHeader.vue";
+import ActivityFeed from "./components/partials/ActivityFeed.vue";
 import { useGlobalStore } from "@dealsStore/globalStore.js";
 
 export default {
@@ -129,6 +129,10 @@ export default {
 			this.showSidebar = !this.showSidebar;
 			this.sidebarOpen = true;
 		},
+        setVisibleRow(row) {
+            this.visibleRow = this.visibleRow === row ? null : row;
+        },
 	},
+
 };
 </script>

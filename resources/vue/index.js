@@ -1,7 +1,7 @@
 import DealsApp from './src/DealsApp.vue';
 import dealsRoutes from './src/routes';
 import { TranslatePlugin, TitlePlugin } from './src/plugins';
-import PageHeader from './src/components/PageHeader.vue';
+import PageHeader from './src/components/partials/PageHeader.vue';
 
 export const routes = dealsRoutes;
 
