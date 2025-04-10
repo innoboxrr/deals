@@ -1,10 +1,23 @@
 <template>
-    <div class="w-full max-w-screen-xl mx-auto px-4 py-6">
+    <div class="w-full max-w-screen-xl mx-auto">
+
+        <h2 class="text-2xl font-bold">
+            {{ __deals('Create Deal') }}
+        </h2>
+        <p class="text-gray-400 mb-4">
+            {{ __deals('Fill out the fields to create a new deal.') }}
+        </p>
+
         <div class="flex flex-col md:flex-row gap-6 items-start">
 
             <!-- Sidebar Steps (fixed width) -->
             <ol class="space-y-4 w-full md:w-[250px] shrink-0">
-                <li v-for="(step, i) in steps" :key="i">
+                <li
+                    v-for="(step, i) in steps"
+                    :key="i"
+                    @click="goToStep(i)"
+                    class="cursor-pointer"
+                >
                     <div
                         class="w-full p-4 border rounded-lg"
                         :class="stepClass(step)"
@@ -25,6 +38,10 @@
                         </div>
                     </div>
                 </li>
+                <button-component
+                    v-if="mode === 'create'"
+                    @click="resetLocal"
+                    value="Reiniciar" />
             </ol>
 
             <!-- Step Content -->
@@ -39,34 +56,29 @@
 
                 <!-- Navigation -->
                 <div class="flex flex-wrap gap-2 justify-between">
-                    <button-component
-                        v-if="stepIndex > 0"
-                        @click="prevStep"
-                        value="Anterior" />
-
-                    <button-component
-                        v-if="!isLastStep"
-                        :disabled="!steps[stepIndex].valid"
-                        @click="nextStep"
-                        value="Siguiente" />
-
-                    <button-component
-                        v-else
-                        :disabled="!steps[stepIndex].valid"
-                        @click="submit"
-                        :value="mode === 'edit' ? 'Actualizar' : 'Crear'" />
-
-                    <button-component
-                        v-if="mode === 'create'"
-                        @click="resetLocal"
-                        value="Reiniciar" />
+                    <div v-if="stepIndex > 0">
+                        <button-component
+                            @click="prevStep"
+                            value="Anterior" />
+                    </div>
+                    <div v-if="!isLastStep">
+                        <button-component
+                            :disabled="!steps[stepIndex].valid"
+                            @click="nextStep"
+                            value="Siguiente" />
+                    </div>
+                    <div v-else>
+                        <button-component
+                            :disabled="!steps[stepIndex].valid"
+                            @click="submit"
+                            :value="mode === 'edit' ? 'Actualizar' : 'Crear'" />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
-  
-  
+
 <script>
     import StepGeneral from './steps/StepGeneral.vue'
     import StepAutomation from './steps/StepAutomation.vue'
@@ -75,7 +87,7 @@
     import StepSegmentation from './steps/StepSegmentation.vue'
     import { ButtonComponent } from 'innoboxrr-form-elements'
     import { createModel, updateModel } from '@dealsModels/deal'
-    
+
     export default {
         components: {
             StepGeneral,
@@ -95,20 +107,20 @@
                 default: 'create'
             }
         },
-        emits: ['submit'],
+        emits: ['submit', 'loadDraft'],
         data() {
-        return {
-            stepIndex: 0,
-            steps: [
-                { title: '1. Información General', component: 'StepGeneral', valid: false, completed: false, active: true },
-                { title: '2. Automatización', component: 'StepAutomation', valid: false, completed: false, active: false },
-                { title: '3. Hipótesis', component: 'StepHypothesis', valid: false, completed: false, active: false },
-                { title: '4. Alertas', component: 'StepAlerts', valid: false, completed: false, active: false },
-                { title: '5. Segmentación', component: 'StepSegmentation', valid: false, completed: false, active: false },
-            ],
-            storageKey: null,
-            hasChanges: false
-        }
+            return {
+                stepIndex: 0,
+                steps: [
+                    { title: '1. Información General', component: 'StepGeneral', valid: false, completed: false, active: true },
+                    { title: '2. Automatización', component: 'StepAutomation', valid: false, completed: false, active: false },
+                    { title: '3. Hipótesis', component: 'StepHypothesis', valid: false, completed: false, active: false },
+                    { title: '4. Alertas', component: 'StepAlerts', valid: false, completed: false, active: false },
+                    { title: '5. Segmentación', component: 'StepSegmentation', valid: false, completed: false, active: false },
+                ],
+                storageKey: null,
+                hasChanges: false
+            }
         },
         computed: {
             currentComponent() {
@@ -131,12 +143,15 @@
         },
         mounted() {
             if (this.mode === 'create') {
-                const id = crypto.randomUUID()
-                this.storageKey = `draft_deal_${id}`
                 const url = new URL(window.location.href)
-                url.searchParams.set('draft', id)
-                window.history.replaceState({}, '', url)
-        
+                let id = url.searchParams.get('draft')
+                if (!id) {
+                    id = crypto.randomUUID()
+                    url.searchParams.set('draft', id)
+                    window.history.replaceState({}, '', url)
+                }
+                this.storageKey = `draft_deal_${id}`
+
                 const saved = localStorage.getItem(this.storageKey)
                 if (saved) {
                     this.$emit('loadDraft', JSON.parse(saved))
@@ -168,39 +183,43 @@
                 this.stepIndex--
                 this.steps[this.stepIndex].active = true
             },
+            goToStep(index) {
+                this.steps[this.stepIndex].active = false
+                this.stepIndex = index
+                this.steps[this.stepIndex].active = true
+            },
             submit() {
                 const payload = {
-                name: this.deal.name,
-                description: this.deal.description,
-                ...this.deal.payload
+                    name: this.deal.name,
+                    description: this.deal.description,
+                    ...this.deal.payload
                 }
                 const handler = this.mode === 'edit'
-                ? updateModel(this.deal.id, payload)
-                : createModel(payload)
-        
+                    ? updateModel(this.deal.id, payload)
+                    : createModel(payload)
+
                 handler.then(res => {
-                if (this.storageKey) localStorage.removeItem(this.storageKey)
-                this.$emit('submit', res)
+                    if (this.storageKey) localStorage.removeItem(this.storageKey)
+                    this.$emit('submit', res)
                 }).catch(error => {
-                if (error?.response?.status === 422) {
-                    // manejar errores si se desea
-                }
+                    if (error?.response?.status === 422) {
+                        // manejar errores si se desea
+                    }
                 })
             },
             handleExit(e) {
                 if (this.mode === 'create' && this.hasChanges) {
-                e.preventDefault()
-                e.returnValue = ''
-                return ''
+                    e.preventDefault()
+                    e.returnValue = ''
+                    return ''
                 }
             },
             resetLocal() {
                 if (this.storageKey) {
-                localStorage.removeItem(this.storageKey)
-                window.location.reload()
+                    localStorage.removeItem(this.storageKey)
+                    window.location.reload()
                 }
             }
         }
     }
-  </script>
-  
+</script>
