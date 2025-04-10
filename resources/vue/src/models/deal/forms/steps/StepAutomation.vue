@@ -19,7 +19,7 @@
             name="min_ctr"
             label="CTR mínimo (%)"
             placeholder="Ej: 1.5"
-            :step="0.01"
+            :steps="0.01"
             v-model="localDeal.payload.automation_thresholds.min_ctr" />
 
         <!-- Umbral máximo de CPL -->
@@ -29,7 +29,7 @@
             name="max_cpl"
             label="CPL máximo"
             placeholder="Ej: 30"
-            :step="0.01"
+            :steps="0.01"
             v-model="localDeal.payload.automation_thresholds.max_cpl" />
 
         <!-- Umbral máximo de CPA -->
@@ -39,6 +39,7 @@
             name="max_cpa"
             label="CPA máximo"
             placeholder="Ej: 50"
+            :steps="0.01"
             v-model="localDeal.payload.automation_thresholds.max_cpa" />
     </div>
 </template>

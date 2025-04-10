@@ -7,7 +7,7 @@
             name="hypothesis_ctr"
             label="CTR esperado (%)"
             placeholder="Ej: 2.5"
-            validators="decimal"
+            :steps="0.01"
             v-model="localDeal.payload.hypothesis.ctr" />
 
         <!-- CPL ideal -->
@@ -17,7 +17,7 @@
             name="hypothesis_cpl"
             label="CPL ideal"
             placeholder="Ej: 15.00"
-            validators="decimal"
+            :steps="0.01"
             v-model="localDeal.payload.hypothesis.cpl" />
 
         <!-- CPA ideal -->
@@ -27,7 +27,7 @@
             name="hypothesis_cpa"
             label="CPA ideal"
             placeholder="Ej: 40.00"
-            validators="decimal"
+            :steps="0.01"
             v-model="localDeal.payload.hypothesis.cpa" />
 
         <!-- Conversión estimada -->
@@ -37,7 +37,7 @@
             name="hypothesis_conversion_rate"
             label="Tasa de conversión estimada (%)"
             placeholder="Ej: 5.0"
-            validators="decimal"
+            :steps="0.01"
             v-model="localDeal.payload.hypothesis.conversion_rate" />
 
         <!-- Leads esperados por día -->
@@ -57,7 +57,7 @@
             name="hypothesis_roi"
             label="ROI estimado (%)"
             placeholder="Ej: 120"
-            validators="decimal"
+            :steps="0.01"
             v-model="localDeal.payload.hypothesis.roi" />
     </div>
 </template>

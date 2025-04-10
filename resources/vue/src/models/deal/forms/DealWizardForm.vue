@@ -19,23 +19,26 @@
                     class="cursor-pointer"
                 >
                     <div
-                        class="w-full p-4 border rounded-lg"
-                        :class="stepClass(step)"
+                        class="w-full p-4 border rounded-lg flex items-center justify-between gap-2"
+                        :class="[
+                            stepClass(step),
+                            step.active ? 'ring-2 ring-offset-1 ring-blue-500' : '',
+                        ]"
                         role="alert">
-                        <div class="flex items-center justify-between">
-                            <h3 class="font-medium text-sm md:text-base">
-                                {{ step.title }}
-                            </h3>
-                            <svg v-if="step.completed" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5.917 5.724 10.5 15 1.5" />
-                            </svg>
-                            <svg v-else-if="step.active" class="rtl:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
-                            </svg>
-                        </div>
+                        <h3
+                            class="text-sm md:text-base"
+                            :class="step.active ? 'font-bold' : 'font-medium'">
+                            {{ step.title }}
+                        </h3>
+                        <svg v-if="step.completed" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M1 5.917 5.724 10.5 15 1.5" />
+                        </svg>
+                        <svg v-else-if="step.active" class="rtl:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
                     </div>
                 </li>
                 <button-component
