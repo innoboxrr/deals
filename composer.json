@@ -36,6 +36,7 @@
         }
     },
     "require": {
-        "innoboxrr/laravel-audit": "^1.2"
+        "innoboxrr/laravel-audit": "^1.2",
+        "dragonmantank/cron-expression": "^3.4"
     }
 }

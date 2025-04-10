@@ -64,7 +64,7 @@
 
 <script>
 
-    import { createModel } from '@models/deal-alert'
+    import { createModel } from '@dealsModels/deal-alert'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

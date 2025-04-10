@@ -81,7 +81,7 @@
 </template>
 
 <script>
-    import { createModel } from '@models/deal-lead'
+    import { createModel } from '@dealsModels/deal-lead'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

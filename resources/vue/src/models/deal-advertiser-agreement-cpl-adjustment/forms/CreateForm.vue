@@ -40,7 +40,7 @@
 
 <script>
 
-    import { createModel } from '@models/deal-advertiser-agreement-cpl-adjustment'
+    import { createModel } from '@dealsModels/deal-advertiser-agreement-cpl-adjustment'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

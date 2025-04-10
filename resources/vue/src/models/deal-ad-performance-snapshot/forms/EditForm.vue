@@ -87,7 +87,7 @@
 
 <script>
 
-    import { showModel, updateModel } from '@models/deal-ad-performance-snapshot'
+    import { showModel, updateModel } from '@dealsModels/deal-ad-performance-snapshot'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

@@ -79,7 +79,7 @@
 
 <script>
 
-    import { createModel } from '@models/deal-advertiser-agreement-daily'
+    import { createModel } from '@dealsModels/deal-advertiser-agreement-daily'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

@@ -76,7 +76,7 @@
 
 <script>
 
-    import { showModel, updateModel } from '@models/deal-advertiser-agreement-constraint'
+    import { showModel, updateModel } from '@dealsModels/deal-advertiser-agreement-constraint'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

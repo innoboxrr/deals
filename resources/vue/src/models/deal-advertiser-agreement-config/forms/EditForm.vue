@@ -110,7 +110,7 @@
 
 <script>
 
-    import { showModel, updateModel } from '@models/deal-advertiser-agreement-config'
+    import { showModel, updateModel } from '@dealsModels/deal-advertiser-agreement-config'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

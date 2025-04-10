@@ -44,7 +44,7 @@
 
 <script>
 
-    import { createModel } from '@models/deal-lead-tracking-event'
+    import { createModel } from '@dealsModels/deal-lead-tracking-event'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

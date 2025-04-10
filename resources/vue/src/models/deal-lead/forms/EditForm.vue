@@ -82,7 +82,7 @@
 
 <script>
 
-import { showModel, updateModel } from '@models/deal-lead'
+import { showModel, updateModel } from '@dealsModels/deal-lead'
 import JSValidator from 'innoboxrr-js-validator'
 import {
     TextInputComponent,

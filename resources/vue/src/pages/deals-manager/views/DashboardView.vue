@@ -1,10 +1,5 @@
 <template>
     <div>
-
-        <header-component :deals="deals" v-model="dealId" />
-
-        
-
         <div class="px-4 mt-4 mb-2 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <div class="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:p-6">
                 <i class="mb-2 h-6 w-6 text-gray-400 fa-solid fa-users"></i>
@@ -890,7 +885,6 @@
         name: "dealDashboardSection",
         components: {
             HeaderComponent,
-
             AreaChart,
             LineChart,
             ColumnChart,

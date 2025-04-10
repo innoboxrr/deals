@@ -164,7 +164,7 @@
 
 <script>
 
-    import { showModel, updateModel } from '@models/deal-ad-group'
+    import { showModel, updateModel } from '@dealsModels/deal-ad-group'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,

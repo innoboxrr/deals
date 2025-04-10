@@ -37,7 +37,7 @@
 
 <script>
 
-    import { createModel } from '@models/deal-router'
+    import { createModel } from '@dealsModels/deal-router'
     import JSValidator from 'innoboxrr-js-validator'
     import {
         TextInputComponent,
