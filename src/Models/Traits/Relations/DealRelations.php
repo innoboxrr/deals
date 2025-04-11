@@ -9,14 +9,20 @@ use Innoboxrr\Deals\Models\DealAlert;
 use Innoboxrr\Deals\Models\DealGateway;
 use Innoboxrr\Deals\Models\DealPerformanceSnapshot;
 use Innoboxrr\Deals\Models\DealProduct;
-use Innoboxrr\Deals\Models\DealProductMeta;
+use Innoboxrr\Deals\Models\DealMeta;
 use Innoboxrr\Deals\Models\DealRouter;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreement;
+
 // use \Znck\Eloquent\Traits\BelongsToThrough; // Docs: https://github.com/staudenmeir/belongs-to-through
 // use \Staudenmeir\EloquentHasManyDeep\HasRelationships; // Docs: https://github.com/staudenmeir/eloquent-has-many-deep
 
 trait DealRelations
 {
+    public function metas()
+    {
+        return $this->hasMany(DealMeta::class, 'deal_id');
+    }
+
     public function product()
     {
         return $this->hasOne(DealProduct::class, 'deal_id');
@@ -58,11 +64,6 @@ trait DealRelations
     public function performanceSnapshots()
     {
         return $this->hasMany(DealPerformanceSnapshot::class, 'deal_id');
-    }
-
-    public function metas()
-    {
-        return $this->hasMany(DealProductMeta::class, 'deal_id');
     }
 
     public function router()

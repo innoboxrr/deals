@@ -326,200 +326,6 @@ status<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParam
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="867.8344348258105" width="936.617866395351" x="3099.4440549062974" y="209.8738473810373"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="936.617866395351" x="0.0" xml:space="preserve" y="0.0">DealsManager</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-            </y:GroupNode>
-            <y:GroupNode>
-              <y:Geometry height="50.0" width="50.0" x="3099.4440549062974" y="209.8738473810373"/>
-              <y:Fill color="#F5F5F5" transparent="false"/>
-              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="67.369140625" x="-8.6845703125" xml:space="preserve" y="0.0">Folder 10</y:NodeLabel>
-              <y:Shape type="roundrectangle"/>
-              <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-            </y:GroupNode>
-          </y:Realizers>
-        </y:ProxyAutoBoundsNode>
-      </data>
-      <graph edgedefault="directed" id="n2:">
-        <node id="n2::n0" yfiles.foldertype="group">
-          <data key="d4" xml:space="preserve"/>
-          <data key="d6">
-            <y:ProxyAutoBoundsNode>
-              <y:Realizers active="0">
-                <y:GroupNode>
-                  <y:Geometry height="619.5951569879727" width="906.617866395351" x="3114.4440549062974" y="443.1131252188751"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="906.617866395351" x="0.0" xml:space="preserve" y="0.0">Deals</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="148" rightF="148.14439438938052" top="0" topF="0.0"/>
-                </y:GroupNode>
-                <y:GroupNode>
-                  <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="59.02685546875" x="-4.513427734375" xml:space="preserve" y="0.0">Folder 7</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-              </y:Realizers>
-            </y:ProxyAutoBoundsNode>
-          </data>
-          <graph edgedefault="directed" id="n2::n0:">
-            <node id="n2::n0::n0">
-              <data key="d6">
-                <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="203.82199441117768" width="271.9584273504274" x="3283.4275927361123" y="818.7005109114396"/>
-                  <y:Fill color="#CCFFFF" color2="#CCFFCC" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="28.6796875" x="121.63936992521394" xml:space="preserve" y="4.0">Deal</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="165.712890625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="248.810546875" x="2.0" xml:space="preserve" y="30.701171875">id
-name
-description
-payload
- - max_cpl
- - auto_pause_campaigns_on_threshold
- - snapshot_performnace_frenquency_interval
- - snapshot_performnace_frenquency_unit
- - welcome_notifications_rules []
-deal_product_id
-workspace_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
-                  <y:StyleProperties>
-                    <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
-                  </y:StyleProperties>
-                </y:GenericNode>
-              </data>
-            </node>
-            <node id="n2::n0::n1">
-              <data key="d6">
-                <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="166.0" width="153.0" x="3617.402927866796" y="480.4895900626251"/>
-                  <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="148.08203125" x="2.458984375" xml:space="preserve" y="4.0">DealPerformanceSnapshot</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="121.609375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="115.404296875" x="2.0" xml:space="preserve" y="30.701171875">id
-deal_id
-time
-leads_generated
-leads_assigned
-avg_cpl
-avg_conversion_rate
-avg_roi
-<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
-                  <y:StyleProperties>
-                    <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
-                  </y:StyleProperties>
-                </y:GenericNode>
-              </data>
-            </node>
-            <node id="n2::n0::n2">
-              <data key="d6">
-                <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="274.77286972931347" width="105.62500000000011" x="3129.4440549062974" y="536.6763559926093"/>
-                  <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="53.353515625" x="26.1357421875" xml:space="preserve" y="4.0">DealAlert</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="239.21875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="97.375" x="2.0" xml:space="preserve" y="30.701171875">id
-deal_id
-type  
- - high_cpl
- - low_conversion
- - lead_overload
- - no_feedback
-message
-status 
- - pending
- - resolved
- - ignored
-detected_at
-status 
- - pending
- - resolved
-<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
-                  <y:StyleProperties>
-                    <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
-                  </y:StyleProperties>
-                </y:GenericNode>
-              </data>
-            </node>
-            <node id="n2::n0::n3">
-              <data key="d6">
-                <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="148.22602378378383" width="109.34943567567552" x="3661.0534921911203" y="713.2639208734363"/>
-                  <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF0000" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="95.376953125" x="6.986241275337761" xml:space="preserve" y="4.0">DealUnsubscribe</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="106.908203125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="66.033203125" x="2.0" xml:space="preserve" y="30.701171875">id
-type
- - email
- - phone
- - whatsapp
-value
-deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
-                  <y:StyleProperties>
-                    <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
-                  </y:StyleProperties>
-                </y:GenericNode>
-              </data>
-            </node>
-            <node id="n2::n0::n4">
-              <data key="d6">
-                <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="113.49265669416366" width="115.77290905702193" x="3742.144617855246" y="934.215625512684"/>
-                  <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF0000" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="113.37109375" x="1.200907653510967" xml:space="preserve" y="4.0">WelcomeNotification</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="50.025390625" x="2.0" xml:space="preserve" y="30.701171875">id
-channel
-subject
-template
-deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
-                  <y:StyleProperties>
-                    <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
-                  </y:StyleProperties>
-                </y:GenericNode>
-              </data>
-            </node>
-          </graph>
-        </node>
-        <node id="n2::n1">
-          <data key="d6">
-            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-              <y:Geometry height="115.42495726495724" width="80.0" x="3379.4068064113253" y="247.2503122247873"/>
-              <y:Fill color="#CCFFFF" color2="#CCFFCC" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="70.03515625" x="4.982421875" xml:space="preserve" y="4.0">DealProduct</y:NodeLabel>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="62.03125" x="2.0" xml:space="preserve" y="30.701171875">id
-name
-description
-payload
-deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
-              <y:StyleProperties>
-                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
-              </y:StyleProperties>
-            </y:GenericNode>
-          </data>
-        </node>
-      </graph>
-    </node>
-    <node id="n3" yfiles.foldertype="group">
-      <data key="d4" xml:space="preserve"/>
-      <data key="d6">
-        <y:ProxyAutoBoundsNode>
-          <y:Realizers active="0">
-            <y:GroupNode>
               <y:Geometry height="1735.244548444682" width="1129.3939447812736" x="4296.443171053641" y="416.92533444496473"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
@@ -542,8 +348,8 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n3:">
-        <node id="n3::n0" yfiles.foldertype="group">
+      <graph edgedefault="directed" id="n2:">
+        <node id="n2::n0" yfiles.foldertype="group">
           <data key="d4" xml:space="preserve"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
@@ -571,8 +377,8 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
               </y:Realizers>
             </y:ProxyAutoBoundsNode>
           </data>
-          <graph edgedefault="directed" id="n3::n0:">
-            <node id="n3::n0::n0">
+          <graph edgedefault="directed" id="n2::n0:">
+            <node id="n2::n0::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="98.46142577777778" width="97.47965811965787" x="4796.186410198527" y="800.0393923529695"/>
@@ -589,7 +395,7 @@ agent_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPar
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n0::n1">
+            <node id="n2::n0::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
                   <y:Geometry height="40.0" width="80.0" x="4998.950444386561" y="829.2701052418583"/>
@@ -602,7 +408,7 @@ agent_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPar
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n0::n2">
+            <node id="n2::n0::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="147.76232478632505" width="183.28888888888923" x="4753.281794813911" y="491.67826413246473"/>
@@ -622,7 +428,7 @@ deal_advertiser_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n0::n3">
+            <node id="n2::n0::n3">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="189.15733333333333" width="199.17948717948684" x="5184.234820454939" y="754.6914385751917"/>
@@ -647,7 +453,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
             </node>
           </graph>
         </node>
-        <node id="n3::n1" yfiles.foldertype="group">
+        <node id="n2::n1" yfiles.foldertype="group">
           <data key="d4" xml:space="preserve"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
@@ -675,8 +481,8 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
               </y:Realizers>
             </y:ProxyAutoBoundsNode>
           </data>
-          <graph edgedefault="directed" id="n3::n1:">
-            <node id="n3::n1::n0">
+          <graph edgedefault="directed" id="n2::n1:">
+            <node id="n2::n1::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="544.2251061570194" width="208.90625" x="5179.371439044682" y="1022.4152021668052"/>
@@ -724,7 +530,7 @@ deal_advertiser_agreement_id
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n1::n1">
+            <node id="n2::n1::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="570.6365470586128" width="335.16477614111636" x="4677.343851187797" y="1022.4152021668053"/>
@@ -773,7 +579,7 @@ deal_advertiser_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n1::n2">
+            <node id="n2::n1::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="253.34352364392953" width="181.69982905982943" x="5200.534076305" y="1868.8263592457174"/>
@@ -800,7 +606,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n1::n3">
+            <node id="n2::n1::n3">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="169.29809599591294" width="205.78921250983421" x="4347.8688061514695" y="1223.0844276981554"/>
@@ -822,7 +628,7 @@ leads_assigned<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mo
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n1::n4">
+            <node id="n2::n1::n4">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="98.46142577777778" width="248.6404827054912" x="4326.443171053641" y="1452.0437900103864"/>
@@ -839,7 +645,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n1::n5">
+            <node id="n2::n1::n5">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="127.56881192263677" width="208.90625" x="5186.930865834915" y="1672.0591892490852"/>
@@ -857,7 +663,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n3::n1::n6">
+            <node id="n2::n1::n6">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="107.96988750140486" width="205.78921250983421" x="4742.0316330034375" y="1740.5115697218444"/>
@@ -878,7 +684,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
         </node>
       </graph>
     </node>
-    <node id="n4" yfiles.foldertype="group">
+    <node id="n3" yfiles.foldertype="group">
       <data key="d4" xml:space="preserve"/>
       <data key="d6">
         <y:ProxyAutoBoundsNode>
@@ -906,8 +712,8 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
           </y:Realizers>
         </y:ProxyAutoBoundsNode>
       </data>
-      <graph edgedefault="directed" id="n4:">
-        <node id="n4::n0" yfiles.foldertype="group">
+      <graph edgedefault="directed" id="n3:">
+        <node id="n3::n0" yfiles.foldertype="group">
           <data key="d4" xml:space="preserve"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
@@ -935,8 +741,8 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
               </y:Realizers>
             </y:ProxyAutoBoundsNode>
           </data>
-          <graph edgedefault="directed" id="n4::n0:">
-            <node id="n4::n0::n0">
+          <graph edgedefault="directed" id="n3::n0:">
+            <node id="n3::n0::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="98.46142577777778" width="80.0" x="4033.045237874588" y="1200.0244380264826"/>
@@ -953,7 +759,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n0::n1">
+            <node id="n3::n0::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="127.56881192263677" width="191.15475301149445" x="3977.4678613688407" y="1564.3042674171152"/>
@@ -972,7 +778,7 @@ deal_router_execution_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelM
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n0::n2">
+            <node id="n3::n0::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="116.26368173282253" width="155.1970676981864" x="3995.446704025495" y="1376.0895072917301"/>
@@ -992,7 +798,7 @@ deal_router_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mo
             </node>
           </graph>
         </node>
-        <node id="n4::n1" yfiles.foldertype="group">
+        <node id="n3::n1" yfiles.foldertype="group">
           <data key="d4" xml:space="preserve"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
@@ -1020,8 +826,8 @@ deal_router_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mo
               </y:Realizers>
             </y:ProxyAutoBoundsNode>
           </data>
-          <graph edgedefault="directed" id="n4::n1:">
-            <node id="n4::n1::n0">
+          <graph edgedefault="directed" id="n3::n1:">
+            <node id="n3::n1::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="98.46142577777778" width="105.625" x="3366.5943064113267" y="1193.2808431720964"/>
@@ -1038,7 +844,7 @@ gateway_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelP
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n1::n1">
+            <node id="n3::n1::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="819.7831005639086" width="243.12919686171108" x="3297.8422079804704" y="1384.6049631905923"/>
@@ -1104,7 +910,7 @@ fraud_risk
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n1::n2">
+            <node id="n3::n1::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="100.18165242165242" width="105.625" x="3102.5675465651784" y="1192.420729850159"/>
@@ -1121,7 +927,7 @@ deal_gateway_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:M
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n1::n3">
+            <node id="n3::n1::n3">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="98.46142577777778" width="105.625" x="3102.5675465651784" y="1421.1177443187971"/>
@@ -1138,7 +944,7 @@ deal_session_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:M
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n1::n4">
+            <node id="n3::n1::n4">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
                   <y:Geometry height="56.8058743989784" width="80.0" x="3540.936151556575" y="1214.108618861496"/>
@@ -1155,7 +961,7 @@ Landing<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:Mo
             </node>
           </graph>
         </node>
-        <node id="n4::n2" yfiles.foldertype="group">
+        <node id="n3::n2" yfiles.foldertype="group">
           <data key="d4" xml:space="preserve"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
@@ -1183,8 +989,8 @@ Landing<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:Mo
               </y:Realizers>
             </y:ProxyAutoBoundsNode>
           </data>
-          <graph edgedefault="directed" id="n4::n2:">
-            <node id="n4::n2::n0">
+          <graph edgedefault="directed" id="n3::n2:">
+            <node id="n3::n2::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="127.56881192263677" width="132.94459259259247" x="2804.888186013745" y="1946.231250766782"/>
@@ -1202,7 +1008,7 @@ deal_lead_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mode
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n2::n1">
+            <node id="n3::n2::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
                   <y:Geometry height="29.818347578347584" width="80.0" x="2582.1402327092856" y="2161.9656231861545"/>
@@ -1215,7 +1021,7 @@ deal_lead_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mode
                 </y:GenericNode>
               </data>
             </node>
-            <node id="n4::n2::n2">
+            <node id="n3::n2::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="153.14698931208045" width="181.9050000000002" x="2531.1877327092852" y="1930.3271632475787"/>
@@ -1238,7 +1044,7 @@ deal_lead_traking_event_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:Labe
             </node>
           </graph>
         </node>
-        <node id="n4::n3">
+        <node id="n3::n3">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
               <y:Geometry height="117.53079841276895" width="221.15475301149445" x="3679.405108037985" y="1452.0437900103864"/>
@@ -1258,7 +1064,184 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </node>
       </graph>
     </node>
-    <edge id="e0" source="n2::n0::n0" target="n0::n5">
+    <node id="n4" yfiles.foldertype="group">
+      <data key="d4" xml:space="preserve"/>
+      <data key="d5"/>
+      <data key="d6">
+        <y:ProxyAutoBoundsNode>
+          <y:Realizers active="0">
+            <y:GroupNode>
+              <y:Geometry height="725.1777506555047" width="758.4734720059705" x="3114.4440549062974" y="337.530531551343"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="758.4734720059705" x="0.0" xml:space="preserve" y="0.0">Group 10</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+            <y:GroupNode>
+              <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="67.369140625" x="-8.6845703125" xml:space="preserve" y="0.0">Folder 10</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+          </y:Realizers>
+        </y:ProxyAutoBoundsNode>
+      </data>
+      <graph edgedefault="directed" id="n4:">
+        <node id="n4::n0">
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="203.82199441117768" width="271.9584273504274" x="3283.4275927361123" y="818.7005109114396"/>
+              <y:Fill color="#CCFFFF" color2="#CCFFCC" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="28.6796875" x="121.63936992521394" xml:space="preserve" y="4.0">Deal</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="151.01171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="248.810546875" x="2.0" xml:space="preserve" y="30.701171875">id
+name
+description
+payload
+ - max_cpl
+ - auto_pause_campaigns_on_threshold
+ - snapshot_performnace_frenquency_interval
+ - snapshot_performnace_frenquency_unit
+ - welcome_notifications_rules []
+workspace_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n4::n1">
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="166.0" width="153.0" x="3617.402927866796" y="480.4895900626251"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="148.08203125" x="2.458984375" xml:space="preserve" y="4.0">DealPerformanceSnapshot</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="121.609375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="115.404296875" x="2.0" xml:space="preserve" y="30.701171875">id
+deal_id
+time
+leads_generated
+leads_assigned
+avg_cpl
+avg_conversion_rate
+avg_roi
+<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n4::n2">
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="274.77286972931347" width="105.62500000000011" x="3129.4440549062974" y="536.6763559926093"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="53.353515625" x="26.1357421875" xml:space="preserve" y="4.0">DealAlert</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="239.21875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="97.375" x="2.0" xml:space="preserve" y="30.701171875">id
+deal_id
+type  
+ - high_cpl
+ - low_conversion
+ - lead_overload
+ - no_feedback
+message
+status 
+ - pending
+ - resolved
+ - ignored
+detected_at
+status 
+ - pending
+ - resolved
+<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n4::n3">
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="148.22602378378383" width="109.34943567567552" x="3661.0534921911203" y="713.2639208734363"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF0000" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="95.376953125" x="6.986241275337761" xml:space="preserve" y="4.0">DealUnsubscribe</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="106.908203125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="66.033203125" x="2.0" xml:space="preserve" y="30.701171875">id
+type
+ - email
+ - phone
+ - whatsapp
+value
+deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n4::n4">
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="113.49265669416366" width="115.77290905702193" x="3742.144617855246" y="934.215625512684"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF0000" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="113.37109375" x="1.200907653510967" xml:space="preserve" y="4.0">WelcomeNotification</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="50.025390625" x="2.0" xml:space="preserve" y="30.701171875">id
+channel
+subject
+template
+deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n4::n5">
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="115.42495726495724" width="80.0" x="3142.2565549062974" y="374.906996395093"/>
+              <y:Fill color="#CCFFFF" color2="#CCFFCC" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="70.03515625" x="4.982421875" xml:space="preserve" y="4.0">DealProduct</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="62.03125" x="2.0" xml:space="preserve" y="30.701171875">id
+name
+description
+payload
+deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+      </graph>
+    </node>
+    <node id="n5">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="40.0" width="80.0" x="3379.406806411326" y="219.483502297872"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.017578125" x="7.9912109375" xml:space="preserve" y="10.6494140625">Workspace<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <edge id="e0" source="n4::n0" target="n0::n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-104.93895638285858" sy="59.14143421926758" tx="-3.8096687138211114" ty="0.0">
@@ -1270,7 +1253,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n1::n1" target="n2::n0::n0">
+    <edge id="e1" source="n1::n1" target="n4::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="3.183231456205249E-12" ty="-1.1368683772161603E-13">
@@ -1282,7 +1265,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n1::n2" target="n2::n0::n0">
+    <edge id="e2" source="n1::n2" target="n4::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="21.339750499684214" ty="28.903642750557196">
@@ -1355,7 +1338,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n0::e0" source="n3::n0::n0" target="n3::n0::n1">
+    <edge id="n2::n0::e0" source="n2::n0::n0" target="n2::n0::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1365,7 +1348,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n0::e1" source="n3::n0::n0" target="n3::n0::n2">
+    <edge id="n2::n0::e1" source="n2::n0::n0" target="n2::n0::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1375,7 +1358,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::e0" source="n3::n1::n1" target="n3::n0::n3">
+    <edge id="n2::e0" source="n2::n1::n1" target="n2::n0::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1385,7 +1368,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n0::e2" source="n3::n0::n2" target="n3::n0::n3">
+    <edge id="n2::n0::e2" source="n2::n0::n2" target="n2::n0::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -1397,7 +1380,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e3" source="n2::n0::n0" target="n4::n1::n0">
+    <edge id="e3" source="n4::n0" target="n3::n1::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="3.183231456205249E-12" sy="-1.1368683772161603E-13" tx="0.0" ty="0.0"/>
@@ -1407,7 +1390,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n1::e0" source="n4::n1::n0" target="n4::n1::n1">
+    <edge id="n3::n1::e0" source="n3::n1::n0" target="n3::n1::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1417,7 +1400,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n1::e1" source="n4::n1::n2" target="n4::n1::n3">
+    <edge id="n3::n1::e1" source="n3::n1::n2" target="n3::n1::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1427,7 +1410,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n1::e2" source="n4::n1::n0" target="n4::n1::n2">
+    <edge id="n3::n1::e2" source="n3::n1::n0" target="n3::n1::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1437,7 +1420,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n1::e3" source="n4::n1::n1" target="n4::n1::n2">
+    <edge id="n3::n1::e3" source="n3::n1::n1" target="n3::n1::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-67.84081325826072" sy="-393.01622903250114" tx="0.0" ty="0.0"/>
@@ -1447,7 +1430,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n4::n0::n0" target="n2::n0::n0">
+    <edge id="e4" source="n3::n0::n0" target="n4::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="3.183231456205249E-12" ty="-1.1368683772161603E-13">
@@ -1459,7 +1442,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n0::e0" source="n4::n0::n0" target="n4::n0::n2">
+    <edge id="n3::n0::e0" source="n3::n0::n0" target="n3::n0::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="1.7643863850274372E-12" ty="0.0"/>
@@ -1469,7 +1452,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n0::e1" source="n4::n0::n2" target="n4::n0::n1">
+    <edge id="n3::n0::e1" source="n3::n0::n2" target="n3::n0::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="1.7643863850274372E-12" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1479,7 +1462,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::e0" source="n4::n1::n1" target="n4::n2::n0">
+    <edge id="n3::e0" source="n3::n1::n1" target="n3::n2::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-21.04841231614955" sy="215.5191432555539" tx="0.0" ty="0.0"/>
@@ -1499,7 +1482,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n0::n5" target="n4::n2::n2">
+    <edge id="e5" source="n0::n5" target="n3::n2::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-4.494977793479214" ty="3.114998824481553">
@@ -1511,7 +1494,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n2::e0" source="n4::n2::n2" target="n4::n2::n1">
+    <edge id="n3::n2::e0" source="n3::n2::n2" target="n3::n2::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1521,7 +1504,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n2::e1" source="n4::n2::n2" target="n4::n2::n0">
+    <edge id="n3::n2::e1" source="n3::n2::n2" target="n3::n2::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-4.494977793479214" sy="3.114998824481553" tx="0.0" ty="0.0"/>
@@ -1531,7 +1514,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e6" source="n4::n1::n1" target="n3::n1::n6">
+    <edge id="e6" source="n3::n1::n1" target="n2::n1::n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1541,7 +1524,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::n1::e4" source="n4::n1::n0" target="n4::n1::n4">
+    <edge id="n3::n1::e4" source="n3::n1::n0" target="n3::n1::n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1551,7 +1534,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n1::e0" source="n3::n1::n1" target="n3::n1::n2">
+    <edge id="n2::n1::e0" source="n2::n1::n1" target="n2::n1::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1561,7 +1544,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n1::e1" source="n3::n1::n1" target="n3::n1::n0">
+    <edge id="n2::n1::e1" source="n2::n1::n1" target="n2::n1::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1571,7 +1554,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n1::e2" source="n3::n1::n1" target="n3::n1::n3">
+    <edge id="n2::n1::e2" source="n2::n1::n1" target="n2::n1::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1581,7 +1564,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n1::e3" source="n3::n1::n1" target="n3::n1::n5">
+    <edge id="n2::n1::e3" source="n2::n1::n1" target="n2::n1::n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1591,7 +1574,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n1::e4" source="n3::n1::n1" target="n3::n1::n6">
+    <edge id="n2::n1::e4" source="n2::n1::n1" target="n2::n1::n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1601,7 +1584,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::n1::e5" source="n3::n1::n3" target="n3::n1::n4">
+    <edge id="n2::n1::e5" source="n2::n1::n3" target="n2::n1::n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1611,7 +1594,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e7" source="n2::n0::n0" target="n3::n1::n1">
+    <edge id="e7" source="n4::n0" target="n2::n1::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="3.183231456205249E-12" sy="-1.1368683772161603E-13" tx="0.0" ty="0.0">
@@ -1623,7 +1606,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n3::e1" source="n3::n0::n0" target="n3::n1::n1">
+    <edge id="n2::e1" source="n2::n0::n0" target="n2::n1::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1633,7 +1616,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e8" source="n3::n1::n1" target="n4::n0::n1">
+    <edge id="e8" source="n2::n1::n1" target="n3::n0::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -1645,7 +1628,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n4::e1" source="n4::n0::n1" target="n4::n3">
+    <edge id="n3::e1" source="n3::n0::n1" target="n3::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="11.042195524425255" ty="-2.9692677347654287E-13">
@@ -1657,7 +1640,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e9" source="n4::n3" target="n2::n0::n4">
+    <edge id="e9" source="n3::n3" target="n4::n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="11.042195524425255" sy="-2.9692677347654287E-13" tx="4.547473508864641E-13" ty="1.1368683772161603E-13"/>
@@ -1667,7 +1650,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n2::e0" source="n2::n0::n0" target="n2::n1">
+    <edge id="n4::e0" source="n4::n0" target="n4::n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1677,7 +1660,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n2::n0::e0" source="n2::n0::n0" target="n2::n0::n1">
+    <edge id="n4::e1" source="n4::n0" target="n4::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1687,7 +1670,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n2::n0::e1" source="n2::n0::n0" target="n2::n0::n2">
+    <edge id="n4::e2" source="n4::n0" target="n4::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1697,7 +1680,7 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n2::n0::e2" source="n2::n0::n0" target="n2::n0::n3">
+    <edge id="n4::e3" source="n4::n0" target="n4::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1707,12 +1690,23 @@ events []<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPa
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n2::n0::e3" source="n2::n0::n0" target="n2::n0::n4">
+    <edge id="n4::e4" source="n4::n0" target="n4::n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_one" target="crows_foot_many"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="n5" target="n4::n0">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

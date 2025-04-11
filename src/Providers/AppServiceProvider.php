@@ -3,15 +3,18 @@
 namespace Innoboxrr\Deals\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Innoboxrr\Deals\Console\Commands\Deal\TakeDealPerformanceSnapshotCommand;
 
 class AppServiceProvider extends ServiceProvider
 {
 
     public function register()
     {
-        
         $this->mergeConfigFrom(__DIR__ . '/../../config/deals.php', 'deals');
 
+        $this->commands([
+            TakeDealPerformanceSnapshotCommand::class,
+        ]);
     }
 
     public function boot()

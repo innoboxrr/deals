@@ -1,143 +1,136 @@
-<template>	
-	<form id="dealFilterForm" @submit.prevent="onSubmit">
-		<div class="uk-flex uk-flex-left uk-child-width-1-4@m uk-child-width-1-1@s" uk-grid>
+<template>
+    <form :id="formId" @submit.prevent="onFilter">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            <!-- Nombre del Deal -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="text"
+                name="name"
+                label="Nombre"
+                placeholder="Buscar por nombre"
+                v-model="filters.name" />
 
-			<!-- ID -->
-			<div>
-				<text-input-component
-					:custom-class="inputClass"
-					type="text"
-					name="id"
-					label="ID"
-					placeholder="ID"
-					v-model="id" />
-			</div>
+            <!-- Tipo de Deal -->
+            <select-input-component
+                :custom-class="inputClass"
+                name="type"
+                label="Tipo de Deal"
+                v-model="filters.type">
+                <option value="">Todos</option>
+                <option value="lead_gen">Generación de leads</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="branding">Branding</option>
+                <option value="content">Contenido</option>
+            </select-input-component>
 
-			<!-- NAME -->
-			<div>
-				<text-input-component
-					:custom-class="inputClass"
-					type="text"
-					name="name"
-					label="Nombre"
-					placeholder="Nombre del Deal"
-					v-model="name" />
-			</div>
+            <!-- Estado del Deal -->
+            <select-input-component
+                :custom-class="inputClass"
+                name="status"
+                label="Estado"
+                v-model="filters.status">
+                <option value="">Todos</option>
+                <option value="draft">Borrador</option>
+                <option value="active">Activo</option>
+                <option value="paused">Pausado</option>
+                <option value="archived">Archivado</option>
+            </select-input-component>
 
-			<!-- MAX CPL -->
-			<div>
-				<text-input-component
-					:custom-class="inputClass"
-					type="number"
-					name="max_cpl"
-					label="CPL Máximo"
-					placeholder="Ej. 10.5"
-					v-model="max_cpl" />
-			</div>
+            <!-- Fecha de inicio -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="date"
+                name="start_date_from"
+                label="Desde (Inicio)"
+                v-model="filters.start_date_from" />
 
-			<!-- SNAPSHOT UNIT -->
-			<div>
-				<select-input-component
-					name="snapshot_performnace_frenquency_unit"
-					label="Unidad de Frecuencia"
-					v-model="snapshot_performnace_frenquency_unit">
-					<option value="">Cualquiera</option>
-					<option value="minutes">Minutos</option>
-					<option value="hours">Horas</option>
-					<option value="days">Días</option>
-				</select-input-component>
-			</div>
+            <!-- Fecha de fin -->
+            <text-input-component
+                :custom-class="inputClass"
+                type="date"
+                name="start_date_to"
+                label="Hasta (Inicio)"
+                v-model="filters.start_date_to" />
 
-			<!-- DEAL PRODUCT ID -->
-			<div>
-				<text-input-component
-					:custom-class="inputClass"
-					type="text"
-					name="deal_product_id"
-					label="ID Producto"
-					placeholder="ID del producto"
-					v-model="deal_product_id" />
-			</div>
+            <!-- Moneda -->
+            <select-input-component
+                :custom-class="inputClass"
+                name="currency"
+                label="Moneda"
+                v-model="filters.currency">
+                <option value="">Todas</option>
+                <option value="MXN">MXN</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select-input-component>
+        </div>
 
-			<!-- WORKSPACE ID -->
-			<div>
-				<text-input-component
-					:custom-class="inputClass"
-					type="text"
-					name="workspace_id"
-					label="ID del Workspace"
-					placeholder="ID del workspace"
-					v-model="workspace_id" />
-			</div>
+        <div class="flex justify-between mt-6">
+            <button-component
+                :custom-class="buttonClass"
+                value="Aplicar filtros"
+                @click="onFilter" />
 
-		</div>
-
-		<div class="uk-flex uk-flex-right uk-child-width-auto@m uk-child-width-1-1@m" uk-grid>
-			<div>
-				<button :class="buttonClass">
-					{{ __('Buscar') }}
-				</button>
-			</div>
-			<div>
-				<button 
-					:class="buttonClass + ' bg-gray-400'"
-					@click.prevent="resetForm()">
-					{{ __('Resetear') }}
-				</button>
-			</div>
-		</div>
-	</form>
+            <button-component
+                variant="secondary"
+                value="Limpiar"
+                @click="resetFilters" />
+        </div>
+    </form>
 </template>
 
 <script>
-	
-	import {
-		TextInputComponent,
-		SelectInputComponent,
-	} from 'innoboxrr-form-elements'
+import {
+    TextInputComponent,
+    SelectInputComponent,
+    ButtonComponent,
+} from 'innoboxrr-form-elements'
 
-	export default {
-
-		components: {
-			TextInputComponent,
-			SelectInputComponent,
-		},
-
-		emits: ['submit'],
-
-		data() {
-			return {
-				id: null,
-				name: '',
-				max_cpl: '',
-				snapshot_performnace_frenquency_unit: '',
-				deal_product_id: '',
-				workspace_id: '',
-			}
-		},
-
-		methods: {
-
-			onSubmit() {
-				this.$emit('submit', {
-					id: this.id,
-					name: this.name,
-					max_cpl: this.max_cpl,
-					snapshot_performnace_frenquency_unit: this.snapshot_performnace_frenquency_unit,
-					deal_product_id: this.deal_product_id,
-					workspace_id: this.workspace_id,
-				});
-			},
-
-			resetForm() {
-				this.id = null;
-				this.name = '';
-				this.max_cpl = '';
-				this.snapshot_performnace_frenquency_unit = '';
-				this.deal_product_id = '';
-				this.workspace_id = '';
-				this.onSubmit();
-			}
-		}
-	}
+export default {
+    name: 'DealFilterForm',
+    components: {
+        TextInputComponent,
+        SelectInputComponent,
+        ButtonComponent,
+    },
+    props: {
+        formId: {
+            type: String,
+            default: 'dealFilterForm',
+        }
+    },
+    emits: ['filter'],
+    data() {
+        return {
+            inputClass: 'mb-4',
+            buttonClass: '',
+            filters: {
+                name: '',
+                type: '',
+                status: '',
+                start_date_from: '',
+                start_date_to: '',
+                currency: '',
+            }
+        }
+    },
+    methods: {
+        onFilter() {
+            this.$emit('filter', { ...this.filters })
+        },
+        resetFilters() {
+            this.filters = {
+                name: '',
+                type: '',
+                status: '',
+                start_date_from: '',
+                start_date_to: '',
+                currency: '',
+            }
+            this.onFilter()
+        }
+    }
+}
 </script>

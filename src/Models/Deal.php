@@ -53,7 +53,40 @@ class Deal extends Model
     protected $protected_metas = [];
 
     protected $editable_metas = [
-        //EDITABLEMETAS//
+        'max_cpl',
+        'snapshot_cron_interval',
+        'min_advertisers',
+        'max_advertisers',
+        'access_type',
+        'automation_thresholds_min_ctr',
+        'automation_thresholds_max_cpl',
+        'automation_thresholds_max_cpa',
+        'hypothesis_ctr',
+        'hypothesis_cpl',
+        'hypothesis_cpa',
+        'hypothesis_conversion_rate',
+        'hypothesis_leads_per_day',
+        'hypothesis_roi',
+        'alerts_emails',
+        'alerts_phones',
+        'segmentation_min_age',
+        'segmentation_max_age',
+        'segmentation_genders',
+        'segmentation_languages',
+        'segmentation_interests',
+        'segmentation_locations',
+        'segmentation_devices',
+        'segmentation_platforms',
+        'segmentation_behaviors',
+        'currency',
+        'objective',
+        'type',
+        'admin_fee_per_advertiser',
+        'min_investment_per_advertiser',
+        'investment_fee',
+        'start_date',
+        'restricted_countries',
+        'auto_pause_campaigns_on_threshold',
     ];
 
     public static $export_cols = [

@@ -89,6 +89,19 @@
             validators="decimal"
             v-model="localDeal.payload.min_investment_per_advertiser" />
 
+        <!-- INVERSIÓN MÍNIMA -->
+        <text-input-component
+            :custom-class="inputClass"
+            type="number"
+            name="investment_fee"
+            help="Esto determina el % de comisión que se le cobrará al anunciante en función de su inversión"
+            label="Comisión por inversión (%)"
+            placeholder="Ej: 30, para 30%"
+            :min_length="0"
+            :max_length="100"
+            validators="required length"
+            v-model="localDeal.payload.investment_fee" />
+
         <!-- MIN/MAX ADVERTISERS -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 -mb-6">
             <div>
@@ -132,7 +145,7 @@
             name="max_cpl"
             label="Costo por Lead máximo (CPL)"
             placeholder="Ej: 30"
-            validators="decimal"
+            validators="required"
             v-model="localDeal.payload.max_cpl" />
 
         <!-- CONFIGURACIÓN AVANZADA -->
@@ -175,14 +188,6 @@
                     v-model="localDeal.payload.end_date" />
             </div>
         </div>
-
-        <!-- VISIBILITY -->
-        <tags-input-component
-            :custom-class="inputClass"
-            name="visibility_roles"
-            label="Visible para roles"
-            placeholder="admin, sales, marketing"
-            v-model="localDeal.payload.visibility_roles" />
 
         <!-- COUNTRIES -->
         <tags-input-component

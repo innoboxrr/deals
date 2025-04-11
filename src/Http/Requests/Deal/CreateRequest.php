@@ -6,7 +6,7 @@ use Innoboxrr\Deals\Models\Deal;
 use Innoboxrr\Deals\Http\Resources\Models\DealResource;
 use Innoboxrr\Deals\Http\Events\Deal\Events\CreateEvent;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Arr;
+use Innoboxrr\Deals\Services\Deal\Utils\RequestFormater;
 use Illuminate\Validation\Rule;
 
 class CreateRequest extends FormRequest
@@ -14,7 +14,7 @@ class CreateRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        // Formatear petición
+        RequestFormater::format($this);
     }
 
     public function authorize()
@@ -50,15 +50,9 @@ class CreateRequest extends FormRequest
 
     public function handle()
     {
-
         $deal = (new Deal)->createModel($this);
-
         $response = new DealResource($deal);
-
         event(new CreateEvent($deal, $this->all(), $response));
-
         return $response;
-
-    }
-    
+    }   
 }
