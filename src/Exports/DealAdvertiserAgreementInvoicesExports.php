@@ -34,7 +34,7 @@ class DealAdvertiserAgreementInvoicesExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealAdvertiserAgreementInvoice::class, $this->data);
+        return $builder->get(DealAdvertiserAgreementInvoice::class, $this->data, config('deals.search-options'));
     }
 
 }

@@ -34,7 +34,7 @@ class DealAdGroupsExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealAdGroup::class, $this->data);
+        return $builder->get(DealAdGroup::class, $this->data, config('deals.search-options'));
     }
 
 }

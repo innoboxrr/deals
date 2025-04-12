@@ -13,6 +13,7 @@ use Innoboxrr\Deals\Models\Traits\Storage\DealStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealMutators;
+use Innoboxrr\Deals\Enums\Deal\Status;
 
 class Deal extends Model
 {
@@ -31,6 +32,7 @@ class Deal extends Model
     protected $fillable = [
         'name',
         'description',
+        'status',
         'payload',
         'workspace_id',
     ];
@@ -38,21 +40,28 @@ class Deal extends Model
     protected $creatable = [
         'name',
         'description',
+        'status',
         'workspace_id',
     ];
 
     protected $updatable = [
         'name',
         'description',
+        'status',
     ];
 
     protected $casts = [
         'payload' => 'array',
+        'status' => Status::class,
     ];
 
     protected $protected_metas = [
+        'last_performance_snapshot_time', // Fecha del último snapshot
+        'last_performance_snapshot_daily_budget', // Monto para el día de hoy
+        'last_performance_snapshot_daily_spent', // Monto gastado hoy
         'last_performance_snapshot_leads_generated',
         'last_performance_snapshot_leads_assigned',
+        'last_performance_snapshot_leads_rejected',
         'last_performance_snapshot_avg_cpl',
         'last_performance_snapshot_avg_conversion_rate',
         'last_performance_snapshot_avg_roi',

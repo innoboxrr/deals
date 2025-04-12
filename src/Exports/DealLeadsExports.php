@@ -34,7 +34,7 @@ class DealLeadsExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealLead::class, $this->data);
+        return $builder->get(DealLead::class, $this->data, config('deals.search-options'));
     }
 
 }

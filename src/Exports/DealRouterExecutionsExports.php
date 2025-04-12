@@ -34,7 +34,7 @@ class DealRouterExecutionsExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealRouterExecution::class, $this->data);
+        return $builder->get(DealRouterExecution::class, $this->data, config('deals.search-options'));
     }
 
 }

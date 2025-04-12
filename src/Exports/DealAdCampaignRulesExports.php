@@ -34,7 +34,7 @@ class DealAdCampaignRulesExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealAdCampaignRule::class, $this->data);
+        return $builder->get(DealAdCampaignRule::class, $this->data, config('deals.search-options'));
     }
 
 }

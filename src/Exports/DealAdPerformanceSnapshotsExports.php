@@ -34,7 +34,7 @@ class DealAdPerformanceSnapshotsExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealAdPerformanceSnapshot::class, $this->data);
+        return $builder->get(DealAdPerformanceSnapshot::class, $this->data, config('deals.search-options'));
     }
 
 }

@@ -130,7 +130,6 @@
             },
             async fetchDeal() {
                 this.deal = await showDealModel(this.$route.params.dealId);
-
                 // Pending: Si deal tiene product denfinir state dealProductId
             }
         }

@@ -25,8 +25,12 @@ trait DealOperations
             'access_type' => $this->meta('access_type'),
 
             'last_performance_snapshot' => [
+                'time' => $this->meta('last_performance_snapshot_time'),
+                'daily_budget' => (int) $this->meta('last_performance_snapshot_daily_budget', 0),
+                'daily_spent' => (int) $this->meta('last_performance_snapshot_daily_spent', 0),
                 'leads_generated' => (int) $this->meta('last_performance_snapshot_leads_generated', 0),
                 'leads_assigned' => (int) $this->meta('last_performance_snapshot_leads_assigned', 0),
+                'leads_rejected' => (int) $this->meta('last_performance_snapshot_leads_rejected', 0),
                 'avg_cpl' => (int) $this->meta('last_performance_snapshot_avg_cpl', 0),
                 'avg_conversion_rate' => (int) $this->meta('last_performance_snapshot_avg_conversion_rate', 0),
                 'avg_roi' => (int) $this->meta('last_performance_snapshot_avg_roi', 0),

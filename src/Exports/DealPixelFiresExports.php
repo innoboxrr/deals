@@ -34,7 +34,7 @@ class DealPixelFiresExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealPixelFire::class, $this->data);
+        return $builder->get(DealPixelFire::class, $this->data, config('deals.search-options'));
     }
 
 }

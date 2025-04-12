@@ -52,7 +52,7 @@ class IndexRequest extends FormRequest
 
         $builder = new Builder();
 
-        $query = $builder->get(DealAdCampaignRule::class, $this->all());
+        $query = $builder->get(DealAdCampaignRule::class, $this->all(), config('deals.search-options'));
 
         return DealAdCampaignRuleResource::collection($query);
 
