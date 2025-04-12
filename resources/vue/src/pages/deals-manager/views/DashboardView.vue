@@ -124,6 +124,13 @@
                     </div>
                 </div>
             </div>
+            <div v-if="false" class="w-full mx-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex w-full px-2">
+                        <HeatmapChart />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Tabla de anunciantes -->
@@ -906,6 +913,7 @@
     import LineChart from '@dealsComponents/charts/LineChart.vue';
     import ColumnChart from '@dealsComponents/charts/ColumnChart.vue';
     import BarChart from '@dealsComponents/charts/BarChart.vue';
+    import HeatmapChart from '@dealsComponents/charts/HeatmapChart.vue';
 
     export default {
         name: "dealDashboardSection",
@@ -917,6 +925,7 @@
             LineChart,
             ColumnChart,
             BarChart,
+            HeatmapChart,
         },
         setup() {
             const dealsManagerStore = useDealsManagerStore()

@@ -34,6 +34,15 @@
                                             <MenuItem v-slot="{ active, close }">
                                                 <a
                                                     href="#"
+                                                    @click.prevent="close(); $router.push({ name: 'DealsManager' })"
+                                                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                                                    <i class="fa-solid fa-chart-pie mr-2"></i>
+                                                    {{ __deals('Deals Dashboard') }}
+                                                </a>
+                                            </MenuItem>
+                                            <MenuItem v-slot="{ active, close }">
+                                                <a
+                                                    href="#"
                                                     @click.prevent="close(); $router.push({ name: 'DealsManagerDealCreate' })"
                                                     :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
                                                     <i class="fa-solid fa-plus mr-2"></i>
