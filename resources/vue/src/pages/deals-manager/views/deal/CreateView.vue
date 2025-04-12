@@ -28,6 +28,7 @@
         },
         mounted() {
             this.dealsManagerStore.setHeaderTitle(this.__deals('Create a new deal'));
+            this.dealsManagerStore.setDealId(null);
         },
         methods: {
             dealCreateFormSubmit(data) {

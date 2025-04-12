@@ -1,5 +1,5 @@
 <template>
-    <section v-flowbite class="my-4">
+    <section v-flowbite class="mb-4">
         <div class="px-4 mx-auto">
             <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg">
                 <div class="border-b dark:border-gray-700 mx-4">
@@ -223,9 +223,11 @@
                                     :index="x"
                                     :visible="visibleRow === x"
                                     :selectedDeals="selectedDeals"
+                                    @show="$emit('showDeal', deal)"
+                                    @edit="$emit('editDeal', deal)"
+                                    @delete="$emit('deleteDeal', deal)"
                                     @toggle="setVisibleRow"
                                     @update:selectedDeals="toggleSelected">
-                                    
                                     <template #expanded="{ deal }">
                                         <RowDetails :deal="deal" />
                                     </template>
@@ -291,6 +293,13 @@
                 required: false,
             },
         },
+        emits: [
+            'showDeal',
+            'editDeal',
+            'deleteDeal',
+            'selectedDeals',
+            'toggleDeal',
+        ],
         data() {
             return {
                 visibleRow: null,

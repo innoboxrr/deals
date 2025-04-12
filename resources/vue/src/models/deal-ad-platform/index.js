@@ -141,7 +141,7 @@ export const deleteModel = (data) => {
         _token: CSRF_TOKEN,
         _method: 'DELETE',
         deal_ad_platform_id: data.id,
-    }, {}, 3, 1500, confirmOptions);
+    }, {}, 0, 1500, confirmOptions);
 };
 
 export const exportModel = (data) => {

@@ -106,7 +106,7 @@
 
         <!-- Due Date -->
         <td class="px-4 py-2 whitespace-nowrap font-medium text-gray-900 dark:text-white text-xs">
-            {{ formatDate(deal.payload?.start_date) }}
+            {{ formatDate(deal.payload?.start_date, 'll') }}
         </td>
 
         <!-- Actions -->
@@ -121,20 +121,30 @@
                 class="absolute z-10 mt-2 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 right-0">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
                     <li>
-                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
+                        <a 
+                            @click.prevent="$emit('show', deal)"
+                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Show
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                        <a 
+                            @click.prevent="$emit('edit', deal)"
+                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Edit
+                        </a>
                     </li>
                 </ul>
                 <div class="py-1">
-                    <a href="#" class="block py-2 px-4 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+                    <a 
+                        @click.prevent="$emit('delete', deal)"
+                        class="block py-2 px-4 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                        Delete
+                    </a>
                 </div>
             </div>
-
         </td>
     </tr>
-
     <tr v-if="visible" class="flex-1 overflow-x-auto w-full">
         <td class="border-b dark:border-gray-700" colspan="10">
             <slot name="expanded" :deal="deal"></slot>
@@ -163,21 +173,11 @@ export default {
             default: () => []
         }
     },
+    emits: ['toggle', 'show', 'edit', 'delete'],
     data() {
         return {
             toggleDropdown: false,
         };
     },
-    methods: {
-        formatDate(date) {
-            if (!date) return '-'
-            const d = new Date(date)
-            return d.toLocaleDateString('es-MX', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            })
-        }
-    }
 }
 </script>

@@ -13,16 +13,27 @@
 
 <script>
     import DealProductCreateForm from "@dealsModels/deal-product/forms/CreateForm.vue";
+    import { useDealsManagerStore } from '@dealsPages/deals-manager/store/dealsManagerStore.js'
 
     export default {
         name: "CreateView",
         components: {
             DealProductCreateForm,
         },
+        setup() {
+            const dealsManagerStore = useDealsManagerStore()
+            return {
+                dealsManagerStore,
+            }
+        },
         data() {
             return {
                 visibleRow: null,
             };
+        },
+        mounted() {
+            this.dealsManagerStore.setHeaderTitle('Create Deal Product');
+            this.dealsManagerStore.setDealId(this.$route.params.dealId);
         },
         methods: {
             setVisibleRow(row) {
