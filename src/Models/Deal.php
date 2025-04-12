@@ -50,7 +50,13 @@ class Deal extends Model
         'payload' => 'array',
     ];
 
-    protected $protected_metas = [];
+    protected $protected_metas = [
+        'last_performance_snapshot_leads_generated',
+        'last_performance_snapshot_leads_assigned',
+        'last_performance_snapshot_avg_cpl',
+        'last_performance_snapshot_avg_conversion_rate',
+        'last_performance_snapshot_avg_roi',
+    ];
 
     protected $editable_metas = [
         'max_cpl',

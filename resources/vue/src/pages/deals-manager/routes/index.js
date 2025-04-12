@@ -41,16 +41,9 @@ export default [
 						meta: {
 							title: "Edit Deal",
 						},
-					}
-				]
-			},
-			{
-				path: 'deal-product',
-				name: "DealsManagerDealProduct",
-				component: () => import("./../layout/DealProductLayout.vue"),
-				children: [
+					},
 					{
-						path: 'create',
+						path: ':dealId/deal-product/create',
 						name: "DealsManagerDealProductCreate",
 						component: () => import("./../views/deal-product/CreateView.vue"),
 						meta: {
@@ -58,7 +51,7 @@ export default [
 						},
 					},
 					{
-						path: ':dealProductId',
+						path: ':dealId/deal-product/:dealProductId',
 						name: "DealsManagerDealProductDetails",
 						component: () => import("./../views/deal-product/ShowView.vue"),
 						meta: {
@@ -66,7 +59,7 @@ export default [
 						},
 					},
 					{
-						path: ':dealProductId/edit',
+						path: ':dealId/deal-product/:dealProductId/edit',
 						name: "DealsManagerDealProductEdit",
 						component: () => import("./../views/deal-product/EditView.vue"),
 						meta: {
@@ -74,7 +67,7 @@ export default [
 						},
 					}
 				]
-			}
+			},
 		]
 	}
 ];

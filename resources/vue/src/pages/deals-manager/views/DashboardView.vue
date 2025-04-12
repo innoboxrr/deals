@@ -1,13 +1,15 @@
 <template>
     <div>
         <div class="px-4 mt-4 mb-2 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+
+            <!-- Active Deals -->
             <div class="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:p-6">
-                <i class="mb-2 h-6 w-6 text-gray-400 fa-solid fa-users"></i>
+                <i class="mb-2 h-6 w-6 text-gray-400 fa-solid fa-tags"></i>
                 <h3 class="text-gray-500 dark:text-gray-400">
-                    Anunciantes activos
+                    {{ __deals('Active deals') }}
                 </h3>
                 <span class="text-2xl font-bold text-gray-900 dark:text-white">
-                    45
+                    4
                 </span>
                 <p class="mt-2 flex items-center text-sm text-gray-500 dark:text-gray-400">
                     <span class="mr-1.5 flex items-center text-sm font-medium text-green-500 dark:text-green-400 sm:text-base">
@@ -16,6 +18,24 @@
                     vs last month
                 </p>
             </div>
+
+            <!-- Advertisers -->
+            <div class="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:p-6">
+                <i class="mb-2 h-6 w-6 text-gray-400 fa-solid fa-users"></i>
+                <h3 class="text-gray-500 dark:text-gray-400">
+                    {{ __deals('Active advertisers') }}
+                </h3>
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">
+                    4
+                </span>
+                <p class="mt-2 flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <span class="mr-1.5 flex items-center text-sm font-medium text-green-500 dark:text-green-400 sm:text-base">
+                        <i class="h-3 w-3 mr-2 text-green-500 fa-solid fa-arrow-up"></i> 7%
+                    </span>
+                    vs last month
+                </p>
+            </div>
+
             <div class="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:p-6">
                 <i class="mb-2 h-6 w-6 text-gray-400 fa-solid fa-chart-line"></i>
                 <h3 class="text-gray-500 dark:text-gray-400">
@@ -31,6 +51,7 @@
                     vs last month
                 </p>
             </div>
+
             <div class="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:p-6">
                 <svg
                     class="mb-2 h-6 w-6 text-gray-400"
@@ -60,6 +81,7 @@
                     vs last month
                 </p>
             </div>
+
             <div class="rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:p-6">
                 <i class="mb-2 h-6 w-6 text-gray-400 fa-solid fa-dollar-sign"></i>
                 <h3 class="text-gray-500 dark:text-gray-400">
@@ -75,7 +97,11 @@
                     vs last month
                 </p>
             </div>
+
         </div>
+
+        <!-- Deals Table -->
+        <deals-table />
 
         <div class="flex flex-col p-2">
             <div class="w-full mx-auto">
@@ -871,10 +897,10 @@
 
 <script>
     import { indexModel as indexDealModel, showModel as showDealModel } from '@dealsModels/deal'
+    import { useDealsManagerStore } from '@dealsPages/deals-manager/store/dealsManagerStore.js'
 
     import HeaderComponent from '@dealsPages/deals-manager/components/partials/HeaderComponent.vue'
-
-    
+    import DealsTable from '@dealsModels/deal/widgets/DealsTable.vue'
 
     import AreaChart from '@dealsComponents/charts/AreaChart.vue';
     import LineChart from '@dealsComponents/charts/LineChart.vue';
@@ -885,28 +911,26 @@
         name: "dealDashboardSection",
         components: {
             HeaderComponent,
+            DealsTable,
+
             AreaChart,
             LineChart,
             ColumnChart,
             BarChart,
         },
+        setup() {
+            const dealsManagerStore = useDealsManagerStore()
+            return {
+                dealsManagerStore,
+            }
+        },
         data() {
             return {
-                dealId: 1,
-                deal: null,
                 visibleRow: null,
-                deals: [
-                    { id: 0, name: 'All' },
-                    { id: 1, name: 'Deal 1' },
-                    { id: 2, name: 'Deal 2' },
-                    { id: 3, name: 'Deal 3' },
-                ],
             };
         },
-        watch: {
-            dealId(newValue) {
-                this.fetchDeal(newValue);
-            },
+        mounted() {
+            this.dealsManagerStore.setHeaderTitle(this.__deals('Deals Manager'));
         },
         methods: {
             setVisibleRow(row) {

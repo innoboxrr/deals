@@ -3,7 +3,8 @@
         <section class="my-4">
             <div class="max-w-6xl mx-auto px-4 py-4 bg-white dark:bg-gray-800 border rounded-lg">
                 <div class="flex flex-col space-y-4 p-2 lg:p-8">
-                    <DealCreateForm />
+                    <DealCreateForm 
+                        @submit="dealCreateFormSubmit"/>
                 </div>
             </div>
         </section>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+    import { useDealsManagerStore } from '@dealsPages/deals-manager/store/dealsManagerStore.js'
     import DealCreateForm from "@dealsModels/deal/forms/CreateForm.vue";
 
     export default {
@@ -18,5 +20,24 @@
         components: {
             DealCreateForm,
         },
+        setup() {
+            const dealsManagerStore = useDealsManagerStore()
+            return {
+                dealsManagerStore,
+            }
+        },
+        mounted() {
+            this.dealsManagerStore.setHeaderTitle(this.__deals('Create a new deal'));
+        },
+        methods: {
+            dealCreateFormSubmit(data) {
+                this.$router.push({
+                    name: "DealsManagerDealDetails",
+                    params: {
+                        dealId: data.id,
+                    },
+                });
+            },
+        }
     };
 </script>

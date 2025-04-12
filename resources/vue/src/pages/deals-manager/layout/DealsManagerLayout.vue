@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-component :deals="deals" v-model="dealId" />
-        <router-view :dealId="dealId" />
+        <header-component />
+        <router-view />
     </div>
 </template>
 
@@ -13,18 +13,6 @@
         name: "dealDashboardSection",
         components: {
             HeaderComponent,
-        },
-        data() {
-            return {
-                dealId: 1,
-                deal: null,
-                deals: [
-                    { id: 0, name: 'All' },
-                    { id: 1, name: 'Deal 1' },
-                    { id: 2, name: 'Deal 2' },
-                    { id: 3, name: 'Deal 3' },
-                ],
-            };
         },
     };
 </script>

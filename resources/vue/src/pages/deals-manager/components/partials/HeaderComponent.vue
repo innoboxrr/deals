@@ -6,36 +6,19 @@
                     <div class="flex items-center justify-between py-3">
                         <div class="flex items-center flex-1 space-x-2">
                             <h5 class="font-semibold dark:text-white">
-                                Dashboard de anunciantes
+                                {{ headerTitle }}
                             </h5>
                         </div>
                         <div class="flex items-center gap-4 justify-between sm:justify-end">
-                            
-                            <!-- Selector de Deal -->
-                            <div class="flex items-center">
-                                <label for="deal-select" class="mr-2 text-sm font-medium text-gray-700">
-                                    Deal:
-                                </label>
-                                <select
-                                    id="deal-select"
-                                    v-model="value"
-                                    class="block w-48 rounded-md border-gray-300 bg-white py-2 px-3 text-sm focus:outline-none">
-                                    <option disabled value="">-- Selecciona un Deal --</option>
-                                    <option 
-                                        v-for="deal in deals" 
-                                        :key="deal.id" 
-                                        :value="deal.id">
-                                        {{ deal.name }}
-                                    </option>
-                                </select>
-                            </div>
-
-                            <!-- Global actions -->
                             <Menu as="div" class="relative inline-block text-left">
                                 <div>
                                     <MenuButton class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                        <span class="hidden sm:inline">Acciones Globales</span>
-                                        <span class="sm:hidden">Acciones</span>
+                                        <span class="hidden sm:inline">
+                                            {{ __deals('Global Actions') }}
+                                        </span>
+                                        <span class="sm:hidden">
+                                            {{ __deals('Actions') }}
+                                        </span>
                                         <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
                                     </MenuButton>
                                 </div>
@@ -46,56 +29,59 @@
                                     leave-active-class="transition ease-in duration-75"
                                     leave-from-class="transform opacity-100 scale-100"
                                     leave-to-class="transform opacity-0 scale-95">
-                                    <MenuItems class="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                                    <MenuItems class="z-[9999] absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                                         <div class="py-1">
-                                            <MenuItem v-slot="{ active }">
-                                                <router-link
-                                                    :to="{
-                                                        name: 'DealsManagerDealCreate'
-                                                    }"
+                                            <MenuItem v-slot="{ active, close }">
+                                                <a
+                                                    href="#"
+                                                    @click.prevent="close(); $router.push({ name: 'DealsManagerDealCreate' })"
                                                     :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
                                                     <i class="fa-solid fa-plus mr-2"></i>
-                                                    {{ __deals('New deal') }}
-                                                </router-link>
-                                            </MenuItem>
-                                            <MenuItem v-slot="{ active }">
-                                                <a
-                                                    href="#"
-                                                    @click.prevent="viewStatistics"
-                                                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                    Ver Estadísticas
+                                                    {{ __deals('Create new deal') }}
                                                 </a>
                                             </MenuItem>
-                                            <MenuItem v-slot="{ active }">
+                                            <MenuItem 
+                                                v-if="dealId"
+                                                v-slot="{ active, close }">
                                                 <a
                                                     href="#"
-                                                    @click.prevent="viewSettings"
+                                                    @click.prevent="close(); $router.push({ name: 'DealsManagerDealDetails', params: { dealId: dealId } })"
                                                     :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                    Configuración del Deal
+                                                    <i class="fa-solid fa-eye mr-2"></i>
+                                                    {{ __deals('View deal') }}
                                                 </a>
                                             </MenuItem>
-                                            <MenuItem v-slot="{ active }">
+                                            <MenuItem 
+                                                v-if="dealId"
+                                                v-slot="{ active, close }">
                                                 <a
                                                     href="#"
-                                                    @click.prevent="viewHistory"
+                                                    @click.prevent="close(); $router.push({ name: 'DealsManagerDealEdit', params: { dealId: dealId } })"
                                                     :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                    Historial de Cambios
+                                                    <i class="fa-solid fa-pen mr-2"></i>
+                                                    {{ __deals('Edit deal') }}
                                                 </a>
                                             </MenuItem>
-                                            <MenuItem v-slot="{ active }">
+                                            <MenuItem 
+                                                v-if="dealId && !dealProductId"
+                                                v-slot="{ active, close }">
                                                 <a
                                                     href="#"
-                                                    @click.prevent="viewSettings"
+                                                    @click.prevent="close(); $router.push({ name: 'DealsManagerDealProductCreate', params: { dealId: dealId } })"
                                                     :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                    Crear de Anunciante
+                                                    <i class="fa-solid fa-box-open mr-2"></i>
+                                                    {{ __deals('Create product') }}
                                                 </a>
                                             </MenuItem>
-                                            <MenuItem v-slot="{ active }">
+                                            <MenuItem 
+                                                v-if="dealId && dealProductId"
+                                                v-slot="{ active, close }">
                                                 <a
                                                     href="#"
-                                                    @click.prevent="viewSettings"
+                                                    @click.prevent="close(); $router.push({ name: 'DealsManagerDealProductEdit', params: { dealId: dealId, dealProductId: dealProductId } })"
                                                     :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                    Crear Producto
+                                                    <i class="fa-solid fa-pen mr-2"></i>
+                                                    {{ __deals('Edit product') }}
                                                 </a>
                                             </MenuItem>
                                         </div>
@@ -113,6 +99,7 @@
 <script>
     import { ChevronDownIcon } from '@heroicons/vue/20/solid'
     import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+    import { useDealsManagerStore } from '@dealsPages/deals-manager/store/dealsManagerStore.js'
     
     export default {
         name: 'HeaderComponent',
@@ -123,25 +110,22 @@
             MenuItems,
             ChevronDownIcon,
         },
-        props: {
-            modelValue: {
-                type: [String, Number],
-                default: ''
-            },
-            deals: {
-                type: Array,
-                default: () => []
+        setup() {
+            const dealsManagerStore = useDealsManagerStore();
+            return {
+                dealsManagerStore
             }
         },
         computed: {
-            value: {
-                get() {
-                    return this.modelValue;
-                },
-                set(value) {
-                    this.$emit('update:modelValue', value);
-                }
+            dealId() {
+                return this.dealsManagerStore.dealId;
             },
-        },
+            dealProductId() {
+                return this.dealsManagerStore.dealProductId;
+            },
+            headerTitle() {
+                return this.dealsManagerStore.headerTitle;
+            }
+        }
     }
 </script>
