@@ -110,9 +110,9 @@ import {
     TextareaInputComponent,
     SelectInputComponent,
     ModelSearchInputComponent,
+    TimezoneSelectInputComponent,
     ButtonComponent
 } from 'innoboxrr-form-elements'
-import TimezoneSelectInputComponent from 'innoboxrr-form-elements/src/TimezoneSelectInputComponent.vue'
 
 import { createModel } from '@dealsModels/deal-advertiser'
 
