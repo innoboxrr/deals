@@ -567,3 +567,20 @@
         </div>
     </section>
 </template>
+
+<script>
+
+    export default {
+        name: 'DealAdvertisersAgreementsTable',
+        data() {
+            return {
+                visibleRow: null,
+            };
+        },
+        methods: {
+            setVisibleRow(row) {
+                this.visibleRow = this.visibleRow === row ? null : row;
+            },
+        },
+    };
+</script>

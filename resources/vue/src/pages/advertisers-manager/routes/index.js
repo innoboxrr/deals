@@ -20,15 +20,13 @@ export default [
 			},
 			{
 				path: ':advertiserId',
-				name: "DealsAdvertisersManagerAdvertiser",
-				component: () => import("./../views/AdvertiserView.vue"),
-				children: [
-					{
-						path: 'edit',
-						name: "DealsAdvertisersManagerEdit",
-						component: () => import("./../views/EditView.vue"),
-					}
-				]
+				name: "DealsAdvertisersManagerShow",
+				component: () => import("./../views/ShowView.vue"),
+			},
+			{
+				path: ':advertiserId/edit',
+				name: "DealsAdvertisersManagerEdit",
+				component: () => import("./../views/EditView.vue"),
 			},
 		]
 	}

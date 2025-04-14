@@ -3,7 +3,9 @@
         <section class="my-4">
             <div class="max-w-6xl mx-auto px-4 py-4 bg-white dark:bg-gray-800 border rounded-lg">
                 <div class="flex flex-col space-y-4 p-2 lg:p-8">
-                    <DealEditForm :deal-id="$route.params.dealId" />
+                    <DealEditForm 
+                        :deal-id="$route.params.dealId"
+                        @submit="dealEditFormSubmit"/>
                 </div>
             </div>
         </section>
@@ -32,5 +34,10 @@
         unmounted() {
             this.dealsManagerStore.setDealId(null);
         },
+        methods: {
+            dealEditFormSubmit(data) {
+                this.alert('update');
+            },
+        }
     };
 </script>
