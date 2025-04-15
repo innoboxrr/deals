@@ -6,6 +6,7 @@ use Innoboxrr\Deals\Models\DealAdvertiser;
 use Innoboxrr\Deals\Http\Resources\Models\DealAdvertiserResource;
 use Innoboxrr\Deals\Http\Events\DealAdvertiser\Events\UpdateEvent;
 use Illuminate\Foundation\Http\FormRequest;
+use Innoboxrr\Deals\Support\Utils\RequestFormater;
 use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
@@ -13,7 +14,13 @@ class UpdateRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        //
+        RequestFormater::format($this);
+
+        $this->merge([
+            'deal_advertiser_id' => $this->route('deal_advertiser_id'),
+        ]);
+
+        $this->validateResolved();
     }
 
     public function authorize()

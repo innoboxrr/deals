@@ -14,7 +14,7 @@ class DealAdvertiserMeta extends Model
 
     public function dealAdvertiser()
     {
-        return $this->belongsTo(DealAdvertiser::class);
+        return $this->belongsTo(DealAdvertiser::class, 'deal_advertiser_id');
     }
 
 }

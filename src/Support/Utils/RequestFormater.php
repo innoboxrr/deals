@@ -1,13 +1,10 @@
 <?php
 
-namespace Innoboxrr\Deals\Services\Deal\Utils;
-
-use Innoboxrr\Deals\Http\Requests\Deal\CreateRequest;
-use Innoboxrr\Deals\Http\Requests\Deal\UpdateRequest;
+namespace Innoboxrr\Deals\Support\Utils;
 
 class RequestFormater
 {
-    protected CreateRequest|UpdateRequest $request;
+    protected $request;
 
     public function __construct($request)
     {

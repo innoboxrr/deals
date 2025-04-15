@@ -6,6 +6,7 @@ use Innoboxrr\Deals\Models\DealAdvertiser;
 use Innoboxrr\Deals\Http\Resources\Models\DealAdvertiserResource;
 use Innoboxrr\Deals\Http\Events\DealAdvertiser\Events\CreateEvent;
 use Illuminate\Foundation\Http\FormRequest;
+use Innoboxrr\Deals\Support\Utils\RequestFormater;
 use Illuminate\Validation\Rule;
 
 class CreateRequest extends FormRequest
@@ -13,7 +14,7 @@ class CreateRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        //
+        RequestFormater::format($this);
     }
 
     public function authorize()

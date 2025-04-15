@@ -12,7 +12,7 @@ trait DealAdvertiserRelations
 {
     public function metas()
     {
-        return $this->hasMany(DealAdvertiserMeta::class, 'advertiser_id');
+        return $this->hasMany(DealAdvertiserMeta::class, 'deal_advertiser_id');
     }
 
     // If there's an Agent model:
