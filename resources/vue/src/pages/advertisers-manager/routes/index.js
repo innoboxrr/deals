@@ -14,19 +14,48 @@ export default [
 				component: () => import("./../views/DashboardView.vue"),
 			},
 			{
-				path: 'create',
-				name: "DealsAdvertisersManagerCreate",
-				component: () => import("./../views/CreateView.vue"),
-			},
-			{
-				path: ':advertiserId',
-				name: "DealsAdvertisersManagerShow",
-				component: () => import("./../views/ShowView.vue"),
-			},
-			{
-				path: ':advertiserId/edit',
-				name: "DealsAdvertisersManagerEdit",
-				component: () => import("./../views/EditView.vue"),
+				path: 'advertiser',
+				name: "DealsAdvertisersManagerAdvertiserLayout",
+				component: () => import("./../layout/AdvertiserLayout.vue"),
+				children: [
+					{
+						path: 'create',
+						name: "DealsAdvertisersManagerAdvertiserCreate",
+						component: () => import("./../views/deal-advertiser/CreateView.vue"),
+					},
+					{
+						path: ':advertiserId',
+						name: "DealsAdvertisersManagerAdvertiserShow",
+						component: () => import("./../views/deal-advertiser/ShowView.vue"),
+					},
+					{
+						path: ':advertiserId/edit',
+						name: "DealsAdvertisersManagerAdvertiserEdit",
+						component: () => import("./../views/deal-advertiser/EditView.vue"),
+					},
+					{
+						path: ':advertiserId/agreements',
+						name: "DealsAdvertisersManagerAgreementLayout",
+						component: () => import("./../layout/AgreementLayout.vue"),
+						children: [
+							{
+								path: 'create',
+								name: "DealsAdvertisersManagerAgreementCreate",
+								component: () => import("./../views/deal-advertiser-agreement/CreateView.vue"),
+							},
+							{
+								path: ':agreementId',
+								name: "DealsAdvertisersManagerAgreementShow",
+								component: () => import("./../views/deal-advertiser-agreement/ShowView.vue"),
+							},
+							{
+								path: ':agreementId/edit',
+								name: "DealsAdvertisersManagerAgreementEdit",
+								component: () => import("./../views/deal-advertiser-agreement/EditView.vue"),
+							},
+						]
+					}
+				]
 			},
 		]
 	}

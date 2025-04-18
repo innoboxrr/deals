@@ -55,7 +55,7 @@
 													href="#"
 													@click.prevent="
 														close();
-														$router.push({ name: 'DealsAdvertisersManagerCreate' });
+														$router.push({ name: 'DealsAdvertisersManagerAdvertiserCreate' });
 													"
 													:class="[
 														active
@@ -65,6 +65,54 @@
 													]">
 													<i class="fa-solid fa-plus mr-2"></i>
 													{{ __deals("Create Advertiser") }}
+												</a>
+											</MenuItem>
+											<MenuItem 
+												v-if="dealAdvertiserId"
+												v-slot="{ active, close }">
+												<a
+													href="#"
+													@click.prevent="
+														close();
+														$router.push({ 
+															name: 'DealsAdvertisersManagerAdvertiserEdit',
+															params: { 
+																advertiserId: dealAdvertiserId 
+															}
+														});
+													"
+													:class="[
+														active
+															? 'bg-gray-100 text-gray-900'
+															: 'text-gray-700',
+														'block px-4 py-2 text-sm',
+													]">
+													<i class="fa-solid fa-pen-to-square mr-2"></i>
+													{{ __deals("Edit Advertiser") }}
+												</a>
+											</MenuItem>
+											<MenuItem 
+												v-if="dealAdvertiserId"
+												v-slot="{ active, close }">
+												<a
+													href="#"
+													@click.prevent="
+														close();
+														$router.push({ 
+															name: 'DealsAdvertisersManagerAdvertiserShow',
+															params: { 
+																advertiserId: dealAdvertiserId 
+															}
+														});
+													"
+													:class="[
+														active
+															? 'bg-gray-100 text-gray-900'
+															: 'text-gray-700',
+														'block px-4 py-2 text-sm',
+													]">
+													<i class="fa-solid fa-eye mr-2"></i>
+													{{ __deals("Show Advertiser") }}
 												</a>
 											</MenuItem>
 										</div>
@@ -103,6 +151,9 @@ export default {
 		headerTitle() {
 			return this.advertisersManagerStore.headerTitle;
 		},
+		dealAdvertiserId() {
+			return this.advertisersManagerStore.dealAdvertiserId;
+		}
 	},
 };
 </script>

@@ -30,4 +30,9 @@ trait DealAdvertiserRelations
     {
         return $this->hasMany(DealAdvertiserPaymentMethod::class, 'deal_advertiser_id');
     }
+
+    public function agent()
+    {
+        return $this->belongsTo(config('deals.agent_class'), 'agent_id');
+    }
 }

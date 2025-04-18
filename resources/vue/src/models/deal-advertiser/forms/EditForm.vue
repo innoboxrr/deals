@@ -424,34 +424,36 @@ export default {
             disabled: false,
         }
     },
-    mounted() {
-        this.fetchAdvertiser()
+    async mounted() {
+        await this.fetchAdvertiser()
     },
     methods: {
-        fetchAdvertiser() {
-            showModel(this.advertiserId).then(res => {
-                // Formatear contracts
-                res.payload.contracts = JSON.parse(res.payload.contracts);
-                res.payload.contracts = res.payload.contracts.map(contract => {
-                    return {
-                        number: contract.number,
-                        start_date: contract.start_date,
-                        end_date: contract.end_date,
-                        url: contract.url
-                    }
-                })
-                // Formatear contacts
-                res.payload.contacts = JSON.parse(res.payload.contacts);
-                res.payload.contacts = res.payload.contacts.map(contact => {
-                    return {
-                        name: contact.name,
-                        email: contact.email,
-                        phone: contact.phone,
-                        position: contact.position
-                    }
-                })
-                this.advertiser = res
-            })
+        async fetchAdvertiser() {
+            let res = await showModel(this.advertiserId)
+
+            // Formatear contracts
+            res.payload.contracts = JSON.parse(res.payload.contracts);
+            res.payload.contracts = res.payload.contracts.map(contract => {
+                return {
+                    number: contract.number,
+                    start_date: contract.start_date,
+                    end_date: contract.end_date,
+                    url: contract.url
+                }
+            });
+
+            // Formatear contacts
+            res.payload.contacts = JSON.parse(res.payload.contacts);
+            res.payload.contacts = res.payload.contacts.map(contact => {
+                return {
+                    name: contact.name,
+                    email: contact.email,
+                    phone: contact.phone,
+                    position: contact.position
+                }
+            });
+
+            this.advertiser = res;
         },
         onSubmit() {
             this.disabled = true

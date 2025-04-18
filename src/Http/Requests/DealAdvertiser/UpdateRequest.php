@@ -15,21 +15,12 @@ class UpdateRequest extends FormRequest
     protected function prepareForValidation()
     {
         RequestFormater::format($this);
-
-        $this->merge([
-            'deal_advertiser_id' => $this->route('deal_advertiser_id'),
-        ]);
-
-        $this->validateResolved();
     }
 
     public function authorize()
     {
-        
         $dealAdvertiser = DealAdvertiser::findOrFail($this->deal_advertiser_id);
-
         return $this->user()->can('update', $dealAdvertiser);
-
     }
 
     public function rules()

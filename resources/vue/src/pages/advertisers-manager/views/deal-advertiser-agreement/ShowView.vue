@@ -3,9 +3,8 @@
         <section class="my-4">
             <div class="max-w-6xl mx-auto px-4 py-4 bg-white dark:bg-gray-800 border rounded-lg">
                 <div class="flex flex-col space-y-4 p-2 lg:p-8">
-                    <DealAdvertiserEditForm 
-                        :advertiser-id="$route.params.advertiserId"
-                        @submit="dealAdvertiserEditFormSubmit"/>
+                    <AgreementModelProfile
+                        :deal-advertiser-agreement-id="$route.params.agreementId" />
                 </div>
             </div>
         </section>
@@ -14,12 +13,12 @@
 
 <script>
     import { useAdvertisersManagerStore } from '@dealsPages/advertisers-manager/store/advertisersManagerStore.js'
-    import DealAdvertiserEditForm from "@dealsModels/deal-advertiser/forms/EditForm.vue";
+    import AgreementModelProfile from '@dealsModels/deal-advertiser-agreement/widgets/ModelProfile.vue'
 
     export default {
-        name: "EditView",
+        name: "ShowView",
         components: {
-            DealAdvertiserEditForm,
+            AgreementModelProfile,
         },
         setup() {
             const advertisersManagerStore = useAdvertisersManagerStore()
@@ -28,17 +27,14 @@
             }
         },
         mounted() {
-            this.advertisersManagerStore.setHeaderTitle(this.__deals('Edit a new advertiser'));
+            this.advertisersManagerStore.setHeaderTitle(this.__deals('Show an agreement'));
+            this.advertisersManagerStore.setAgreementId(this.$route.params.agreementId);
+        },
+        unmounted() {
+            this.advertisersManagerStore.setAgreementId(null);
         },
         methods: {
-            dealAdvertiserEditFormSubmit(data) {
-                this.$router.push({
-                    name: "DealsAdvertisersManagerShow",
-                    params: {
-                        advertiserId: data.id,
-                    },
-                });
-            },
+            //
         }
     };
 </script>

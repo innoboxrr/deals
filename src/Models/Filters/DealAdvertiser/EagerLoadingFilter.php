@@ -34,6 +34,14 @@ class EagerLoadingFilter
             $query->withCount(['paymentMethods']);
         }
 
+        if ($data->load_agent == 1 || $data->load_agent === true) {
+            $query->with(['agent']);
+        }
+
+        if ($data->load_agent_user == 1 || $data->load_agent_user === true) {
+            $query->with(['agent.user']);
+        }
+
         // if ($data->load_agent == 1 || $data->load_agent === true) {
         //     $query->with(['agent']);
         // }

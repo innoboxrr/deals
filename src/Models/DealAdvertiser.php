@@ -110,6 +110,7 @@ class DealAdvertiser extends Model
         
 
     public static $loadable_relations = [
+        'agent.user',
         'metas',
         'deal',
         'agreements',

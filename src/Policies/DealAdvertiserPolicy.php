@@ -13,7 +13,7 @@ class DealAdvertiserPolicy
     public function before($user, $ability)
     {
 
-        $exceptAbilities = [];
+        $exceptAbilities = ['create'];
 
         if($user->isDealManager() && !in_array($ability, $exceptAbilities)){
         
@@ -40,7 +40,10 @@ class DealAdvertiserPolicy
 
     public function create(User $user)
     {
-        return false;
+        $a = $user->isDealManager();
+        $b = DealAdvertiser::where('agent_id', request()->agent_id)->exists();
+
+        return $a && !$b;
     }
 
     public function update(User $user, DealAdvertiser $dealAdvertiser)

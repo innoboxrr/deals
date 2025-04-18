@@ -233,16 +233,16 @@
                         <header-table  v-model="selectAll" />
                         <tbody data-accordion="table-column">
                             <template 
-                                v-for="(deal, x) in dealAdvertisers" 
+                                v-for="(dealAdvertiser, x) in dealAdvertisers" 
                                 :key="x">
                                 <RowTable
-                                    :advertiser="advertiser"
+                                    :advertiser="dealAdvertiser"
                                     :index="x"
                                     :visible="visibleRow === x"
                                     :selectedDealAdvertisers="selectedDealAdvertisers"
-                                    @show="$emit('showDealAdvertiser', advertiser)"
-                                    @edit="$emit('editDealAdvertiser', advertiser)"
-                                    @delete="$emit('deleteDealAdvertiser', advertiser)"
+                                    @show="$emit('showDealAdvertiser', dealAdvertiser)"
+                                    @edit="$emit('editDealAdvertiser', dealAdvertiser)"
+                                    @delete="$emit('deleteDealAdvertiser', dealAdvertiser)"
                                     @toggle="setVisibleRow"
                                     @update:selectedDealAdvertisers="toggleSelected">
                                     <template #expanded="{ advertiser }">
@@ -351,7 +351,7 @@
                     }
                     window.history.replaceState({}, '', url)
 
-                    this.fetchDeals();
+                    this.fetchDealAdvertisers();
                 }, 500),
                 immediate: false
             },
@@ -366,16 +366,17 @@
         methods: {
             async fetchData() {
                 if(this.dealAdvertisers.length === 0) {
-                    await this.fetchDeals();
+                    await this.fetchDealAdvertisers();
                 }
             },
-            async fetchDeals() {
+            async fetchDealAdvertisers() {
                 try {
                     const response = await indexDealAdvertiserModel({
                         paginate: 20,
                         page: this.pagination.current_page,
                         managed: true,
                         global: this.globalQuery,
+                        load_agent_user: 1,
                         appends: [
                             // 'daily_spent_progress',
                         ]
@@ -389,7 +390,6 @@
                         total: meta.total,
                         links: meta.links,
                     };
-                    console.log(response, this.dealAdvertisers);
                 } catch (error) {
                     console.error("Error fetching dealAdvertisers:", error);
                 }
@@ -397,7 +397,7 @@
             goToPage(page) {
                 if (page && page !== this.pagination.current_page) {
                     this.pagination.current_page = page;
-                    this.fetchDeals(page);
+                    this.fetchDealAdvertisers(page);
                 }
             },
             goToPageFromLink(url) {

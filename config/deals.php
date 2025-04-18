@@ -4,6 +4,8 @@ return [
 
 	'user_class' => 'App\Models\User',
 
+	'agent_class' => 'App\Models\Agent',
+
 	'excel_view' => 'deals::excel.',
 
 	'notification_via' => ['mail', 'database'],

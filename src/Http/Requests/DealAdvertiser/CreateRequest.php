@@ -19,9 +19,7 @@ class CreateRequest extends FormRequest
 
     public function authorize()
     {
-
         return $this->user()->can('create', DealAdvertiser::class);
-
     }
 
     public function rules()
@@ -52,15 +50,10 @@ class CreateRequest extends FormRequest
 
     public function handle()
     {
-
         $dealAdvertiser = (new DealAdvertiser)->createModel($this);
-
         $response = new DealAdvertiserResource($dealAdvertiser);
-
         event(new CreateEvent($dealAdvertiser, $this->all(), $response));
-
         return $response;
-
     }
     
 }

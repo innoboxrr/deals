@@ -14,7 +14,7 @@
             label-str="Buscar agente por cédula o nombre"
             placeholder-str="Escribe para buscar"
             :route="agentRoute"
-            q="global"
+            q="user_email"
             :externalFilters="{
                 load_user: true,
                 managed: true,

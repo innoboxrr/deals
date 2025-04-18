@@ -1,6 +1,13 @@
 <template>
     <div v-flowbite>
-        <deal-advertisers-table class="my-4" />
+        <deal-advertisers-table 
+            class="my-4" 
+            @showDealAdvertiser="showDealAdvertiser"
+            @editDealAdvertiser="editDealAdvertiser"
+            @deleteDealAdvertiser="deleteDealAdvertiser"
+            @selectedDealAdvertisers="selectedDealAdvertisers"
+            @toggleDealAdvertiser="toggleDealAdvertiser"
+        />
     </div>
 </template>
 
@@ -11,6 +18,33 @@
         name: "DashboardView",
         components: {
             DealAdvertisersTable,
+        },
+        methods: {
+            showDealAdvertiser(advertiser) {
+                this.$router.push({
+                    name: 'DealsAdvertisersManagerAdvertiserShow',
+                    params: {
+                        advertiserId: advertiser.id,
+                    }
+                })
+            },
+            editDealAdvertiser(advertiser) {
+                this.$router.push({
+                    name: 'DealsAdvertisersManagerAdvertiserEdit',
+                    params: {
+                        advertiserId: advertiser.id,
+                    }
+                })
+            },
+            deleteDealAdvertiser(advertiser) {
+                console.log(advertiser);
+            },
+            selectedDealAdvertisers(selected) {
+                console.log(advertiser);
+            },
+            toggleDealAdvertiser(advertiser) {
+                console.log(advertiser);
+            },
         },
     };
 </script>

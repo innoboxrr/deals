@@ -3,8 +3,9 @@
         <section class="my-4">
             <div class="max-w-4xl mx-auto px-4 py-4 bg-white dark:bg-gray-800 border rounded-lg">
                 <div class="flex flex-col space-y-4 p-2 lg:p-8">
-                    <DealAdvertiserCreateForm 
-                        @submit="dealAdvertiserCreateFormSubmit"/>
+                    <DealAdvertiserEditForm 
+                        :advertiser-id="$route.params.advertiserId"
+                        @submit="dealAdvertiserEditFormSubmit"/>
                 </div>
             </div>
         </section>
@@ -13,12 +14,12 @@
 
 <script>
     import { useAdvertisersManagerStore } from '@dealsPages/advertisers-manager/store/advertisersManagerStore.js'
-    import DealAdvertiserCreateForm from "@dealsModels/deal-advertiser/forms/CreateForm.vue";
+    import DealAdvertiserEditForm from "@dealsModels/deal-advertiser/forms/EditForm.vue";
 
     export default {
-        name: "CreateView",
+        name: "EditView",
         components: {
-            DealAdvertiserCreateForm,
+            DealAdvertiserEditForm,
         },
         setup() {
             const advertisersManagerStore = useAdvertisersManagerStore()
@@ -27,12 +28,16 @@
             }
         },
         mounted() {
-            this.advertisersManagerStore.setHeaderTitle(this.__deals('Create a new advertiser'));
+            this.advertisersManagerStore.setHeaderTitle(this.__deals('Edit a new advertiser'));
+            this.advertisersManagerStore.setDealAdvertiserId(this.$route.params.advertiserId);
+        },
+        unmounted() {
+            this.advertisersManagerStore.setDealAdvertiserId(null);
         },
         methods: {
-            dealAdvertiserCreateFormSubmit(data) {
+            dealAdvertiserEditFormSubmit(data) {
                 this.$router.push({
-                    name: "DealsAdvertisersManagerShow",
+                    name: "DealsAdvertisersManagerAdvertiserShow",
                     params: {
                         advertiserId: data.id,
                     },

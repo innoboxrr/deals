@@ -17,14 +17,14 @@ export const useGlobalStore = defineStore('deals-global', {
         sidebarOpen: false,
         navigation: [
             { name: __deals('Dashboard'), route: { name: 'DealsDashboard' }, icon: HomeIcon, current: true },
-            { name: __deals('Deals'), route: { name: 'DealsManager' }, icon: BriefcaseIcon, current: false },
-            { name: __deals('Products'), route: { name: 'DealsProductsManager' }, icon: CubeIcon, current: false },
-            // { name: __deals('Routing'), route: { name: 'DealsDashboard' }, icon: ShareIcon, current: false },
             { name: __deals('Advertisers'), route: { name: 'DealsAdvertisersManager' }, icon: BuildingStorefrontIcon, current: false },
+            { name: __deals('Deals'), route: { name: 'DealsManager' }, icon: BriefcaseIcon, current: false },
+            // { name: __deals('Routing'), route: { name: 'DealsDashboard' }, icon: ShareIcon, current: false },
             // { name: __deals('Agreements'), route: { name: 'DealsAgreementsManager' }, icon: DocumentTextIcon, current: false },
             { name: __deals('Ads'), route: { name: 'DealsAdsManager' }, icon: MegaphoneIcon, current: false },
             // { name: __deals('Affiliates'), route: { name: 'DealsDashboard' }, icon: UsersIcon, current: false },
             { name: __deals('Leads'), route: { name: 'DealsLeadsManager' }, icon: UserGroupIcon, current: false },
+            { name: __deals('Products'), route: { name: 'DealsProductsManager' }, icon: CubeIcon, current: false },
         ],
         dealsList: [
             /*
