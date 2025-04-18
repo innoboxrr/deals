@@ -1,192 +1,287 @@
 <template>
-    <section>
+    <section v-flowbite class="mb-4">
         <div class="px-4 mx-auto">
-            <div class="relative overflow-hidden bg-white dark:bg-gray-800 sm:rounded-lg border">
-                <div class="px-4 divide-y dark:divide-gray-700">
-                    <div class="flex flex-col py-3 space-y-3 md:flex-row md:items-center md:justify-between md:space-y-0 md:space-x-4">
-                        <div class="flex items-center flex-1 space-x-4">
-                            <h5>
-                                <span class="text-gray-500">
-                                    Total de anunciantes:
-                                </span>
-                                <span class="dark:text-white">
-                                    99
-                                </span>
-                            </h5>
-                            <h5>
-                                <span class="text-gray-500">
-                                    Active agreements:
-                                </span>
-                                <span class="dark:text-white">
-                                    8
-                                </span>
+            <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg">
+                <div class="border-b dark:border-gray-700 mx-4">
+                    <div class="flex items-center justify-between space-x-4 pt-3">
+                        <div class="flex-1 flex items-center space-x-3">
+                            <h5 class="dark:text-white font-semibold">
+                                {{ __deals('Advertisers') }}
                             </h5>
                         </div>
-                        <div class="flex flex-col items-start flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
-                            <button 
-                                type="button" 
-                                class="inline-flex items-center justify-center flex-shrink-0 px-3 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                                <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-filter"></i>
-                                Table settings
-                            </button>
+                    </div>
+                    <div class="flex flex-col-reverse md:flex-row items-center justify-between md:space-x-4 py-3">
+                        <div class="w-full flex flex-col space-y-3 md:space-y-0 md:flex-row md:items-center justify-between">
+                            <form class="w-full md:max-w-sm flex-1 md:mr-4">
+                                <label 
+                                    for="globalQuery" 
+                                    class="text-sm font-medium text-gray-900 sr-only dark:text-white">
+                                    {{ __deals('Search') }}
+                                </label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                        <i class="h-5 w-5 pt-1 text-gray-400 fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                    <input 
+                                        type="search" 
+                                        id="globalQuery" 
+                                        class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+                                        :placeholder="__deals('Search...')" 
+                                        required
+                                        v-model="globalQuery">
+                                    <button 
+                                        type="submit" 
+                                        class="text-white absolute right-0 bottom-0 top-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-lg">
+                                        {{ __deals('Search') }}
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="flex items-center space-x-4 ml-4 justify-end">
+                                <div>
+                                    <button 
+                                        id="advertisersFilterDropdownButton" 
+                                        data-dropdown-toggle="advertisersFilterDropdown" 
+                                        type="button" 
+                                        class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                        <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-filter"></i>
+                                        {{ __deals('Filters') }}
+                                        <i class="h-5 w-5 pt-1 ml-2 text-gray-400 fa-solid fa-caret-down"></i>
+                                    </button>
+                                    <div 
+                                        id="advertisersFilterDropdown" 
+                                        class="z-10 hidden p-3 bg-white rounded-lg shadow w-56 dark:bg-gray-700">
+                                        <h6 class="mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                            By status
+                                        </h6>
+                                        <ul 
+                                            class="space-y-2 text-sm" 
+                                            aria-labelledby="advertisersFilterDropdownButton">
+                                            <li>
+                                                <label 
+                                                    class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        value="" 
+                                                        class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                    In progress
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label 
+                                                    class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        value="" 
+                                                        checked 
+                                                        class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                    In review
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label 
+                                                    class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        value="" 
+                                                        class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                    Completed
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
+                                                    <input type="checkbox" value="" class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                    Canceled
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <h6 class="mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">By number of users</h6>
+                                        <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
+                                            <li>
+                                                <label class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
+                                                    <input type="checkbox" value="" checked class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                    5-10 peoples
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
+                                                    <input type="checkbox" value="" class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                    10+ peoples
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
+                                                    <input type="checkbox" value="" class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                    More than 10 peoples
+                                                </label>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline mt-4 ml-1.5">Apply to all projects</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button 
+                                        id="advertisersActionDropdownButton" 
+                                        data-dropdown-toggle="advertisersActionDropdown" 
+                                        type="button" 
+                                        class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                        <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-cog"></i>
+                                        {{ __deals('Bulk Actions') }}
+                                    </button>
+                                    <div 
+                                        id="advertisersActionDropdown" 
+                                        class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                                        <ul 
+                                            class="py-1 text-sm text-gray-700 dark:text-gray-200" 
+                                            aria-labelledby="advertisersActionDropdownButton">
+                                            <li>
+                                                <a 
+                                                    href="#" 
+                                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                    Pause
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a 
+                                                    href="#" 
+                                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                    Take snapshot
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="py-1">
+                                            <a 
+                                                href="#" 
+                                                class="block py-2 px-4 text-sm text-red-700 hover:text-red-700 hover:bg-red-100 dark:hover:bg-red-600 dark:text-red-200 dark:hover:text-white">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button 
+                                        type="button" 
+                                        class="w-full md:w-auto flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 sm:px-4 sm:py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                        <i class="h-5 w-5 pt-1 mr-2 text-white fa-solid fa-plus"></i>
+                                        {{ __deals('New') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-4 pb-3 flex flex-wrap">
+                    <div class="hidden md:flex items-center text-sm font-medium text-gray-900 dark:text-white mr-4 mt-3">
+                        Show only:
+                    </div>
+                    <div class="flex flex-wrap">
+                        <div class="flex items-center mt-3 mr-4">
+                            <input 
+                                id="all-tasks" 
+                                type="radio" 
+                                value="" 
+                                name="show-only" 
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label 
+                                for="all-tasks" 
+                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                All
+                            </label>
+                        </div>
+                        <div class="flex items-center mr-4 mt-3">
+                            <input 
+                                id="completed" 
+                                type="radio" 
+                                value="" 
+                                name="show-only" 
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label 
+                                for="completed" 
+                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                Completed tasks
+                            </label>
+                        </div>
+                        <div class="flex items-center mr-4 mt-3">
+                            <input 
+                                id="in-progress" 
+                                type="radio"
+                                value="" 
+                                name="show-only" 
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label 
+                                for="in-progress" 
+                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                Tasks in progress
+                            </label>
+                        </div>
+                        <div class="flex items-center mr-4 mt-3">
+                            <input 
+                                id="in-review" 
+                                type="radio" 
+                                value="" 
+                                name="show-only" 
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label 
+                                for="in-review" 
+                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                Tasks in review
+                            </label>
                         </div>
                     </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="p-4">
-                                    <div 
-                                        class="flex items-center">
-                                        <input 
-                                            id="checkbox-all" 
-                                            type="checkbox" 
-                                            class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="checkbox-all" class="sr-only">checkbox</label>
-                                    </div>
-                                </th>
-                                <th scope="col" class="px-4 py-3">User</th>
-                                <th scope="col" class="px-4 py-3">email</th>
-                                <th scope="col" class="px-4 py-3">Status</th>
-                                <th scope="col" class="px-4 py-3">Spend</th>
-                                <th scope="col" class="px-4 py-3">Rating</th>
-                                <th scope="col" class="px-4 py-3 whitespace-nowrap">Last Login</th>
-                                <th scope="col" class="px-4 py-3">
-                                    <span class="sr-only">Actions</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                        <header-table  v-model="selectAll" />
+                        <tbody data-accordion="table-column">
                             <template 
-                                v-for="x in 5" 
+                                v-for="(deal, x) in dealAdvertisers" 
                                 :key="x">
-                                <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                    <td class="w-4 px-4 py-3">
-                                        <div class="flex items-center">
-                                            <input 
-                                                id="checkbox-table-search-1" 
-                                                type="checkbox" 
-                                                onclick="event.stopPropagation()" 
-                                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="checkbox-table-search-1" class="sr-only">
-                                                checkbox
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <th scope="row" 
-                                        class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <div class="flex items-center">
-                                            <img 
-                                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/avatar-10.png" 
-                                                alt="iMac Front Image" 
-                                                class="w-auto h-8 mr-3 rounded-full">
-                                            Jese Leos
-                                        </div>
-                                    </th>
-                                    <td class="px-4 py-2">
-                                        <div class="inline-flex items-center bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                                            jose@correo.com
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <div class="flex items-center">
-                                            <div class="w-3 h-3 mr-2 bg-red-500 border rounded-full"></div>
-                                            Inactive
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
-                                                <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-                                            </svg>
-                                            1.6M
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <div class="flex items-center">
-                                            <i class="h-3 w-3 mr-2 text-green-500 fa-solid fa-arrow-up"></i>
-                                            4.7%
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        20 Nov 2022
-                                    </td>
-                                    <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        <button 
-                                            :id="`dropdown-button-${x}`" 
-                                            type="button" :data-dropdown-toggle="`dropdown-0-${x}`" class="inline-flex items-center p-1 text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none dark:text-gray-400 dark:hover:text-gray-100">
-                                            <i class="h-5 w-5 pt-1 text-gray-900 fa-solid fa-ellipsis"></i>
-                                        </button>
-                                        <div :id="`dropdown-0-${x}`" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" :aria-labelledby="`dropdown-button-${x}`">
-                                                <li>
-                                                    <a 
-                                                        href="#" 
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                        Show
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a 
-                                                        href="#" 
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                        Edit
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <div class="py-1">
-                                                <a 
-                                                    href="#" 
-                                                    class="block px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                                    Delete
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </template> 
+                                <RowTable
+                                    :advertiser="advertiser"
+                                    :index="x"
+                                    :visible="visibleRow === x"
+                                    :selectedDealAdvertisers="selectedDealAdvertisers"
+                                    @show="$emit('showDealAdvertiser', advertiser)"
+                                    @edit="$emit('editDealAdvertiser', advertiser)"
+                                    @delete="$emit('deleteDealAdvertiser', advertiser)"
+                                    @toggle="setVisibleRow"
+                                    @update:selectedDealAdvertisers="toggleSelected">
+                                    <template #expanded="{ advertiser }">
+                                        <RowDetails :advertiser="advertiser" />
+                                    </template>
+                                </RowTable>
+                            </template>
                         </tbody>
                     </table>
                 </div>
-                <nav 
-                    class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" 
-                    aria-label="Table navigation">
-                    <div class="flex items-center space-x-3">
-                        <label 
-                            for="rows" 
-                            class="text-xs font-normal text-gray-500 dark:text-gray-400">
-                            Rows per page
-                        </label>
-                        <select 
-                            id="rows" 
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block py-1.5 pl-3.5 pr-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected="" value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                            <option value="all">All</option>
-                        </select>
-                        <div class="text-xs font-normal text-gray-500 dark:text-gray-400">
-                            <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
-                            of
-                            <span class="font-semibold text-gray-900 dark:text-white">100</span>
-                        </div>
-                    </div>
-                    <ul class="inline-flex items-stretch -space-x-px rounded-md shadow-sm">
-                        <li>
-                            <a 
-                                href="#" 
-                                class="flex text-sm w-20 items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                Previous
-                            </a>
-                        </li>
-                        <li>
-                            <a 
-                                href="#" 
-                                class="flex text-sm w-20 items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                Next
-                            </a>
+                <nav class="flex flex-wrap justify-between items-center p-4" aria-label="Table navigation">
+                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-2 md:mb-0">
+                        Showing 
+                        <span class="font-semibold text-gray-900 dark:text-white">
+                            {{ pagination.per_page * (pagination.current_page - 1) + 1 }}
+                        </span>
+                        -
+                        <span class="font-semibold text-gray-900 dark:text-white">
+                            {{ pagination.per_page * pagination.current_page }}
+                        </span>
+                        of
+                        <span class="font-semibold text-gray-900 dark:text-white">
+                            {{ pagination.total }}
+                        </span>
+                    </span>
+                    <ul class="inline-flex items-stretch -space-x-px">
+                        <li 
+                            v-for="(link, i) in pagination.links" 
+                            :key="i">
+                            <button
+                                :disabled="!link.url"
+                                @click="goToPageFromLink(link.url)"
+                                v-html="link.label"
+                                :class="[
+                                    'px-3 py-2 text-sm font-medium border',
+                                    link.active
+                                        ? 'z-10 text-blue-700 bg-blue-100 border-blue-300 dark:bg-blue-700 dark:text-white'
+                                        : 'text-gray-500 bg-white border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+                                ]"></button>
                         </li>
                     </ul>
                 </nav>
@@ -194,3 +289,134 @@
         </div>
     </section>
 </template>
+
+<script>
+    import { debounce } from 'innoboxrr-js-libs/libs/utils'
+    import { indexModel as indexDealAdvertiserModel } from '@dealsModels/deal-advertiser'
+    import HeaderTable from '@dealsModels/deal-advertiser/components/deal-advertisers-table/HeaderTable.vue'
+    import RowTable from '@dealsModels/deal-advertiser/components/deal-advertisers-table/RowTable.vue'
+    import RowDetails from '@dealsModels/deal-advertiser/components/deal-advertisers-table/RowDetails.vue'
+
+    export default {
+        name: "DealAdvertisersTable",
+        components: {
+            HeaderTable,
+            RowTable,
+            RowDetails,
+        },
+        props: {
+            defaultAdvertisers: {
+                type: Array,
+                required: false,
+            },
+        },
+        emits: [
+            'showDealAdvertiser',
+            'editDealAdvertiser',
+            'deleteDealAdvertiser',
+            'selectedDealAdvertisers',
+            'toggleDealAdvertiser',
+        ],
+        data() {
+            return {
+                visibleRow: null,
+                globalQuery: this.$route.query.dealAdvertiserGlobalQuery || null,
+                dealAdvertisers: this.defaultAdvertisers || [],
+
+                // Massive operations
+                selectedDealAdvertisers: [],
+                selectAll: false,
+
+                // Pagination
+                pagination: {
+                    current_page: 1,
+                    last_page: 1,
+                    per_page: 10,
+                    total: 0,
+                    links: [],
+                }
+            };
+        },
+        async mounted() {
+            await this.fetchData();
+        },
+        watch: {
+            globalQuery: {
+                handler: debounce(function (val) {
+                    const url = new URL(window.location.href)
+                    if (val) {
+                        url.searchParams.set('dealAdvertiserGlobalQuery', val)
+                    } else {
+                        url.searchParams.delete('dealAdvertiserGlobalQuery')
+                    }
+                    window.history.replaceState({}, '', url)
+
+                    this.fetchDeals();
+                }, 500),
+                immediate: false
+            },
+            selectAll(val) {
+                if (val) {
+                    this.selectedDealAdvertisers = this.dealAdvertisers.map(deal => deal.id)
+                } else {
+                    this.selectedDealAdvertisers = []
+                }
+            }
+        },
+        methods: {
+            async fetchData() {
+                if(this.dealAdvertisers.length === 0) {
+                    await this.fetchDeals();
+                }
+            },
+            async fetchDeals() {
+                try {
+                    const response = await indexDealAdvertiserModel({
+                        paginate: 20,
+                        page: this.pagination.current_page,
+                        managed: true,
+                        global: this.globalQuery,
+                        appends: [
+                            // 'daily_spent_progress',
+                        ]
+                    });
+                    this.dealAdvertisers = response.data || [];
+                    const meta = response.meta || {};
+                    this.pagination = {
+                        current_page: meta.current_page,
+                        last_page: meta.last_page,
+                        per_page: meta.per_page,
+                        total: meta.total,
+                        links: meta.links,
+                    };
+                    console.log(response, this.dealAdvertisers);
+                } catch (error) {
+                    console.error("Error fetching dealAdvertisers:", error);
+                }
+            },
+            goToPage(page) {
+                if (page && page !== this.pagination.current_page) {
+                    this.pagination.current_page = page;
+                    this.fetchDeals(page);
+                }
+            },
+            goToPageFromLink(url) {
+                if (!url) return
+                const page = new URL(url).searchParams.get('page')
+                if (page) {
+                    this.goToPage(Number(page))
+                }
+            },
+            toggleSelected(dealId) {
+                if (this.selectedDealAdvertisers.includes(dealId)) {
+                    this.selectedDealAdvertisers = this.selectedDealAdvertisers.filter(id => id !== dealId)
+                } else {
+                    this.selectedDealAdvertisers.push(dealId)
+                }
+            },
+            setVisibleRow(row) {
+                this.visibleRow = this.visibleRow === row ? null : row;
+            },
+        }
+    };
+</script>
