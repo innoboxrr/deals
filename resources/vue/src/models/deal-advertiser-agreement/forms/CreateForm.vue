@@ -1,10 +1,10 @@
 <template>
 	<form :id="formId" @submit.prevent>
 		<WizardForm
-			:deal="deal"
+			:agreement="agreement"
 			mode="create"
 			@submit="$emit('submit', $event)"
-			@loadDraft="value => deal = value" />
+			@loadDraft="value => agreement = value" />
 	</form>
 </template>
 
@@ -22,7 +22,7 @@
 		emits: ['submit'],
 		data() {
 			return {
-				deal: {
+				agreement: {
 					name: '',
 					description: '',
 					payload: {

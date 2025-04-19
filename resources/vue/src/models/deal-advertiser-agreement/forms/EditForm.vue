@@ -1,15 +1,15 @@
 <template>
 	<form :id="formId" @submit.prevent>
 		<WizardForm
-			v-if="deal"
-			:deal="deal"
+			v-if="agreement"
+			:agreement="agreement"
 			mode="edit"
 			@submit="$emit('submit', $event)" />
 	</form>
 </template>
 
 <script>
-	import { showModel } from '@dealsModels/deal'
+	import { showModel } from '@dealsModels/deal-advertiser-agreement'
 	import WizardForm from './WizardForm.vue'
 
 	export default {
@@ -27,13 +27,12 @@
 		emits: ['submit'],
 		data() {
 			return {
-				deal: null
+				agreement: null
 			}
 		},
-		mounted() {
-			showModel(this.dealAdvertiserAgreementId).then(res => {
-				this.deal = res
-			})
+		async mounted() {
+			let res = await showModel(this.dealAdvertiserAgreementId);
+			this.agreement = res
 		}
 	}
 </script>
