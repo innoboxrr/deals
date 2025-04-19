@@ -4,7 +4,6 @@ namespace Innoboxrr\Deals\Models\Traits\Relations;
 
 use Innoboxrr\Deals\Models\DealGateway;
 use Innoboxrr\Deals\Models\DealSession;
-use Innoboxrr\Deals\Models\DealAdvertiserAgreementPostback;
 use Innoboxrr\Deals\Models\DealLeadTrackingEvent;
 
 // use \Znck\Eloquent\Traits\BelongsToThrough; // Docs: https://github.com/staudenmeir/belongs-to-through
@@ -20,11 +19,6 @@ trait DealLeadRelations
     public function sessions()
     {
         return $this->hasMany(DealSession::class, 'deal_lead_id');
-    }
-
-    public function postbacks()
-    {
-        return $this->hasMany(DealAdvertiserAgreementPostback::class, 'deal_lead_id');
     }
 
     public function trackingEvents()

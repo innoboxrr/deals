@@ -5,9 +5,6 @@ namespace Innoboxrr\Deals\Models\Traits\Relations;
 use Innoboxrr\Deals\Models\DealAdvertiser;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementMeta;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementInvoice;
-use Innoboxrr\Deals\Models\DealAdvertiserAgreementPostback;
-use Innoboxrr\Deals\Models\DealAdvertiserAgreementIntegration;
-use Innoboxrr\Deals\Models\DealAdvertiserAgreementConfig;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementDaily;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementCplAdjustment;
 use Innoboxrr\Deals\Models\Deal;
@@ -30,21 +27,6 @@ trait DealAdvertiserAgreementRelations
     public function invoices()
     {
         return $this->hasMany(DealAdvertiserAgreementInvoice::class, 'deal_advertiser_agreement_id');
-    }
-
-    public function postbacks()
-    {
-        return $this->hasMany(DealAdvertiserAgreementPostback::class, 'deal_advertiser_agreement_id');
-    }
-
-    public function integrations()
-    {
-        return $this->hasMany(DealAdvertiserAgreementIntegration::class, 'deal_advertiser_agreement_id');
-    }
-
-    public function configs()
-    {
-        return $this->hasMany(DealAdvertiserAgreementConfig::class, 'deal_advertiser_agreement_id');
     }
 
     public function dailies()
