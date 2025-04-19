@@ -23,41 +23,61 @@
 		data() {
 			return {
 				agreement: {
-					name: '',
-					description: '',
+					status: '',
+					deal_id: '',
+					deal_advertiser_id: '',
 					payload: {
-						max_cpl: '',
-						snapshot_cron_interval: '',
-						investment_fee: '',
-						min_advertisers: '',
-						max_advertisers: '',
-						access_type: '',
-						automation_thresholds: {
-							min_ctr: '',
-							max_cpl: '',
-							max_cpa: '',
+						general: {
+							start_date: '',
+							end_date: '',
+							contract_terms: '',
+							completion_notes: '',
 						},
-						hypothesis: {
+						billings: {
+							autorenewal: false,
+							management_fee: '',
+							budget: '',
+							budget_fee: '',
+							net_budget: '',
+							budget_spent: ''
+						},
+						estimate_metrics: {
 							ctr: '',
 							cpl: '',
 							cpa: '',
 							conversion_rate: '',
-							leads_per_day: ''
+							leads_per_day: '',
+							roi: '',
 						},
-						alerts: {
-							emails: [],
-							phones: []
+						automation: {
+							pause_until: '',
+							pause_reason: '',
+							cpc: '',
+							cpm: ''
 						},
 						segmentation: {
+							platforms: [],
+							interests: [],
+							devices: [],
+							states: [],
 							min_age: '',
 							max_age: '',
 							genders: [],
-							languages: [],
-							interests: [],
-							locations: [],
-							devices: [],
-							platforms: [],
-							behaviors: [],
+						},
+						integration: {
+							calls: []
+						},
+						postback: {
+							token: ''
+						},
+						distribution: {
+							current_cpl: '',
+							current_cpa: '',
+							current_ctr: '',
+							current_cpm: '',
+							current_cpc: '',
+							current_leads_assigned: '',
+							current_roi: '',
 						}
 					}
 				}

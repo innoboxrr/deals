@@ -15,7 +15,7 @@ class EventServiceProvider extends ServiceProvider
 
     private function registerEventsAndObservers()
     {
-        $cacheKey = 'events_and_observers';
+        $cacheKey = 'deals_events_and_observers';
 
         $data = Cache::remember($cacheKey, now()->addDay(), function () {
             return [
@@ -77,6 +77,7 @@ class EventServiceProvider extends ServiceProvider
 
         // Recorremos cada archivo de modelo en el directorio Models
         $modelFiles = glob("{$modelsPath}/*.php");
+
         foreach ($modelFiles as $modelFilePath) {
             $modelName = pathinfo($modelFilePath, PATHINFO_FILENAME);
             $modelClass = $namespaceModel . $modelName;

@@ -50,9 +50,9 @@
                 <!-- Dynamic Step -->
                 <component
                     :is="currentComponent"
-                    :model-value="agreement"
+                    :model-value="deal"
                     :mode="mode"
-                    @update:modelValue="agreement = $event"
+                    @update:modelValue="deal = $event"
                     @validated="onStepValidated" />
 
                 <!-- Navigation -->
@@ -87,7 +87,7 @@
     import StepAlerts from './steps/StepAlerts.vue'
     import StepSegmentation from './steps/StepSegmentation.vue'
     import { ButtonComponent } from 'innoboxrr-form-elements'
-    import { createModel, updateModel } from '@dealsModels/deal-advertiser-agreement'
+    import { createModel, updateModel } from '@dealsModels/deal'
 
     export default {
         components: {
@@ -99,7 +99,7 @@
             ButtonComponent,
         },
         props: {
-            agreement: {
+            deal: {
                 type: Object,
                 required: true
             },
@@ -113,41 +113,11 @@
             return {
                 stepIndex: 0,
                 steps: [
-                    { 
-                        title: '1. Información General', 
-                        component: 'StepGeneral', 
-                        valid: false, 
-                        completed: false, 
-                        active: true 
-                    },
-                    { 
-                        title: '2. Automatización', 
-                        component: 'StepAutomation', 
-                        valid: false, 
-                        completed: false, 
-                        active: false 
-                    },
-                    { 
-                        title: '3. Hipótesis', 
-                        component: 'StepHypothesis', 
-                        valid: false, 
-                        completed: false, 
-                        active: false 
-                    },
-                    { 
-                        title: '4. Alertas', 
-                        component: 'StepAlerts', 
-                        valid: false, 
-                        completed: false, 
-                        active: false 
-                    },
-                    { 
-                        title: '5. Segmentación', 
-                        component: 'StepSegmentation', 
-                        valid: false,
-                        completed: false, 
-                        active: false 
-                    },
+                    { title: '1. Información General', component: 'StepGeneral', valid: false, completed: false, active: true },
+                    { title: '2. Automatización', component: 'StepAutomation', valid: false, completed: false, active: false },
+                    { title: '3. Hipótesis', component: 'StepHypothesis', valid: false, completed: false, active: false },
+                    { title: '4. Alertas', component: 'StepAlerts', valid: false, completed: false, active: false },
+                    { title: '5. Segmentación', component: 'StepSegmentation', valid: false, completed: false, active: false },
                 ],
                 storageKey: null,
                 hasChanges: false
@@ -162,7 +132,7 @@
             }
         },
         watch: {
-            agreement: {
+            deal: {
                 handler(newVal) {
                     this.hasChanges = true
                     if (this.mode === 'create' && this.storageKey) {
@@ -181,7 +151,7 @@
                     url.searchParams.set('draft', id)
                     window.history.replaceState({}, '', url)
                 }
-                this.storageKey = `draft_agreement_${id}`
+                this.storageKey = `draft_deal_${id}`
 
                 const saved = localStorage.getItem(this.storageKey)
                 if (saved) {
@@ -221,12 +191,12 @@
             },
             submit() {
                 const payload = {
-                    name: this.agreement.name,
-                    description: this.agreement.description,
-                    ...this.agreement.payload
+                    name: this.deal.name,
+                    description: this.deal.description,
+                    ...this.deal.payload
                 }
                 const handler = this.mode === 'edit'
-                    ? updateModel(this.agreement.id, payload)
+                    ? updateModel(this.deal.id, payload)
                     : createModel(payload)
 
                 handler.then(res => {

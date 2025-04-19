@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('deal_advertiser_agreement_configs');
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('deal_advertiser_agreement_config_metas');
+        Schema::dropIfExists('deal_advertiser_agreement_configs');
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        
+        // Opcional: aquí podrías volver a crear ambas tablas si necesitas rollback
     }
 };

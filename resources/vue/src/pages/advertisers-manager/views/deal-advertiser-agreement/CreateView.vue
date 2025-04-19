@@ -3,8 +3,7 @@
         <section class="my-4">
             <div class="max-w-6xl mx-auto px-4 py-4 bg-white dark:bg-gray-800 border rounded-lg">
                 <div class="flex flex-col space-y-4 p-2 lg:p-8">
-                    <AgreementCreateForm 
-                        @submit="agreementCreateFormSubmit"/>
+                    <AgreementCreateForm @submit="agreementCreateFormSubmit"/>
                 </div>
             </div>
         </section>
@@ -34,6 +33,7 @@
                 this.$router.push({
                     name: "DealsAdvertisersManagerAgreementShow",
                     params: {
+                        advertiserId: data.advertiser_id,
                         agreementId: data.id,
                     },
                 });
