@@ -5,7 +5,6 @@ namespace Innoboxrr\Deals\Models\Traits\Relations;
 use Innoboxrr\Deals\Models\DealAdvertiser;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementMeta;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementInvoice;
-use Innoboxrr\Deals\Models\DealAdvertiserAgreementConstraint;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementPostback;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementIntegration;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreementConfig;
@@ -31,11 +30,6 @@ trait DealAdvertiserAgreementRelations
     public function invoices()
     {
         return $this->hasMany(DealAdvertiserAgreementInvoice::class, 'deal_advertiser_agreement_id');
-    }
-
-    public function constraints()
-    {
-        return $this->hasMany(DealAdvertiserAgreementConstraint::class, 'deal_advertiser_agreement_id');
     }
 
     public function postbacks()
