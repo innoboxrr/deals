@@ -24,18 +24,22 @@
 
 		<!-- BASIC AUTH -->
 		<div v-if="localAuth.type === 'basic'" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<text-input-component
-				:custom-class="inputClass"
-				type="text"
-				name="username"
-				label="Usuario"
-				v-model="localAuth.username" />
-			<text-input-component
-				:custom-class="inputClass"
-				type="password"
-				name="password"
-				label="Contraseña"
-				v-model="localAuth.password" />
+			<div>
+				<text-input-component
+					:custom-class="inputClass"
+					type="text"
+					name="username"
+					label="Usuario"
+					v-model="localAuth.username" />
+			</div>
+			<div>
+				<text-input-component
+					:custom-class="inputClass"
+					type="password"
+					name="password"
+					label="Contraseña"
+					v-model="localAuth.password" />
+			</div>
 		</div>
 
 		<!-- OAUTH -->

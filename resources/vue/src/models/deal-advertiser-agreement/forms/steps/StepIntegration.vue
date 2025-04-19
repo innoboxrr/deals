@@ -88,10 +88,23 @@ export default {
                         client_secret: ''
                     }
 				},
-				mapping: []
+				mapping: [],
+				response_validation: {
+					validators: [],
+					code: null
+				},
+				parse_object: this.defaultCodeTemplate()
 			}
 			this.localAgreement.payload.integration.calls.push(newCall)
 		},
+		defaultCodeTemplate() {
+            return [
+                'function parseObject($object, $lead, $previous_response = null) {',
+                '    // Puedes modificar el valor aquí usando object y lead',
+                '    return $object;',
+                '}'
+            ].join('\n')
+        },
 		updateCall(index, updatedCall) {
 			this.localAgreement.payload.integration.calls.splice(index, 1, updatedCall)
 		},

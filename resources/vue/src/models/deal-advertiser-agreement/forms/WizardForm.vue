@@ -147,6 +147,7 @@
         watch: {
             agreement: {
                 handler(newVal) {
+                    console.log(newVal)
                     this.hasChanges = true
                     if (this.mode === 'create' && this.storageKey) {
                         localStorage.setItem(this.storageKey, JSON.stringify(newVal))

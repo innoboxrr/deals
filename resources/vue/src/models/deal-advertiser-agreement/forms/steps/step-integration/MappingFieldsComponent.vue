@@ -145,12 +145,11 @@
                         <!-- VISTA PREVIA DE LA ASIGNACIÓN PHP -->
                         <div class="text-sm text-gray-600 bg-white border rounded-md p-3">
                             <label class="block font-medium text-gray-700 mb-1">Vista previa del objeto:</label>
-                            <pre class="text-xs overflow-auto"><code>{{ generatePhpObjectPreview(element) }}</code></pre>
+                            <pre class="text-xs overflow-auto bg-gray-100"><code>{{ generatePhpObjectPreview(element) }}</code></pre>
                         </div>
 
                         <!-- Code personalizado -->
 						<code-mirror-component
-							label="Código personalizado (opcional)"
 							lang="javascript"
 							v-model="element.code"
 							placeholder="// Puedes formatear este campo aquí" />
