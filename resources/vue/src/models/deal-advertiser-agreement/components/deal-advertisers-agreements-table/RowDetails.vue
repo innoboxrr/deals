@@ -1,18 +1,18 @@
 <template>
     <div class="m-4">
-        <deal-advertiser-model-profile :deal-advertiser="advertiser" />
+        <DealAgreementModelProfile :deal-advertiser-agreement="agreement" />
     </div>
 </template>
 
 <script>
-    import DealAdvertiserModelProfile from '@dealsModels/deal-advertiser/widgets/ModelProfile.vue'
+    import DealAgreementModelProfile from '@dealsModels/deal-advertiser-agreement/widgets/ModelProfile.vue'
     export default {
         name: 'RowDetails',
         components: {
-            DealAdvertiserModelProfile,
+            DealAgreementModelProfile,
         },
         props: {
-            advertiser: {
+            agreement: {
                 type: Object,
                 required: true
             },

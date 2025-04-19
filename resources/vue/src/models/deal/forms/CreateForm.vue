@@ -1,6 +1,6 @@
 <template>
 	<form :id="formId" @submit.prevent>
-		<deal-wizard
+		<WizardForm
 			:deal="deal"
 			mode="create"
 			@submit="$emit('submit', $event)"
@@ -9,10 +9,10 @@
 </template>
 
 <script>
-	import DealWizard from './DealWizardForm.vue'
+	import WizardForm from './WizardForm.vue'
 
 	export default {
-		components: { DealWizard },
+		components: { WizardForm },
 		props: {
 			formId: {
 				type: String,

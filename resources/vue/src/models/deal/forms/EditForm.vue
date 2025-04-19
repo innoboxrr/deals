@@ -1,6 +1,6 @@
 <template>
 	<form :id="formId" @submit.prevent>
-		<deal-wizard
+		<WizardForm
 			v-if="deal"
 			:deal="deal"
 			mode="edit"
@@ -10,10 +10,10 @@
 
 <script>
 	import { showModel } from '@dealsModels/deal'
-	import DealWizard from './DealWizardForm.vue'
+	import WizardForm from './WizardForm.vue'
 
 	export default {
-		components: { DealWizard },
+		components: { WizardForm },
 		props: {
 			formId: {
 				type: String,
