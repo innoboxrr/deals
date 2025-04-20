@@ -34,7 +34,7 @@
 		<div>
 			<button
 				type="button"
-				class="text-sm text-blue-600 hover:underline font-medium"
+				class="text-sm text-blue-600 hover:underline font-medium mb-6"
 				@click="addHeader">
 				+ Agregar Header
 			</button>

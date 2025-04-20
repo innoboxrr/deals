@@ -1,123 +1,118 @@
 <template>
-	<div class="border rounded-lg p-4 bg-white shadow-sm relative space-y-6">
-		<div class="flex justify-between items-center mb-2">
+	<div class="border rounded-lg bg-white shadow-sm relative space-y-6">
+		<!-- HEADER PRINCIPAL (COLLAPSABLE WRAPPER)-->
+		<div class="flex justify-between items-center px-4 py-3 border-b bg-gray-50 cursor-pointer" @click="collapsed = !collapsed">
 			<div class="flex items-center gap-2">
 				<div class="cursor-move drag-handle text-gray-400">
 					<i class="fa-solid fa-grip-vertical"></i>
 				</div>
 				<h4 class="text-md font-semibold">
-                    Integración #{{ index + 1 }}
-                </h4>
+					Integración #{{ index + 1 }}
+				</h4>
 			</div>
-            <button
-                class="text-red-800 text-sm hover:text-red-700"
-                :title="'Eliminar header'"
-                @click="$emit('remove')">
-                <i class="fa-solid fa-trash"></i>
-            </button>
+			<button
+				class="text-red-800 text-sm hover:text-red-700"
+				:title="'Eliminar integración'"
+				@click.stop="$emit('remove')">
+				<i class="fa-solid fa-trash"></i>
+			</button>
 		</div>
+		<div v-show="!collapsed" class="px-6">
+			<h3 class="mb-4 text-lg font-semibold border-gray-200">
+				1. General
+			</h3>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-		<h3 class="mb-4 text-lg font-semibold border-gray-200 pt-4">
-			1. General
-		</h3>
-
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-            <div>
-                <text-input-component
-                    :custom-class="inputClass"
-                    type="text"
-                    name="endpoint"
-                    label="Endpoint"
-                    validators="required url"
-                    v-model="localCall.endpoint" />
-            </div>
-            <div>
-                <select-input-component
-                    :custom-class="inputClass"
-                    name="method"
-                    label="Método HTTP"
-                    v-model="localCall.method">
-                    <option value="GET">GET</option>
-                    <option value="POST">POST</option>
-                    <option value="PUT">PUT</option>
-                    <option value="DELETE">DELETE</option>
-                </select-input-component>
-            </div>
-            <div>
-                <select-input-component
-                    :custom-class="inputClass"
-                    name="data_method"
-                    label="Formato del envío"
-                    v-model="localCall.data_method">
-                    <option value="json">JSON</option>
-                    <option value="form">Form</option>
-                    <option value="query">Query</option>
-                </select-input-component>
-            </div>
-		</div>
-
-		<!-- HEADERS -->
-        <div>
-            <h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-                2. Headers
-            </h3>
-            <headers-input-component v-model="localCall.headers" />
-        </div>
-
-
-		<!-- AUTENTICACIÓN -->
-		<div>
-			<h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-                3. Autenticación
-            </h3>
-			<auth-config-component v-model="localCall.auth" />
-		</div>
-
-		<!-- MAPEO -->
-		<div>
-            <h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-                4. Mapeo de Campos
-            </h3>
-			<mapping-fields-component v-model="localCall.mapping" class="mb-4"/>
-
-			<!-- PARSE GLOBAL -->
-			<div class="border rounded-md">
-				<div
-					class="flex justify-between items-center px-4 py-2 border-b bg-gray-50 cursor-pointer"
-					@click="collapsedParseObject = !collapsedParseObject">
-					<span class="text-sm font-semibold">
-						Procesamiento Global del Objeto
-					</span>
-					<i :class="['fa-solid', collapsedParseObject ? 'fa-chevron-down' : 'fa-chevron-up', 'text-gray-400']"></i>
+				<div>
+					<text-input-component
+						:custom-class="inputClass"
+						type="text"
+						name="endpoint"
+						label="Endpoint"
+						validators="required url"
+						v-model="localCall.endpoint" />
 				</div>
+				<div>
+					<select-input-component
+						:custom-class="inputClass"
+						name="method"
+						label="Método HTTP"
+						v-model="localCall.method">
+						<option value="GET">GET</option>
+						<option value="POST">POST</option>
+						<option value="PUT">PUT</option>
+						<option value="DELETE">DELETE</option>
+					</select-input-component>
+				</div>
+				<div>
+					<select-input-component
+						:custom-class="inputClass"
+						name="data_method"
+						label="Formato del envío"
+						v-model="localCall.data_method">
+						<option value="json">JSON</option>
+						<option value="form">Form</option>
+						<option value="query">Query</option>
+					</select-input-component>
+				</div>
+			</div>
+			<!-- HEADERS -->
+			<div>
+				<h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
+					2. Headers
+				</h3>
+				<headers-input-component v-model="localCall.headers" />
+			</div>
+			<!-- AUTENTICACIÓN -->
+			<div>
+				<h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
+					3. Autenticación
+				</h3>
+				<auth-config-component v-model="localCall.auth" />
+			</div>
+			<!-- MAPEO -->
+			<div>
+				<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
+					4. Mapeo de Campos
+				</h3>
+				<mapping-fields-component v-model="localCall.mapping" class="mb-4"/>
 
-				<div v-show="!collapsedParseObject" class="p-4 space-y-4">
-
-					<!-- Vista previa del objeto PHP -->
-					<div class="text-sm text-gray-600 bg-white border rounded-md p-3">
-						<label class="block font-medium text-gray-700 mb-1">Vista previa del objeto enviado:</label>
-						<pre class="text-xs overflow-auto bg-gray-100"><code>{{ generatePhpFullObject(localCall.mapping) }}</code></pre>
+				<!-- PARSE GLOBAL -->
+				<div class="border rounded-md">
+					<div
+						class="flex justify-between items-center px-4 py-4 border-b bg-gray-50 cursor-pointer"
+						@click="collapsedParseObject = !collapsedParseObject">
+						<span class="text-sm font-semibold">
+							Procesamiento Global del Objeto
+						</span>
+						<i :class="['fa-solid', collapsedParseObject ? 'fa-chevron-down' : 'fa-chevron-up', 'text-gray-400']"></i>
 					</div>
 
-					<code-mirror-component
-						lang="javascript"
-						v-model="localCall.parse_object"
-						placeholder="// Aquí puedes procesar el objeto final antes de enviarlo" />
+					<div v-show="!collapsedParseObject" class="p-4 space-y-4">
 
+						<!-- Vista previa del objeto PHP -->
+						<div class="text-sm text-gray-600 bg-white border rounded-md p-3">
+							<label class="block font-medium text-gray-700 mb-1">Vista previa del objeto enviado:</label>
+							<pre class="text-xs overflow-auto bg-gray-100"><code>{{ generatePhpFullObject(localCall.mapping) }}</code></pre>
+						</div>
+
+						<code-mirror-component
+							lang="javascript"
+							v-model="localCall.parse_object"
+							placeholder="// Aquí puedes procesar el objeto final antes de enviarlo" />
+
+					</div>
 				</div>
+
 			</div>
-
+			<!-- VALIDACIÓN DE RESPUESTA -->
+			<div>
+				<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
+					5. Validación de Respuesta
+				</h3>
+				<response-validator-component v-model="localCall.response_validation" />
+			</div>
 		</div>
-
-		<!-- VALIDACIÓN DE RESPUESTA -->
-		<div>
-			<h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-				5. Validación de Respuesta
-			</h3>
-			<response-validator-component v-model="localCall.response_validation" />
-		</div>
-	
 	</div>
 </template>
 
@@ -160,6 +155,7 @@ export default {
 	emits: ['update:modelValue', 'remove'],
 	data() {
 		return {
+			collapsed: false,
 			collapsedParseObject: true
 		}
 	},
@@ -227,7 +223,6 @@ export default {
 			result += phpBuild(tree) + ';'
 			return result
 		}
-
 	}
 }
 </script>

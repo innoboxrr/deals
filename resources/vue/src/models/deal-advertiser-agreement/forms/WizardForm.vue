@@ -87,11 +87,11 @@
     import StepBillingAgreement from './steps/StepBillingAgreement.vue'
     import StepEstimateMetrics from './steps/StepEstimateMetrics.vue'
     import StepAutomation from './steps/StepAutomation.vue'
+    import StepAlerts from './steps/StepAlerts.vue'
     import StepSegmentation from './steps/StepSegmentation.vue'
     import StepIntegration from './steps/StepIntegration.vue'
     import StepPostback from './steps/StepPostback.vue'
     import StepDistribution from './steps/StepDistribution.vue'
-
     import { ButtonComponent } from 'innoboxrr-form-elements'
     import { createModel, updateModel } from '@dealsModels/deal-advertiser-agreement'
 
@@ -101,11 +101,11 @@
             StepBillingAgreement,
             StepEstimateMetrics,
             StepAutomation,
+            StepAlerts,
             StepSegmentation,
             StepIntegration,
             StepPostback,
             StepDistribution,
-
             ButtonComponent,
         },
         props: {
@@ -113,6 +113,10 @@
                 type: Object,
                 required: true
             },
+            advertiserId: {
+				type: [String, Number],
+				required: true	
+			},
             mode: {
                 type: String,
                 default: 'create'
@@ -127,10 +131,11 @@
                     { title: '2. Facturación', component: 'StepBillingAgreement', valid: false, completed: false, active: false },
                     { title: '3. Métricas Estimadas', component: 'StepEstimateMetrics', valid: false, completed: false, active: false },
                     { title: '4. Automatización', component: 'StepAutomation', valid: false, completed: false, active: false },
-                    { title: '5. Segmentación', component: 'StepSegmentation', valid: false, completed: false, active: false },
-                    { title: '6. Integración', component: 'StepIntegration', valid: false, completed: false, active: false },
-                    { title: '7. Postback', component: 'StepPostback', valid: false, completed: false, active: false },
-                    { title: '8. Distribución', component: 'StepDistribution', valid: false, completed: false, active: false },
+                    { title: '5. Alertas', component: 'StepAlerts', valid: false, completed: false, active: false },
+                    { title: '6. Segmentación', component: 'StepSegmentation', valid: false, completed: false, active: false },
+                    { title: '7. Integración', component: 'StepIntegration', valid: false, completed: false, active: false },
+                    { title: '8. Postback', component: 'StepPostback', valid: false, completed: false, active: false },
+                    { title: '9. Distribución', component: 'StepDistribution', valid: false, completed: false, active: false },
                 ],
                 storageKey: null,
                 hasChanges: false
@@ -147,7 +152,6 @@
         watch: {
             agreement: {
                 handler(newVal) {
-                    console.log(newVal)
                     this.hasChanges = true
                     if (this.mode === 'create' && this.storageKey) {
                         localStorage.setItem(this.storageKey, JSON.stringify(newVal))
@@ -206,9 +210,17 @@
             submit() {
                 const payload = {
                     name: this.agreement.name,
-                    description: this.agreement.description,
-                    ...this.agreement.payload
+                    status: this.agreement.status,
+                    ...this.agreement.payload,
                 }
+
+                if (this.mode === 'create') {
+                    payload.deal_advertiser_id = this.advertiserId;
+                    payload.deal_id = this.agreement.deal_id;
+                } else {
+                    payload.id = this.agreement.id
+                }
+
                 const handler = this.mode === 'edit'
                     ? updateModel(this.agreement.id, payload)
                     : createModel(payload)

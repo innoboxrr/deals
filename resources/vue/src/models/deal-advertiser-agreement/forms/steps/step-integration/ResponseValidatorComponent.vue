@@ -49,14 +49,16 @@
 					</div>
 
 					<!-- BODY -->
-					<div v-show="!collapsed[index]" class="p-4 space-y-4">
+					<div v-show="!collapsed[index]" class="p-4">
 						<text-input-component
+							class="uk-margin-small"
 							:custom-class="inputClass"
 							label="Campo del Response (dot notation)"
 							placeholder="Ej: data.status"
 							v-model="element.path" />
 
 						<select-input-component
+							class="uk-margin-small"
 							:custom-class="inputClass"
 							label="Condición"
 							v-model="element.condition">
@@ -70,9 +72,23 @@
 
 						<text-input-component
 							v-if="!['exists', 'not_exists'].includes(element.condition)"
+							class="uk-margin-small"
 							:custom-class="inputClass"
 							label="Valor esperado"
 							v-model="element.expected" />
+
+						<select-input-component
+							class="uk-margin-small"
+							:custom-class="inputClass"
+							label="Resultado de la validación (status)"
+							v-model="element.status">
+							<option value="VALID">VALID</option>
+							<option value="INVALID">INVALID</option>
+							<option value="DUPLICATED">DUPLICATED</option>
+							<option value="REJECTED">REJECTED</option>
+							<option value="CAP">CAP</option>
+							<option value="OUT_OF_HOUR">OUT_OF_HOUR</option>
+						</select-input-component>
 					</div>
 				</div>
 			</template>
@@ -87,9 +103,9 @@
 		</button>
 
 		<!-- Código personalizado -->
-		<div class="mt-6 border rounded-md">
+		<div class="my-6 border rounded-md">
 			<div
-				class="flex justify-between items-center px-4 py-2 border-b bg-gray-50 cursor-pointer"
+				class="flex justify-between items-center px-4 py-4 border-b bg-gray-50 cursor-pointer"
 				@click="collapsedCode = !collapsedCode">
 				<span class="text-sm font-semibold">
 					Código personalizado (opcional)
@@ -104,6 +120,8 @@
 					placeholder="// Return true si el response es válido, false si no." />
 			</div>
 		</div>
+
+		<div class="my-6"></div>
 	</div>
 </template>
 
@@ -141,7 +159,6 @@ export default {
 	computed: {
 		localValidators: {
 			get() {
-				// Sync colapsados
 				if (!Array.isArray(this.collapsed) || this.collapsed.length !== (this.modelValue.validators || []).length) {
 					this.collapsed = (this.modelValue.validators || []).map(() => true)
 				}
@@ -165,7 +182,8 @@ export default {
 			this.localValidators.push({
 				path: '',
 				condition: 'equals',
-				expected: ''
+				expected: '',
+				status: 'VALID'
 			})
 			this.collapsed.push(false)
 		},

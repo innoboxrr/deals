@@ -2,6 +2,7 @@
 	<form :id="formId" @submit.prevent>
 		<WizardForm
 			:agreement="agreement"
+			:advertiser-id="advertiserId"
 			mode="create"
 			@submit="$emit('submit', $event)"
 			@loadDraft="value => agreement = value" />
@@ -17,13 +18,17 @@
 			formId: {
 				type: String,
 				default: 'createDealForm'
-			}
+			},
+			advertiserId: {
+				type: [String, Number],
+				required: true	
+			},
 		},
 		emits: ['submit'],
 		data() {
 			return {
 				agreement: {
-					status: '',
+					status: 'draft',
 					deal_id: '',
 					deal_advertiser_id: '',
 					payload: {
@@ -35,11 +40,12 @@
 						},
 						billings: {
 							autorenewal: false,
+							currency: 'USD',
 							management_fee: '',
 							budget: '',
 							budget_fee: '',
 							net_budget: '',
-							budget_spent: ''
+							budget_spent: 0
 						},
 						estimate_metrics: {
 							ctr: '',
@@ -54,6 +60,10 @@
 							pause_reason: '',
 							cpc: '',
 							cpm: ''
+						},
+						alerts: {
+							emails: [],
+							phones: [],
 						},
 						segmentation: {
 							platforms: [],

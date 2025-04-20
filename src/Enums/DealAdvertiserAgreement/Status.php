@@ -16,4 +16,6 @@ enum Status: string
     case ARCHIVED = 'archived';
     case EXPIRED = 'expired';
     case BLOCKED = 'blocked';
+    case DRAFT = 'draft';
+    case COMPLETED = 'completed';
 }
