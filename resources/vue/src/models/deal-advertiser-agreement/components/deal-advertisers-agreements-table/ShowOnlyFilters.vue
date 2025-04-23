@@ -54,9 +54,11 @@ export default {
         return {
             options: [
                 { label: 'All',               value: '' },
-                { label: 'Completed tasks',   value: 'completed' },
-                { label: 'Tasks in progress', value: 'in_progress' },
-                { label: 'Tasks in review',   value: 'in_review' }
+                { label: 'Completed',   value: 'completed' },
+                { label: 'In progress', value: 'in_progress' },
+                { label: 'Paused',   value: 'paused' },
+                { label: 'Cancelled', value: 'cancelled' },
+                { label: 'Draft',     value: 'draft' }
             ]
         };
     }

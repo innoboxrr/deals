@@ -29,12 +29,11 @@
         mounted() {
             this.advertisersManagerStore.setHeaderTitle(this.__deals('Show an agreement'));
             this.advertisersManagerStore.setAgreementId(this.$route.params.agreementId);
+            this.advertisersManagerStore.setDealAdvertiserId(this.$route.params.advertiserId);
         },
         unmounted() {
             this.advertisersManagerStore.setAgreementId(null);
+            this.advertisersManagerStore.setDealAdvertiserId(null);
         },
-        methods: {
-            //
-        }
     };
 </script>

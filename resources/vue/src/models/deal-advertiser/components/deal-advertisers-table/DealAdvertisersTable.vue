@@ -51,7 +51,7 @@
                                         id="advertisersFilterDropdown" 
                                         class="z-10 hidden p-3 bg-white rounded-lg shadow w-56 dark:bg-gray-700">
                                         <h6 class="mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                            By status
+                                            {{ __deals('Status') }}
                                         </h6>
                                         <ul 
                                             class="space-y-2 text-sm" 
@@ -63,7 +63,7 @@
                                                         type="checkbox" 
                                                         value="" 
                                                         class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                                    In progress
+                                                    {{ __deals('In progress') }}
                                                 </label>
                                             </li>
                                             <li>
@@ -74,7 +74,7 @@
                                                         value="" 
                                                         checked 
                                                         class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                                    In review
+                                                    {{ __deals('In review') }}
                                                 </label>
                                             </li>
                                             <li>
@@ -84,13 +84,13 @@
                                                         type="checkbox" 
                                                         value="" 
                                                         class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                                    Completed
+                                                    {{ __deals('Completed') }}
                                                 </label>
                                             </li>
                                             <li>
                                                 <label class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
                                                     <input type="checkbox" value="" class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                                    Canceled
+                                                    {{ __deals('Paused') }}
                                                 </label>
                                             </li>
                                         </ul>

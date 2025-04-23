@@ -34,7 +34,3 @@ export default {
     ],
 };
 </script>
-
-<style scoped>
-/* Shadows removed; spacing increased for clarity */
-</style>

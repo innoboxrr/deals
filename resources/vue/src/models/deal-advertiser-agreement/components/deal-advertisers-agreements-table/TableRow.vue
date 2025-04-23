@@ -17,7 +17,7 @@
                 <label 
                     for="checkbox-table-search-1" 
                     class="sr-only">
-                    checkbox
+                    {{ __deals('checkbox') }}
                 </label>
             </div>
         </td>
