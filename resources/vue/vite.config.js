@@ -11,6 +11,7 @@ export default defineConfig({
             '@dealsModels': path.resolve(__dirname, './src/models'),
             '@dealsPages': path.resolve(__dirname, './src/pages'),
             '@dealsStore': path.resolve(__dirname, './src/store'),
+            '@dealsUtils': path.resolve(__dirname, './src/utils'),
         },
     },
 });

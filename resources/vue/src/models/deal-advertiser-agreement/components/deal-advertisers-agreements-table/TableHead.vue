@@ -6,40 +6,40 @@
                     <input 
                         id="checkbox-all" 
                         type="checkbox" 
+                        v-model="value"
                         class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                     <label 
                         for="checkbox-all" 
                         class="sr-only">
-                        checkbox
+                        {{ __deals('Select all') }}
                     </label>
                 </div>
             </th>
             <th scope="col" class="px-4 py-3">
-                Agreement
+                {{ __deals('Agreement') }}
             </th>
             <th scope="col" class="px-4 py-3">
-                Progress
+                {{ __deals('Progress') }}
             </th>
             <th scope="col" class="px-4 py-3">
-                Gasto
+                {{ __deals('Daily Budget') }}
             </th>
             <th scope="col" class="px-4 py-3">
-                Leads
+                {{ __deals('CPL') }}
             </th>
             <th scope="col" class="px-4 py-3">
-                CPL
+                {{ __deals('CPA') }}
             </th>
             <th scope="col" class="px-4 py-3">
-                CPM
+                {{ __deals('ROI') }}
             </th>
             <th scope="col" class="px-4 py-3">
-                ROI
+                {{ __deals('End Date') }}
             </th>
             <th scope="col" class="px-4 py-3">
-                Due Date
-            </th>
-            <th scope="col" class="px-4 py-3">
-                <span class="sr-only">Actions</span>
+                <span class="sr-only">
+                    {{ __deals('Actions') }}
+                </span>
             </th>
         </tr>
     </thead>

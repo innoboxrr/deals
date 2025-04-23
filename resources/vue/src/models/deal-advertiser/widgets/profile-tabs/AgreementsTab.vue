@@ -1,10 +1,13 @@
 <template>
     <div class="">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Agreements</h2>
         <DealAdvertiserAgreementTable 
             :external-filters="{
                 deal_advertiser_id: advertiser.id,
-            }" />
+            }" 
+            @showDealAdvertiserAgreement="$emit('eventHandler', $event)"
+            @editDealAdvertiserAgreement="$emit('eventHandler', $event)"
+            @deleteDealAdvertiserAgreement="$emit('eventHandler', $event)"
+            @createDealAdvertiserAgreement="$emit('eventHandler', $event)" />
     </div>
 </template>
 
@@ -20,11 +23,15 @@ export default {
         advertiser: {
             type: Object,
             required: true
+        },
+        createRoute: {
+            type: Object,
+            required: true
         }
     },
-    methods: {
-        
-    }
+    emits: [
+        'eventHandler'
+    ],
 };
 </script>
 

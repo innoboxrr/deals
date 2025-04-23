@@ -159,6 +159,7 @@
                                 </div>
                                 <div>
                                     <button 
+                                        @click="$emit('createDealAdvertiser')"
                                         type="button" 
                                         class="w-full md:w-auto flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 sm:px-4 sm:py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                         <i class="h-5 w-5 pt-1 mr-2 text-white fa-solid fa-plus"></i>
@@ -311,6 +312,7 @@
             },
         },
         emits: [
+            'createDealAdvertiser',
             'showDealAdvertiser',
             'editDealAdvertiser',
             'deleteDealAdvertiser',

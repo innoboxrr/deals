@@ -1,50 +1,42 @@
 <template>
     <section class="mb-4">
-        <div class="px-4 mx-auto">
-            <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg">
+        <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg">
 
-                <agreements-filters 
-                    v-model="globalQuery"
-                    :create-route="{
-                        name: 'DealsAdvertisersManagerAgreementCreate',
-                        params: {
-                            advertiserId: externalFilters.deal_advertiser_id,
-                        }
-                    }"
-                    @resetFilters="$emit('resetFilters')" 
-                    @createNew="$emit('createNew')"
-                    @configAction="$emit('configAction', $event)"
-                    @resetConfig="$emit('resetConfig')" />
-                
-                <show-only-filters v-model="onlyFilter"  />
+            <agreements-filters 
+                @createAgreement="$emit('createDealAdvertiserAgreement', {
+                    type: 'createDealAdvertiserAgreement',
+                    data: {}
+                })"
+                v-model="queryFilters" />
+            
+            <show-only-filters v-model="onlyFilter"  />
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <table-head />
-                        <tbody data-accordion="table-column">
-                            <template 
-                                v-for="(agreement, x) in agreements" 
-                                :key="x">
-                                <TableRow
-                                    :agreement="agreement"
-                                    :index="x"
-                                    :visible="visibleRow === x"
-                                    :selectedAgreements="selectedAgreements"
-                                    @show="$emit('showDealAdvertiser', agreement)"
-                                    @edit="$emit('editDealAdvertiser', agreement)"
-                                    @delete="$emit('deleteDealAdvertiser', agreement)"
-                                    @toggle="setVisibleRow"
-                                    @update:selectedAgreements="toggleSelected">
-                                    <template #expanded="{ agreement }">
-                                        <RowDetails :agreement="agreement" />
-                                    </template>
-                                </TableRow>
-                            </template>
-                        </tbody>
-                    </table>
-                </div>
-                <table-pagination :pagination="pagination" @goToPage="goToPage" />
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <table-head v-model="selectAll" />
+                    <tbody data-accordion="table-column">
+                        <template 
+                            v-for="(agreement, x) in agreements" 
+                            :key="x">
+                            <TableRow
+                                :agreement="agreement"
+                                :index="x"
+                                :visible="visibleRow === x"
+                                :selectedAgreements="selectedAgreements"
+                                @show="$emit('showDealAdvertiserAgreement', { type: 'showDealAdvertiserAgreement', data: { agreement: agreement } })"
+                                @edit="$emit('editDealAdvertiserAgreement', { type: 'editDealAdvertiserAgreement', data: { agreement: agreement } })"
+                                @delete="$emit('deleteDealAdvertiserAgreement', { type: 'deleteDealAdvertiserAgreement', data: { agreement: agreement } })"
+                                @toggle="setVisibleRow"
+                                @update:selectedAgreements="toggleSelected">
+                                <template #expanded="{ agreement }">
+                                    <RowDetails :agreement="agreement" />
+                                </template>
+                            </TableRow>
+                        </template>
+                    </tbody>
+                </table>
             </div>
+            <table-pagination :pagination="pagination" @goToPage="goToPage" />
         </div>
     </section>
 </template>
@@ -80,23 +72,35 @@
                 type: Array,
                 required: false,
             },
+            createRoute: {
+                type: Object,
+                required: false,
+            }
         },
         emits: [
             'showDealAdvertiser',
             'editDealAdvertiser',
             'deleteDealAdvertiser',
+            
             'update:selectedAgreements',
+
+            'createDealAdvertiserAgreement',
+            'showDealAdvertiserAgreement',
+            'editDealAdvertiserAgreement',
+            'deleteDealAdvertiserAgreement',
         ],
         data() {
             return {
                 visibleRow: null,
-                globalQuery: this.$route.query.agreementsGlobalQuery || null,
                 agreements: this.defaultAgreements || [],
 
                 // Massive operations
                 selectedAgreements: [],
                 selectAll: false,
 
+                queryFilters: {
+                    search: this.$route.query.agreementsGlobalQuery
+                },
                 onlyFilter: null,
 
                 // Pagination
@@ -113,7 +117,7 @@
             await this.fetchData();
         },
         watch: {
-            globalQuery: {
+            'queryFilters.search': {
                 handler: debounce(function (val) {
                     const url = new URL(window.location.href)
                     if (val) {
@@ -125,16 +129,17 @@
 
                     this.fetchAgreements();
                 }, 500),
-                immediate: false
+                immediate: false,
+                deep: true,
             },
             onlyFilter(newVal, oldVal) {
                 console.log('onlyFilter', newVal, oldVal)
             },
             selectAll(val) {
                 if (val) {
-                    this.selectedDealAdvertisers = this.agreements.map(deal => deal.id)
+                    this.selectedAgreements = this.agreements.map(deal => deal.id)
                 } else {
-                    this.selectedDealAdvertisers = []
+                    this.selectedAgreements = []
                 }
             }
         },
@@ -150,8 +155,8 @@
                         paginate: 20,
                         page: this.pagination.current_page,
                         managed: true,
-                        global: this.globalQuery,
-                        load_advertiser: true,  
+                        global: this.queryFilters.search,
+                        load_advertiser: 1,  
                         appends: [
                             // 'daily_spent_progress',
                         ]
@@ -165,6 +170,8 @@
                         total: meta.total,
                         links: meta.links,
                     };
+
+                    console.log(this.agreements);
                 } catch (error) {
                     console.error("Error fetching agreements:", error);
                 }

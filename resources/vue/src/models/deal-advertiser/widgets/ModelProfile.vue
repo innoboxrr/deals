@@ -28,7 +28,7 @@
                 <button
                     v-for="tab in tabs"
                     :key="tab.id"
-                    @click="activeTab = tab.id"
+                    @click="setActiveTab(tab.id)"
                     :class="{
                         'border-b-2 border-blue-500 text-blue-600': activeTab === tab.id,
                         'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200': activeTab !== tab.id
@@ -40,7 +40,8 @@
             <div>
 				<component
                     :is="activeTabComponent"
-                    :advertiser="localAdvertiser" />
+                    :advertiser="localAdvertiser"
+                    @eventHandler="$emit('eventHandler', $event)" />
             </div>
         </div>
     </div>
@@ -75,11 +76,14 @@
                 default: null
             }
         },
+        emits: [
+            'eventHandler'
+        ],
         data() {
             return {
                 dataLoaded: false,
                 localAdvertiser: this.dealAdvertiser || null,
-                activeTab: 'overview',
+                activeTab: this.$route.query.tab || 'overview',
                 tabs: [
                     { id: 'overview',   name: 'Overview',   component: 'OverviewTab'   },
                     { id: 'contacts',   name: 'Contacts',   component: 'ContactsTab'   },
@@ -121,5 +125,11 @@
                 ]
             }
         },
+        methods: {
+            setActiveTab(tab) {
+                this.activeTab = tab
+                this.$router.push({ query: { ...this.$route.query, tab } })
+            },
+        }
     }
 </script>

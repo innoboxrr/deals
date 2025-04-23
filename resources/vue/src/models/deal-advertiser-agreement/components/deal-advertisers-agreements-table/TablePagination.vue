@@ -1,7 +1,7 @@
 <template>
     <nav class="flex flex-wrap justify-between items-center p-4" aria-label="Table navigation">
         <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-2 md:mb-0">
-            Showing 
+            {{ __deals('Showing') }} 
             <span class="font-semibold text-gray-900 dark:text-white">
                 {{ pagination.per_page * (pagination.current_page - 1) + 1 }}
             </span>
@@ -9,7 +9,7 @@
             <span class="font-semibold text-gray-900 dark:text-white">
                 {{ pagination.per_page * pagination.current_page }}
             </span>
-            of
+            {{ __deals('of') }}
             <span class="font-semibold text-gray-900 dark:text-white">
                 {{ pagination.total }}
             </span>

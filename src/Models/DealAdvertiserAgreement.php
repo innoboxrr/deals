@@ -76,6 +76,8 @@ class DealAdvertiserAgreement extends Model
         'billings_net_budget',
         'billings_budget_spent',
         'billings_payment_terms',
+        'billings_daily_budget',
+        'billings_daily_budget_spent',
         'billings_invoice_reference',
         'billings_billing_name',
         'billings_billing_contact',
@@ -145,6 +147,9 @@ class DealAdvertiserAgreement extends Model
         'distribution_current_cpm',
         'distribution_current_cpc',
         'distribution_current_leads_assigned',
+        'distribution_current_leads_duplicates',
+        'distribution_current_leads_waiting',
+        'distribution_current_leads_rejected',
         'distribution_current_roi'
     ];    
     

@@ -2,6 +2,7 @@
     <div v-flowbite>
         <deal-advertisers-table 
             class="my-4" 
+            @createDealAdvertiser="createDealAdvertiser"
             @showDealAdvertiser="showDealAdvertiser"
             @editDealAdvertiser="editDealAdvertiser"
             @deleteDealAdvertiser="deleteDealAdvertiser"
@@ -20,6 +21,11 @@
             DealAdvertisersTable,
         },
         methods: {
+            createDealAdvertiser() {
+                this.$router.push({
+                    name: 'DealsAdvertisersManagerAdvertiserCreate',
+                });
+            },
             showDealAdvertiser(advertiser) {
                 this.$router.push({
                     name: 'DealsAdvertisersManagerAdvertiserShow',

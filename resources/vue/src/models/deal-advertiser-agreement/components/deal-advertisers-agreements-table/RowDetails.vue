@@ -1,6 +1,7 @@
 <template>
     <div class="m-4">
-        <DealAgreementModelProfile :deal-advertiser-agreement="agreement" />
+        <DealAgreementModelProfile 
+            :deal-advertiser-agreement="agreement" />
     </div>
 </template>
 

@@ -29,6 +29,10 @@ trait DealAdvertiserAgreementOperations
                 'net_budget' => (float) $this->meta('billings_net_budget', 0),
                 'budget_spent' => (float) $this->meta('billings_budget_spent', 0),
                 'payment_terms' => (int) $this->meta('billings_payment_terms', 0),
+
+                'daily_budget' => (float) $this->meta('billings_daily_budget', 0),
+                'daily_budget_spent' => (float) $this->meta('billings_daily_budget_spent', 0),
+
                 'invoice_reference' => $this->meta('billings_invoice_reference', ''),
                 'billing_name' => $this->meta('billings_billing_name', ''),
                 'billing_contact' => $this->meta('billings_billing_contact', ''),
@@ -104,6 +108,10 @@ trait DealAdvertiserAgreementOperations
                 'current_cpm' => (float) $this->meta('distribution_current_cpm', 0),
                 'current_cpc' => (float) $this->meta('distribution_current_cpc', 0),
                 'current_leads_assigned' => (int) $this->meta('distribution_current_leads_assigned', 0),
+                'current_leads_duplicates' => (int) $this->meta('distribution_current_leads_duplicates', 0),
+                'current_leads_waiting' => (int) $this->meta('distribution_current_leads_waiting', 0),
+                'current_leads_rejected' => (int) $this->meta('distribution_current_leads_rejected', 0),
+                'current_leads_approved' => (int) $this->meta('distribution_current_leads_approved', 0),
                 'current_roi' => (float) $this->meta('distribution_current_roi', 0),
             ],
             'postback' => [

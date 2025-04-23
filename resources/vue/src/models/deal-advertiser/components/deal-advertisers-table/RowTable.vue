@@ -164,9 +164,6 @@ export default {
         }
     },
     emits: ['toggle', 'show', 'edit', 'delete'],
-    mounted() {
-        console.log(this.advertiser);
-    },
     data() {
         return {
             toggleDropdown: false,

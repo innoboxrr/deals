@@ -9,7 +9,10 @@
                 <input 
                     id="checkbox-table-search-1" 
                     type="checkbox" 
-                    onclick="event.stopPropagation()" 
+                    :value="agreement.id"
+                    :checked="selectedDealAdvertisers.includes(agreement.id)"
+                    @change="$emit('update:selectedAgreements', deal.id)"
+                    @click.stop
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label 
                     for="checkbox-table-search-1" 
@@ -20,13 +23,28 @@
         </td>
         <th 
             class="px-4 py-2 font-medium text-blue-800 whitespace-nowrap dark:text-white"
-            @click="setVisibleRow(x)">
+            @click="$emit('toggle', index)">
             <p class="mb-1 cursor-pointer">
-                Upload feed and Reels in Instagram 
+                {{ __deals('Agreement') }} #{{ agreement.id }} 
                 <i class="h-5 w-5 pt-1 text-gray-900 fa-solid fa-caret-down  justify-end"></i>
             </p>
-            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                In progress
+            <span 
+                class="text-xs font-medium dark:text-gray-400 py-0.5 px-2 rounded-lg"
+                :class="{
+                    'text-green-500 bg-green-100': agreement.status === 'active',
+                    'text-red-500 bg-red-100': agreement.status === 'inactive',
+                    'text-yellow-500 bg-yellow-100': agreement.status === 'pending',
+                    'text-gray-500 bg-gray-100': [
+                        'suspended',
+                        'deleted',
+                        'archived',
+                        'expired',
+                        'blocked',
+                        'draft',
+                        'completed'
+                    ].includes(agreement.status)
+                }">
+                {{ agreement.status }}
             </span>
         </th>
         <td class="px-4 py-2 font-medium whitespace-nowrap cursor-pointer">
@@ -34,7 +52,7 @@
                 <span 
                     uk-tooltip="Importe gastado"
                     class="text-xs font-medium text-gray-500 dark:text-gray-400">
-                    75%
+                    {{ spentProgress }}% - ({{ formatCount(agreement.payload.distribution.current_leads_assigned) }} leads)
                 </span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
@@ -46,7 +64,7 @@
                     uk-tooltip="6,458 leads generados">
                     <i class="fa-solid fa-check text-green-500 text-xs"></i>
                     <span class="ml-1 text-xs text-gray-500 dark:text-gray-400">
-                        6.7K
+                        {{ formatCount(agreement.payload.distribution.current_leads_approved) }}
                     </span>
                 </div>
                 <div 
@@ -54,7 +72,7 @@
                     uk-tooltip="Leads duplicados">
                     <i class="fa-solid fa-user-slash text-gray-500 text-xs"></i>
                     <span class="ml-1 text-xs text-gray-500 dark:text-gray-400">
-                        32
+                        {{ formatCount(agreement.payload.distribution.current_leads_duplicates) }}
                     </span>
                 </div>
                 <div 
@@ -62,7 +80,7 @@
                     uk-tooltip="Leads en cola de espera">
                     <i class="fa-solid fa-clock text-yellow-500 text-xs"></i>
                     <span class="ml-1 text-xs text-gray-500 dark:text-gray-400">
-                        456
+                        {{ formatCount(agreement.payload.distribution.current_leads_waiting) }}
                     </span>
                 </div>
                 <div 
@@ -70,18 +88,21 @@
                     uk-tooltip="Leads rechazados por reglas de negocio">
                     <i class="fa-solid fa-times text-red-500 text-xs"></i>
                     <span class="ml-1 text-xs text-gray-500 dark:text-gray-400">
-                        200
+                        {{ formatCount(agreement.payload.distribution.current_leads_rejected) }}
                     </span>
                 </div>
             </div>
         </td>
         <td class="px-4 py-2 text-gray-900 whitespace-nowrap dark:text-white">
-            <div class="px-2 py-1 border dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg text-xs font-medium inline-flex items-center">
-                <button class="bg-red-500 hover:bg-red-700 text-white p-1 rounded-md mr-3">
+            <div class="px-3 py-2 border dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg text-xs font-medium inline-flex items-center">
+                <button v-if="false" class="bg-red-500 hover:bg-red-700 text-white p-1 rounded-md mr-3">
                     <i class="h-3 w-3 fa-solid fa-minus"></i>
                 </button>
-                <span class="text-green-500">48</span>/1750$
-                <button class="bg-green-500 hover:bg-green-700 text-white p-1 rounded-md ml-3">
+                <span class="text-green-500">
+                    {{ formatCount(agreement.payload.billings.daily_budget ?? 0) }}
+                </span>
+                /{{ formatCount(agreement.payload.billings.daily_budget_spent ?? 0 ) }}$
+                <button v-if="false" class="bg-green-500 hover:bg-green-700 text-white p-1 rounded-md ml-3">
                     <i class="h-3 w-3 fa-solid fa-plus"></i>
                 </button>
             </div>
@@ -89,26 +110,27 @@
         <th 
             scope="row" 
             class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            1754
+            ${{ formatCount(agreement.payload.distribution.current_cpl ?? 0) }}
         </th>
         <th 
             scope="row" 
             class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            $84 
-        </th>
-        <th 
-            scope="row" 
-            class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            $84 
+            ${{ formatCount(agreement.payload.distribution.current_cpa ?? 0) }}
         </th>
         <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
             <div class="flex items-center">
-                <i class="h-3 w-3 mr-2 text-green-500 fa-solid fa-arrow-up"></i>
-                4.7%
+                <i 
+                    class="h-3 w-3 mr-2"
+                    :class="{
+                        'fa-solid fa-arrow-up text-green-500': agreement.payload.distribution.current_roi > 0,
+                        'fa-solid fa-arrow-down text-red-500': agreement.payload.distribution.current_roi < 0,
+                        'fa-solid fa-minus text-gray-500': agreement.payload.distribution.current_roi === 0
+                    }"></i>
+                {{ formatCount(agreement.payload.distribution.current_roi ?? 0) }}%
             </div>
         </td>
         <td class="px-4 py-2 whitespace-nowrap font-medium text-gray-900 dark:text-white text-xs">
-            23 Nov 2022
+            {{ formatDate(agreement.payload.general.end_date) }}
         </td>
         <td class="px-4 py-2">
             <button 
@@ -126,24 +148,24 @@
                     :aria-labelledby="`dropdown-button-${x}`">
                     <li>
                         <a 
-                            href="#" 
+                            @click.stop="$emit('show', agreement)"
                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                            Show
+                            {{ __deals('View') }}
                         </a>
                     </li>
                     <li>
                         <a 
-                            href="#" 
+                            @click.stop="$emit('edit', agreement)"
                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                            Edit
+                            {{ __deals('Edit') }}
                         </a>
                     </li>
                 </ul>
                 <div class="py-1">
                     <a 
-                        href="#" 
+                        @click.stop="$emit('delete', agreement)"
                         class="block py-2 px-4 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                        Delete
+                        {{ __deals('Delete') }}
                     </a>
                 </div>
             </div>
@@ -157,6 +179,9 @@
 </template>
 
 <script>
+
+import { formatCount } from '@dealsUtils/formatters.js'
+
 export default {
     name: 'RowTable',
     props: {
@@ -178,13 +203,18 @@ export default {
         }
     },
     emits: ['toggle', 'show', 'edit', 'delete'],
-    mounted() {
-        console.log(this.agreement);
-    },
     data() {
         return {
             toggleDropdown: false,
         };
     },
+    computed: {
+        spentProgress() {
+            return Math.round((this.agreement.payload.billings.budget_spent / this.agreement.payload.billings.net_budget) * 100);
+        },
+    },
+    methods: {
+        formatCount,
+    }
 }
 </script>

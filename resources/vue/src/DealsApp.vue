@@ -36,7 +36,9 @@
                                         type="button"
                                         class="-m-2.5 p-2.5"
                                         @click="sidebarOpen = false">
-                                        <span class="sr-only">Cerrar sidebar</span>
+                                        <span class="sr-only">
+                                            {{ __deals('Close sidebar') }}
+                                        </span>
                                         <XMarkIcon
                                             class="h-6 w-6 text-gray-900"
                                             aria-hidden="true"/>
@@ -47,8 +49,8 @@
                                 <div class="flex h-16 shrink-0 items-center">
                                 <img
                                     class="h-8 w-auto"
-                                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                                    alt="Your Company" />
+                                    src="site/favicon/logo.png"
+                                    alt="SeguroPro" />
                                 </div>
                                 <sidebar-menu />
                             </div>

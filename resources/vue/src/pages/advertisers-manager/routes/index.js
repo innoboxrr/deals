@@ -1,3 +1,5 @@
+import { redirect } from "innoboxrr-js-libs/libs/http";
+
 export default [
 	{
 		path: 'advertisers-manager',
@@ -36,8 +38,14 @@ export default [
 					{
 						path: ':advertiserId/agreements',
 						name: "DealsAdvertisersManagerAgreementLayout",
+						redirect: { name: "DealsAdvertisersManagerAgreementIndex" },
 						component: () => import("./../layout/AgreementLayout.vue"),
 						children: [
+							{
+								path: 'index',
+								name: "DealsAdvertisersManagerAgreementIndex",
+								component: () => import("./../views/deal-advertiser-agreement/IndexView.vue"),
+							},
 							{
 								path: 'create',
 								name: "DealsAdvertisersManagerAgreementCreate",
