@@ -2,6 +2,7 @@
     <section v-flowbite class="mb-4">
         <div class="px-4 mx-auto">
             <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg">
+
                 <div class="border-b dark:border-gray-700 mx-4">
                     <div class="flex items-center justify-between space-x-4 pt-3">
                         <div class="flex-1 flex items-center space-x-3">
@@ -170,6 +171,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="mx-4 pb-3 flex flex-wrap">
                     <div class="hidden md:flex items-center text-sm font-medium text-gray-900 dark:text-white mr-4 mt-3">
                         Show only:
@@ -229,6 +231,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <header-table  v-model="selectAll" />
@@ -254,6 +257,7 @@
                         </tbody>
                     </table>
                 </div>
+                
                 <nav class="flex flex-wrap justify-between items-center p-4" aria-label="Table navigation">
                     <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-2 md:mb-0">
                         Showing 
