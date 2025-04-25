@@ -282,6 +282,10 @@ export default {
 		formId: {
 			type: String,
 			default: 'createDealProductForm',
+		},
+		dealId: {
+			type: [String, Number],
+			default: null,
 		}
 	},
 
@@ -340,7 +344,8 @@ export default {
 				createModel({
 					name: this.dealProduct.name,
 					description: this.dealProduct.description,
-					...this.dealProduct.payload
+					...this.dealProduct.payload,
+					deal_id: this.dealId,
 				}).then(res => {
 					this.$emit('submit', res);
 					setTimeout(() => { this.disabled = false }, 2500);
