@@ -11,6 +11,7 @@
             </div>
             <div v-show="!collapsed.deal" class="p-4 space-y-4">
                 <model-search-input-component 
+                    v-if="mode === 'create'"
                     custom-class="bg-gray-50 rounded-lg text-sm py-0.5 border border-gray-300"
                     label-str="Buscar Deal por nombre o ID"
                     placeholder-str="Escribe para buscar"
@@ -117,7 +118,8 @@
                     name="lead_id_prefix"
                     label="Prefijo para IDs de leads"
                     placeholder="Ej: AGMT-"
-                    v-model="localAgreement.payload.general.lead_id_prefix" />
+                    v-model="localAgreement.payload.general.lead_id_prefix"
+                    :readonly="mode === 'edit'" />
 
                 <text-input-component
                     :custom-class="inputClass"
@@ -179,7 +181,11 @@ export default {
         modelValue: {
             type: Object,
             required: true
-        }
+        },
+        mode: {
+            type: String,
+            default: 'edit'
+        },
     },
     data() {
         return {

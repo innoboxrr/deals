@@ -137,6 +137,7 @@ class DealAdvertiserAgreement extends Model
         'segmentation_excluded_states',
         'segmentation_counties',
         'segmentation_excluded_postal_codes',
+        'integration_calls',
         'postback_token',
         'postback_enabled',
         'postback_method',
@@ -193,5 +194,4 @@ class DealAdvertiserAgreement extends Model
         return \Innoboxrr\Deals\Database\Factories\DealAdvertiserAgreementFactory::new();
     }
     */
-
 }

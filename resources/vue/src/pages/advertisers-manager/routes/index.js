@@ -18,6 +18,7 @@ export default [
 			{
 				path: 'advertiser',
 				name: "DealsAdvertisersManagerAdvertiserLayout",
+				redirect: { name: "DealsAdvertisersManagerDashboard" },
 				component: () => import("./../layout/AdvertiserLayout.vue"),
 				children: [
 					{

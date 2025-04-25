@@ -10,25 +10,27 @@
                         v-model="value"
                         class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     />
-                    <label for="checkbox-all" class="sr-only">Seleccionar todo</label>
+                    <label for="checkbox-all" class="sr-only">
+                        {{ __deals('Select all') }}
+                    </label>
                 </div>
             </th>
-
-            <!-- Advertiser -->
-            <th scope="col" class="px-4 py-3">Anunciante</th>
-
-            <!-- Company -->
-            <th scope="col" class="px-4 py-3">Empresa</th>
-
-            <!-- Activity -->
-            <th scope="col" class="px-4 py-3">Actividad</th>
-
-            <!-- Settings -->
-            <th scope="col" class="px-4 py-3">Configuración</th>
-
-            <!-- Actions -->
             <th scope="col" class="px-4 py-3">
-                <span class="sr-only">Acciones</span>
+                {{ __deals('Advertiser') }} 
+            </th>
+            <th scope="col" class="px-4 py-3">
+                {{ __deals('Status') }}
+            </th>
+            <th scope="col" class="px-4 py-3">
+                {{ __deals('Created at') }}
+            </th>
+            <th scope="col" class="px-4 py-3">
+                {{ __deals('Updated at') }}
+            </th>
+            <th scope="col" class="px-4 py-3">
+                <span class="sr-only">
+                    {{ __deals('Actions') }}
+                </span>
             </th>
         </tr>
     </thead>

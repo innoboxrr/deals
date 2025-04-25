@@ -3,15 +3,14 @@
         v-if="agreement"
         v-flowbite 
         class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
         <td class="px-4 py-2 w-4">
             <div class="flex items-center">
                 <input 
                     id="checkbox-table-search-1" 
                     type="checkbox" 
                     :value="agreement.id"
-                    :checked="selectedDealAdvertisers.includes(agreement.id)"
-                    @change="$emit('update:selectedAgreements', deal.id)"
+                    :checked="selectedAgreements.includes(agreement.id)"
+                    @change="$emit('update:selectedAgreements', agreement.id)"
                     @click.stop
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label 
@@ -134,18 +133,14 @@
         </td>
         <td class="px-4 py-2">
             <button 
-                :id="`dropdown-button-${x}`" 
-                type="button" 
-                :data-dropdown-toggle="`dropdown-${x}`" 
+                @click="toggleDropdown = !toggleDropdown"
                 class="inline-flex items-center p-1 text-sm font-medium text-center text-gray-500 hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100">
                 <i class="h-5 w-5 pt-1 text-gray-900 fa-solid fa-ellipsis"></i>
             </button>
             <div 
-                :id="`dropdown-${x}`" 
-                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                <ul 
-                    class="py-1 text-sm text-gray-700 dark:text-gray-200" 
-                    :aria-labelledby="`dropdown-button-${x}`">
+                v-if="toggleDropdown"
+                class="absolute z-10 mt-2 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 right-0">
+                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
                     <li>
                         <a 
                             @click.stop="$emit('show', agreement)"
@@ -197,7 +192,7 @@ export default {
             type: Boolean,
             default: false
         },
-        selectedDealAdvertisers: {
+        selectedAgreements: {
             type: Array,
             default: () => []
         }

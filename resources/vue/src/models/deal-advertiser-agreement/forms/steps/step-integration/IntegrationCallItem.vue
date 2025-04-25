@@ -10,12 +10,37 @@
 					Integración #{{ index + 1 }}
 				</h4>
 			</div>
-			<button
-				class="text-red-800 text-sm hover:text-red-700"
-				:title="'Eliminar integración'"
-				@click.stop="$emit('remove')">
-				<i class="fa-solid fa-trash"></i>
-			</button>
+
+			<!-- Acciones -->
+			<div class="flex items-center space-x-4 text-gray-400">
+				<!-- Duplicar -->
+				<button
+					@click.stop="$emit('duplicate')"
+					title="Duplicar campo"
+					class="hover:text-blue-500 transition mr-2">
+					<i class="fa-solid fa-clone"></i>
+				</button>
+
+				<!-- Eliminar -->
+				<button
+					class="text-red-800 text-sm hover:text-red-700"
+					:title="'Eliminar integración'"
+					@click.stop="$emit('remove')">
+					<i class="fa-solid fa-trash"></i>
+				</button>
+
+				<!-- Colapsar -->
+				<button
+					title="Expandir/Colapsar"
+					class="hover:text-gray-600 transition">
+					<i
+						:class="[
+							'fa-solid',
+							!collapsed ? 'fa-chevron-down' : 'fa-chevron-up'
+						]"></i>
+				</button>
+			</div>
+			
 		</div>
 		<div v-show="!collapsed" class="px-6">
 			<h3 class="mb-4 text-lg font-semibold border-gray-200">
@@ -150,13 +175,22 @@ export default {
 		index: {
 			type: Number,
 			required: true
-		}
+		},
+		collapsedState: {
+			type: Boolean,
+			default: false
+		},
 	},
 	emits: ['update:modelValue', 'remove'],
 	data() {
 		return {
-			collapsed: false,
+			collapsed: this.index === 0 ? false : true,
 			collapsedParseObject: true
+		}
+	},
+	watch: {
+		collapsedState(val) {
+			this.collapsed = val
 		}
 	},
 	computed: {
@@ -222,7 +256,7 @@ export default {
 
 			result += phpBuild(tree) + ';'
 			return result
-		}
+		},
 	}
 }
 </script>

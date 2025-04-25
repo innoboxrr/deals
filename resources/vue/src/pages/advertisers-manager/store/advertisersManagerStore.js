@@ -27,5 +27,11 @@ export const useAdvertisersManagerStore = defineStore('deals-pages-advertisers-m
         setAgreementId(agreementId) {
             this.agreementId = agreementId;
         },
+        resetProps() {
+            this.dealAdvertiser = null;
+            this.dealAdvertiserId = null;
+            this.agreement = null;
+            this.agreementId = null;
+        }
     },
 });

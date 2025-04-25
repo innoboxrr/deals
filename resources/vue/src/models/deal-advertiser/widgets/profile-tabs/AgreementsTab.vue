@@ -1,13 +1,10 @@
 <template>
-    <div class="">
+    <div v-if="advertiser">
         <DealAdvertiserAgreementTable 
             :external-filters="{
                 deal_advertiser_id: advertiser.id,
             }" 
-            @showDealAdvertiserAgreement="$emit('eventHandler', $event)"
-            @editDealAdvertiserAgreement="$emit('eventHandler', $event)"
-            @deleteDealAdvertiserAgreement="$emit('eventHandler', $event)"
-            @createDealAdvertiserAgreement="$emit('eventHandler', $event)" />
+            @eventHandler="$emit('eventHandler', $event)" />
     </div>
 </template>
 
@@ -24,10 +21,6 @@ export default {
             type: Object,
             required: true
         },
-        createRoute: {
-            type: Object,
-            required: true
-        }
     },
     emits: [
         'eventHandler'

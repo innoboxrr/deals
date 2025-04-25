@@ -36,8 +36,8 @@
                 <div class="flex items-center space-x-4 ml-4 justify-end">
                     <div>
                         <button
-                            id="agreementsFilterDropdownButton"
-                            data-dropdown-toggle="agreementsFilterDropdown"
+                            id="advertiserFilterDropdownButton"
+                            data-dropdown-toggle="advertiserFilterDropdown"
                             type="button"
                             class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                             <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-filter"></i>
@@ -45,12 +45,12 @@
                             <i class="h-5 w-5 pt-1 ml-2 text-gray-400 fa-solid fa-caret-down"></i>
                         </button>
                         <div
-                            id="agreementsFilterDropdown"
+                            id="advertiserFilterDropdown"
                             class="hidden z-10 p-3 bg-white rounded-lg shadow w-56 dark:bg-gray-700" >
                             <h6 class="mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 {{ __deals('Filters') }}
                             </h6>
-                            <ul class="space-y-2 text-sm" aria-labelledby="agreementsFilterDropdownButton">
+                            <ul class="space-y-2 text-sm" aria-labelledby="advertiserFilterDropdownButton">
                                 <li 
                                     v-for="opt in statusOptions" 
                                     :key="opt.value">
@@ -65,18 +65,19 @@
                                 </li>
                             </ul>
                             <h6 class="mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                {{ __deals('By Progress') }}
+                                {{ __deals('By Agreements') }}
                             </h6>
-                            <ul class="space-y-2 text-sm" aria-labelledby="agreementsFilterDropdownButton">
+                            <ul class="space-y-2 text-sm" aria-labelledby="advertiserFilterDropdownButton">
                                 <li 
-                                    v-for="opt in progressOptions" 
+                                    v-for="opt in agreementsCountOptions" 
                                     :key="opt.value">
                                     <label class="flex items-center text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md px-1.5 py-1 w-full">
                                         <input
-                                            type="checkbox"
+                                            type="radio"
                                             :value="opt.value"
-                                            v-model="value.progress"
-                                            class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                                            v-model="value.agreements_count"
+                                            class="w-4 h-4 mr-2 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                                        />
                                         {{ opt.label }}
                                     </label>
                                 </li>
@@ -84,26 +85,26 @@
                             <a
                                 href="#"
                                 class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline mt-4 ml-1.5"
-                                @click.prevent="resetFilters">
+                                @click.prevent="resetFilters" >
                                 {{ __deals('Reset filters') }}
                             </a>
                         </div>
                     </div>
                     <div>
                         <button
-                            id="agreementsBulkDropdownButton"
-                            data-dropdown-toggle="agreementsBulkDropdown"
+                            id="advertiserBulkDropdownButton"
+                            data-dropdown-toggle="advertiserBulkDropdown"
                             type="button"
-                            class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                            class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" >
                             <i class="h-5 w-5 pt-1 mr-2 text-gray-900 fa-solid fa-tasks"></i>
                             {{ __deals('Bulk actions') }}
                         </button>
                         <div
-                            id="agreementsBulkDropdown"
+                            id="advertiserBulkDropdown"
                             class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                             <ul 
                                 class="py-1 text-sm text-gray-700 dark:text-gray-200" 
-                                aria-labelledby="agreementsBulkDropdownButton">
+                                aria-labelledby="advertiserBulkDropdownButton">
                                 <li 
                                     v-for="opt in bulkOptions" 
                                     :key="opt.action">
@@ -113,7 +114,7 @@
                                         @click.prevent="$emit('eventHandler', { 
                                             type: opt.action, 
                                             data: {
-                                                selectedAgreements: selectedAgreements,
+                                                selectedAdvertisers: selectedAdvertisers,
                                             }
                                         });">
                                         {{ opt.label }}
@@ -125,10 +126,8 @@
                     <div>
                         <button
                             @click="$emit('eventHandler', { 
-                                type: 'createAgreement', 
-                                data: { 
-                                    advertiserId: advertiserId 
-                                }
+                                type: 'createAdvertiser', 
+                                data: {}
                             });"
                             class="w-full md:w-auto flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 sm:px-4 sm:py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 hover:text-white">
                             <i class="h-5 w-5 pt-1 mr-2 text-white fa-solid fa-plus"></i>
@@ -143,23 +142,23 @@
 
 <script>
 export default {
-    name: 'AgreementsFilters',
+    name: 'AdvertisersFilters',
     props: {
         title: { 
             type: String, 
-            default: 'Advertisers agreements' 
-        },
-        advertiserId: { 
-            type: [String, Number], 
-            default: null 
+            default: 'Advertisers' 
         },
         modelValue: {
             type: Object,
             default: () => ({
                 search: '',
                 status: [],
-                progress: [],
+                agreements_count: null,
             })
+        },
+        selectedAdvertisers: {
+            type: Array,
+            default: () => [],
         },
         statusOptions: { 
             type: Array,  
@@ -172,45 +171,39 @@ export default {
                 { label: 'Archived', value: 'archived' },
                 { label: 'Expired', value: 'expired' },
                 { label: 'Blocked', value: 'blocked' },
-                { label: 'Draft', value: 'draft' },
-                { label: 'Completed', value: 'completed' }
             ]
         },
-        progressOptions: { 
+        agreementsCountOptions: { 
             type: Array,  
             default: () => [
-                { label: '0 - 25%', value: '0-25' },
-                { label: '26 - 50%', value: '26-50' },
-                { label: '51 - 75%', value: '51-75' },
-                { label: '76 - 100%', value: '76-100' }
+                { label: '0-5', value: '0-5' },
+                { label: '6-10', value: '6-10' },
+                { label: '11-20', value: '11-20' },
+                { label: '21-50', value: '21-50' },
+                { label: '51-100', value: '51-100' },
+                { label: '101+', value: '101+' }
             ]
         },
         bulkOptions:    { 
             type: Array,  
             default: () => [
-                { label: 'Pause', action: 'pauseAgreements' },
-                { label: 'Resume', action: 'resumeAgreements' },
-                { label: 'Delete', action: 'deleteAgreements' },
-                { label: 'Export', action: 'exportAgreements' },
+                { label: 'Suspend', action: 'suspendAdvertisers' },
+                { label: 'Activate', action: 'activateAdvertisers' },
+                { label: 'Export', action: 'exportAdvertisers' },
+                { label: 'Delete', action: 'deleteAdvertisers' },
             ]
-        },
-        selectedAgreements: { 
-            type: Array,  
-            default: () => [] 
         },
     },
     emits: [
         'update:modelValue',
-        'resetFilters',
-        'bulkAction',
-        'createAgreement'
+        'eventHandler'
     ],
     mounted() {
         this.$nextTick(() => {
             this.value = {
                 ...this.modelValue,
                 status: Array.isArray(this.modelValue.status) ? this.modelValue.status : [],
-                progress: Array.isArray(this.modelValue.progress) ? this.modelValue.progress : []
+                agreements_count: this.modelValue.agreements_count || null,
             };
         });
     },
@@ -222,19 +215,14 @@ export default {
             get() {
                 return this.modelValue;
             },
-        }
+        },
     },
     methods: {
         resetFilters() {
             this.value.search = '';
             this.value.status = [];
-            this.value.progress = [];
-            this.$emit('resetFilters');
+            this.value.agreements_count = null;
         },
     }
 };
 </script>
-
-<style scoped>
-/* Ajustes de z-index para dropdowns si hiciera falta */
-</style>

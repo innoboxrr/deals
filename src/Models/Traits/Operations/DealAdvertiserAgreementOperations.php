@@ -101,6 +101,9 @@ trait DealAdvertiserAgreementOperations
                 'counties' => $this->meta('segmentation_counties', []),
                 'excluded_postal_codes' => $this->meta('segmentation_excluded_postal_codes', []),
             ],
+            'integration' => [
+                'calls' => $this->meta('integration_calls', []),
+            ],
             'distribution' => [
                 'current_cpl' => (float) $this->meta('distribution_current_cpl', 0),
                 'current_cpa' => (float) $this->meta('distribution_current_cpa', 0),

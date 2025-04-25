@@ -7,8 +7,7 @@
             <label
                 v-for="opt in options"
                 :key="opt.value"
-                class="flex items-center mr-4 mt-3"
-            >
+                class="flex items-center mr-4 mt-3" >
                 <input
                     type="radio"
                     :id="opt.value"
@@ -16,8 +15,7 @@
                     name="show-only"
                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                     :checked="opt.value === value"
-                    v-model="value"
-                />
+                    v-model="value" />
                 <span class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     {{ opt.label }}
                 </span>
@@ -53,12 +51,11 @@ export default {
     data() {
         return {
             options: [
-                { label: 'All', value: '' },
-                { label: 'Completed', value: 'completed' },
-                { label: 'In progress', value: 'in_progress' },
-                { label: 'Paused', value: 'paused' },
-                { label: 'Cancelled', value: 'cancelled' },
-                { label: 'Draft', value: 'draft' }
+                { label: 'Active', value: 'active' },
+                { label: 'Inactive', value: 'inactive' },
+                { label: 'Pending', value: 'pending' },
+                { label: 'Suspended', value: 'suspended' },
+                { label: 'Blocked', value: 'blocked' },
             ]
         };
     }

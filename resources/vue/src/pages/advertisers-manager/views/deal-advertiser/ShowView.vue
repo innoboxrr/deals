@@ -1,20 +1,19 @@
 <template>
-    <div v-flowbite>
-        <section class="my-4">
-            <div class="max-w-6xl mx-auto px-4 py-4 bg-white dark:bg-gray-800 border rounded-lg">
-                <div class="flex flex-col space-y-4 p-2 lg:p-8">
-                    <deal-advertiser-model-profile 
-                        :deal-advertiser-id="$route.params.advertiserId"
-                        @eventHandler="handleEvent" />
-                </div>
+    <div v-flowbite class="my-4">
+        <div class="max-w-6xl mx-auto px-4 py-4 bg-white dark:bg-gray-800 border rounded-lg">
+            <div class="flex flex-col space-y-4 p-2 lg:p-8">
+                <DealAdvertiserModelProfile
+                    :deal-advertiser-id="$route.params.advertiserId"
+                    @eventHandler="handleEvent" />
             </div>
-        </section>
+        </div>
     </div>
 </template>
 
 <script>
     import { useAdvertisersManagerStore } from '@dealsPages/advertisers-manager/store/advertisersManagerStore.js'
     import DealAdvertiserModelProfile from '@dealsModels/deal-advertiser/widgets/ModelProfile.vue'
+    import  { eventHandler } from '@dealsPages/advertisers-manager/js/event-handler.js'
 
     export default {
         name: "ShowView",
@@ -36,40 +35,7 @@
         },
         methods: {
             handleEvent(event) {
-                console.log(event);
-                switch (event.type) {
-                    case 'createDealAdvertiserAgreement':
-                            this.$router.push({
-                                name: 'DealsAdvertisersManagerAgreementCreate',
-                                params: {
-                                    advertiserId: this.$route.params.advertiserId,
-                                },
-                            });
-                        break;
-                    case 'showDealAdvertiserAgreement':
-                        this.$router.push({
-                            name: 'DealsAdvertisersManagerAgreementShow',
-                            params: {
-                                advertiserId: this.$route.params.advertiserId,
-                                agreementId: event.data.agreement.id,
-                            },
-                        });
-                        break;
-                    case 'editDealAdvertiserAgreement':
-                        this.$router.push({
-                            name: 'DealsAdvertisersManagerAgreementEdit',
-                            params: {
-                                advertiserId: this.$route.params.advertiserId,
-                                agreementId: event.data.agreement.id,
-                            },
-                        });
-                        break;
-                    case 'deleteDealAdvertiserAgreement':
-                        console.log('deleteDealAdvertiserAgreement', event.data.agreement.id);
-                        break;
-                    default:
-                        break;
-                }
+                eventHandler(this, event.type, event.data);
             },
         }
     };

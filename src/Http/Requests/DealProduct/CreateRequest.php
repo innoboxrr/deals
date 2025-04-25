@@ -27,7 +27,6 @@ class CreateRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'image' => 'nullable|image|max:2048',
-            'price' => 'required|numeric|min:0',
         ];
     }
 

@@ -9,12 +9,12 @@
                 key: 'value',
                 type: 'text',
                 attributes: {
-                name: 'email',
-                type: 'email',
-                label: 'Correo',
-                placeholder: 'ejemplo@correo.com',
-                validators: 'email',
-                customClass: inputClass
+                    name: 'email',
+                    type: 'email',
+                    label: 'Correo',
+                    placeholder: 'ejemplo@correo.com',
+                    validators: 'email',
+                    customClass: inputClass
                 }
             }]" />
 
@@ -27,12 +27,12 @@
                 key: 'value',
                 type: 'text',
                 attributes: {
-                name: 'phone',
-                type: 'number',
-                label: 'Teléfono',
-                placeholder: '+521234567890',
-                validators: 'phone',
-                customClass: inputClass
+                    name: 'phone',
+                    type: 'number',
+                    label: 'Teléfono',
+                    placeholder: '+521234567890',
+                    validators: 'phone',
+                    customClass: inputClass
                 }
             }]" />
 

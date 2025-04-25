@@ -3,32 +3,27 @@
         v-if="advertiser"
         v-flowbite 
         class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-
-        <!-- Checkbox -->
         <td class="px-4 py-2 w-4">
             <div class="flex items-center">
                 <input
                     type="checkbox"
                     :value="advertiser.id"
-                    :checked="selectedDealAdvertisers.includes(advertiser.id)"
-                    @change="$emit('update:selectedDealAdvertisers', advertiser.id)"
+                    :checked="selectedAdvertisers.includes(advertiser.id)"
+                    @change="$emit('update:selectedAdvertisers', advertiser.id)"
                     @click.stop
                     class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 >
             </div>
         </td>
-
         <!-- Advertiser -->
         <th
             class="px-4 py-2 font-medium text-blue-800 whitespace-nowrap dark:text-white"
             @click="$emit('toggle', index)">
-            
             <p class="mb-1 cursor-pointer">
                 (#ID {{ advertiser.agent.user.id }})
                 {{ advertiser.agent.user.name }}
                 <i class="h-5 w-5 pt-1 text-gray-900 fa-solid fa-caret-down justify-end"></i>
             </p>
-
             <span
                 class="inline-flex items-center px-2 py-1 text-xs font-medium rounded-md"
                 :class="{
@@ -40,40 +35,44 @@
                 {{ advertiser.status }}
             </span>
         </th>
-
         <!-- Company -->
         <td class="px-4 py-2 text-gray-900 dark:text-white whitespace-nowrap">
             <div class="font-medium">
                 {{ advertiser.payload.company.name }}
             </div>
             <div class="text-xs">
-                Tax Type: {{ advertiser.payload.company.tax_type }}
+                {{ __deals('Tax Type') }}: {{ advertiser.payload.company.tax_type }}
             </div>
             <div class="text-xs">
-                Tax #: {{ advertiser.payload.company.tax_number }}
+                {{ __deals('Tax') }} #: {{ advertiser.payload.company.tax_number }}
             </div>
         </td>
-
         <!-- Activity -->
         <td class="px-4 py-2 whitespace-nowrap dark:text-white">
             <div class="flex items-center space-x-4">
                 <!-- Total Spent -->
                 <div class="flex flex-col items-center">
-                    <span class="text-xs text-gray-500 dark:text-gray-400">Spent</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                        {{ __deals('Spent') }}
+                    </span>
                     <span class="text-sm font-medium">
                         {{ advertiser.payload.activity.total_spent !== null ? advertiser.payload.activity.total_spent : '-' }}
                     </span>
                 </div>
                 <!-- Campaigns Count -->
                 <div class="flex flex-col items-center">
-                    <span class="text-xs text-gray-500 dark:text-gray-400">Campaigns</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                        {{ __deals('Campaigns') }}
+                    </span>
                     <span class="text-sm font-medium">
                         {{ advertiser.payload.activity.campaigns_count ?? '-' }}
                     </span>
                 </div>
                 <!-- Last Active -->
                 <div class="flex flex-col items-center">
-                    <span class="text-xs text-gray-500 dark:text-gray-400">Last Active</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400">
+                        {{ __deals('Last Active') }}
+                    </span>
                     <span class="text-sm font-medium">
                         {{ advertiser.payload.activity.last_active
                             ? formatDate(advertiser.payload.activity.last_active, 'DD/MM/YY')
@@ -82,8 +81,6 @@
                 </div>
             </div>
         </td>
-
-
         <!-- Settings -->
         <td class="px-4 py-2 whitespace-nowrap dark:text-white">
             <div class="flex flex-col items-start space-y-1">
@@ -98,7 +95,6 @@
                 </div>
             </div>
         </td>
-
         <!-- Actions -->
         <td class="px-4 py-2">
             <button
@@ -114,14 +110,21 @@
                         <a 
                             @click.prevent="$emit('show', advertiser)"
                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                            Show
+                            {{ __deals('View') }}
                         </a>
                     </li>
                     <li>
                         <a 
                             @click.prevent="$emit('edit', advertiser)"
                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                            Edit
+                            {{ __deals('Edit') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a 
+                            @click.prevent="$emit('agreements', advertiser)"
+                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            {{ __deals('Agreements') }}
                         </a>
                     </li>
                 </ul>
@@ -129,7 +132,7 @@
                     <a 
                         @click.prevent="$emit('delete', advertiser)"
                         class="block py-2 px-4 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                        Delete
+                        {{ __deals('Delete') }}
                     </a>
                 </div>
             </div>
@@ -158,7 +161,7 @@ export default {
             type: Boolean,
             default: false
         },
-        selectedDealAdvertisers: {
+        selectedAdvertisers: {
             type: Array,
             default: () => []
         }

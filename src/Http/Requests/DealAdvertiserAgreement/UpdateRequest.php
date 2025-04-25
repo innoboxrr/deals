@@ -15,6 +15,9 @@ class UpdateRequest extends FormRequest
     protected function prepareForValidation()
     {
         RequestFormater::format($this);
+        $this->merge([
+            'integration_calls' => $this->formatIntegrationCalls($this->integration_calls),
+        ]);
     }
 
     public function authorize()
@@ -55,17 +58,21 @@ class UpdateRequest extends FormRequest
 
     public function handle()
     {
-
         $dealAdvertiserAgreement = DealAdvertiserAgreement::findOrFail($this->deal_advertiser_agreement_id);
-
         $dealAdvertiserAgreement = $dealAdvertiserAgreement->updateModel($this);
-
         $response = new DealAdvertiserAgreementResource($dealAdvertiserAgreement);
-
         event(new UpdateEvent($dealAdvertiserAgreement, $this->all(), $response));
-
         return $response;
+    }
 
+    public function formatIntegrationCalls($integration_calls)
+    {
+        if (!is_array($integration_calls)) {
+            return json_encode([]);
+        }
+        $reindexed = array_values($integration_calls);
+        $json = json_encode($reindexed, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);    
+        return $json;
     }
 
 }

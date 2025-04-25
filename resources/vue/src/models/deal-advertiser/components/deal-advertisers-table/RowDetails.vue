@@ -1,6 +1,8 @@
 <template>
     <div class="m-4">
-        <deal-advertiser-model-profile :deal-advertiser="advertiser" />
+        <deal-advertiser-model-profile 
+            @eventHandler="$emit('eventHandler', $event)"
+            :deal-advertiser="advertiser" />
     </div>
 </template>
 
@@ -17,5 +19,8 @@
                 required: true
             },
         },
+        emits: [
+            'eventHandler'
+        ],
     }
 </script>

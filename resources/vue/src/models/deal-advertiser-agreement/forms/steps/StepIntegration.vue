@@ -1,8 +1,15 @@
 <template>
 	<div>
-		<h3 class="text-lg font-semibold mb-4">
-            Integraciones
-        </h3>
+		<h3 class="text-lg font-semibold mb-4 flex items-center justify-between">
+			{{ __deals('Integration Calls') }}
+			<button 
+				@click="allCollapsed = !allCollapsed"
+				class="text-sm font-medium text-blue-600 hover:no-underline hover:text-blue-500 transition duration-200 flex items-center">
+				<i class="fas mr-2"
+					:class="allCollapsed ? 'fa-angle-double-down' : 'fa-angle-double-up'"></i>
+				{{ allCollapsed ? __deals('Expand') : __deals('Collapse') }}
+			</button>
+		</h3>
 
 		<draggable
 			v-model="localAgreement.payload.integration.calls"
@@ -14,7 +21,9 @@
 				<integration-call-item
 					:model-value="element"
 					:index="index"
+					:collapsed-state="allCollapsed"
 					@update:modelValue="updateCall(index, $event)"
+					@duplicate="duplicateCall(index)"
 					@remove="removeCall(index)" />
 			</template>
 		</draggable>
@@ -45,6 +54,11 @@ export default {
 			type: Object,
 			required: true
 		}
+	},
+	data() {
+		return {
+			allCollapsed: false
+		};
 	},
 	computed: {
 		localAgreement: {
@@ -110,7 +124,12 @@ export default {
 		},
 		removeCall(index) {
 			this.localAgreement.payload.integration.calls.splice(index, 1)
-		}
+		},
+		duplicateCall(index) {
+			const callToDuplicate = this.localAgreement.payload.integration.calls[index]
+			const duplicatedCall = { ...callToDuplicate, order: this.localAgreement.payload.integration.calls.length + 1 }
+			this.localAgreement.payload.integration.calls.push(duplicatedCall)
+		},
 	}
 }
 </script>

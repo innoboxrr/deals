@@ -1,19 +1,16 @@
 <template>
     <section class="mb-4">
         <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg">
-
             <agreements-filters 
-                @createAgreement="$emit('createDealAdvertiserAgreement', {
-                    type: 'createDealAdvertiserAgreement',
-                    data: {}
-                })"
-                v-model="queryFilters" />
-            
-            <show-only-filters v-model="onlyFilter"  />
-
+                :selected-agreements="selectedAgreements"
+                :advertiserId="externalFilters.deal_advertiser_id"
+                v-model="queryFilters" 
+                @eventHandler="$emit('eventHandler', $event);" />
+            <show-only-filters 
+                v-model="onlyFilter"  />
             <div class="overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <table-head v-model="selectAll" />
+                    <TableHead v-model="selectAll" />
                     <tbody data-accordion="table-column">
                         <template 
                             v-for="(agreement, x) in agreements" 
@@ -23,13 +20,34 @@
                                 :index="x"
                                 :visible="visibleRow === x"
                                 :selectedAgreements="selectedAgreements"
-                                @show="$emit('showDealAdvertiserAgreement', { type: 'showDealAdvertiserAgreement', data: { agreement: agreement } })"
-                                @edit="$emit('editDealAdvertiserAgreement', { type: 'editDealAdvertiserAgreement', data: { agreement: agreement } })"
-                                @delete="$emit('deleteDealAdvertiserAgreement', { type: 'deleteDealAdvertiserAgreement', data: { agreement: agreement } })"
+                                @show="$emit('eventHandler', { 
+                                    type: 'showAgreement', 
+                                    data: { 
+                                        advertiserId: agreement.deal_advertiser_id, 
+                                        agreementId: agreement.id 
+                                    }
+                                })"
+                                @edit="$emit('eventHandler', { 
+                                    type: 'editAgreement', 
+                                    data: { 
+                                        advertiserId: agreement.deal_advertiser_id, 
+                                        agreementId: agreement.id 
+                                    }
+                                })"
+                                @delete="$emit('eventHandler', { 
+                                    type: 'deleteAgreement', 
+                                    data: { 
+                                        advertiserId: agreement.deal_advertiser_id, 
+                                        agreementId: agreement.id 
+                                    }, 
+                                    callback: fetchAgreements 
+                                })"
                                 @toggle="setVisibleRow"
                                 @update:selectedAgreements="toggleSelected">
                                 <template #expanded="{ agreement }">
-                                    <RowDetails :agreement="agreement" />
+                                    <RowDetails 
+                                        :agreement="agreement"
+                                        @eventHandler="$emit('eventHandler', $event)" />
                                 </template>
                             </TableRow>
                         </template>
@@ -72,22 +90,9 @@
                 type: Array,
                 required: false,
             },
-            createRoute: {
-                type: Object,
-                required: false,
-            }
         },
         emits: [
-            'showDealAdvertiser',
-            'editDealAdvertiser',
-            'deleteDealAdvertiser',
-            
-            'update:selectedAgreements',
-
-            'createDealAdvertiserAgreement',
-            'showDealAdvertiserAgreement',
-            'editDealAdvertiserAgreement',
-            'deleteDealAdvertiserAgreement',
+            'eventHandler',
         ],
         data() {
             return {
@@ -117,6 +122,12 @@
             await this.fetchData();
         },
         watch: {
+            queryFilters: {
+                handler: debounce(function (val) {
+                    this.fetchAgreements();
+                }, 500),
+                deep: true,
+            },
             'queryFilters.search': {
                 handler: debounce(function (val) {
                     const url = new URL(window.location.href)
@@ -126,22 +137,22 @@
                         url.searchParams.delete('agreementsGlobalQuery')
                     }
                     window.history.replaceState({}, '', url)
-
-                    this.fetchAgreements();
                 }, 500),
                 immediate: false,
                 deep: true,
             },
             onlyFilter(newVal, oldVal) {
-                console.log('onlyFilter', newVal, oldVal)
+                if (newVal !== oldVal) {
+                    this.fetchAgreements();
+                }
             },
             selectAll(val) {
                 if (val) {
-                    this.selectedAgreements = this.agreements.map(deal => deal.id)
+                    this.selectedAgreements = this.agreements.map(agreement => agreement.id)
                 } else {
                     this.selectedAgreements = []
                 }
-            }
+            },
         },
         methods: {
             async fetchData() {
@@ -157,6 +168,9 @@
                         managed: true,
                         global: this.queryFilters.search,
                         load_advertiser: 1,  
+                        status: this.onlyFilter,
+                        statuses: this.queryFilters.status,
+                        deal_advertiser_id: this.externalFilters.deal_advertiser_id,
                         appends: [
                             // 'daily_spent_progress',
                         ]
@@ -170,18 +184,16 @@
                         total: meta.total,
                         links: meta.links,
                     };
-
-                    console.log(this.agreements);
                 } catch (error) {
                     console.error("Error fetching agreements:", error);
                 }
             },
             toggleSelected(agreementId) {
-                if (this.selectedAgreements.includes(agreementId)) {
-                    this.selectedAgreements = this.selectedAgreements.filter(id => id !== agreementId)
-                } else {
-                    this.selectedAgreements.push(agreementId)
-                }
+                const exists = this.selectedAgreements.includes(agreementId);
+
+                this.selectedAgreements = exists
+                    ? [...this.selectedAgreements.filter(id => id !== agreementId)]
+                    : [...this.selectedAgreements, agreementId];
             },
             setVisibleRow(row) {
                 this.visibleRow = this.visibleRow === row ? null : row;

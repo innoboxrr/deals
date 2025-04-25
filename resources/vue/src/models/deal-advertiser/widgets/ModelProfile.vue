@@ -41,7 +41,7 @@
 				<component
                     :is="activeTabComponent"
                     :advertiser="localAdvertiser"
-                    @eventHandler="$emit('eventHandler', $event)" />
+                    @eventHandler="$emit('eventHandler', $event)"/>
             </div>
         </div>
     </div>

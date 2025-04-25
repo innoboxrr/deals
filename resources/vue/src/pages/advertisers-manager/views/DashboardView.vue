@@ -1,55 +1,35 @@
 <template>
     <div v-flowbite>
-        <deal-advertisers-table 
+        <DealAdvertisersTable
             class="my-4" 
-            @createDealAdvertiser="createDealAdvertiser"
-            @showDealAdvertiser="showDealAdvertiser"
-            @editDealAdvertiser="editDealAdvertiser"
-            @deleteDealAdvertiser="deleteDealAdvertiser"
-            @selectedDealAdvertisers="selectedDealAdvertisers"
-            @toggleDealAdvertiser="toggleDealAdvertiser"
+            @eventHandler="handleEvent"
         />
     </div>
 </template>
 
 <script>
+    import { useAdvertisersManagerStore } from '@dealsPages/advertisers-manager/store/advertisersManagerStore.js'
     import DealAdvertisersTable from "@dealsModels/deal-advertiser/components/deal-advertisers-table";
+    import  { eventHandler } from '@dealsPages/advertisers-manager/js/event-handler.js'
 
     export default {
         name: "DashboardView",
         components: {
             DealAdvertisersTable,
         },
+        setup() {
+            const advertisersManagerStore = useAdvertisersManagerStore()
+            return {
+                advertisersManagerStore,
+            }
+        },
+        mounted() {
+            this.advertisersManagerStore.setHeaderTitle(this.__deals('Deal Advertiser Dashboard'));
+            this.advertisersManagerStore.resetProps();
+        },
         methods: {
-            createDealAdvertiser() {
-                this.$router.push({
-                    name: 'DealsAdvertisersManagerAdvertiserCreate',
-                });
-            },
-            showDealAdvertiser(advertiser) {
-                this.$router.push({
-                    name: 'DealsAdvertisersManagerAdvertiserShow',
-                    params: {
-                        advertiserId: advertiser.id,
-                    }
-                })
-            },
-            editDealAdvertiser(advertiser) {
-                this.$router.push({
-                    name: 'DealsAdvertisersManagerAdvertiserEdit',
-                    params: {
-                        advertiserId: advertiser.id,
-                    }
-                })
-            },
-            deleteDealAdvertiser(advertiser) {
-                console.log(advertiser);
-            },
-            selectedDealAdvertisers(selected) {
-                console.log(advertiser);
-            },
-            toggleDealAdvertiser(advertiser) {
-                console.log(advertiser);
+            handleEvent(event) {
+                eventHandler(this, event.type, event.data, event.callback);
             },
         },
     };
