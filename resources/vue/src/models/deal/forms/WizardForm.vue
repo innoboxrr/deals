@@ -2,7 +2,7 @@
     <div class="w-full max-w-screen-xl mx-auto">
 
         <h2 class="text-2xl font-bold">
-            {{ __deals('Create Agreement') }}
+            {{ mode == 'edit' ? __deals('Edit Deal') : __deals('Create Deal') }}
         </h2>
         <p class="text-gray-400 mb-4">
             {{ __deals('Fill out the fields to create a new agreement') }}
@@ -86,6 +86,8 @@
     import StepHypothesis from './steps/StepHypothesis.vue'
     import StepAlerts from './steps/StepAlerts.vue'
     import StepSegmentation from './steps/StepSegmentation.vue'
+    import StepProduct from './steps/StepProduct.vue'
+    import StepGateway from './steps/StepGateway.vue'
     import { ButtonComponent } from 'innoboxrr-form-elements'
     import { createModel, updateModel } from '@dealsModels/deal'
 
@@ -96,6 +98,8 @@
             StepHypothesis,
             StepAlerts,
             StepSegmentation,
+            StepProduct,
+            StepGateway,
             ButtonComponent,
         },
         props: {
@@ -113,11 +117,13 @@
             return {
                 stepIndex: 0,
                 steps: [
-                    { title: '1. Información General', component: 'StepGeneral', valid: false, completed: false, active: true },
-                    { title: '2. Automatización', component: 'StepAutomation', valid: false, completed: false, active: false },
-                    { title: '3. Hipótesis', component: 'StepHypothesis', valid: false, completed: false, active: false },
-                    { title: '4. Alertas', component: 'StepAlerts', valid: false, completed: false, active: false },
-                    { title: '5. Segmentación', component: 'StepSegmentation', valid: false, completed: false, active: false },
+                    { title: '1. Información General', component: 'StepGeneral', valid: false, completed: false, active: true, create: true, edit: true },
+                    { title: '2. Automatización', component: 'StepAutomation', valid: false, completed: false, active: false, create: true, edit: true },
+                    { title: '3. Hipótesis', component: 'StepHypothesis', valid: false, completed: false, active: false, create: true, edit: true },
+                    { title: '4. Alertas', component: 'StepAlerts', valid: false, completed: false, active: false, create: true, edit: true },
+                    { title: '5. Segmentación', component: 'StepSegmentation', valid: false, completed: false, active: false, create: true, edit: true },
+                    { title: '6. Product', component: 'StepProduct', valid: false, completed: false, active: false, create: false, edit: true },
+                    { title: '7. Gateway', component: 'StepGateway', valid: false, completed: false, active: false, create: false, edit: true },
                 ],
                 storageKey: null,
                 hasChanges: false

@@ -71,28 +71,6 @@
                                                     {{ __deals('Edit deal') }}
                                                 </a>
                                             </MenuItem>
-                                            <MenuItem 
-                                                v-if="dealId && !dealProductId"
-                                                v-slot="{ active, close }">
-                                                <a
-                                                    href="#"
-                                                    @click.prevent="close(); $router.push({ name: 'DealsManagerDealProductCreate', params: { dealId: dealId } })"
-                                                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                    <i class="fa-solid fa-box-open mr-2"></i>
-                                                    {{ __deals('Create product') }}
-                                                </a>
-                                            </MenuItem>
-                                            <MenuItem 
-                                                v-if="dealId && dealProductId"
-                                                v-slot="{ active, close }">
-                                                <a
-                                                    href="#"
-                                                    @click.prevent="close(); $router.push({ name: 'DealsManagerDealProductEdit', params: { dealId: dealId, dealProductId: dealProductId } })"
-                                                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                                                    <i class="fa-solid fa-pen mr-2"></i>
-                                                    {{ __deals('Edit product') }}
-                                                </a>
-                                            </MenuItem>
                                         </div>
                                     </MenuItems>
                                 </transition>
