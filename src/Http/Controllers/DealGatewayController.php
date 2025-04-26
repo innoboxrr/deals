@@ -12,7 +12,8 @@ use Innoboxrr\Deals\Http\Requests\DealGateway\{
     DeleteRequest,
     RestoreRequest,
     ForceDeleteRequest,
-    ExportRequest
+    ExportRequest,
+    SearchRequest
 };
 
 class DealGatewayController extends Controller
@@ -68,6 +69,11 @@ class DealGatewayController extends Controller
     }
 
     public function export(ExportRequest $request)
+    {
+        return $request->handle();   
+    }
+
+    public function search(SearchRequest $request)
     {
         return $request->handle();   
     }

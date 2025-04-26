@@ -243,7 +243,7 @@
 		<button-component
 			:custom-class="buttonClass"
 			:disabled="disabled"
-			value="Actualizar" />
+			:value="__deals('Update product')" />
 	</form>
 </template>
 

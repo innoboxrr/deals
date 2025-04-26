@@ -14,6 +14,15 @@
             :deal-product-id="product_id"
             @submit="onProductUpdated" /> 
 
+        <div class="-mt-6">
+            <button-component
+                v-if="mode === 'edit' && product_id"
+                :custom-class="buttonClass + ' bg-red-600 -mt-16'"
+                :disabled="disabled"
+                :value="__deals('Delete product')"
+                @click="deleteProduct" />
+        </div>
+
     </div>
     
 </template>
@@ -25,12 +34,14 @@
     } from '@dealsModels/deal-product'
     import ProductCreateForm from '@dealsModels/deal-product/forms/CreateForm.vue'
     import ProductEditForm from '@dealsModels/deal-product/forms/EditForm.vue'
+    import { ButtonComponent } from 'innoboxrr-form-elements'
 
     export default {
         name: 'StepGateway',
         components: {
             ProductCreateForm,
             ProductEditForm,
+            ButtonComponent
         },
         props: {
             modelValue: {
@@ -88,6 +99,11 @@
                     this.unsetProduct();
                 }
             }, 
+            deleteProduct() {
+                deleteModelProduct(this.product).then(() => {
+                    this.unsetProduct()
+                });
+            },
             setProduct(product) {
                 this.product = product,
                 this.product_id = product.id,

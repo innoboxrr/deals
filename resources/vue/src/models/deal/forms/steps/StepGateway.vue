@@ -1,45 +1,129 @@
 <template>
-
-    <!-- Status -->
-    <select-input-component
-        :custom-class="inputClass"
-        name="gatewayType"
-        :label="__deals('Gateway Type')"
-        validators="required"
-        v-model="gatewayType">
-        <option value="landing">Landing</option>
-        <option value="form">Form</option>
-        <option value="endpoint">Endpoint</option>
-        <option disabled value="embed">Embed</option>
-    </select-input-component>
-
     <div>
-        <model-search-input-component 
-            custom-class="bg-gray-50 rounded-lg text-sm py-0.5 border border-gray-300"
-            label-str="Buscar Deal por nombre o ID"
-            placeholder-str="Escribe para buscar"
-            :route="gatewaysRoute"
-            q="name"
-            :externalFilters="{
-                deal_id: localDeal.id,
-                type: gatewayType,
-            }"
-            :get-option-label="option => `${option.name} (ID: ${option.id} - Type: ${getGatewayType(option.type)})`"
-            @submit="setGateway" />
+        <!-- Título y Botón de Crear Gateway -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold mb-2">
+                {{ __deals('Gateways assigned') }}
+            </h3>
+            <button 
+                @click="toggleCreateForm" 
+                type="button"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                + Crear Gateway
+            </button>
+        </div>
+
+        <!-- Formulario de creación oculto/visible -->
+        <div 
+            v-show="showCreateForm" 
+            class="px-4 md:px-8 lg:px-16">
+            <CreateForm
+                :deal-id="localDeal.id"
+                @submit="dealAssignmentFormSubmit" />
+        </div>
+
+        <!-- Tabla de gateways asignados -->
+        <section class="dark:bg-gray-900">
+            <div class="bg-white dark:bg-gray-800 relative sm:rounded-lg overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700">
+                            <tr>
+                                <th scope="col" class="px-4 py-3">Nombre</th>
+                                <th scope="col" class="px-4 py-3">Tipo</th>
+                                <th scope="col" class="px-4 py-3">Status</th>
+                                <th scope="col" class="px-4 py-3">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr 
+                                v-for="gateway in gateways" 
+                                :key="gateway.id" 
+                                class="border-b dark:border-gray-700">
+                                <td class="px-4 py-3">
+                                    {{ gateway.name }}
+                                </td>
+                                <td class="px-4 py-3">
+                                    {{ gateway.gateway_type }}
+                                </td>
+                                <td class="px-4 py-3">
+                                    <span 
+                                        v-if="gateway.status === 'active'" 
+                                        class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                        Activo
+                                    </span>
+                                    <span 
+                                        v-else-if="gateway.status === 'inactive'"
+                                        class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                        Inactivo
+                                    </span>
+                                    <span 
+                                        v-else-if="gateway.status === 'pending'"
+                                        class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                        Pendiente
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 flex items-center space-x-2">
+                                    <button @click="showGateway(gateway)" class="text-blue-500 hover:text-blue-700">
+                                        <i class="ml-4 fas fa-eye"></i>
+                                    </button>
+                                    <button @click="editGateway(gateway)" class="text-yellow-500 hover:text-yellow-700">
+                                        <i class="ml-4 fas fa-edit"></i>
+                                    </button>
+                                    <button @click="deleteGateway(gateway)" class="text-red-600 hover:text-red-800">
+                                        <i class="ml-4 fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal de edición -->
+        <div 
+            v-if="editingGateway"
+            class="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto p-4">
+            
+            <div class="relative w-full max-w-2xl bg-white rounded-lg dark:bg-gray-800 shadow-lg overflow-hidden max-h-[90vh] flex flex-col">
+                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Editar Gateway
+                    </h3>
+                    <button 
+                        @click="closeEditModal" 
+                        type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="p-6 overflow-y-auto">
+                    <EditForm
+                        :deal-id="localDeal.id"
+                        :deal-gateway-id="editingGateway.id"
+                        @submit="dealAssignmentFormSubmit" />
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </template>
 
 <script>
-    import {
-        SelectInputComponent,
-        ModelSearchInputComponent
-    } from 'innoboxrr-form-elements'
+    import CreateForm from '@dealsModels/deal-gateway/forms/CreateForm.vue'
+    import EditForm from '@dealsModels/deal-gateway/forms/EditForm.vue'
+    import { 
+        indexModel as indexDealGateway,
+        deleteModel as deleteDealGateway 
+    } from '@dealsModels/deal-gateway'
 
     export default {
         name: 'StepGateway',
         components: {
-            SelectInputComponent,
-            ModelSearchInputComponent,
+            CreateForm,
+            EditForm,
         },
         props: {
             modelValue: {
@@ -49,8 +133,14 @@
         },
         data() {
             return {
-                gatewayType: 'landing',
+                gateways: [],
+                showCreateForm: false,
+                editingGateway: null,
             }
+        },
+        async mounted() {
+            await this.fetchData();
+            this.$emit('validated', true);
         },
         computed: {
             localDeal: {
@@ -62,14 +152,50 @@
                 }
             }
         },
-        watch: {
-            localDeal: {
-                handler(val) {
-                    
-                    this.$emit('validated', true)
-                },
-                deep: true,
-                immediate: true
+        methods: {
+            async fetchData() {
+                await this.fetchGateways();
+            },
+            async fetchGateways() {
+                let res = await indexDealGateway({
+                    paginate: 0,
+                    deal_id: this.localDeal.id,
+                });
+                this.gateways = res;
+            },
+            toggleCreateForm() {
+                this.showCreateForm = !this.showCreateForm;
+            },
+            async dealAssignmentFormSubmit(deal) {
+                await this.fetchGateways();
+                this.localDeal = deal;
+                this.showCreateForm = false;
+                this.editingGateway = null;
+                this.$emit('validated', true);
+            },
+            deleteGateway(gateway) {
+                deleteDealGateway(gateway).then(() => {
+                    this.fetchGateways();
+                    this.gateways = this.gateways.filter(g => g.id !== id);
+                    this.$emit('validated', true);
+                });
+            },
+            editGateway(gateway) {
+                this.editingGateway = gateway;
+            },
+            closeEditModal() {
+                this.editingGateway = null;
+            },
+            showGateway(gateway) {
+                alert(`Mostrar Gateway: ${gateway.name}`); // Aquí podrías abrir otro modal si quieres
+            },
+            getGatewayType(type) {
+                switch (type) {
+                    case 'landing': return 'Landing';
+                    case 'form': return 'Formulario';
+                    case 'endpoint': return 'Endpoint';
+                    default: return 'Otro';
+                }
             }
         }
     }

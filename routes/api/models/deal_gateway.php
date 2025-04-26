@@ -31,3 +31,6 @@ Route::delete('force-delete', 'DealGatewayController@forceDelete')
 
 Route::post('export', 'DealGatewayController@export')
 	->name('export');
+
+Route::get('search', 'DealGatewayController@search')
+	->name('search');

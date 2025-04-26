@@ -165,3 +165,10 @@ export const exportModel = (data) => {
         ...data,
     }, {}, 3, 1500, confirmOptions);
 };
+
+export const searchGateway = (filters = {}) => {
+    return makeHttpRequest('get', route(API_ROUTE_PREFIX + 'search'), {
+        _token: CSRF_TOKEN,
+        ...filters,
+    }, {}, 3, 1500);
+};

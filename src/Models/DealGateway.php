@@ -30,6 +30,7 @@ class DealGateway extends Model
         DealGatewayMutators;
         
     protected $fillable = [
+        'name',
         'status',
         'deal_id',
         'gateway_type',
@@ -37,6 +38,7 @@ class DealGateway extends Model
     ];
     
     protected $creatable = [
+        'name',
         'status',
         'deal_id',
         'gateway_type',
@@ -44,6 +46,7 @@ class DealGateway extends Model
     ];
     
     protected $updatable = [
+        'name',
         'status',
         'deal_id',
         'gateway_type',
@@ -64,6 +67,7 @@ class DealGateway extends Model
     
     public static $export_cols = [
         'id',
+        'name',
         'status',
         'deal_id',
         'gateway_type',
