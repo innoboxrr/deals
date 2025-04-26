@@ -29,10 +29,22 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700">
                             <tr>
-                                <th scope="col" class="px-4 py-3">Nombre</th>
-                                <th scope="col" class="px-4 py-3">Tipo</th>
-                                <th scope="col" class="px-4 py-3">Status</th>
-                                <th scope="col" class="px-4 py-3">Acciones</th>
+                                <th scope="col" class="px-4 py-3">
+                                    ID
+                                </th>
+                                <th scope="col" class="px-4 py-3">
+                                    {{ __deals('Name') }}
+                                </th>
+                                <th scope="col" class="px-4 py-3">
+                                    {{ __deals('GType') }}
+                                </th>
+                                <th scope="col" class="px-4 py-3">
+                                    {{ __deals('GID') }}
+                                </th>
+                                <th scope="col" class="px-4 py-3">
+                                    {{ __deals('Status') }}
+                                </th>
+                                <th scope="col" class="px-4 py-3"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,10 +53,16 @@
                                 :key="gateway.id" 
                                 class="border-b dark:border-gray-700">
                                 <td class="px-4 py-3">
+                                    {{ gateway.id }}
+                                </td>
+                                <td class="px-4 py-3">
                                     {{ gateway.name }}
                                 </td>
                                 <td class="px-4 py-3">
                                     {{ gateway.gateway_type }}
+                                </td>
+                                <td class="px-4 py-3">
+                                    {{ gateway.gateway_id }}
                                 </td>
                                 <td class="px-4 py-3">
                                     <span 
@@ -83,16 +101,16 @@
 
         <!-- Modal de edición -->
         <div 
-            v-if="editingGateway"
+            v-if="gateway"
             class="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto p-4">
             
             <div class="relative w-full max-w-2xl bg-white rounded-lg dark:bg-gray-800 shadow-lg overflow-hidden max-h-[90vh] flex flex-col">
                 <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-700">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Editar Gateway
+                        {{ mode === 'edit' ? __deals('Edit Gateway') : __deals('View Gateway') }}
                     </h3>
                     <button 
-                        @click="closeEditModal" 
+                        @click="closeModal" 
                         type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
                         <i class="fas fa-times"></i>
@@ -100,20 +118,23 @@
                 </div>
                 <div class="p-6 overflow-y-auto">
                     <EditForm
+                        v-if="mode === 'edit'"
                         :deal-id="localDeal.id"
-                        :deal-gateway-id="editingGateway.id"
+                        :deal-gateway-id="gateway.id"
                         @submit="dealAssignmentFormSubmit" />
+                    <GatewayModelProfile
+                        v-else-if="mode === 'show'"
+                        :deal-gateway-id="gateway.id" />
                 </div>
             </div>
         </div>
-
-
     </div>
 </template>
 
 <script>
     import CreateForm from '@dealsModels/deal-gateway/forms/CreateForm.vue'
     import EditForm from '@dealsModels/deal-gateway/forms/EditForm.vue'
+    import GatewayModelProfile from '@dealsModels/deal-gateway/widgets/ModelProfile.vue'
     import { 
         indexModel as indexDealGateway,
         deleteModel as deleteDealGateway 
@@ -124,6 +145,7 @@
         components: {
             CreateForm,
             EditForm,
+            GatewayModelProfile,
         },
         props: {
             modelValue: {
@@ -135,7 +157,8 @@
             return {
                 gateways: [],
                 showCreateForm: false,
-                editingGateway: null,
+                gateway: null,
+                mode: 'create',
             }
         },
         async mounted() {
@@ -165,12 +188,14 @@
             },
             toggleCreateForm() {
                 this.showCreateForm = !this.showCreateForm;
+                this.gateway = null;
+                this.mode = 'create';
             },
             async dealAssignmentFormSubmit(deal) {
                 await this.fetchGateways();
                 this.localDeal = deal;
                 this.showCreateForm = false;
-                this.editingGateway = null;
+                this.gateway = null;
                 this.$emit('validated', true);
             },
             deleteGateway(gateway) {
@@ -181,13 +206,15 @@
                 });
             },
             editGateway(gateway) {
-                this.editingGateway = gateway;
+                this.gateway = gateway;
+                this.mode = 'edit';
             },
-            closeEditModal() {
-                this.editingGateway = null;
+            closeModal() {
+                this.gateway = null;
             },
             showGateway(gateway) {
-                alert(`Mostrar Gateway: ${gateway.name}`); // Aquí podrías abrir otro modal si quieres
+                this.gateway = gateway;
+                this.mode = 'show';
             },
             getGatewayType(type) {
                 switch (type) {

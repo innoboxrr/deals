@@ -1,6 +1,6 @@
 <?php
 
-namespace Innoboxrr\Deals\Jobs;
+namespace Innoboxrr\Deals\Jobs\Deal;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

@@ -19,4 +19,9 @@ trait DealGatewayRelations
     {
         return $this->hasMany(DealSession::class, 'deal_gateway_id');
     }
+
+    public function gateway()
+    {
+        return $this->morphTo();
+    }
 }

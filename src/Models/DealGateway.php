@@ -78,11 +78,13 @@ class DealGateway extends Model
 
     public static $loadable_relations = [
         'deal',
+        'gateway',
         'sessions',
     ];
     
     public static $loadable_counts = [
         'sessions',
+        'gateway',
     ];    
 
     /*
