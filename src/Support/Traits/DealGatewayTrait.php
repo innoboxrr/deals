@@ -18,4 +18,15 @@ trait DealGatewayTrait
             return $dealGateway ? $dealGateway->deal : null;
         });
     }
+
+    public function getDealGateway()
+    {
+        $cacheKey = 'deal_gateway:' . static::class . ':' . $this->id;
+
+        return Cache::remember($cacheKey, 3600, function () {
+            return DealGatewayModel::where('gateway_type', static::class)
+                ->where('gateway_id', $this->id)
+                ->first();
+        });
+    }
 }

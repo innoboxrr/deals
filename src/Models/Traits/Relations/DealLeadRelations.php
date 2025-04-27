@@ -2,7 +2,6 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Relations;
 
-use Innoboxrr\Deals\Models\DealGateway;
 use Innoboxrr\Deals\Models\DealSession;
 use Innoboxrr\Deals\Models\DealLeadTrackingEvent;
 
@@ -11,9 +10,9 @@ use Innoboxrr\Deals\Models\DealLeadTrackingEvent;
 
 trait DealLeadRelations
 {
-    public function dealGateway()
+    public function lead()
     {
-        return $this->belongsTo(DealGateway::class, 'deal_gateway_id');
+        return $this->belongsTo(config('deals.lead_class'), 'lead_id');
     }
 
     public function sessions()

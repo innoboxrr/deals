@@ -4,6 +4,8 @@ return [
 
 	'user_class' => 'App\Models\User',
 
+	'lead_class' => 'App\Models\Lead',
+
 	'agent_class' => 'App\Models\Agent',
 
 	'excel_view' => 'deals::excel.',

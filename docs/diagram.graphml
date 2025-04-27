@@ -226,14 +226,14 @@ updated_at
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="493.4348001781676" width="430.7355601139602" x="1725.977358739432" y="688.3096693696685"/>
+              <y:Geometry height="493.4348001781676" width="430.7355601139602" x="2380.335474842905" y="395.0059274341846"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#B7C9E3" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="430.7355601139602" x="0.0" xml:space="preserve" y="0.0">DealAffiliate</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="7" rightF="7.005054062711679" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="169" bottomF="169.07769144620772" left="0" leftF="0.0" right="7" rightF="7.005054062711679" top="0" topF="0.0"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
@@ -252,7 +252,7 @@ updated_at
         <node id="n1::n0">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-              <y:Geometry height="90.0" width="116.5" x="1999.9578647906806" y="1076.7444695478362"/>
+              <y:Geometry height="90.0" width="116.5" x="2395.335474842905" y="614.3630361661445"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.390625" x="5.5546875" xml:space="preserve" y="4.0">DealAffiliatePayout</y:NodeLabel>
@@ -268,7 +268,7 @@ to_date<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
         <node id="n1::n1">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-              <y:Geometry height="118.20970212765957" width="153.0" x="1981.7078647906806" y="725.6861342134185"/>
+              <y:Geometry height="118.20970212765957" width="153.0" x="2636.0659808941537" y="432.3823922779346"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="126.73046875" x="13.134765625" xml:space="preserve" y="4.0">DealAffiliateAgreement</y:NodeLabel>
@@ -287,7 +287,7 @@ deal_affiliate_id
         <node id="n1::n2">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-              <y:Geometry height="96.30325446808513" width="116.5" x="1999.9578647906806" y="901.3635236335433"/>
+              <y:Geometry height="96.30325446808513" width="116.5" x="2654.3159808941537" y="608.0597816980594"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="106.052734375" x="5.2236328125" xml:space="preserve" y="4.0">DealAffiliateInvoice</y:NodeLabel>
@@ -304,7 +304,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
         <node id="n1::n3">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-              <y:Geometry height="96.30325446808513" width="116.5" x="1740.977358739432" y="736.6393580432057"/>
+              <y:Geometry height="96.30325446808513" width="116.5" x="2395.335474842905" y="443.33561610772176"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="68.03125" x="24.234375" xml:space="preserve" y="4.0">DealAffiliate</y:NodeLabel>
@@ -452,7 +452,6 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
               </data>
             </node>
             <node id="n2::n0::n4">
-              <data key="d5"/>
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
                   <y:Geometry height="176.08164289686323" width="226.20511925175742" x="4362.391350543509" y="189.50625507155306"/>
@@ -603,14 +602,14 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="1116.7202635918418" width="1697.4348816710499" x="2501.1877327092852" y="1117.667800162659"/>
+              <y:Geometry height="782.7192555316806" width="1697.4348816710494" x="2501.187732709285" y="1113.4280774815754"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1697.4348816710499" x="0.0" xml:space="preserve" y="0.0">LeadsManager</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1697.4348816710494" x="0.0" xml:space="preserve" y="0.0">LeadsManager</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="67" leftF="67.49233138955378" right="0" rightF="0.0" top="0" topF="0.0"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
@@ -632,10 +631,10 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="544.2251061570194" width="221.15475301149445" x="3962.4678613688407" y="1162.6479731827326"/>
+                  <y:Geometry height="554.4663111737934" width="221.154753011494" x="3962.46786136884" y="1326.6810218394626"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="221.15475301149445" x="0.0" xml:space="preserve" y="0.0">Router</y:NodeLabel>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="221.154753011494" x="0.0" xml:space="preserve" y="0.0">Router</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -658,7 +657,7 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
             <node id="n3::n0::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="98.46142577777778" width="80.0" x="4033.045237874588" y="1200.0244380264826"/>
+                  <y:Geometry height="98.46142577777778" width="80.0" x="4033.0452378745877" y="1364.0574866832126"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.697265625" x="7.6513671875" xml:space="preserve" y="4.0">DealRouter</y:NodeLabel>
@@ -675,13 +674,14 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
             <node id="n3::n0::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="127.56881192263677" width="191.15475301149445" x="3977.4678613688407" y="1564.3042674171152"/>
+                  <y:Geometry height="137.81001693941084" width="191.15475301149445" x="3977.46786136884" y="1728.3373160738452"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="91.375" x="49.889876505747" xml:space="preserve" y="4.0">DealAssignment</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="92.20703125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="181.43359375" x="2.0" xml:space="preserve" y="30.701171875">id
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="91.375" x="49.88987650574745" xml:space="preserve" y="4.0">DealAssignment</y:NodeLabel>
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="106.908203125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="181.43359375" x="2.0" xml:space="preserve" y="30.701171875">id
 sent_object (integration_process)
-response
+response (client real_time)
+**postback
 deal_lead_id
 deal_advertiser_agreement_id
 deal_router_execution_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
@@ -694,7 +694,7 @@ deal_router_execution_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelM
             <node id="n3::n0::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="116.26368173282253" width="155.1970676981864" x="3995.446704025495" y="1376.0895072917301"/>
+                  <y:Geometry height="116.26368173282253" width="155.1970676981864" x="3995.4467040254945" y="1540.12255594846"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="117.396484375" x="18.9002916615932" xml:space="preserve" y="4.0">DealRouterExecution</y:NodeLabel>
@@ -717,14 +717,14 @@ deal_router_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mo
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="1064.3437987480918" width="548.3686049913968" x="3087.5675465651784" y="1155.044265006409"/>
+                  <y:Geometry height="524.9666844235292" width="548.3686049913968" x="3087.567546565178" y="1150.8045423253254"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
                   <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="548.3686049913968" x="0.0" xml:space="preserve" y="0.0">Leads</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                  <y:BorderInsets bottom="21" bottomF="21.370301146492693" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
                 </y:GroupNode>
                 <y:GroupNode>
                   <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
@@ -743,7 +743,7 @@ deal_router_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mo
             <node id="n3::n1::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="98.46142577777778" width="105.625" x="3366.5943064113267" y="1193.2808431720964"/>
+                  <y:Geometry height="98.46142577777778" width="105.625" x="3366.594306411326" y="1357.3138918288264"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.03515625" x="14.794921875" xml:space="preserve" y="4.0">DealGateway</y:NodeLabel>
@@ -760,63 +760,15 @@ gateway_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelP
             <node id="n3::n1::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="819.7831005639086" width="243.12919686171108" x="3297.8422079804704" y="1384.6049631905923"/>
+                  <y:Geometry height="117.53079841276895" width="103.52843356595213" x="3367.64258962835" y="1521.870127189593"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="55.375" x="93.87709843085577" xml:space="preserve" y="4.0">DealLead</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="783.162109375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="233.447265625" x="2.0" xml:space="preserve" y="30.701171875">id
-name
-email
-phone
-whatsapp
-dob
-gender
-address
-postalcode
-city
-state
-country
-
-utm_source
-utm_medium
-utm_campaign
-utm_term
-utm_content
-
-url
-referer
-ip
-platform (facebook, google, affiliate, etc)
-traffic_id (gclid, fbclid, clickidAff, etc)
-
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="55.375" x="24.07671678297629" xml:space="preserve" y="4.0">DealLead</y:NodeLabel>
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="94.0703125" x="2.0" xml:space="preserve" y="30.701171875">id
 status
- - new
- - assigned
- - rejected
- - sold
-score
-cpl (fijo para afiliados &amp; dinamico para ads)
-assigned_at
-conversion_stage
-deal_gateway_id
-
-is_test
-other
-duplicates_with
-notes
-source_verified_at
-
-time_on_page
-interaction_count
-form_steps_completed
-interest_level
- - low
- - medium
- - high
-fraud_risk
- - low
- - medium
- - high<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+lead_id
+log
+deal_gateway_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
                     <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
                   </y:StyleProperties>
@@ -826,7 +778,7 @@ fraud_risk
             <node id="n3::n1::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="100.18165242165242" width="105.625" x="3102.5675465651784" y="1192.420729850159"/>
+                  <y:Geometry height="100.18165242165242" width="105.625" x="3102.567546565178" y="1356.453778506889"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="71.37109375" x="17.126953125" xml:space="preserve" y="4.0">DealSession</y:NodeLabel>
@@ -843,7 +795,7 @@ deal_gateway_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:M
             <node id="n3::n1::n3">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="98.46142577777778" width="105.625" x="3102.5675465651784" y="1421.1177443187971"/>
+                  <y:Geometry height="98.46142577777778" width="105.625" x="3102.567546565178" y="1188.1810071690754"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="102.056640625" x="1.7841796875" xml:space="preserve" y="4.0">DealSessionEvent</y:NodeLabel>
@@ -860,7 +812,7 @@ deal_session_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:M
             <node id="n3::n1::n4">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
-                  <y:Geometry height="56.8058743989784" width="80.0" x="3540.936151556575" y="1214.108618861496"/>
+                  <y:Geometry height="56.8058743989784" width="80.0" x="3540.9361515565747" y="1378.141667518226"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="51.373046875" x="14.3134765625" xml:space="preserve" y="4.351179386989088">Form
@@ -880,7 +832,7 @@ Landing<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:Mo
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="313.8332723606734" width="436.6450458970521" x="2516.1877327092852" y="1892.9506984038287"/>
+                  <y:Geometry height="307.8921819456941" width="436.6450458970521" x="2583.6800640988386" y="1364.4411040405287"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
                   <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="436.6450458970521" x="0.0" xml:space="preserve" y="0.0">Events</y:NodeLabel>
@@ -906,7 +858,7 @@ Landing<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:Mo
             <node id="n3::n2::n0">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="127.56881192263677" width="132.94459259259247" x="2804.888186013745" y="1946.231250766782"/>
+                  <y:Geometry height="127.56881192263677" width="132.94459259259247" x="2872.380517403298" y="1520.0903841933457"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.07421875" x="0.43518692129646297" xml:space="preserve" y="4.0">DealLeadTrackingEvent</y:NodeLabel>
@@ -924,7 +876,7 @@ deal_lead_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mode
             <node id="n3::n2::n1">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
-                  <y:Geometry height="29.818347578347584" width="80.0" x="2582.1402327092856" y="2161.9656231861545"/>
+                  <y:Geometry height="29.818347578347584" width="80.0" x="2649.632564098839" y="1401.8175688842787"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="43.3515625" x="18.32421875" xml:space="preserve" y="5.5585878516740195">Affiliate<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -937,11 +889,11 @@ deal_lead_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mode
             <node id="n3::n2::n2">
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-                  <y:Geometry height="153.14698931208045" width="181.9050000000002" x="2531.1877327092852" y="1930.3271632475787"/>
+                  <y:Geometry height="153.14698931208045" width="181.9050000000002" x="2598.6800640988386" y="1504.1862966741423"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="75.35546875" x="53.27476562500033" xml:space="preserve" y="4.0">DealPixelFire</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="121.609375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="150.783203125" x="2.0" xml:space="preserve" y="30.701171875000227">id
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="121.609375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="150.783203125" x="2.0" xml:space="preserve" y="30.701171875">id
 fired_at 
 response (json)
 platform_type	
@@ -960,7 +912,7 @@ deal_lead_traking_event_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:Labe
         <node id="n3::n3">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-              <y:Geometry height="117.53079841276895" width="221.15475301149445" x="3679.405108037985" y="1452.0437900103864"/>
+              <y:Geometry height="117.53079841276895" width="221.15475301149445" x="3679.4051080379845" y="1403.3748883187293"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF0000" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="212.79296875" x="4.180892130747452" xml:space="preserve" y="4.0">deal_assignment_welcome_notification</y:NodeLabel>
@@ -1168,7 +1120,8 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="3.183231456205249E-12" ty="-1.1368683772161603E-13">
-            <y:Point x="2928.8639441907035" y="784.7909852772483"/>
+            <y:Point x="2907.5003231493256" y="491.4872433417644"/>
+            <y:Point x="2907.5003231493256" y="920.6115081170283"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_many" target="crows_foot_one"/>
@@ -1180,8 +1133,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="21.339750499684214" ty="28.903642750557196">
-            <y:Point x="2587.9359318618954" y="949.5151508675858"/>
-            <y:Point x="2587.9359318618954" y="949.5151508675856"/>
+            <y:Point x="2712.5659808941537" y="949.5151508675858"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_many" target="crows_foot_one"/>
@@ -1272,7 +1224,9 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
     <edge id="n2::e0" source="n2::n1::n0" target="n2::n0::n3">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="-118.32945164245302" sy="-205.37722540436062" tx="0.0" ty="0.0">
+            <y:Point x="4475.493910169388" y="752.3919953240091"/>
+          </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_one" target="crows_foot_many"/>
           <y:BendStyle smoothed="false"/>
@@ -1332,7 +1286,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
     <edge id="n3::n1::e3" source="n3::n1::n1" target="n3::n1::n2">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-67.84081325826072" sy="-393.01622903250114" tx="0.0" ty="0.0"/>
+          <y:Path sx="-28.88774042412876" sy="-56.34601537356835" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_one_optional" target="crows_foot_one_optional"/>
           <y:BendStyle smoothed="false"/>
@@ -1374,7 +1328,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
     <edge id="n3::e0" source="n3::n1::n1" target="n3::n2::n0">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-21.04841231614955" sy="215.5191432555539" tx="0.0" ty="0.0"/>
+          <y:Path sx="-7.983447569405598" sy="3.239263758686512" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_one" target="crows_foot_many"/>
           <y:BendStyle smoothed="false"/>
@@ -1394,9 +1348,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
     <edge id="e5" source="n0::n5" target="n3::n2::n2">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="-4.494977793479214" ty="3.114998824481553">
-            <y:Point x="2617.645254915806" y="1583.874790154664"/>
-          </y:Path>
+          <y:Path sx="0.0" sy="0.0" tx="-4.494977793479214" ty="3.114998824481553"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_one_optional" target="crows_foot_many"/>
           <y:BendStyle smoothed="false"/>
@@ -1457,7 +1409,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="3.183231456205249E-12" sy="-1.1368683772161603E-13" tx="0.0" ty="0.0">
-            <y:Point x="4557.947284114356" y="922.6910782148314"/>
+            <y:Point x="4557.947284114356" y="920.6115081170283"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_one" target="crows_foot_many"/>
@@ -1479,7 +1431,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="4630.71635042828" y="1628.0886733784337"/>
+            <y:Point x="4844.926239258355" y="1792.1217220351637"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_one" target="crows_foot_many"/>
@@ -1491,7 +1443,7 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="11.042195524425255" ty="-2.9692677347654287E-13">
-            <y:Point x="3800.031072383757" y="1628.0886733784337"/>
+            <y:Point x="3800.0310723837565" y="1635.6197689946468"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="crows_foot_many" target="none"/>
@@ -1570,12 +1522,24 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
       </data>
     </edge>
     <edge id="n2::n0::e3" source="n2::n0::n3" target="n2::n0::n4">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n3::e2" source="n3::n1::n1" target="n3::n0::n1">
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="3419.406806411326" y="1797.2423245435507"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="crows_foot_one" target="crows_foot_many_mandatory"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

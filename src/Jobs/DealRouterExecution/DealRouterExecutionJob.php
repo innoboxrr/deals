@@ -1,34 +1,36 @@
 <?php
 
-namespace Innoboxrr\Deals\Jobs\Deal;
+namespace Innoboxrr\Deals\Jobs\DealRouterExecution;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Innoboxrr\Deals\Services\DealRouterExecution\DealRouterExecutionService;
 use Innoboxrr\Deals\Models\Deal;
-use Innoboxrr\Deals\Services\Deal\DealLeadProcessor\DealLeadProcessorService;
+use Innoboxrr\Deals\Models\DealRouter;
 
-class DealLeadProcessorJob implements ShouldQueue
+class DealRouterExecutionJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected DealRouter $router;
     protected Deal $deal;
 
-    protected $leadProcessor;
-
-    public function __construct(Deal $deal, $leadProcessor)
+    /**
+     * Create a new job instance.
+     */
+    public function __construct(DealRouter $router, Deal $deal) 
     {
+        $this->router = $router;
         $this->deal = $deal;
-        $this->leadProcessor = $leadProcessor;
     }
 
     public function handle(): void
     {
         try {
-            // Esto se está usando en LeadProcessor de la app principal en SetDealAction
-            DealLeadProcessorService::run($this->deal, $this->leadProcessor);   
+            DealRouterExecutionService::run($this->router, $this->deal);   
             return; 
         } catch (\Exception $e) {
             report($e);
