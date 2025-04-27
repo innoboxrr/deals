@@ -2,6 +2,9 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Operations;
 
+use Innoboxrr\Deals\Models\DealRouterExecution;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\ProcessLeadsService;
+
 trait DealOperations
 {
 
@@ -74,5 +77,10 @@ trait DealOperations
     {
         $this->payload = $this->buildPayload();
         return $this->save();
+    }
+
+    public function processLeads(DealRouterExecution $execution): array
+    {
+        return ProcessLeadsService::run($execution);
     }
 }
