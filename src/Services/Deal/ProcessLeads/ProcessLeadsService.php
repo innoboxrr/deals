@@ -12,7 +12,13 @@ class ProcessLeadsService
     public function __construct(DealRouterExecution $execution)
     {
         $this->execution = $execution;
-        $this->assignmentLog = [];
+        $this->assignmentLog = [
+            'assignments' => [],
+            'unprocessed_leads' => 0,
+            'start_execution' => now()->toDateTimeString(),
+            'end_execution' => null,
+            'errors' => [],
+        ];
     }
 
     public static function run(DealRouterExecution $execution): array
@@ -24,7 +30,9 @@ class ProcessLeadsService
 
     protected function handle(): void
     {
-        $dealLeads = $this->getPendingDealLeads();
+        $dealLeads = $this->execution->unprocessed_leads;
+
+        // Ya estoy acá
 
         if ($dealLeads->isEmpty()) {
             return;
@@ -46,14 +54,6 @@ class ProcessLeadsService
         }
     }
 
-    protected function getPendingDealLeads()
-    {
-        return $this->execution->router->deal->dealLeads()
-            ->whereDoesntHave('dealAssignments') // No asignado todavía
-            ->where('status', 'pending')
-            ->get();
-    }
-
     protected function getAvailableAgreements()
     {
         return $this->execution->router->deal->dealAdvertiserAgreements()
@@ -63,7 +63,7 @@ class ProcessLeadsService
 
     protected function logAssignment($dealLead, $agreement, $dealAssignment): void
     {
-        $this->assignmentLog[] = [
+        $this->assignmentLog['assignments'][] = [
             'deal_lead_id' => $dealLead->id,
             'deal_assignment_id' => $dealAssignment->id,
             'assigned_to' => $agreement->id,

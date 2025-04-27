@@ -4,6 +4,11 @@ namespace Innoboxrr\Deals\Models\Traits\Mutators;
 
 trait DealMutators
 {
+    public function getQueueAttribute()
+    {
+        return $this->getPayload('queue', 'default');
+    }
+
     public function getDailySpentProgressAttribute()
     {
         $dailyBudget = $this->getPayload('last_performance_snapshot.daily_budget');

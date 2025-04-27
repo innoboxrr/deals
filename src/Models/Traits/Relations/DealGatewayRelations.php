@@ -3,6 +3,7 @@
 namespace Innoboxrr\Deals\Models\Traits\Relations;
 
 use Innoboxrr\Deals\Models\Deal;
+use Innoboxrr\Deals\Models\DealLead;
 use Innoboxrr\Deals\Models\DealSession;
 
 // use \Znck\Eloquent\Traits\BelongsToThrough; // Docs: https://github.com/staudenmeir/belongs-to-through
@@ -23,5 +24,10 @@ trait DealGatewayRelations
     public function gateway()
     {
         return $this->morphTo();
+    }
+
+    public function dealLeads()
+    {
+        return $this->hasMany(DealLead::class, 'deal_gateway_id');
     }
 }

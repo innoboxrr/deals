@@ -32,6 +32,7 @@
 						min_advertisers: '',
 						max_advertisers: '',
 						access_type: '',
+						queue: 'default',
 						automation_thresholds: {
 							min_ctr: '',
 							max_cpl: '',

@@ -13,6 +13,7 @@ use Innoboxrr\Deals\Models\Traits\Storage\DealRouterExecutionStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealRouterExecutionAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealRouterExecutionOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealRouterExecutionMutators;
+use Innoboxrr\Deals\Enums\DealRouterExecution\Status as DealRouterExecutionStatus;
 
 class DealRouterExecution extends Model
 {
@@ -29,6 +30,7 @@ class DealRouterExecution extends Model
         DealRouterExecutionMutators;
         
     protected $fillable = [
+        'status',
         'start_execution',
         'end_execution',
         'assignment_log',
@@ -36,6 +38,7 @@ class DealRouterExecution extends Model
     ];
     
     protected $creatable = [
+        'status',
         'start_execution',
         'end_execution',
         'assignment_log',
@@ -43,6 +46,7 @@ class DealRouterExecution extends Model
     ];
     
     protected $updatable = [
+        'status',
         'start_execution',
         'end_execution',
         'assignment_log',
@@ -50,6 +54,7 @@ class DealRouterExecution extends Model
     ];
     
     protected $casts = [
+        'status' => DealRouterExecutionStatus::class,
         'start_execution' => 'datetime',
         'end_execution'   => 'datetime',
         'assignment_log'  => 'array',
@@ -64,6 +69,7 @@ class DealRouterExecution extends Model
     
     public static $export_cols = [
         'id',
+        'status',
         'start_execution',
         'end_execution',
         'assignment_log',

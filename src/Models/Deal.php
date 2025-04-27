@@ -13,6 +13,7 @@ use Innoboxrr\Deals\Models\Traits\Storage\DealStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealMutators;
+use Innoboxrr\Deals\Models\Traits\Scopes\DealScopes;
 use Innoboxrr\Deals\Enums\Deal\Status;
 
 class Deal extends Model
@@ -27,6 +28,7 @@ class Deal extends Model
         DealStorage,
         DealAssignment,
         DealOperations,
+        DealScopes,
         DealMutators;
         
     protected $fillable = [
@@ -70,6 +72,7 @@ class Deal extends Model
     protected $editable_metas = [
         'max_cpl',
         'snapshot_cron_interval',
+        'queue',
         'min_advertisers',
         'max_advertisers',
         'access_type',

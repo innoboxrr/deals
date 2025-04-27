@@ -27,6 +27,8 @@ trait DealOperations
             'max_advertisers' => $this->meta('max_advertisers'),
             'access_type' => $this->meta('access_type'),
 
+            'queue' => $this->meta('queue'),
+
             'last_performance_snapshot' => [
                 'time' => $this->meta('last_performance_snapshot_time'),
                 'daily_budget' => (int) $this->meta('last_performance_snapshot_daily_budget', 0),

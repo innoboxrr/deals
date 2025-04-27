@@ -4,6 +4,7 @@ namespace Innoboxrr\Deals\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Innoboxrr\Deals\Console\Commands\Deal\TakeDealPerformanceSnapshotCommand;
+use Innoboxrr\Deals\Console\Commands\DealRouterExecution\DealRouterExecutionCommand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->commands([
             TakeDealPerformanceSnapshotCommand::class,
+            DealRouterExecutionCommand::class,
         ]);
     }
 

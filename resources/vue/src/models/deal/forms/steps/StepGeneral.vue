@@ -166,6 +166,15 @@
             Visita <a href='https://crontab.guru/' target="_blank" class="underline text-blue-500">Cron Guru</a> para más info
         </p>
 
+        <!-- Umbral mínimo de CTR -->
+        <text-input-component
+            :custom-class="inputClass"
+            type="text"
+            name="queue"
+            label="Nombre de la cola de procesamiento"
+            placeholder="Ej: default"
+            v-model="localDeal.payload.queue" />
+
         <!-- DATES -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 -mb-6">
             <div>
@@ -247,6 +256,7 @@
                         val.description?.length >= 3 &&
                         val.payload?.type &&
                         val.payload?.currency &&
+                        val.payload?.queue &&
                         val.payload?.start_date &&
                         val.payload?.snapshot_cron_interval &&
                         val.payload?.access_type

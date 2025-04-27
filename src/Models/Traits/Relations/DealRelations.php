@@ -5,6 +5,7 @@ namespace Innoboxrr\Deals\Models\Traits\Relations;
 use Innoboxrr\Deals\Models\DealAdPlatform;
 // use Innoboxrr\Deals\Models\DealAffiliateAgreement;
 // use Innoboxrr\Deals\Models\DealAffiliateInvoice;
+use Innoboxrr\Deals\Models\DealLead;
 use Innoboxrr\Deals\Models\DealAlert;
 use Innoboxrr\Deals\Models\DealGateway;
 use Innoboxrr\Deals\Models\DealPerformanceSnapshot;
@@ -27,10 +28,6 @@ trait DealRelations
     {
         return $this->hasOne(DealProduct::class, 'deal_id');
     }
-
-    //////
-    //////
-    //////
 
     public function adPlatforms()
     {

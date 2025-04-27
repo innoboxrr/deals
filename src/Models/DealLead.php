@@ -13,6 +13,7 @@ use Innoboxrr\Deals\Models\Traits\Storage\DealLeadStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealLeadAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealLeadOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealLeadMutators;
+use Innoboxrr\Deals\Models\Traits\Scopes\DealLeadScopes;
 use Innoboxrr\Deals\Enums\DealLead\Status;
 
 class DealLead extends Model
@@ -27,6 +28,7 @@ class DealLead extends Model
         DealLeadStorage,
         DealLeadAssignment,
         DealLeadOperations,
+        DealLeadScopes,
         DealLeadMutators;
         
     protected $fillable = [

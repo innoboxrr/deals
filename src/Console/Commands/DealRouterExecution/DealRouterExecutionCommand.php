@@ -1,6 +1,6 @@
 <?php
 
-namespace Innoboxrr\Deals\Console\Commands\Deal;
+namespace Innoboxrr\Deals\Console\Commands\DealRouterExecution;
 
 use Illuminate\Console\Command;
 use Innoboxrr\Deals\Models\Deal;
@@ -14,7 +14,7 @@ class DealRouterExecutionCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'deal-router-execution:run';
+    protected $signature = 'deal-router-execution:run {--sync : Ejecuta la rutina de forma sincrona}';
 
     /**
      * The console command description.
@@ -28,16 +28,20 @@ class DealRouterExecutionCommand extends Command
      */
     public function handle()
     {
-        Deal::chunk(100, function ($deals) {
+        Deal::active()->chunk(100, function ($deals) {
             foreach ($deals as $deal) {
-                if ($deal->isActive()) {
-                    $router = DealRouter::updateOrCreate([
-                        'deal_id' => $deal->id,
-                        'queue' => $deal->queue
-                    ], [
-                        'last_run' => now(),
-                    ]);
-                    DealRouterExecutionJob::dispatch($router, $deal)->onQueue($router->queue);
+                $router = DealRouter::updateOrCreate([
+                    'deal_id' => $deal->id,
+                    'queue' => $deal->queue
+                ], [
+                    'last_run' => now(),
+                ]);
+
+                if ($this->option('sync')) {
+                    DealRouterExecutionJob::dispatchSync($router, $deal);
+                } else {
+                    DealRouterExecutionJob::dispatch($router, $deal)
+                        ->onQueue($deal->queue);
                 }
             }
         });
