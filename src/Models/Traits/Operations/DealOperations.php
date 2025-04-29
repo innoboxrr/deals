@@ -81,8 +81,13 @@ trait DealOperations
         return $this->save();
     }
 
-    public function processLeads(DealRouterExecution $execution): array
+    public function assignLeads(DealRouterExecution $execution)
     {
-        return ProcessLeadsService::run($execution);
+        ProcessLeadsService::assignLeads($execution);
+    }
+
+    public function deliverLeads(DealRouterExecution $execution)
+    {
+        ProcessLeadsService::deliverLeads($execution);
     }
 }

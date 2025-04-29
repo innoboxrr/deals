@@ -1,6 +1,5 @@
 <template>
 	<div class="border rounded-lg bg-white shadow-sm relative space-y-6">
-		<!-- HEADER PRINCIPAL (COLLAPSABLE WRAPPER)-->
 		<div class="flex justify-between items-center px-4 py-3 border-b bg-gray-50 cursor-pointer" @click="collapsed = !collapsed">
 			<div class="flex items-center gap-2">
 				<div class="cursor-move drag-handle text-gray-400">
@@ -10,26 +9,19 @@
 					Integración #{{ index + 1 }}
 				</h4>
 			</div>
-
-			<!-- Acciones -->
 			<div class="flex items-center space-x-4 text-gray-400">
-				<!-- Duplicar -->
 				<button
 					@click.stop="$emit('duplicate')"
 					title="Duplicar campo"
 					class="hover:text-blue-500 transition mr-2">
 					<i class="fa-solid fa-clone"></i>
 				</button>
-
-				<!-- Eliminar -->
 				<button
 					class="text-red-800 text-sm hover:text-red-700"
 					:title="'Eliminar integración'"
 					@click.stop="$emit('remove')">
 					<i class="fa-solid fa-trash"></i>
 				</button>
-
-				<!-- Colapsar -->
 				<button
 					title="Expandir/Colapsar"
 					class="hover:text-gray-600 transition">
@@ -40,102 +32,209 @@
 						]"></i>
 				</button>
 			</div>
-			
 		</div>
 		<div v-show="!collapsed" class="px-6">
-			<h3 class="mb-4 text-lg font-semibold border-gray-200">
-				1. General
-			</h3>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<div class="items-center mb-4">
+				<h3 class="text-lg font-semibold">
+					Configuración de la Integración
+				</h3>
+				<select-input-component
+					:custom-class="inputClass"
+					name="type"
+					label="Tipo de integración"
+					v-model="localCall.type">
+					<option value="api">API</option>
+					<option value="email">Email</option>
+					<option value="database">Base de datos</option>
+				</select-input-component>
+			</div>
 
-				<div>
-					<text-input-component
-						:custom-class="inputClass"
-						type="text"
-						name="endpoint"
-						label="Endpoint"
-						validators="required url"
-						v-model="localCall.endpoint" />
-				</div>
-				<div>
-					<select-input-component
-						:custom-class="inputClass"
-						name="method"
-						label="Método HTTP"
-						v-model="localCall.method">
-						<option value="GET">GET</option>
-						<option value="POST">POST</option>
-						<option value="PUT">PUT</option>
-						<option value="DELETE">DELETE</option>
-					</select-input-component>
-				</div>
-				<div>
-					<select-input-component
-						:custom-class="inputClass"
-						name="data_method"
-						label="Formato del envío"
-						v-model="localCall.data_method">
-						<option value="json">JSON</option>
-						<option value="form">Form</option>
-						<option value="query">Query</option>
-					</select-input-component>
-				</div>
-			</div>
-			<!-- HEADERS -->
-			<div>
-				<h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-					2. Headers
-				</h3>
-				<headers-input-component v-model="localCall.headers" />
-			</div>
-			<!-- AUTENTICACIÓN -->
-			<div>
-				<h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-					3. Autenticación
-				</h3>
-				<auth-config-component v-model="localCall.auth" />
-			</div>
-			<!-- MAPEO -->
-			<div>
-				<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-					4. Mapeo de Campos
-				</h3>
-				<mapping-fields-component v-model="localCall.mapping" class="mb-4"/>
+			<div v-if="localCall.type !== undefined" class="mb-4">	
 
-				<!-- PARSE GLOBAL -->
-				<div class="border rounded-md">
-					<div
-						class="flex justify-between items-center px-4 py-4 border-b bg-gray-50 cursor-pointer"
-						@click="collapsedParseObject = !collapsedParseObject">
-						<span class="text-sm font-semibold">
-							Procesamiento Global del Objeto
-						</span>
-						<i :class="['fa-solid', collapsedParseObject ? 'fa-chevron-down' : 'fa-chevron-up', 'text-gray-400']"></i>
+				<h3 class="mb-4 text-lg font-semibold border-gray-200 border-t border-gray-200 pt-4">
+					Integración <b>{{ localCall.type.slice(0, 1).toUpperCase() + localCall.type.slice(1) }}</b> - Configuración
+				</h3>
+
+				<div v-if="localCall.type === 'api'" 
+					class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-gray-200 pt-4">
+					<div>
+						<text-input-component
+							:custom-class="inputClass"
+							type="text"
+							name="endpoint"
+							label="Endpoint"
+							validators="required url"
+							v-model="localCall.endpoint" />
 					</div>
+					<div>
+						<select-input-component
+							:custom-class="inputClass"
+							name="method"
+							label="Método HTTP"
+							v-model="localCall.method">
+							<option value="GET">GET</option>
+							<option value="POST">POST</option>
+							<option value="PUT">PUT</option>
+							<option value="DELETE">DELETE</option>
+						</select-input-component>
+					</div>
+					<div>
+						<select-input-component
+							:custom-class="inputClass"
+							name="data_method"
+							label="Formato del envío"
+							v-model="localCall.data_method">
+							<option value="json">JSON</option>
+							<option value="form">Form</option>
+							<option value="query">Query</option>
+						</select-input-component>
+					</div>
+				</div>
 
-					<div v-show="!collapsedParseObject" class="p-4 space-y-4">
+				<div v-if="localCall.type === 'email'" class="space-y-6">
 
-						<!-- Vista previa del objeto PHP -->
-						<div class="text-sm text-gray-600 bg-white border rounded-md p-3">
-							<label class="block font-medium text-gray-700 mb-1">Vista previa del objeto enviado:</label>
-							<pre class="text-xs overflow-auto bg-gray-100"><code>{{ generatePhpFullObject(localCall.mapping) }}</code></pre>
+					<!-- Emails destino -->
+					<tags-input-component
+						:custom-class="inputClass"
+						name="emails"
+						label="Emails de destino"
+						placeholder="Emails separados por comas"
+						v-model="localCall.emails" />
+
+					<!-- Método de envío -->
+					<select-input-component
+						:custom-class="inputClass"
+						name="send_strategy"
+						label="Estrategia de Envío"
+						v-model="localCall.email_send_strategy">
+						<option value="immediate">Enviar en cuanto lleguen los leads</option>
+						<option value="threshold">Enviar al alcanzar un mínimo de leads</option>
+						<option value="cron">Enviar periódicamente por cron</option>
+					</select-input-component>
+
+					<!-- Umbral mínimo de leads para enviar (solo si strategy = threshold) -->
+					<div v-if="localCall.email_send_strategy === 'threshold'" 
+						class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<div>
+							<text-input-component
+								:custom-class="inputClass"
+								type="number"
+								name="threshold_min_leads"
+								label="Número mínimo de leads para enviar"
+								v-model="localCall.threshold_min_leads"
+								placeholder="Ej: 10" />
 						</div>
+					</div>
 
-						<code-mirror-component
-							lang="javascript"
-							v-model="localCall.parse_object"
-							placeholder="// Aquí puedes procesar el objeto final antes de enviarlo" />
+					<!-- Cron expression (solo si strategy = cron) -->
+					<div v-if="localCall.email_send_strategy === 'cron'" 
+						class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<text-input-component
+							:custom-class="inputClass"
+							type="text"
+							name="cron_expression"
+							label="Expresión Cron para envío programado"
+							v-model="localCall.cron_expression"
+							placeholder="Ej: */15 * * * * (cada 15 minutos)" />
+					</div>
 
+					<!-- Capacidad máxima de envío -->
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 -mb-4">
+						<div>
+							<text-input-component
+								:custom-class="inputClass"
+								type="number"
+								name="cap_max_leads"
+								label="Máximo de leads a enviar por ciclo"
+								v-model="localCall.cap_max_leads"
+								placeholder="Ej: 100" />
+						</div>
+						<div>
+							<text-input-component
+								:custom-class="inputClass"
+								type="number"
+								name="cap_min_leads"
+								label="Mínimo de leads a enviar por ciclo (opcional)"
+								v-model="localCall.cap_min_leads"
+								placeholder="Ej: 10" />
+						</div>
+					</div>
+
+					<!-- Método de distribución de correos -->
+					<select-input-component
+						class="uk-margin-remove"
+						:custom-class="inputClass"
+						name="email_distribution_method"
+						label="Método de distribución de emails"
+						v-model="localCall.email_distribution_method">
+						<option value="all">Enviar a todos los correos</option>
+						<option value="random">Enviar aleatoriamente a uno</option>
+						<option value="roundrobin">Enviar de forma secuencial (round robin)</option>
+					</select-input-component>
+
+					<!-- Control de estado del envío -->
+					<select-input-component
+						:custom-class="inputClass"
+						name="send_control"
+						label="Control de Envío"
+						v-model="localCall.send_control">
+						<option value="automatic">Envío automático</option>
+						<option value="manual">Requiere revisión manual antes de enviar</option>
+					</select-input-component>
+
+				</div>
+
+
+				<div v-if="localCall.type === 'api'" >
+					<h3 class="mb-4 text-lg font-semibold pt-4">
+						Headers
+					</h3>
+					<headers-input-component v-model="localCall.headers" />
+				</div>
+
+				<div v-if="['api', 'database'].includes(localCall.type)">
+					<h3 class="mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
+						Tipo de autenticación
+					</h3>
+					<auth-config-component 
+						v-model="localCall.auth" 
+						:integration-type="localCall.type" />
+				</div>
+
+				<div>
+					<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
+						Mapeo de Campos
+					</h3>
+					<mapping-fields-component v-model="localCall.mapping" class="mb-4"/>
+
+					<div class="border rounded-md">
+						<div
+							class="flex justify-between items-center px-4 py-4 border-b bg-gray-50 cursor-pointer"
+							@click="collapsedParseObject = !collapsedParseObject">
+							<span class="text-sm font-semibold">
+								Procesamiento Global del Objeto
+							</span>
+							<i :class="['fa-solid', collapsedParseObject ? 'fa-chevron-down' : 'fa-chevron-up', 'text-gray-400']"></i>
+						</div>
+						<div v-show="!collapsedParseObject" class="p-4 space-y-4">
+							<div class="text-sm text-gray-600 bg-white border rounded-md p-3">
+								<label class="block font-medium text-gray-700 mb-1">Vista previa del objeto enviado:</label>
+								<pre class="text-xs overflow-auto bg-gray-100"><code>{{ generatePhpFullObject(localCall.mapping) }}</code></pre>
+							</div>
+							<code-mirror-component
+								lang="javascript"
+								v-model="localCall.parse_object"
+								placeholder="// Aquí puedes procesar el objeto final antes de enviarlo" />
+						</div>
 					</div>
 				</div>
 
-			</div>
-			<!-- VALIDACIÓN DE RESPUESTA -->
-			<div>
-				<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
-					5. Validación de Respuesta
-				</h3>
-				<response-validator-component v-model="localCall.response_validation" />
+				<div>
+					<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
+						Validación de Respuesta
+					</h3>
+					<response-validator-component v-model="localCall.response_validation" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -145,6 +244,7 @@
 import {
 	TextInputComponent,
 	SelectInputComponent,
+	TagsInputComponent,
 	ButtonComponent,
 	CodeMirrorComponent
 } from 'innoboxrr-form-elements'
@@ -159,6 +259,7 @@ export default {
 	components: {
 		TextInputComponent,
 		SelectInputComponent,
+		TagsInputComponent,
 		ButtonComponent,
 		CodeMirrorComponent,
 

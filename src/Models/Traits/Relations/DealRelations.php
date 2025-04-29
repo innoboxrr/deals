@@ -14,6 +14,8 @@ use Innoboxrr\Deals\Models\DealMeta;
 use Innoboxrr\Deals\Models\DealRouter;
 use Innoboxrr\Deals\Models\DealAdvertiserAgreement;
 
+use Innoboxrr\Deals\Enums\DealAdvertiserAgreement\Status;
+
 // use \Znck\Eloquent\Traits\BelongsToThrough; // Docs: https://github.com/staudenmeir/belongs-to-through
 // use \Staudenmeir\EloquentHasManyDeep\HasRelationships; // Docs: https://github.com/staudenmeir/eloquent-has-many-deep
 
@@ -71,5 +73,11 @@ trait DealRelations
     public function dealAdvertiserAgreements()
     {
         return $this->hasMany(DealAdvertiserAgreement::class, 'deal_id');
+    }
+
+    public function activeDealAdvertiserAgreements()
+    {
+        return $this->hasMany(DealAdvertiserAgreement::class, 'deal_id')
+            ->where('status', Status::ACTIVE->value);
     }
 }

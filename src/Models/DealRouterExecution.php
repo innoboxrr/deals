@@ -14,6 +14,7 @@ use Innoboxrr\Deals\Models\Traits\Assignments\DealRouterExecutionAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealRouterExecutionOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealRouterExecutionMutators;
 use Innoboxrr\Deals\Enums\DealRouterExecution\Status as DealRouterExecutionStatus;
+use Innoboxrr\Deals\Enums\DealRouterExecution\Strategy as DealRouterExecutionStrategy;
 
 class DealRouterExecution extends Model
 {
@@ -31,6 +32,7 @@ class DealRouterExecution extends Model
         
     protected $fillable = [
         'status',
+        'strategy',
         'start_execution',
         'end_execution',
         'assignment_log',
@@ -39,6 +41,7 @@ class DealRouterExecution extends Model
     
     protected $creatable = [
         'status',
+        'strategy',
         'start_execution',
         'end_execution',
         'assignment_log',
@@ -47,6 +50,7 @@ class DealRouterExecution extends Model
     
     protected $updatable = [
         'status',
+        'strategy',
         'start_execution',
         'end_execution',
         'assignment_log',
@@ -55,6 +59,7 @@ class DealRouterExecution extends Model
     
     protected $casts = [
         'status' => DealRouterExecutionStatus::class,
+        'strategy' => DealRouterExecutionStrategy::class,
         'start_execution' => 'datetime',
         'end_execution'   => 'datetime',
         'assignment_log'  => 'array',

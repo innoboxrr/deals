@@ -11,17 +11,18 @@ class DealRouterExecutionService
     protected DealRouter $router;
     protected Deal $deal;
     protected DealRouterExecution $execution;
-    protected ?array $assignmentLog = null;
+    protected ?string $strategy = null;
     
-    public function __construct(DealRouter $router, Deal $deal) 
+    public function __construct(DealRouter $router, Deal $deal, ?string $strategy = null) 
     {
         $this->router = $router;
         $this->deal = $deal;
+        $this->strategy = $strategy;
     }
 
-    public static function run(DealRouter $router, Deal $deal): void
+    public static function run(DealRouter $router, Deal $deal, ?string $strategy = null): void
     {
-        $instance = new self($router, $deal);
+        $instance = new self($router, $deal, $strategy);
         $instance->execute();
     }
 
@@ -29,7 +30,8 @@ class DealRouterExecutionService
     {
         $this->execution = DealRouterExecution::create([
             'start_execution' => now(),
-            'assignment_log' => json_encode($this->assignmentLog ?? []),
+            'strategy' => $this->strategy,
+            'assignment_log' => json_encode([]),
             'deal_router_id' => $this->router->id,
         ]);
     }
@@ -43,17 +45,14 @@ class DealRouterExecutionService
 
     protected function endExecution(): void
     {
-        $this->execution->update([
-            'end_execution' => now(),
-            'assignment_log' => json_encode($this->assignmentLog ?? []),
-        ]);
+        $this->execution->update(['end_execution' => now()]);
     }
 
     public function execute(): void
     {
         $this->startExecution();
-        $this->assignmentLog = $this->deal->processLeads($this->execution);
+        $this->deal->assignLeads($this->execution);
+        $this->deal->deliverLeads($this->execution);
         $this->endExecution();
     }
-
 }

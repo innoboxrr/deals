@@ -17,20 +17,23 @@ class DealRouterExecutionJob implements ShouldQueue
 
     protected DealRouter $router;
     protected Deal $deal;
+    protected bool $sync = false;
+    protected string $strategy;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(DealRouter $router, Deal $deal) 
+    public function __construct(DealRouter $router, Deal $deal, ?string $strategy = null)
     {
         $this->router = $router;
         $this->deal = $deal;
+        $this->strategy = $strategy;
     }
 
     public function handle(): void
     {
         try {
-            DealRouterExecutionService::run($this->router, $this->deal);   
+            DealRouterExecutionService::run($this->router, $this->deal, $this->strategy);   
             return; 
         } catch (\Exception $e) {
             report($e);

@@ -8,9 +8,10 @@
 			label="Tipo de autenticación"
 			v-model="localAuth.type">
 			<option value="none">Ninguna</option>
-			<option value="api_key">API Key</option>
-			<option value="basic">Basic Auth</option>
-			<option value="oauth">OAuth 2.0</option>
+			<option v-if="integrationType == 'api'" value="api_key">API Key</option>
+			<option v-if="integrationType == 'api'" value="basic">Basic Auth</option>
+			<option v-if="integrationType == 'api'" value="oauth">OAuth 2.0</option>
+			<option v-if="integrationType == 'database'" value="db_connection">Conexión a base de datos</option>
 		</select-input-component>
 
 		<!-- API KEY -->
@@ -23,7 +24,9 @@
 			v-model="localAuth.api_key" />
 
 		<!-- BASIC AUTH -->
-		<div v-if="localAuth.type === 'basic'" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<div 
+			v-if="localAuth.type === 'basic'" 
+			class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<div>
 				<text-input-component
 					:custom-class="inputClass"
@@ -111,6 +114,115 @@
                 </div>
             </div>
 		</div>
+
+		<!-- DB CONNECTION -->
+		<div v-if="localAuth.type === 'db_connection'" class="space-y-3">
+
+			<!-- Tipo de motor/SGBD -->
+			<select-input-component
+				:custom-class="inputClass"
+				name="db_driver"
+				label="Motor de Base de Datos"
+				v-model="localAuth.db_driver">
+				<option value="mysql">MySQL</option>
+				<option value="mariadb">MariaDB</option>
+				<option value="pgsql">PostgreSQL</option>
+				<option value="sqlsrv">SQL Server</option>
+				<option value="sqlite">SQLite</option>
+				<option value="oracle">Oracle</option>
+			</select-input-component>
+
+			<!-- Host -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_host"
+				label="Host (IP o dominio)"
+				v-model="localAuth.db_host"
+				placeholder="127.0.0.1 o db.miempresa.com" />
+
+			<!-- Puerto -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_port"
+				label="Puerto"
+				v-model="localAuth.db_port"
+				placeholder="Ej: 3306 para MySQL, 5432 para PostgreSQL" />
+
+			<!-- Nombre de la base de datos -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_database"
+				label="Nombre de la Base de Datos"
+				v-model="localAuth.db_database" />
+
+			<!-- Usuario -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_username"
+				label="Usuario"
+				v-model="localAuth.db_username" />
+
+			<!-- Contraseña -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="password"
+				name="db_password"
+				label="Contraseña"
+				v-model="localAuth.db_password" />
+
+			<!-- Charset -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_charset"
+				label="Charset (opcional)"
+				v-model="localAuth.db_charset"
+				placeholder="utf8mb4, utf8, etc." />
+
+			<!-- Collation -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_collation"
+				label="Collation (opcional)"
+				v-model="localAuth.db_collation"
+				placeholder="utf8mb4_unicode_ci, etc." />
+
+			<!-- SSL CA (opcional) -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_ssl_ca"
+				label="Ruta CA SSL (opcional)"
+				v-model="localAuth.db_ssl_ca"
+				placeholder="/ruta/a/ca.pem" />
+
+			<!-- Socket (opcional) -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_socket"
+				label="Ruta Socket (opcional)"
+				v-model="localAuth.db_socket"
+				placeholder="/var/run/mysqld/mysqld.sock" />
+
+			<!-- Timezone (opcional) -->
+			<text-input-component
+				:custom-class="inputClass"
+				type="text"
+				name="db_timezone"
+				label="Zona Horaria (opcional)"
+				v-model="localAuth.db_timezone"
+				placeholder="Ej: America/Mexico_City" />
+
+		</div>
+
+
+
 	</div>
 </template>
 
@@ -132,7 +244,12 @@ export default {
 		modelValue: {
 			type: Object,
 			required: true
-		}
+		}, 
+		integrationType: {
+			type: String,
+			required: true,
+			default: 'api'
+		},
 	},
 	emits: ['update:modelValue'],
 	computed: {

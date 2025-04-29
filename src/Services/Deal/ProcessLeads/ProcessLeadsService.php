@@ -3,6 +3,8 @@
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads;
 
 use Innoboxrr\Deals\Models\DealRouterExecution;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Assignment\AssignmentService;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DeliveryService;
 
 class ProcessLeadsService
 {
@@ -12,67 +14,17 @@ class ProcessLeadsService
     public function __construct(DealRouterExecution $execution)
     {
         $this->execution = $execution;
-        $this->assignmentLog = [
-            'assignments' => [],
-            'unprocessed_leads' => 0,
-            'start_execution' => now()->toDateTimeString(),
-            'end_execution' => null,
-            'errors' => [],
-        ];
     }
 
-    public static function run(DealRouterExecution $execution): array
+    public static function assignLeads(DealRouterExecution $execution): void
     {
         $instance = new self($execution);
-        $instance->handle();
-        return $instance->getAssignmentLog();
+        AssignmentService::run($instance->execution);
     }
 
-    protected function handle(): void
+    public static function deliverLeads(DealRouterExecution $execution): void
     {
-        $dealLeads = $this->execution->unprocessed_leads;
-
-        // Ya estoy acá
-
-        if ($dealLeads->isEmpty()) {
-            return;
-        }
-
-        $agreements = $this->getAvailableAgreements();
-
-        if ($agreements->isEmpty()) {
-            return;
-        }
-
-        foreach ($dealLeads as $dealLead) {
-            $agreement = AgreementSelectorService::select($agreements, $dealLead);
-
-            if ($agreement) {
-                $dealAssignment = IntegrationService::create($dealLead, $agreement, $this->execution);
-                $this->logAssignment($dealLead, $agreement, $dealAssignment);
-            }
-        }
-    }
-
-    protected function getAvailableAgreements()
-    {
-        return $this->execution->router->deal->dealAdvertiserAgreements()
-            ->where('status', 'active')
-            ->get();
-    }
-
-    protected function logAssignment($dealLead, $agreement, $dealAssignment): void
-    {
-        $this->assignmentLog['assignments'][] = [
-            'deal_lead_id' => $dealLead->id,
-            'deal_assignment_id' => $dealAssignment->id,
-            'assigned_to' => $agreement->id,
-            'assigned_at' => now()->toDateTimeString(),
-        ];
-    }
-
-    public function getAssignmentLog(): array
-    {
-        return $this->assignmentLog;
+        $instance = new self($execution);
+        DeliveryService::run($instance->execution);
     }
 }

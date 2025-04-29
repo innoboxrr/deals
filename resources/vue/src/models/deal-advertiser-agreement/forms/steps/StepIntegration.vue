@@ -84,6 +84,7 @@ export default {
 	methods: {
 		addCall() {
 			const newCall = {
+				type: 'api',
 				order: this.localAgreement.payload.integration.calls.length + 1,
 				endpoint: '',
 				method: 'POST',
@@ -100,7 +101,15 @@ export default {
                         expiration: '',
                         client_id: '',
                         client_secret: ''
-                    }
+
+                    },
+					db_host: '',
+					db_port: '',
+					db_name: '',
+					db_user: '',
+					db_password: '',
+					db_socket: '',
+					db_timezone: ''
 				},
 				mapping: [],
 				response_validation: {

@@ -5,7 +5,6 @@ namespace Innoboxrr\Deals\Services\Deal\DealLeadProcessor;
 use Innoboxrr\Deals\Models\Deal;
 use Innoboxrr\Deals\Models\DealLead;
 use Innoboxrr\Deals\Models\DealSession;
-use Innoboxrr\Deals\Models\DealSessionEvent;
 use Illuminate\Support\Facades\DB;
 
 class DealLeadProcessorService

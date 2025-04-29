@@ -14,7 +14,10 @@ class DealRouterExecutionCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'deal-router-execution:run {--sync : Ejecuta la rutina de forma sincrona}';
+    protected $signature = 'deal-router-execution:run 
+        {--sync : Ejecuta la rutina de forma sincrona}
+        {--strategy : Estrategia de asignación de leads.} 
+    ';
 
     /**
      * The console command description.
@@ -37,13 +40,38 @@ class DealRouterExecutionCommand extends Command
                     'last_run' => now(),
                 ]);
 
+                $strategy = $this->getStrategy($deal);
+
                 if ($this->option('sync')) {
-                    DealRouterExecutionJob::dispatchSync($router, $deal);
+                    DealRouterExecutionJob::dispatchSync($router, $deal, $strategy);
                 } else {
-                    DealRouterExecutionJob::dispatch($router, $deal)
+                    DealRouterExecutionJob::dispatch($router, $deal, $strategy)
                         ->onQueue($deal->queue);
                 }
             }
         });
+    }
+
+    protected function getStrategy($deal): ?string
+    {
+        // Si se definie $this->option('strategy') se retorna el valor
+        if ($this->option('strategy')) {
+            return $this->option('strategy');
+        }
+
+        // Tiempo de creación del lead y cantidad de ejecusiones
+        // Si tiene menos de 3 días 0 menos de 50 ejecuciones se retorna round robin
+        if ($deal->created_at->diffInDays(now()) < 3 || $deal->executions_count < 50) {
+            return 'RoundRobinStrategy';
+        }
+
+        // Si no se definie $this->option('strategy') se considera:
+        // La estrategia predetemrinada en el deal
+        if ($deal->strategy) {
+            return $deal->strategy;
+        }
+
+        return null;
+
     }
 }

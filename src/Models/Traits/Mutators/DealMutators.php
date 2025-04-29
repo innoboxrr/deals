@@ -16,4 +16,16 @@ trait DealMutators
 
         return $dailyBudget > 0 ? ($dailySpent / $dailyBudget) * 100 : 0;
     }
+
+    // Segmentation
+
+    public function getMinAgeAttribute()
+    {
+        return (int) $this->getPayload('segmentation.min_age', 0);
+    }
+
+    public function getMaxAgeAttribute()
+    {
+        return (int) $this->getPayload('segmentation.max_age', 0);
+    }
 }
