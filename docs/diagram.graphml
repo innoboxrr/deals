@@ -602,10 +602,10 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="782.7192555316806" width="1697.4348816710494" x="2501.187732709285" y="1113.4280774815754"/>
+              <y:Geometry height="929.5303323422697" width="1724.4246599095554" x="2501.187732709285" y="1113.4280774815754"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1697.4348816710494" x="0.0" xml:space="preserve" y="0.0">LeadsManager</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1724.4246599095554" x="0.0" xml:space="preserve" y="0.0">LeadsManager</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -631,10 +631,10 @@ deal_advertiser_agreement_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:La
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="554.4663111737934" width="221.154753011494" x="3962.46786136884" y="1326.6810218394626"/>
+                  <y:Geometry height="701.2773879843826" width="248.14453125" x="3962.46786136884" y="1326.6810218394626"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="221.154753011494" x="0.0" xml:space="preserve" y="0.0">Router</y:NodeLabel>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="248.14453125" x="0.0" xml:space="preserve" y="0.0">Router</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -678,13 +678,24 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CCFFCC" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="91.375" x="49.88987650574745" xml:space="preserve" y="4.0">DealAssignment</y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="106.908203125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="181.43359375" x="2.0" xml:space="preserve" y="30.701171875">id
-sent_object (integration_process)
-response (client real_time)
-**postback
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="253.919921875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="216.14453125" x="2.0" xml:space="preserve" y="30.701171875">id
 deal_lead_id
 deal_advertiser_agreement_id
-deal_router_execution_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
+**assignment_deal_router_execution_id
+**delivery_deal_router_execution_id
+status
+ - PENDING
+ - DELIVERED
+ - INVALID
+ - ERROR
+  - PARTIAL (no se para que es )
+delivery_log
+
+?deal_router_execution_id
+?sent_object (integration_process)
+?response (client real_time)
+?postback
+<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelParameter><y:ErdAttributesNodeLabelModelParameter/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
                     <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
                   </y:StyleProperties>
@@ -879,7 +890,7 @@ deal_lead_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mode
                   <y:Geometry height="29.818347578347584" width="80.0" x="2649.632564098839" y="1401.8175688842787"/>
                   <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="43.3515625" x="18.32421875" xml:space="preserve" y="5.5585878516740195">Affiliate<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="43.3515625" x="18.32421875" xml:space="preserve" y="5.558587851673792">Affiliate<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
                     <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
                   </y:StyleProperties>
@@ -915,7 +926,7 @@ deal_lead_traking_event_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:Labe
               <y:Geometry height="117.53079841276895" width="221.15475301149445" x="3679.4051080379845" y="1403.3748883187293"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF0000" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="212.79296875" x="4.180892130747452" xml:space="preserve" y="4.0">deal_assignment_welcome_notification</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF0000" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="212.79296875" x="4.180892130746997" xml:space="preserve" y="4.0">deal_assignment_welcome_notification</y:NodeLabel>
               <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="131.40625" x="2.0" xml:space="preserve" y="30.701171875">id
 welcome_notification_id
 deal_assignment_id
@@ -1532,7 +1543,6 @@ deal_id<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:ModelPara
       </data>
     </edge>
     <edge id="n3::e2" source="n3::n1::n1" target="n3::n0::n1">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">

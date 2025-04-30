@@ -3,14 +3,18 @@
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery;
 
 use Innoboxrr\Deals\Models\DealRouterExecution;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Loggers\DeliveryLogger;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Procedures\IntegrationDispatcher;
 
 class DeliveryService
 {
     protected DealRouterExecution $execution;
+    protected DeliveryLogger $logger;
 
-    public function __construct(DealRouterExecution $execution) 
+    public function __construct(DealRouterExecution $execution)
     {
         $this->execution = $execution;
+        $this->logger = new DeliveryLogger($execution);
     }
 
     public static function run(DealRouterExecution $execution): void
@@ -19,15 +23,12 @@ class DeliveryService
         $instance->handle();
     }
 
-    public function handle(): void
+    protected function handle(): void
     {
         try {
-            // Your logic here
-
-            dd('Procesar la asignación', $this->execution->id);
-
-            return;
-        } catch (\Exception $e) {
+            IntegrationDispatcher::run($this->execution, $this->logger);
+        } catch (\Throwable $e) {
+            $this->logger->logError($e->getMessage());
             report($e);
         }
     }

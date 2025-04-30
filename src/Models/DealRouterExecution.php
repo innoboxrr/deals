@@ -36,6 +36,7 @@ class DealRouterExecution extends Model
         'start_execution',
         'end_execution',
         'assignment_log',
+        'delivery_log',
         'deal_router_id',
     ];
     
@@ -45,6 +46,7 @@ class DealRouterExecution extends Model
         'start_execution',
         'end_execution',
         'assignment_log',
+        'delivery_log',
         'deal_router_id',
     ];
     
@@ -54,6 +56,7 @@ class DealRouterExecution extends Model
         'start_execution',
         'end_execution',
         'assignment_log',
+        'delivery_log',
         'deal_router_id',
     ];
     
@@ -63,6 +66,7 @@ class DealRouterExecution extends Model
         'start_execution' => 'datetime',
         'end_execution'   => 'datetime',
         'assignment_log'  => 'array',
+        'delivery_log'    => 'array',
         'deal_router_id'  => 'integer',
     ];
     
@@ -78,6 +82,7 @@ class DealRouterExecution extends Model
         'start_execution',
         'end_execution',
         'assignment_log',
+        'delivery_log',
         'deal_router_id',
         'created_at',
         'updated_at',

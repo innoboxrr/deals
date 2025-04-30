@@ -235,6 +235,28 @@
 					</h3>
 					<response-validator-component v-model="localCall.response_validation" />
 				</div>
+
+				<div>
+					<!-- Detener ejecución si falla -->
+					<select-input-component
+						:custom-class="inputClass"
+						name="stop_on_error"
+						label="Detener ejecución si falla"
+						v-model="localCall.stop_on_error">
+						<option value="yes">Sí</option>
+						<option value="no">No</option>
+					</select-input-component>
+
+					<!-- Detener si es válida -->
+					<select-input-component
+						:custom-class="inputClass"
+						name="stop_on_success"
+						label="Detener ejecución si es válida"
+						v-model="localCall.stop_on_success">
+						<option value="yes">Sí</option>
+						<option value="no">No</option>
+					</select-input-component>
+				</div>
 			</div>
 		</div>
 	</div>

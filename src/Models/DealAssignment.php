@@ -29,35 +29,35 @@ class DealAssignment extends Model
         DealAssignmentMutators;
     
     protected $fillable = [
-        'sent_object',
-        'response',
+        'status',
         'deal_lead_id',
         'deal_advertiser_agreement_id',
-        'deal_router_execution_id',
+        'assignment_deal_router_execution_id',
+        'delivery_deal_router_execution_id',
     ];
     
     protected $creatable = [
-        'sent_object',
-        'response',
+        'status',
         'deal_lead_id',
         'deal_advertiser_agreement_id',
-        'deal_router_execution_id',
+        'assignment_deal_router_execution_id',
+        'delivery_deal_router_execution_id',
     ];
     
     protected $updatable = [
-        'sent_object',
-        'response',
+        'status',
         'deal_lead_id',
         'deal_advertiser_agreement_id',
-        'deal_router_execution_id',
+        'assignment_deal_router_execution_id',
+        'delivery_deal_router_execution_id',
     ];
     
     protected $casts = [
-        'sent_object'                  => 'array',
-        'response'                     => 'array',
+        'status'                        => 'string',
         'deal_lead_id'                 => 'integer',
         'deal_advertiser_agreement_id' => 'integer',
-        'deal_router_execution_id'     => 'integer',
+        'assignment_deal_router_execution_id'     => 'integer',
+        'delivery_deal_router_execution_id'       => 'integer',
     ];
     
     protected $protected_metas = [];
@@ -68,11 +68,11 @@ class DealAssignment extends Model
     
     public static $export_cols = [
         'id',
-        'sent_object',
-        'response',
+        'status',
         'deal_lead_id',
         'deal_advertiser_agreement_id',
-        'deal_router_execution_id',
+        'assignment_deal_router_execution_id',
+        'delivery_deal_router_execution_id',
         'created_at',
         'updated_at',
     ];
