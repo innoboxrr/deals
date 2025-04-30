@@ -26,7 +26,6 @@ class IntegrationDispatcher
 
                 $strategy = self::resolveStrategy($call['type']);
                 $callObject = self::resolveCallObject($call['type'], $call);
-
                 $result = $strategy->dispatch($execution, $leadId, $agreementId, $callObject);
 
                 $logger->logCall([
@@ -100,5 +99,4 @@ class IntegrationDispatcher
 
         return App::make($class, ['data' => $call]);
     }
-
 }

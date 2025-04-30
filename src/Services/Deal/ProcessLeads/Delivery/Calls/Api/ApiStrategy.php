@@ -11,6 +11,9 @@ class ApiStrategy implements DeliveryStrategyInterface
 {
     public function dispatch(DealRouterExecution $execution, int $leadId, int $agreementId, CallTypeInterface $call): DeliveryResult
     {
+
+        dd($execution->id, $leadId, $agreementId, $call);
+
         return DeliveryResult::pending([]);
     }
 }
