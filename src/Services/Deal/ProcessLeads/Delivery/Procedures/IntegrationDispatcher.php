@@ -14,9 +14,13 @@ class IntegrationDispatcher
 {
     public static function run(DealRouterExecution $execution, DeliveryLogger $logger): void
     {
-        $assignments = $execution->assignment_log['assignments'] ?? [];
+        
+        $currentAssignments = $execution->assignment_log['assignments'] ?? [];
 
-        foreach ($assignments as $assignment) {
+        dd($currentAssignments);
+
+
+        foreach ($currentAssignments as $assignment) {
 
             $leadId = $assignment['lead_id'];
             $agreementId = $assignment['assigned_agreement_id'];

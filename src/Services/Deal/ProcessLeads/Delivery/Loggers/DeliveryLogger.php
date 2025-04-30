@@ -15,6 +15,18 @@ class DeliveryLogger
         $this->execution = $execution;
     }
 
+    public function logAssignment(array $assignment): void
+    {
+        $log = $this->getOrInitializeLog();
+
+        $log['assignments'][] = array_merge($assignment, [
+            'assigned_at' => Carbon::now()->toDateTimeString(),
+        ]);
+
+        $this->execution->assignment_log = $log;
+        $this->execution->save();
+    }
+
     public function logCall(array $call): void
     {
         $log = $this->getOrInitializeLog();
@@ -61,6 +73,7 @@ class DeliveryLogger
         }
 
         return array_merge([
+            'assignments' => $currentLog['assignments'] ?? [],
             'calls' => $currentLog['calls'] ?? [],
             'pending' => $currentLog['pending'] ?? [],
             'errors' => $currentLog['errors'] ?? [],
