@@ -142,14 +142,26 @@
 							placeholder="Cada línea representa un valor alterno"
 							v-model="element.fallback" />
 
+                        <!-- Ver si se debe procesar en código -->
+                        <select-input-component
+                            :custom-class="inputClass"
+                            label="¿Procesar en código?"
+                            v-model="element.use_custom_code">
+                            <option :value="true">Sí</option>
+                            <option :value="false">No</option>
+                        </select-input-component>
+
                         <!-- VISTA PREVIA DE LA ASIGNACIÓN PHP -->
-                        <div class="text-sm text-gray-600 bg-white border rounded-md p-3">
+                        <div
+                            v-if="element.use_custom_code" 
+                            class="text-sm text-gray-600 bg-white border rounded-md p-3">
                             <label class="block font-medium text-gray-700 mb-1">Vista previa del objeto:</label>
                             <pre class="text-xs overflow-auto bg-gray-100"><code>{{ generatePhpObjectPreview(element) }}</code></pre>
                         </div>
 
                         <!-- Code personalizado -->
 						<code-mirror-component
+                            v-if="element.use_custom_code"
 							lang="javascript"
 							v-model="element.code"
 							placeholder="// Puedes formatear este campo aquí" />
@@ -232,7 +244,7 @@ export default {
 				format: '',
 				value: '',
 				fallback: '',
-				code: '',
+                use_custom_code: false,
                 code: this.defaultCodeTemplate()
 			})
 			this.collapsed.push(false)
@@ -283,9 +295,9 @@ export default {
 		},
         defaultCodeTemplate() {
             return [
-                'function parseObject($object, $lead) {',
-                '    // Puedes modificar el valor aquí usando object y lead',
-                '    return $object;',
+                'function parseObject(array $object, array $lead) {',
+                '    // Your custom code here',
+                '    // return $value;',
                 '}'
             ].join('\n')
         },

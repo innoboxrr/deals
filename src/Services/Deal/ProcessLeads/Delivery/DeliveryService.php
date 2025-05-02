@@ -28,6 +28,7 @@ class DeliveryService
         try {
             IntegrationDispatcher::run($this->execution, $this->logger);
         } catch (\Throwable $e) {
+            dd($e->getMessage());
             $this->logger->logError($e->getMessage());
             report($e);
         }

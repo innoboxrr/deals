@@ -101,7 +101,6 @@ export default {
                         expiration: '',
                         client_id: '',
                         client_secret: ''
-
                     },
 					db_host: '',
 					db_port: '',
@@ -111,6 +110,7 @@ export default {
 					db_socket: '',
 					db_timezone: ''
 				},
+				use_custom_code: 0,
 				mapping: [],
 				response_validation: {
 					validators: [],
@@ -122,8 +122,8 @@ export default {
 		},
 		defaultCodeTemplate() {
             return [
-                'function parseObject($object, $lead, $previous_response = null) {',
-                '    // Puedes modificar el valor aquí usando object y lead',
+                'function parseObject(array $object, array $lead, ?array $prevRes = null) {',
+                '    // Your custom code here',
                 '    return $object;',
                 '}'
             ].join('\n')

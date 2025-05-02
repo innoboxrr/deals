@@ -3,8 +3,10 @@
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Procedures;
 
 use Innoboxrr\Deals\Models\DealAssignment;
+use Innoboxrr\Deals\Support\Helpers\ArrayHelper;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Contracts\CallTypeInterface;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\DeliveryResult;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Callables\GlobalParseObjectCallable;
 
 class ObjectMapping
 {
@@ -14,13 +16,41 @@ class ObjectMapping
         $data = $call->all();
         $mapped = [];
 
-        foreach ($data['mapping'] ?? [] as $key => $field) {
-
-            dd($field, $lead);
-
+        foreach ($data['mapping'] ?? [] as $field) {
+            $value = self::mapField(
+                $field, 
+                $lead, 
+                $prevResult
+            );
+            $mapped[$field['target']] = $value;
         }
-        
 
-        return $mapped;
+        $nested = ArrayHelper::dotNotationToNestedArray($mapped);
+
+        if((int) $data['use_custom_code'] ?? false) {
+            return GlobalParseObjectCallable::execute(
+                $data['parse_object'] ?? null, 
+                $nested, $lead, $prevResult
+            );
+        }
+        return $nested;
     }
+
+    protected static function mapField(array $field, array $lead, ?DeliveryResult $prevResult = null)
+    {
+        $source = $field['source'] ?? null;
+
+        // Convertir ip_address => IpAddress
+        $classBase = str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $source)));
+        $class = '\\Innoboxrr\\Deals\\Services\\Deal\\ProcessLeads\\Delivery\\FieldMappers\\' . $classBase . 'FieldMapper';
+
+        if (!class_exists($class)) {
+            $class = '\\Innoboxrr\\Deals\\Services\\Deal\\ProcessLeads\\Delivery\\FieldMappers\\DefaultFieldMapper';
+        }
+
+        $mapper = new $class($field, $lead, $field['value'] ?? null, $prevResult);
+
+        return $mapper->map();
+    }
+
 }

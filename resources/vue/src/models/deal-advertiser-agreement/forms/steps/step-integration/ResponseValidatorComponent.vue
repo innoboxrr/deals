@@ -102,13 +102,24 @@
 			+ Agregar validación
 		</button>
 
+		<!-- Ver si se debe procesar en código -->
+		<select-input-component
+			:custom-class="inputClass"
+			label="¿Procesar respuesta en código personalizado?"
+			v-model="localValidators.use_custom_code">
+			<option :value="true">Sí</option>
+			<option :value="false">No</option>
+		</select-input-component>
+
 		<!-- Código personalizado -->
-		<div class="my-6 border rounded-md">
+		<div
+			v-if="localValidators.use_custom_code" 
+			class="my-6 border rounded-md">
 			<div
 				class="flex justify-between items-center px-4 py-4 border-b bg-gray-50 cursor-pointer"
 				@click="collapsedCode = !collapsedCode">
 				<span class="text-sm font-semibold">
-					Código personalizado (opcional)
+					Procesar en respuesta en código personalizado
 				</span>
 				<i :class="['fa-solid', collapsedCode ? 'fa-chevron-down' : 'fa-chevron-up', 'text-gray-400']"></i>
 			</div>
@@ -162,7 +173,8 @@ export default {
 				if (!Array.isArray(this.collapsed) || this.collapsed.length !== (this.modelValue.validators || []).length) {
 					this.collapsed = (this.modelValue.validators || []).map(() => true)
 				}
-				return this.modelValue.validators || []
+				this.modelValue.use_custom_code = this.modelValue.use_custom_code || false;
+				return this.modelValue.validators || [];
 			},
 			set(val) {
 				this.$emit('update:modelValue', { ...this.modelValue, validators: val })
@@ -201,7 +213,7 @@ export default {
 		},
 		defaultCodeTemplate() {
 			return [
-				'function parseResponse($response, $previousResponse) {',
+				'function parseResponse(array $response, array $previousResponse) {',
 				'    // Puedes aplicar lógica personalizada de validación aquí',
 				'    return true;',
 				'}'

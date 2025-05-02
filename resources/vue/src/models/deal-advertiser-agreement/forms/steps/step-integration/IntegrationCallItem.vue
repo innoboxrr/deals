@@ -1,6 +1,8 @@
 <template>
 	<div class="border rounded-lg bg-white shadow-sm relative space-y-6">
-		<div class="flex justify-between items-center px-4 py-3 border-b bg-gray-50 cursor-pointer" @click="collapsed = !collapsed">
+		<div 
+			class="flex justify-between items-center px-4 py-3 border-b bg-gray-50 cursor-pointer" 
+			@click="collapsed = !collapsed">
 			<div class="flex items-center gap-2">
 				<div class="cursor-move drag-handle text-gray-400">
 					<i class="fa-solid fa-grip-vertical"></i>
@@ -205,23 +207,42 @@
 					<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
 						Mapeo de Campos
 					</h3>
-					<mapping-fields-component v-model="localCall.mapping" class="mb-4"/>
+					<mapping-fields-component 
+						class="mb-4"
+						v-model="localCall.mapping"/>
 
 					<div class="border rounded-md">
+						
+
 						<div
 							class="flex justify-between items-center px-4 py-4 border-b bg-gray-50 cursor-pointer"
 							@click="collapsedParseObject = !collapsedParseObject">
 							<span class="text-sm font-semibold">
-								Procesamiento Global del Objeto
+								{{ __deals('Global Object - Custom code processor') }}
 							</span>
 							<i :class="['fa-solid', collapsedParseObject ? 'fa-chevron-down' : 'fa-chevron-up', 'text-gray-400']"></i>
 						</div>
-						<div v-show="!collapsedParseObject" class="p-4 space-y-4">
-							<div class="text-sm text-gray-600 bg-white border rounded-md p-3">
+						<div
+							v-show="!collapsedParseObject" 
+							class="p-4 space-y-4">
+
+							<!-- Ver si se debe procesar en código -->
+							<select-input-component
+								:custom-class="inputClass"
+								label="¿Procesar en código?"
+								v-model="localCall.use_custom_code">
+								<option :value="1">Sí</option>
+								<option :value="0" selected>No</option>
+							</select-input-component>
+
+							<div
+								v-if="localCall.use_custom_code" 
+								class="text-sm text-gray-600 bg-white border rounded-md p-3">
 								<label class="block font-medium text-gray-700 mb-1">Vista previa del objeto enviado:</label>
 								<pre class="text-xs overflow-auto bg-gray-100"><code>{{ generatePhpFullObject(localCall.mapping) }}</code></pre>
 							</div>
 							<code-mirror-component
+								v-if="localCall.use_custom_code"
 								lang="javascript"
 								v-model="localCall.parse_object"
 								placeholder="// Aquí puedes procesar el objeto final antes de enviarlo" />
