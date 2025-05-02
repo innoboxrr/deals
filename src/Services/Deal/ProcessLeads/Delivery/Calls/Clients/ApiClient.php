@@ -82,7 +82,6 @@ class ApiClient extends AbstractCallClient
         if (!empty($oauth['access_token'])) {
             $this->headers['Authorization'] = 'Bearer ' . $oauth['access_token'];
         } else {
-            // Posible hook para refresh_token automático
             throw new Exception("Falta el access_token para autenticación OAuth.");
         }
     }
