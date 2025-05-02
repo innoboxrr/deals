@@ -24,9 +24,9 @@ class StrategyLoader
             throw new InvalidArgumentException("La clase {$className} no implementa AssignmentStrategyInterface");
         }
 
-        $dispersions = $execution->assignment_log['dispersions'];
-        $leadIds = array_unique(array_column($dispersions, 'lead_id'));
-        $agreementIds = array_unique(array_column($dispersions, 'agreement_id'));
+        $dispersions = $execution->assignment_log['dispersions'] ?? [];
+        $leadIds = array_unique(array_column($dispersions, 'lead_id')) ?? [];
+        $agreementIds = array_unique(array_column($dispersions, 'agreement_id')) ?? [];
         $instance->setContext($leadIds, $agreementIds, $dispersions, $execution);
 
         return $instance;

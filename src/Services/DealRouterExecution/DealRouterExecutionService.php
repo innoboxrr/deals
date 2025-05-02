@@ -13,16 +13,16 @@ class DealRouterExecutionService
     protected DealRouterExecution $execution;
     protected ?string $strategy = null;
     
-    public function __construct(DealRouter $router, Deal $deal, ?string $strategy = null) 
+    public function __construct(DealRouter $router, ?string $strategy = null) 
     {
         $this->router = $router;
-        $this->deal = $deal;
+        $this->deal = $router->deal;
         $this->strategy = $strategy;
     }
 
-    public static function run(DealRouter $router, Deal $deal, ?string $strategy = null): void
+    public static function run(DealRouter $router, ?string $strategy = null): void
     {
-        $instance = new self($router, $deal, $strategy);
+        $instance = new self($router, $strategy);
         $instance->execute();
     }
 

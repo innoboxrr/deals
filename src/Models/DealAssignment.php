@@ -13,6 +13,7 @@ use Innoboxrr\Deals\Models\Traits\Storage\DealAssignmentStorage;
 use Innoboxrr\Deals\Models\Traits\Assignments\DealAssignmentAssignment;
 use Innoboxrr\Deals\Models\Traits\Operations\DealAssignmentOperations;
 use Innoboxrr\Deals\Models\Traits\Mutators\DealAssignmentMutators;
+use Innoboxrr\Deals\Enums\DealAssignment\Status as DealAssignmentStatus;
 
 class DealAssignment extends Model
 {
@@ -27,6 +28,12 @@ class DealAssignment extends Model
         DealAssignmentAssignment,
         DealAssignmentOperations,
         DealAssignmentMutators;
+
+    const QUEUE_STATES = [
+        DealAssignmentStatus::ASSIGNED->value,
+        DealAssignmentStatus::OUT_OF_DATE->value,
+        DealAssignmentStatus::OUT_OF_HOUR->value,
+    ];
     
     protected $fillable = [
         'status',
@@ -53,7 +60,7 @@ class DealAssignment extends Model
     ];
     
     protected $casts = [
-        'status'                        => 'string',
+        'status'                        => DealAssignmentStatus::class,
         'deal_lead_id'                 => 'integer',
         'deal_advertiser_agreement_id' => 'integer',
         'assignment_deal_router_execution_id'     => 'integer',

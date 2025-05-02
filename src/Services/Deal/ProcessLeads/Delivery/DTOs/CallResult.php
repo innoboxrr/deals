@@ -2,7 +2,7 @@
 
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs;
 
-class DeliveryResult
+class CallResult
 {
     /**
      * @param bool $status Indica si el envío fue exitoso
@@ -30,12 +30,12 @@ class DeliveryResult
 
     public function isSuccess(): bool
     {
-        return $this->status === 'success';
+        return $this->status === true;
     }
 
     public function isError(): bool
     {
-        return $this->status === 'error';
+        return $this->status === false;
     }
 
     public function break(): bool

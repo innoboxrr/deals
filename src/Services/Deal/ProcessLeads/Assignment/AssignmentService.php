@@ -4,7 +4,7 @@ namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Assignment;
 
 use Innoboxrr\Deals\Models\DealRouterExecution;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Assignment\Procedures\DisperserProcedure;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Assignment\Procedures\OptimizerProcedure;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Assignment\Procedures\AssignmentProcedure;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Assignment\Loggers\AssignmentResultLogger;
 
 class AssignmentService
@@ -28,7 +28,7 @@ class AssignmentService
     {
         try {
             $this->runDispersion();
-            $this->runOptimization();
+            $this->runAssignment();
         } catch (\Exception $e) {
             $this->handleException($e);
         }
@@ -49,14 +49,14 @@ class AssignmentService
         }
     }
     
-    protected function runOptimization(): void
+    protected function runAssignment(): void
     {
-        $assignments = OptimizerProcedure::run($this->execution);
-    
+        $assignments = AssignmentProcedure::run($this->execution);
+        
         if (empty($assignments)) {
             return;
         }
-    
+
         $this->logger->logAssignments($assignments);
     }
     
@@ -65,6 +65,4 @@ class AssignmentService
         $this->logger->logError($e->getMessage());
         report($e);
     }
-    
-
 }

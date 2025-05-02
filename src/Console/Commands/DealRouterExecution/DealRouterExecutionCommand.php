@@ -9,30 +9,19 @@ use Innoboxrr\Deals\Jobs\DealRouterExecution\DealRouterExecutionJob;
 
 class DealRouterExecutionCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'deal-router-execution:run 
         {--sync : Ejecuta la rutina de forma sincrona}
         {--strategy : Estrategia de asignación de leads.} 
     ';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Ejecuta la rutina de distribución de leads a los deals';
 
-    /**
-     * Execute the console command.
-     */
     public function handle()
     {
         Deal::active()->chunk(100, function ($deals) {
             foreach ($deals as $deal) {
+
+                // Create or update the DealRouter record
                 $router = DealRouter::updateOrCreate([
                     'deal_id' => $deal->id,
                     'queue' => $deal->queue
@@ -43,9 +32,9 @@ class DealRouterExecutionCommand extends Command
                 $strategy = $this->getStrategy($deal);
 
                 if ($this->option('sync')) {
-                    DealRouterExecutionJob::dispatchSync($router, $deal, $strategy);
+                    DealRouterExecutionJob::dispatchSync($router, $strategy);
                 } else {
-                    DealRouterExecutionJob::dispatch($router, $deal, $strategy)
+                    DealRouterExecutionJob::dispatch($router, $strategy)
                         ->onQueue($deal->queue);
                 }
             }

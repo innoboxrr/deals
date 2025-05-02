@@ -2,6 +2,8 @@
 
 namespace Innoboxrr\Deals\Models\Traits\Mutators;
 
+use Innoboxrr\Deals\Enums\DealLead\Status as DealLeadStatus;
+
 trait DealRouterExecutionMutators
 {
 
@@ -10,6 +12,7 @@ trait DealRouterExecutionMutators
         $deal = $this->router->deal;
         $deal->load([
             'gateways.dealLeads' => function ($query) {
+                $query->where('status', DealLeadStatus::UNPROCESSED->value);
                 $query->light();
             }
         ]);
@@ -20,5 +23,10 @@ trait DealRouterExecutionMutators
     public function getAvailableAgreementsAttribute()
     {
         return $this->router->deal->activeDealAdvertiserAgreements;
+    }
+
+    public function getUnassignedLeadsFromLogAttribute()
+    {
+        return $this->assignment_log['unassigned_leads'] ?? [];
     }
 }

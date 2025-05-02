@@ -2,15 +2,10 @@
 
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Enums;
 
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Api\ApiStrategy;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Crm\CrmStrategy;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Database\DatabaseStrategy;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Email\EmailStrategy;
-
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Api\ApiCall;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Crm\CrmCall;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Database\DatabaseCall;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Email\EmailCall;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\ApiCall;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\CrmCall;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\DatabaseCall;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\EmailCall;
 
 enum CallType: string
 {
@@ -32,16 +27,6 @@ enum CallType: string
     public static function values(): array
     {
         return array_column(self::cases(), 'value');
-    }
-
-    public function strategyClass(): string
-    {
-        return match ($this) {
-            self::API => ApiStrategy::class,
-            self::CRM => CrmStrategy::class,
-            self::DATABASE => DatabaseStrategy::class,
-            self::EMAIL => EmailStrategy::class,
-        };
     }
 
     public function callClass(): string

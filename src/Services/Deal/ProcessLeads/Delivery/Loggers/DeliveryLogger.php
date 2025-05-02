@@ -2,8 +2,8 @@
 
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Loggers;
 
+use Innoboxrr\Deals\Models\DealAssignment;
 use Innoboxrr\Deals\Models\DealRouterExecution;
-use Innoboxrr\Deals\Enums\DeliveryStatus;
 use Illuminate\Support\Carbon;
 
 class DeliveryLogger
@@ -15,16 +15,20 @@ class DeliveryLogger
         $this->execution = $execution;
     }
 
-    public function logAssignment(array $assignment): void
+    public function log(string $status, string $type, DealAssignment $assignment, array $input = [], array $output = []): void 
     {
-        $log = $this->getOrInitializeLog();
-
-        $log['assignments'][] = array_merge($assignment, [
-            'assigned_at' => Carbon::now()->toDateTimeString(),
-        ]);
-
-        $this->execution->assignment_log = $log;
-        $this->execution->save();
+        if($status != 'error') {
+            $this->logCall([
+                'lead_id' => $assignment->deal_lead_id,
+                'agreement_id' => $assignment->deal_advertiser_agreement_id,
+                'type' => $type,
+                'input' => $input,
+                'output' => $output,
+                'status' => $status,
+            ]);
+        } else {
+            $this->logError($output['message'] ?? 'Error desconocido');
+        }
     }
 
     public function logCall(array $call): void
@@ -33,18 +37,6 @@ class DeliveryLogger
 
         $log['calls'][] = array_merge($call, [
             'executed_at' => Carbon::now()->toDateTimeString(),
-        ]);
-
-        $this->execution->delivery_log = $log;
-        $this->execution->save();
-    }
-
-    public function logPending(array $leadData): void
-    {
-        $log = $this->getOrInitializeLog();
-
-        $log['pending'][] = array_merge($leadData, [
-            'marked_at' => Carbon::now()->toDateTimeString(),
         ]);
 
         $this->execution->delivery_log = $log;
@@ -73,9 +65,7 @@ class DeliveryLogger
         }
 
         return array_merge([
-            'assignments' => $currentLog['assignments'] ?? [],
             'calls' => $currentLog['calls'] ?? [],
-            'pending' => $currentLog['pending'] ?? [],
             'errors' => $currentLog['errors'] ?? [],
         ], $currentLog);
     }
