@@ -38,12 +38,15 @@
         },
         methods: {
             agreementEditFormSubmit(data) {
+                /*
                 this.$router.push({
                     name: "DealsAdvertisersManagerAdvertiserShow",
                     params: {
                         agreementId: data.id,
                     },
                 });
+                */
+                this.alert('success');
             },
         }
     };

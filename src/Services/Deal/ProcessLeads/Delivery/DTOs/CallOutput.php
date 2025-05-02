@@ -2,7 +2,7 @@
 
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs;
 
-class CallInput
+class CallOutput
 {
     public array $data;
 

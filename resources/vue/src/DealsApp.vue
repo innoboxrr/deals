@@ -72,7 +72,7 @@
 			style="height: calc(100vh - 54px)">
             <SearchHeader @open-sidebar="toggleSidebar" />
             <div class="flex flex-1 overflow-hidden">
-                <main class="flex-1 overflow-y-auto">
+                <main id="DealAppMainWrapper" class="flex-1 overflow-y-auto">
                     <router-view />
                 </main>
             </div>

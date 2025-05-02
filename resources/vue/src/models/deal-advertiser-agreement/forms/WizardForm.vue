@@ -2,10 +2,10 @@
     <div class="w-full max-w-screen-xl mx-auto">
 
         <h2 class="text-2xl font-bold">
-            {{ __deals('Create Deal') }}
+            {{ mode === 'edit' ? __deals('Edit agreement') : __deals('Create agreement') }}
         </h2>
         <p class="text-gray-400 mb-4">
-            {{ __deals('Fill out the fields to create a new deal.') }}
+            {{ mode === 'edit' ? __deals('Fill the form to edit the agreement') : __deals('Fill the form to create the agreement') }}
         </p>
 
         <div class="flex flex-col md:flex-row gap-6 items-start">
@@ -58,7 +58,7 @@
                     @validated="onStepValidated" />
 
                 <!-- Navigation -->
-                <div class="flex flex-wrap gap-2 justify-between">
+                <div class="flex flex-wrap gap-2 justify-end">
                     <div v-if="stepIndex > 0">
                         <button-component
                             @click="prevStep"
@@ -68,7 +68,7 @@
                         <button-component
                             :disabled="!steps[stepIndex].valid"
                             @click="nextStep"
-                            value="Siguiente" />
+                            value="Next/Save" />
                     </div>
                     <div v-else>
                         <button-component
@@ -193,9 +193,11 @@
                 step.completed = valid
             },
             nextStep() {
-                this.steps[this.stepIndex].active = false
-                this.stepIndex++
-                this.steps[this.stepIndex].active = true
+                this.steps[this.stepIndex].active = false;
+                this.stepIndex++;
+                this.steps[this.stepIndex].active = true;
+                document.getElementById('DealAppMainWrapper').scrollTo({top: 0, behavior: 'smooth' });
+                this.submit();
             },
             prevStep() {
                 this.steps[this.stepIndex].active = false

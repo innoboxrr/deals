@@ -5,6 +5,7 @@ namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Enums\CallType;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\CallResult;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Abstracts\AbstractCall;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Clients\ApiClient;
 
 class ApiCall extends AbstractCall
 {
@@ -13,22 +14,14 @@ class ApiCall extends AbstractCall
         return CallType::API->value;
     }
 
-    public function execute(): CallResult
+    public function defineClient(): void
     {
-        dd(json_encode($this->data));
+        $client = ApiClient::set($this)->buildClient();
+        $this->setClient($client);
+    }
 
-
-        // Autenticate
-        dd($this->assignment->lead->lead);
-
-        // Validate endpoints
-
-        return CallResult::fromArray([
-            'status' => true,
-            'input' => $this->payload(),
-            'output' => [],
-            'message' => null,
-            'break' => false,
-        ]);
+    public function validateResponse():void
+    {
+        dd($this->getClient()->getResponse());
     }
 }

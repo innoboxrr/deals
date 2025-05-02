@@ -19,12 +19,17 @@ class Call
         ?DeliveryResult $prevResult = null
     ): DeliveryResult
     {
-        $input = ObjectMapping::map($call, $assignment, $prevResult);
 
-        dd($input);
+        // Paso 1: Construir el objeto de envío
+        ObjectMapping::map($call, $assignment, $prevResult);
 
+        // Paso 2: Inicializar el cliente
+        $call->defineClient();
+
+        // Paso 3: Ejecutar llamada
         $callResult = $call->execute();
 
+        // Paso 4: Registrar resultado
         $logger->log(
             $callResult->status, 
             $call->type(), 
@@ -33,6 +38,7 @@ class Call
             $callResult->output
         );
 
+        // Paso 5: Construir resultado final
         $result = DeliveryResult::fromArray([
             'status' => $callResult->status,
             'input' => $callResult->input,

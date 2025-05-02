@@ -10,7 +10,7 @@ use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Callables\GlobalParseObj
 
 class ObjectMapping
 {
-    public static function map(CallTypeInterface $call, DealAssignment $assignment, ?DeliveryResult $prevResult = null): array
+    public static function map(CallTypeInterface $call, DealAssignment $assignment, ?DeliveryResult $prevResult = null): void
     {
         $lead = $assignment->lead->lead->toArray();
         $data = $call->all();
@@ -28,12 +28,13 @@ class ObjectMapping
         $nested = ArrayHelper::dotNotationToNestedArray($mapped);
 
         if((int) $data['use_custom_code'] ?? false) {
-            return GlobalParseObjectCallable::execute(
+            $nested = GlobalParseObjectCallable::execute(
                 $data['parse_object'] ?? null, 
                 $nested, $lead, $prevResult
             );
         }
-        return $nested;
+        
+        $call->setInput($nested);
     }
 
     protected static function mapField(array $field, array $lead, ?DeliveryResult $prevResult = null)
