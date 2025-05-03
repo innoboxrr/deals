@@ -8,9 +8,7 @@ interface CallClientInterface
 {
     public function getClient(): CallClientInterface;
 
-    public function getResponse(): ?ClientResponse;
-
     public function buildClient(): self;
 
-    public function execute(): void;
+    public function execute(): ClientResponse;
 }

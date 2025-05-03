@@ -15,13 +15,24 @@ use InvalidArgumentException;
 class SendLead 
 {
 
-    public static function run(DealAssignment $assignment, DealRouterExecution $execution, DeliveryLogger $logger): void
+    public static function run(
+        DealAssignment $assignment, 
+        DealRouterExecution $execution, 
+        DeliveryLogger $logger
+    ): void
     {
         $assignment->delivery_deal_router_execution_id = $execution->id;
         $callsResults = [];
         $prevResult = null;
+
         foreach ($assignment->advertiserAgreement->calls as $call) {
-            $callObject = self::resolveCallObject($call['type'], $call, $assignment);
+            
+            $callObject = self::resolveCallObject(
+                $call['type'], 
+                $call, 
+                $assignment
+            );
+
             $result = Call::dispatch(
                 $assignment, 
                 $execution, 
@@ -29,6 +40,7 @@ class SendLead
                 $callObject,
                 $prevResult
             );
+            
             $prevResult = $result;
             
             $callsResults[] = $result->toArray($call['type']);
@@ -41,6 +53,8 @@ class SendLead
         $globalResult = self::globalResult($callsResults);
         $assignment->delivery_status = $globalResult['status'] ? DealAssignmentStatus::VALID->value : DealAssignmentStatus::INVALID->value;
         $assignment->delivery_message = $globalResult['message'] ?? null;
+
+        $assignment->save();
 
         return;
     }

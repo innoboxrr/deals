@@ -114,7 +114,8 @@ export default {
 				mapping: [],
 				response_validation: {
 					validators: [],
-					code: null
+					code: null,
+					use_custom_code: 0
 				},
 				parse_object: this.defaultCodeTemplate()
 			}

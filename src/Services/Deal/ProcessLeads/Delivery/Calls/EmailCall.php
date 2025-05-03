@@ -4,7 +4,7 @@ namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls;
 
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Abstracts\AbstractCall;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Enums\CallType;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\CallResult;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\ClientResponse;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Clients\EmailClient;
 
 class EmailCall extends AbstractCall
@@ -20,8 +20,8 @@ class EmailCall extends AbstractCall
         $this->setClient($client);
     }
 
-    public function validateResponse():void
+    public function validateResponse(ClientResponse $response):ClientResponse
     {
-
+        return $response;
     }
 }

@@ -7,7 +7,7 @@ use Innoboxrr\Deals\Models\DealRouterExecution;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Loggers\DeliveryLogger;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\DeliveryResult;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Contracts\CallTypeInterface;
-
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Support\ObjectMapping;
 
 class Call
 {
@@ -28,6 +28,8 @@ class Call
 
         // Paso 3: Ejecutar llamada
         $callResult = $call->execute();
+
+        dd($callResult); // Hasta aquí ya estamos llegando bien :-)
 
         // Paso 4: Registrar resultado
         $logger->log(

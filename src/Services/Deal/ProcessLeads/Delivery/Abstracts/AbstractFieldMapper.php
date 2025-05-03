@@ -4,7 +4,7 @@
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Abstracts;
 
 use Innoboxrr\Deals\Support\Helpers\ArrayHelper;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Callables\ParseObjectCallable;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Callables\Calls\ParseObjectCallable;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\DeliveryResult;
 
 abstract class AbstractFieldMapper

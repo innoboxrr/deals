@@ -86,15 +86,29 @@ class ApiClient extends AbstractCallClient
         }
     }
 
-    public function execute(): void
+    public function execute(): ClientResponse
     {
         $this->authenticate();
 
         $payload = $this->getCall()->getInput()->toArray();
+
         $wrapped = $this->wrapData($payload);
-        $client = Http::withHeaders($this->headers);
+
+        $client = Http::withoutVerifying()
+            ->withHeaders($this->headers);
 
         try {
+
+            $client = match ($this->dataMethod) {
+                'json' => $client->asJson(),
+                'form_params' => $client->asForm(),
+                'query' => $client->asQuery(),
+                'body' => $client->asBody(),
+                'raw' => $client->asRaw(),
+                'multipart' => $client->asMultipart(),
+                default => throw new Exception("data_method '{$this->dataMethod}' no soportado."),
+            };
+
             $this->httpResponse = match ($this->method) {
                 'POST' => $client->post($this->endpoint, $wrapped),
                 'PUT' => $client->put($this->endpoint, $wrapped),
@@ -107,13 +121,16 @@ class ApiClient extends AbstractCallClient
             throw new Exception("Error al ejecutar la petición: " . $e->getMessage());
         }
 
-        $response = ClientResponse::fromArray([
-            'status' => $this->httpResponse->status(),
+        return ClientResponse::fromArray([
+            'status' => $this->httpResponse->successful() ? 'RESOLVED' : 'ERROR',
             'input' => $payload,
-            'output' => $this->httpResponse->json() ?? $this->httpResponse->body(),
+            'output' => [
+                'status_code' => $this->httpResponse->status(),
+                'body' => $this->httpResponse->json() ?? $this->httpResponse->body(),
+                'headers' => $this->httpResponse->headers(),
+                'cookies' => $this->httpResponse->cookies()
+            ],
         ]);
-
-        $this->setResponse($response);
     }
 
     protected function wrapData(array $data): array|string

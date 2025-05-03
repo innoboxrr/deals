@@ -5,14 +5,14 @@ namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs;
 class CallResult
 {
     /**
-     * @param bool $status Indica si el envío fue exitoso
+     * @param string $status Indica si el envío fue exitoso
      * @param array $input Objeto enviado a la integración
      * @param array $output Respuesta recibida de la integración
      */
     public function __construct(
-        public bool $status,
-        public array $input = [],
-        public array $output = [],
+        public string $status,
+        public CallInput $input,
+        public CallOutput $output,
         public ?string $message = null,
         public bool $break = false,
     ) {}
@@ -21,8 +21,8 @@ class CallResult
     {
         return new self(
             status: $data['status'] ?? false,
-            input: $data['input'] ?? [],
-            output: $data['output'] ?? [],
+            input: $data['input'],
+            output: $data['output'],
             message: $data['message'] ?? null,
             break: $data['break'] ?? false,
         );
@@ -30,12 +30,12 @@ class CallResult
 
     public function isSuccess(): bool
     {
-        return $this->status === true;
+        return $this->status === 'VALID';
     }
 
     public function isError(): bool
     {
-        return $this->status === false;
+        return $this->status === 'ERROR';
     }
 
     public function break(): bool

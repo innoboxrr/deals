@@ -1,6 +1,6 @@
 <?php
 
-namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\FieldMappers;
+namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\FieldMappers;
 
 
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Abstracts\AbstractFieldMapper;

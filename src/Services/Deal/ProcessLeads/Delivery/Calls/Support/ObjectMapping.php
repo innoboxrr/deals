@@ -1,12 +1,12 @@
 <?php
 
-namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Procedures;
+namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Support;
 
 use Innoboxrr\Deals\Models\DealAssignment;
 use Innoboxrr\Deals\Support\Helpers\ArrayHelper;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Contracts\CallTypeInterface;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\DeliveryResult;
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Callables\GlobalParseObjectCallable;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Callables\GlobalParseObjectCallable;
 
 class ObjectMapping
 {
@@ -43,10 +43,10 @@ class ObjectMapping
 
         // Convertir ip_address => IpAddress
         $classBase = str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $source)));
-        $class = '\\Innoboxrr\\Deals\\Services\\Deal\\ProcessLeads\\Delivery\\FieldMappers\\' . $classBase . 'FieldMapper';
+        $class = '\\Innoboxrr\\Deals\\Services\\Deal\\ProcessLeads\\Delivery\\Calls\\FieldMappers\\' . $classBase . 'FieldMapper';
 
         if (!class_exists($class)) {
-            $class = '\\Innoboxrr\\Deals\\Services\\Deal\\ProcessLeads\\Delivery\\FieldMappers\\DefaultFieldMapper';
+            $class = '\\Innoboxrr\\Deals\\Services\\Deal\\ProcessLeads\\Delivery\\Calls\\FieldMappers\\DefaultFieldMapper';
         }
 
         $mapper = new $class($field, $lead, $field['value'] ?? null, $prevResult);

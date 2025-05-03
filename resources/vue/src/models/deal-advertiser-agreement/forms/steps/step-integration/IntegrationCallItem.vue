@@ -254,7 +254,8 @@
 					<h3 class="mt-6 mb-4 text-lg font-semibold border-t border-gray-200 pt-4">
 						Validación de Respuesta
 					</h3>
-					<response-validator-component v-model="localCall.response_validation" />
+					<response-validator-component 
+						v-model="localCall.response_validation" />
 				</div>
 
 				<div>

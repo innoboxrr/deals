@@ -106,14 +106,14 @@
 		<select-input-component
 			:custom-class="inputClass"
 			label="¿Procesar respuesta en código personalizado?"
-			v-model="localValidators.use_custom_code">
-			<option :value="true">Sí</option>
-			<option :value="false">No</option>
+			v-model="useCustomCode">
+			<option :value="1">Sí</option>
+			<option :value="0">No</option>
 		</select-input-component>
 
 		<!-- Código personalizado -->
 		<div
-			v-if="localValidators.use_custom_code" 
+			v-if="useCustomCode" 
 			class="my-6 border rounded-md">
 			<div
 				class="flex justify-between items-center px-4 py-4 border-b bg-gray-50 cursor-pointer"
@@ -166,14 +166,13 @@ export default {
 			collapsedCode: true,
 			collapsed: []
 		}
-	},
+	},	
 	computed: {
 		localValidators: {
 			get() {
 				if (!Array.isArray(this.collapsed) || this.collapsed.length !== (this.modelValue.validators || []).length) {
 					this.collapsed = (this.modelValue.validators || []).map(() => true)
 				}
-				this.modelValue.use_custom_code = this.modelValue.use_custom_code || false;
 				return this.modelValue.validators || [];
 			},
 			set(val) {
@@ -187,7 +186,15 @@ export default {
 			set(val) {
 				this.$emit('update:modelValue', { ...this.modelValue, code: val })
 			}
-		}
+		},
+		useCustomCode: {
+			get() {
+				return this.modelValue.use_custom_code || 0
+			},
+			set(val) {
+				this.$emit('update:modelValue', { ...this.modelValue, use_custom_code: val })
+			}
+		},
 	},
 	methods: {
 		addValidator() {

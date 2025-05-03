@@ -2,6 +2,7 @@
 
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Contracts;
 
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\ClientResponse;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\CallResult;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\CallInput;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\CallOutput;
@@ -25,6 +26,8 @@ interface CallTypeInterface
     public function getClient(): CallClientInterface;
 
     public function execute(): CallResult;
+
+    public function validateResponse(ClientResponse $response): ClientResponse;
 
     public function stopOnError(): bool;
 

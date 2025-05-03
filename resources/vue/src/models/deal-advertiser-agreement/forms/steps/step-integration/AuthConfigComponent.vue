@@ -10,7 +10,7 @@
 			<option value="none">Ninguna</option>
 			<option v-if="integrationType == 'api'" value="api_key">API Key</option>
 			<option v-if="integrationType == 'api'" value="basic">Basic Auth</option>
-			<option v-if="integrationType == 'api'" value="oauth">OAuth 2.0</option>
+			<option v-if="integrationType == 'api'" value="oauth" disabled>OAuth 2.0 (Comming soon)</option>
 			<option v-if="integrationType == 'database'" value="db_connection">Conexión a base de datos</option>
 		</select-input-component>
 

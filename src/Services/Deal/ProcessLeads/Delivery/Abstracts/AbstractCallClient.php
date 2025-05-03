@@ -31,17 +31,7 @@ abstract class AbstractCallClient implements CallClientInterface
         return $this;
     }
 
-    public function getResponse(): ?ClientResponse
-    {
-        return $this->clientResponse ?? null;
-    }
-
-    public function setResponse(ClientResponse $response): void
-    {
-        $this->clientResponse = $response;
-    }
-
     abstract public function buildClient(): self;
 
-    abstract public function execute(): void;
+    abstract public function execute(): ClientResponse;
 }

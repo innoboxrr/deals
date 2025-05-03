@@ -64,14 +64,21 @@
                             @click="prevStep"
                             value="Anterior" />
                     </div>
+                    <div v-if="mode === 'edit'">
+                        <button-component
+                            :disabled="!steps[stepIndex].valid"
+                            @click="submit"
+                            :value="mode === 'edit' ? 'Actualizar' : 'Crear'" />
+                    </div>
                     <div v-if="!isLastStep">
                         <button-component
                             :disabled="!steps[stepIndex].valid"
                             @click="nextStep"
-                            value="Next/Save" />
+                            value="Siguiente" />
                     </div>
                     <div v-else>
                         <button-component
+                            v-if="mode === 'create'"
                             :disabled="!steps[stepIndex].valid"
                             @click="submit"
                             :value="mode === 'edit' ? 'Actualizar' : 'Crear'" />
@@ -197,17 +204,19 @@
                 this.stepIndex++;
                 this.steps[this.stepIndex].active = true;
                 document.getElementById('DealAppMainWrapper').scrollTo({top: 0, behavior: 'smooth' });
-                this.submit();
+                // this.submit();
             },
             prevStep() {
                 this.steps[this.stepIndex].active = false
                 this.stepIndex--
                 this.steps[this.stepIndex].active = true
+                document.getElementById('DealAppMainWrapper').scrollTo({top: 0, behavior: 'smooth' });
             },
             goToStep(index) {
                 this.steps[this.stepIndex].active = false
                 this.stepIndex = index
                 this.steps[this.stepIndex].active = true
+                document.getElementById('DealAppMainWrapper').scrollTo({top: 0, behavior: 'smooth' });
             },
             submit() {
                 const payload = {

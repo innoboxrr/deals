@@ -1,6 +1,6 @@
 <?php
 
-namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\FieldMappers;
+namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\FieldMappers;
 
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Abstracts\AbstractFieldMapper;
 
@@ -10,7 +10,7 @@ class PhoneFieldMapper extends AbstractFieldMapper
     {
         $this->value = $this->lead['phone'];
 
-        $this->value = 123456789;
+        $this->value = '52 7294470019';
 
         return $this->getValue();
     }

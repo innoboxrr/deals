@@ -1,6 +1,6 @@
 <?php
 
-namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Callables;
+namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Callables;
 
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Abstracts\AbstractCallableExecutor;
 use Exception;
