@@ -10,18 +10,18 @@ enum Status: string
 
     // This is the first status of the assignment process.
     // It indicates that the assignment process has started.
-    case ASSIGNED = 'assigned';
+    case ASSIGNED = 'ASSIGNED';
 
     // This status indicates that the assignment process is in progress.
-    case IN_PROGRESS = 'in_progress';
+    case IN_PROGRESS = 'IN_PROGRESS';
 
-    case VALID = 'valid';
-    case INVALID = 'invalid';
-    case PENDING = 'pending';
-    case DUPLICATE = 'duplicate';
-    case OUT_OF_DATE = 'out_of_date';
-    case OUT_OF_HOUR = 'out_of_hour';
-    case ERROR = 'error';
+    case VALID = 'VALID';
+    case INVALID = 'INVALID';
+    case PENDING = 'PENDING';
+    case DUPLICATE = 'DUPLICATE';
+    case OUT_OF_DATE = 'OUT_OF_DATE';
+    case OUT_OF_HOUR = 'OUT_OF_HOUR';
+    case ERROR = 'ERROR';
     
     public static function queueStates(): array
     {

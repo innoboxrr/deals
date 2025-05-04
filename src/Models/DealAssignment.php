@@ -39,6 +39,8 @@ class DealAssignment extends Model
         'status',
         'deal_lead_id',
         'deal_advertiser_agreement_id',
+        'assigned_at',
+        'delivered_at',
         'assignment_deal_router_execution_id',
         'delivery_deal_router_execution_id',
     ];
@@ -47,6 +49,8 @@ class DealAssignment extends Model
         'status',
         'deal_lead_id',
         'deal_advertiser_agreement_id',
+        'assigned_at',
+        'delivered_at',
         'assignment_deal_router_execution_id',
         'delivery_deal_router_execution_id',
     ];
@@ -55,6 +59,8 @@ class DealAssignment extends Model
         'status',
         'deal_lead_id',
         'deal_advertiser_agreement_id',
+        'assigned_at',
+        'delivered_at',
         'assignment_deal_router_execution_id',
         'delivery_deal_router_execution_id',
     ];
@@ -63,6 +69,8 @@ class DealAssignment extends Model
         'status'                        => DealAssignmentStatus::class,
         'deal_lead_id'                 => 'integer',
         'deal_advertiser_agreement_id' => 'integer',
+        'assigned_at'                  => 'datetime',
+        'delivered_at'                 => 'datetime',
         'assignment_deal_router_execution_id'     => 'integer',
         'delivery_deal_router_execution_id'       => 'integer',
     ];

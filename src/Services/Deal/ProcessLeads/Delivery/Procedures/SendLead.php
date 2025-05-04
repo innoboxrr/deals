@@ -60,7 +60,7 @@ class SendLead
         } else {
             $assignment->status = DealAssignmentStatus::INVALID->value;
         }
-
+        $assignment->delivered_at = now();
         $assignment->save();
 
         return;
