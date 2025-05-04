@@ -14,10 +14,11 @@ class EmailCall extends AbstractCall
         return CallType::EMAIL->value;
     }
 
-    public function defineClient(): void
+    public function defineClient(): self
     {
         $client = EmailClient::set($this)->buildClient();
         $this->setClient($client);
+        return $this;
     }
 
     public function validateResponse(ClientResponse $response):ClientResponse

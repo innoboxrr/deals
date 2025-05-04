@@ -11,6 +11,8 @@ interface CallTypeInterface
 {
     public function type(): string;
 
+    public function getData(): array;
+
     public function setInput(array $input): void;
 
     public function getInput(): CallInput;
@@ -19,7 +21,7 @@ interface CallTypeInterface
 
     public function getOutput(): CallOutput;
 
-    public function defineClient(): void;
+    public function defineClient(): self;
 
     public function setClient(CallClientInterface $client): void;
 

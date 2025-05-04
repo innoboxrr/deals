@@ -2,7 +2,7 @@
 
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Clients;
 
-use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Contracts\CallTypeInterface;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\ClientResponse;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Abstracts\AbstractCallClient;
 
 class EmailClient extends AbstractCallClient
@@ -16,7 +16,7 @@ class EmailClient extends AbstractCallClient
         return $this;
     }
     
-    public function execute(): void
+    public function execute(): ClientResponse
     {
         // Implement the logic to execute the API call here
         // For example, you might want to send a request to an external API

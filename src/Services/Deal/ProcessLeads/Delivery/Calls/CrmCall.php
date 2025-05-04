@@ -14,10 +14,11 @@ class CrmCall extends AbstractCall
         return CallType::CRM->value;
     }
 
-    public function defineClient(): void
+    public function defineClient(): self
     {
         $client = CrmClient::set($this)->buildClient();
         $this->setClient($client);
+        return $this;
     }
 
     public function validateResponse(ClientResponse $response):ClientResponse

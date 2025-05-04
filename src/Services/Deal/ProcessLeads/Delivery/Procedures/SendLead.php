@@ -8,8 +8,10 @@ use Innoboxrr\Deals\Enums\DealAssignment\Status as DealAssignmentStatus;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Loggers\DeliveryLogger;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Procedures\Call;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Enums\CallType;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Enums\CallStatus;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Contracts\CallTypeInterface;
 use Illuminate\Support\Facades\App;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\DeliveryResult;
 use InvalidArgumentException;
 
 class SendLead 
@@ -33,6 +35,7 @@ class SendLead
                 $assignment
             );
 
+            /** @var DeliveryResult $result */
             $result = Call::dispatch(
                 $assignment, 
                 $execution, 
@@ -42,17 +45,21 @@ class SendLead
             );
             
             $prevResult = $result;
-            
-            $callsResults[] = $result->toArray($call['type']);
+            $callsResults[] = $result;
+
             if($result->break()) {
                 break;
             }
         }
 
         /// Pensar bien como debería ser esto.
-        $globalResult = self::globalResult($callsResults);
-        $assignment->delivery_status = $globalResult['status'] ? DealAssignmentStatus::VALID->value : DealAssignmentStatus::INVALID->value;
-        $assignment->delivery_message = $globalResult['message'] ?? null;
+        $globalResult = self::globalResult(callsResults: $callsResults);
+        
+        if($globalResult['status']) {
+            $assignment->status = DealAssignmentStatus::VALID->value;
+        } else {
+            $assignment->status = DealAssignmentStatus::INVALID->value;
+        }
 
         $assignment->save();
 
@@ -78,23 +85,25 @@ class SendLead
 
     protected static function globalResult(array $callsResults): array
     {
-        $globalResult = [
-            'status' => true,
-            'input' => [],
-            'output' => [],
-            'message' => null,
-            'break' => false,
-        ];
-
+        $allValid = true;
+        $message = null;
+    
         foreach ($callsResults as $result) {
-            if ($result['status'] === false) {
-                $globalResult['status'] = false;
-                $globalResult['break'] = true;
-                $globalResult['message'] = $result['message'];
+            if ($result->status !== CallStatus::VALID->value) {
+                $allValid = false;
+                $message = "Falló la llamada de tipo '{$result->call->type()}' con estado '{$result->status}'";
                 break;
             }
         }
-
-        return $globalResult;
-    }
+    
+        return [
+            'status' => $allValid,
+            'message' => $message,
+            'failing_call' => $allValid ? null : $result->call->all(),
+            'statuses' => array_map(fn($r) => [
+                'type' => $r->call->type(),
+                'status' => $r->status,
+            ], $callsResults),
+        ];   
+    }   
 }

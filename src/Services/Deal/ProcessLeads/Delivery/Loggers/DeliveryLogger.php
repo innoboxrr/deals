@@ -3,6 +3,7 @@
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Loggers;
 
 use Innoboxrr\Deals\Models\DealAssignment;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\DeliveryResult;
 use Innoboxrr\Deals\Models\DealRouterExecution;
 use Illuminate\Support\Carbon;
 
@@ -15,16 +16,16 @@ class DeliveryLogger
         $this->execution = $execution;
     }
 
-    public function log(string $status, string $type, DealAssignment $assignment, array $input = [], array $output = []): void 
+    public function log(DeliveryResult $deliveryResult): void 
     {
-        if($status != 'error') {
+        if($deliveryResult->status != 'error') {
             $this->logCall([
-                'lead_id' => $assignment->deal_lead_id,
-                'agreement_id' => $assignment->deal_advertiser_agreement_id,
-                'type' => $type,
-                'input' => $input,
-                'output' => $output,
-                'status' => $status,
+                'lead_id' => $deliveryResult->assignment->deal_lead_id,
+                'agreement_id' => $deliveryResult->assignment->deal_advertiser_agreement_id,
+                'type' => $deliveryResult->call->type(),
+                'input' => $deliveryResult->input,
+                'output' => $deliveryResult->output,
+                'status' => $deliveryResult->status,
             ]);
         } else {
             $this->logError($output['message'] ?? 'Error desconocido');

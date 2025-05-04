@@ -59,6 +59,11 @@ abstract class AbstractCall implements CallTypeInterface
 
     // GETTERS
 
+    public function getData(): array
+    {
+        return $this->data;
+    }
+
     /**
      * Get the assignment for the call.
      * @return DealAssignment
@@ -93,7 +98,7 @@ abstract class AbstractCall implements CallTypeInterface
 
     // METHODS
 
-    abstract public function defineClient(): void;
+    abstract public function defineClient(): self;
 
     public function execute(): CallResult
     {

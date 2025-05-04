@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Estos son los estados de la asignación, y para la llamada es CallStatus
+ */
+
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Enums;
 
 enum DeliveryStatus: string

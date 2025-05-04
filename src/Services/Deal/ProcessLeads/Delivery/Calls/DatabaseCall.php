@@ -14,10 +14,11 @@ class DatabaseCall extends AbstractCall
         return CallType::DATABASE->value;
     }
 
-    public function defineClient(): void
+    public function defineClient(): self
     {
         $client = DatabaseClient::set($this)->buildClient();
         $this->setClient($client);
+        return $this;
     }
 
     public function validateResponse(ClientResponse $response):ClientResponse

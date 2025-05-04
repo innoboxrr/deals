@@ -8,6 +8,7 @@ use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Loggers\DeliveryLogger;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\DeliveryResult;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Contracts\CallTypeInterface;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Calls\Support\ObjectMapping;
+use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs\CallResult;
 
 class Call
 {
@@ -24,31 +25,19 @@ class Call
         ObjectMapping::map($call, $assignment, $prevResult);
 
         // Paso 2: Inicializar el cliente
-        $call->defineClient();
+        /** @var CallResult $callResult */
+        $callResult = $call->defineClient()->execute();
 
-        // Paso 3: Ejecutar llamada
-        $callResult = $call->execute();
-
-        dd($callResult); // Hasta aquí ya estamos llegando bien :-)
-
-        // Paso 4: Registrar resultado
-        $logger->log(
-            $callResult->status, 
-            $call->type(), 
-            $assignment, 
-            $callResult->input, 
-            $callResult->output
-        );
-
-        // Paso 5: Construir resultado final
+        // Paso 4: Construir resultado final
         $result = DeliveryResult::fromArray([
             'status' => $callResult->status,
             'input' => $callResult->input,
             'output' => $callResult->output,
-            'type' => $call->type(),
+            'call' => $call,
             'assignment' => $assignment,
-            'execution' => $execution,
         ]);
+
+        $logger->log($result);
 
         return $result;
     }

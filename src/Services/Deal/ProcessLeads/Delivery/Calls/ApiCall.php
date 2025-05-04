@@ -15,10 +15,11 @@ class ApiCall extends AbstractCall
         return CallType::API->value;
     }
 
-    public function defineClient(): void
+    public function defineClient(): self
     {
         $client = ApiClient::set($this)->buildClient();
         $this->setClient($client);
+        return $this;
     }
 
     public function validateResponse(ClientResponse $response): ClientResponse

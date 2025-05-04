@@ -1,5 +1,7 @@
 <?php
 
+// Para los estatus emplear los mismos que CallStatus
+
 namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\DTOs;
 
 class ClientResponse
