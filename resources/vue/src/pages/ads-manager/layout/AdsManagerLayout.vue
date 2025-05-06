@@ -597,7 +597,7 @@
         <section 
             v-else 
             class="p-4 border-t border-gray-200">
-            <div class="animate-pulse flex flex-col items-center justify-center w-full h-64 bg-gray-100 rounded-md">
+            <div class="flex flex-col items-center justify-center w-full h-64 bg-gray-100 rounded-md">
                 <div class="h-6 bg-gray-300 rounded w-1/3 mb-2"></div>
                 <div class="h-4 bg-gray-300 rounded w-1/4"></div>
                 <p class="mt-4 text-gray-500">No hay Deal seleccionado</p>

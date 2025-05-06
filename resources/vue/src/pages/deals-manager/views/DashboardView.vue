@@ -1,8 +1,7 @@
 <template>
     <div>
-        <deals-statistics />
-        <deals-chart />
         <deals-table 
+            class="mt-4"
             @showDeal="showDeal" 
             @editDeal="editDeal"
             @deleteDeal="deleteDeal" />
@@ -14,16 +13,12 @@
     import { useDealsManagerStore } from '@dealsPages/deals-manager/store/dealsManagerStore.js'
     import HeaderComponent from '@dealsPages/deals-manager/components/partials/HeaderComponent.vue'
     import DealsTable from '@dealsModels/deal/components/deals-table'
-    import DealsChart from '@dealsModels/deal/components/deals-chart/DealsChart.vue'
-    import DealsStatistics from '@dealsModels/deal/components/deals-statistics'
 
     export default {
         name: "dealDashboardSection",
         components: {
             HeaderComponent,
             DealsTable,
-            DealsChart,
-            DealsStatistics,
         },
         setup() {
             const dealsManagerStore = useDealsManagerStore()

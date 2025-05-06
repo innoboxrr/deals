@@ -11,34 +11,36 @@
         <div class="flex flex-col md:flex-row gap-6 items-start">
 
             <ol class="space-y-4 w-full md:w-[250px] shrink-0">
-                <li
-                    v-for="(step, i) in steps"
-                    :key="i"
-                    @click="goToStep(i)"
-                    class="cursor-pointer">
-                    <div
-                        class="w-full p-4 border rounded-lg flex items-center justify-between gap-2"
-                        :class="[
-                            stepClass(step),
-                            step.active ? 'ring-2 ring-offset-1 ring-blue-500' : '',
-                        ]"
-                        role="alert">
-                        <h3
-                            class="text-sm md:text-base"
-                            :class="step.active ? 'font-bold' : 'font-medium'">
-                            {{ step.title }}
-                        </h3>
-                        <svg v-if="step.completed" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M1 5.917 5.724 10.5 15 1.5" />
-                        </svg>
-                        <svg v-else-if="step.active" class="rtl:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </div>
-                </li>
+                <template
+                    v-for="(step, i) in currentSteps"
+                    :key="i">
+                    <li
+                        @click="goToStep(i)"
+                        class="cursor-pointer">
+                        <div
+                            class="w-full p-4 border rounded-lg flex items-center justify-between gap-2"
+                            :class="[
+                                stepClass(step),
+                                step.active ? 'ring-2 ring-offset-1 ring-blue-500' : '',
+                            ]"
+                            role="alert">
+                            <h3
+                                class="text-sm md:text-base"
+                                :class="step.active ? 'font-bold' : 'font-medium'">
+                                {{ step.title }}
+                            </h3>
+                            <svg v-if="step.completed" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <svg v-else-if="step.active" class="rtl:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </div>
+                    </li>
+                </template>
                 <button-component
                     v-if="mode === 'create'"
                     @click="resetLocal"
@@ -130,11 +132,14 @@
             }
         },
         computed: {
+            currentSteps() {
+                return this.steps.filter(step => step[this.mode])
+            },
             currentComponent() {
                 return this.steps[this.stepIndex].component
             },
             isLastStep() {
-                return this.stepIndex === this.steps.length - 1
+                return this.stepIndex === this.currentSteps.length - 1
             }
         },
         watch: {

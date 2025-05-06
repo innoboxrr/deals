@@ -1,7 +1,7 @@
 <template>
     <section v-flowbite class="bg-gray-50 py-4 antialiased dark:bg-gray-900">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
-            <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
+            <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8 mx-4">
                 <div>
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
                         {{ __deals('Products') }}
