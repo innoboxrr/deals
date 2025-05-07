@@ -36,6 +36,7 @@ class DealRouterExecutionJob implements ShouldQueue
             DealRouterExecutionService::run($this->router, $this->strategy);   
             return; 
         } catch (\Exception $e) {
+            dd($e);
             report($e);
         }
     }

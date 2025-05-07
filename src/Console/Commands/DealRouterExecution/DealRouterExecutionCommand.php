@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Innoboxrr\Deals\Models\Deal;
 use Innoboxrr\Deals\Models\DealRouter;
 use Innoboxrr\Deals\Jobs\DealRouterExecution\DealRouterExecutionJob;
+use PhpOffice\PhpSpreadsheet\Calculation\Financial\Dollar;
 
 class DealRouterExecutionCommand extends Command
 {
@@ -18,10 +19,16 @@ class DealRouterExecutionCommand extends Command
 
     public function handle()
     {
-        Deal::active()->chunk(100, function ($deals) {
-            foreach ($deals as $deal) {
+        dol('DealRouterExecutionCommand started');
 
-                // Create or update the DealRouter record
+        if(!Deal::active()->count()) {
+            dol('DealRouterExecutionCommand no hay deals activos');
+            return;
+        }
+
+        Deal::active()->chunk(100, function ($deals) {
+            dol('DealRouterExecutionCommand chunk started, deals: ' . $deals->count());
+            foreach ($deals as $deal) {
                 $router = DealRouter::updateOrCreate([
                     'deal_id' => $deal->id,
                     'queue' => $deal->queue
@@ -30,8 +37,13 @@ class DealRouterExecutionCommand extends Command
                 ]);
 
                 $strategy = $this->getStrategy($deal);
+                
+                dol('DealRouterExecutionCommand deal: ' . $deal->id);
+                dol('Router: ' . $router->id);
+                dol('DealRouterExecutionCommand strategy: ' . $strategy);
 
                 if ($this->option('sync')) {
+                    dol('DealRouterExecutionCommand running in sync mode');
                     DealRouterExecutionJob::dispatchSync($router, $strategy);
                 } else {
                     DealRouterExecutionJob::dispatch($router, $strategy)
