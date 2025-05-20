@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57ba0cb2db2291049f261602329e3a77",
+    "content-hash": "1179816cd5c53701b7264d5b75f2bc6a",
     "packages": [
         {
             "name": "brick/math",
@@ -1779,6 +1779,56 @@
                 "source": "https://github.com/innoboxrr/search-surge/tree/2.0.6"
             },
             "time": "2025-02-21T05:26:52+00:00"
+        },
+        {
+            "name": "innoboxrr/support",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/innoboxrr/support.git",
+                "reference": "db1b1c971a3b1aa45524e8c22777fe0ab0f82cc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/innoboxrr/support/zipball/db1b1c971a3b1aa45524e8c22777fe0ab0f82cc1",
+                "reference": "db1b1c971a3b1aa45524e8c22777fe0ab0f82cc1",
+                "shasum": ""
+            },
+            "require-dev": {
+                "innoboxrr/larapack-generator": "^5.0",
+                "orchestra/testbench": "^9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Innoboxrr\\Support\\Providers\\AppServiceProvider",
+                        "Innoboxrr\\Support\\Providers\\AuthServiceProvider",
+                        "Innoboxrr\\Support\\Providers\\EventServiceProvider",
+                        "Innoboxrr\\Support\\Providers\\RouteServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Innoboxrr\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Homero Raul",
+                    "email": "h.raulvc@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/innoboxrr/support/issues",
+                "source": "https://github.com/innoboxrr/support/tree/1.0.1"
+            },
+            "time": "2025-05-20T03:45:05+00:00"
         },
         {
             "name": "innoboxrr/traits",

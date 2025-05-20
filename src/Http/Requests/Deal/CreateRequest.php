@@ -6,7 +6,7 @@ use Innoboxrr\Deals\Models\Deal;
 use Innoboxrr\Deals\Http\Resources\Models\DealResource;
 use Innoboxrr\Deals\Http\Events\Deal\Events\CreateEvent;
 use Illuminate\Foundation\Http\FormRequest;
-use Innoboxrr\Deals\Support\Utils\RequestFormater;
+use Innoboxrr\Support\Http\Requests\RequestFormater;
 use Illuminate\Validation\Rule;
 
 class CreateRequest extends FormRequest

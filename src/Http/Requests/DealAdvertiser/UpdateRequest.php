@@ -6,7 +6,7 @@ use Innoboxrr\Deals\Models\DealAdvertiser;
 use Innoboxrr\Deals\Http\Resources\Models\DealAdvertiserResource;
 use Innoboxrr\Deals\Http\Events\DealAdvertiser\Events\UpdateEvent;
 use Illuminate\Foundation\Http\FormRequest;
-use Innoboxrr\Deals\Support\Utils\RequestFormater;
+use Innoboxrr\Support\Http\Requests\RequestFormater;
 use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
