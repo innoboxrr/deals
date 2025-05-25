@@ -8,6 +8,8 @@ return [
 
 	'agent_class' => 'App\Models\Agent',
 
+	'workspace_class' => 'App\Models\Workspace',
+
 	'excel_view' => 'deals::excel.',
 
 	'notification_via' => ['mail', 'database'],

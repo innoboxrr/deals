@@ -11,6 +11,7 @@
             <option value="landing">Landing</option>
             <option value="form">Form</option>
             <option value="endpoint">Endpoint</option>
+            <option value="blog">Blog</option>
             <option disabled value="embed">Embed</option>
         </select-input-component>
 
@@ -143,6 +144,7 @@ export default {
                 case 'form': return 'Formulario';
                 case 'endpoint': return 'Endpoint';
                 case 'embed': return 'Embed';
+                case 'blog': return 'Blog';
                 default: return 'Otro';
             }
         }

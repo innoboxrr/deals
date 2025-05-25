@@ -67,7 +67,12 @@ class SearchRequest extends FormRequest
                 $query->whereNotIn('id', $dealGateways);
             })
             ->when($this->input('workspace_id') ?? $this->input('app_workspace_id'), function ($query, $workspaceId) {
-                $query->where('workspace_id', $workspaceId);
+                if($this->input('type') !== 'blog') {
+                    $query->where('workspace_id', $workspaceId);
+                } else if ($this->input('type') === 'blog') {
+                    $query->where('bloggable_type', config('deals.workspace_class'))
+                        ->where('bloggable_id', $workspaceId);
+                }
             });
 
         $results = $this->input('paginate') && $this->input('paginate') > 0
@@ -94,7 +99,7 @@ class SearchRequest extends FormRequest
                 'name' => $item->name ?? null,
                 'type' => mb_strtolower(class_basename($item)),
                 'class' => get_class($item),
-                'workspace_id' => $item->workspace_id ?? null,
+                'workspace_id' => $this->input('type') === 'blog' ? $item->bloggable_id : $item->workspace_id,
                 'created_at' => optional($item->created_at)->toDateTimeString(),
                 'updated_at' => optional($item->updated_at)->toDateTimeString(),
             ];
