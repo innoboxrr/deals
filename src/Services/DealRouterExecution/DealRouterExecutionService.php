@@ -26,6 +26,13 @@ class DealRouterExecutionService
         $instance->execute();
     }
 
+    protected function startExecution(): void
+    {
+        $this->createExecution();
+        $this->router->update(['last_run' => now()]);
+        $this->deal->update(['queue' => $this->router->queue]);
+    }
+
     protected function createExecution(): void
     {
         $this->execution = DealRouterExecution::create([
@@ -34,13 +41,6 @@ class DealRouterExecutionService
             'assignment_log' => json_encode([]),
             'deal_router_id' => $this->router->id,
         ]);
-    }
-
-    protected function startExecution(): void
-    {
-        $this->createExecution();
-        $this->router->update(['last_run' => now()]);
-        $this->deal->update(['queue' => $this->router->queue]);
     }
 
     protected function endExecution(): void

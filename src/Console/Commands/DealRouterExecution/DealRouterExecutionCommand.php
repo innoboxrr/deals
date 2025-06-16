@@ -27,7 +27,9 @@ class DealRouterExecutionCommand extends Command
         }
 
         Deal::active()->chunk(100, function ($deals) {
+            
             dol('DealRouterExecutionCommand chunk started, deals: ' . $deals->count());
+
             foreach ($deals as $deal) {
                 $router = DealRouter::updateOrCreate([
                     'deal_id' => $deal->id,

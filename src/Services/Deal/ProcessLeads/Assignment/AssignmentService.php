@@ -42,7 +42,9 @@ class AssignmentService
             return;
         }
     
-        $this->logger->logDispersions($dispersions);
+        if (!empty($dispersions)) {
+            $this->logger->logDispersions($dispersions);
+        }
     
         if (!empty($unassignedLeads)) {
             $this->logger->logUnassignedLeads($unassignedLeads);
@@ -52,12 +54,9 @@ class AssignmentService
     protected function runAssignment(): void
     {
         $assignments = AssignmentProcedure::run($this->execution);
-        
-        if (empty($assignments)) {
-            return;
+        if (!empty($assignments)) {
+            $this->logger->logAssignments($assignments);
         }
-
-        $this->logger->logAssignments($assignments);
     }
     
     protected function handleException(\Exception $e): void

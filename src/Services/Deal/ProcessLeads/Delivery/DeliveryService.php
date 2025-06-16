@@ -5,6 +5,7 @@ namespace Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery;
 use Innoboxrr\Deals\Models\DealRouterExecution;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Loggers\DeliveryLogger;
 use Innoboxrr\Deals\Services\Deal\ProcessLeads\Delivery\Procedures\IntegrationDispatcher;
+use Illuminate\Support\Facades\Log;
 
 class DeliveryService
 {
@@ -28,7 +29,7 @@ class DeliveryService
         try {
             IntegrationDispatcher::run($this->execution, $this->logger);
         } catch (\Throwable $e) {
-            \Log::error($e);
+            Log::error($e);
             $this->logger->logError($e->getMessage());
             report($e);
         }
