@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "apexcharts": "^3.46.0",
-    "innoboxrr-form-elements": "^3.0.0",
-    "innoboxrr-js-libs": "^1.0.9"
-  }
-}
