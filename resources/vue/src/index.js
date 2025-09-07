@@ -1,5 +1,5 @@
-import dealsRoutes from './src/routes';
-import { TranslatePlugin, TitlePlugin } from './src/plugins';
+import dealsRoutes from './routes';
+import { TranslatePlugin, TitlePlugin } from './plugins';
 
 export const routes = dealsRoutes;
 
