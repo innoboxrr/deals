@@ -1,6 +1,6 @@
 {
     "name": "innoboxrr-deals",
-    "version": "1.0.133",
+    "version": "1.0.134",
     "description": "Paquete de Vue para trabajar de la mano con el paquete innoboxrr/deals",
     "main": "index.js",
     "scripts": {
