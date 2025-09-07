@@ -18,10 +18,12 @@
 
 	import { getPolicy } from '@dealsModels/deal-product'
 	import CreateForm from '@dealsModels/deal-product/forms/CreateForm.vue'
+	import PageHeader from '@dealsComponents/partials/PageHeader.vue'
 
 	export default {
 		components: {
-			CreateForm
+			CreateForm,
+			PageHeader
 		},
 		emits: ['updateData'],
 		mounted(){
