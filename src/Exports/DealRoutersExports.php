@@ -34,7 +34,9 @@ class DealRoutersExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        return $builder->get(DealRouter::class, $this->data, config('deals.search-options'));
+        // lazy() en vez de get(): un export recorre la tabla entera y
+        // hidratar todas las filas a la vez es lo que revienta la memoria.
+        return $builder->lazy(DealRouter::class, $this->data);
     }
 
 }

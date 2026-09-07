@@ -52,7 +52,7 @@ class IndexRequest extends FormRequest
 
         $builder = new Builder();
 
-        $query = $builder->get(DealAlert::class, $this->all(), config('deals.search-options'));
+        $query = $builder->get(DealAlert::class, $this->all());
 
         return DealAlertResource::collection($query);
 

@@ -52,7 +52,7 @@ class IndexRequest extends FormRequest
 
         $builder = new Builder();
 
-        $query = $builder->get(DealLead::class, $this->all(), config('deals.search-options'));
+        $query = $builder->get(DealLead::class, $this->all());
 
         return DealLeadResource::collection($query);
 
