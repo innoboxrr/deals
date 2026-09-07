@@ -87,11 +87,9 @@ class DealGateway extends Model
         'gateway',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealGatewayFactory::new();
     }
-    */
 
 }

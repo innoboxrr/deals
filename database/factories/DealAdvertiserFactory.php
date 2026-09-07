@@ -7,6 +7,8 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealAdvertiser;
+use Innoboxrr\Deals\Models\Deal;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealAdvertiserFactory extends Factory
@@ -17,7 +19,8 @@ class DealAdvertiserFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'agent_id' => User::factory(),
+            'status' => 'active',
         ];
     }
 

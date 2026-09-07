@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealSessionEvent;
+use Innoboxrr\Deals\Models\DealSession;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealSessionEventFactory extends Factory
@@ -17,7 +18,9 @@ class DealSessionEventFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'key' => $this->faker->randomElement(['viewed', 'clicked', 'scrolled', 'form_submitted']),
+            'value' => $this->faker->word(),
+            'deal_session_id' => DealSession::factory(),
         ];
     }
 

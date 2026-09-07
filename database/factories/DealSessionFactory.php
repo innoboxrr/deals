@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealSession;
+use Innoboxrr\Deals\Models\DealGateway;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealSessionFactory extends Factory
@@ -17,7 +18,8 @@ class DealSessionFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'uuid' => $this->faker->uuid(),
+            'deal_gateway_id' => DealGateway::factory(),
         ];
     }
 

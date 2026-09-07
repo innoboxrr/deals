@@ -74,11 +74,9 @@ class DealAdGroup extends Model
         'ads',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdGroupFactory::new();
     }
-    */
 
 }

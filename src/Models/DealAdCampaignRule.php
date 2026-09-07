@@ -81,11 +81,9 @@ class DealAdCampaignRule extends Model
         //LOADABLECOUNTS//
     ];
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdCampaignRuleFactory::new();
     }
-    */
 
 }

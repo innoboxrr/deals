@@ -123,11 +123,9 @@ class DealAdvertiser extends Model
         'paymentMethods',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdvertiserFactory::new();
     }
-    */
 
 }

@@ -13,7 +13,7 @@ trait DealAdGroupRelations
 {
     public function metas()
     {
-        return $this->hasMany(DealAdGroupMeta::class, 'ad_group_id');
+        return $this->hasMany(DealAdGroupMeta::class, 'deal_ad_group_id');
     }
 
     public function adCampaign()

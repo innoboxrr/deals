@@ -52,7 +52,7 @@ class IndexRequest extends FormRequest
 
         $builder = new Builder();
 
-        $query = $builder->get(DealAdvertiserAgreementDaily::class, $this->all());
+        $query = $builder->get(DealAdvertiserAgreementDaily::class, $this->all(), config('deals.search-options'));
 
         return DealAdvertiserAgreementDailyResource::collection($query);
 

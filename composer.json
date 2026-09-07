@@ -3,6 +3,7 @@
     "description": "Administrador de Deals",
     "type": "library",
     "license": "MIT",
+    "version": "0.0.15",
     "autoload": {
         "psr-4": {
             "Innoboxrr\\Deals\\": "src/",
@@ -38,6 +39,7 @@
     "require": {
         "innoboxrr/laravel-audit": "^1.2",
         "dragonmantank/cron-expression": "^3.4",
-        "innoboxrr/support": "^1.0"
+        "innoboxrr/support": "^1.0",
+        "googleads/google-ads-php": "^31"
     }
 }

@@ -52,7 +52,7 @@ class IndexRequest extends FormRequest
 
         $builder = new Builder();
 
-        $query = $builder->get(DealLeadTrackingEvent::class, $this->all());
+        $query = $builder->get(DealLeadTrackingEvent::class, $this->all(), config('deals.search-options'));
 
         return DealLeadTrackingEventResource::collection($query);
 

@@ -52,7 +52,7 @@ class IndexRequest extends FormRequest
 
         $builder = new Builder();
 
-        $query = $builder->get(DealGateway::class, $this->all());
+        $query = $builder->get(DealGateway::class, $this->all(), config('deals.search-options'));
 
         return DealGatewayResource::collection($query);
 

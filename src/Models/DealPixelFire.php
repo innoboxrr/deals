@@ -86,11 +86,9 @@ class DealPixelFire extends Model
         // No relaciones hasMany que ameriten conteo.
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealPixelFireFactory::new();
     }
-    */
 
 }

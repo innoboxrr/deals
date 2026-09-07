@@ -53,9 +53,8 @@ trait DealAdvertiserPaymentMethodStorage
     public function forceDeleteModel()
     {
 
-        abort(403);
+        abort(403, 'Force delete is not allowed');
 
-        $this->forceDelete();
         
     }
 

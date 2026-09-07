@@ -77,11 +77,9 @@ class DealSession extends Model
         'events',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealSessionFactory::new();
     }
-    */
 
 }

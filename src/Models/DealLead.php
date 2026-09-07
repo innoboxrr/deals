@@ -88,11 +88,9 @@ class DealLead extends Model
         'trackingEvents',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealLeadFactory::new();
     }
-    */
 
 }

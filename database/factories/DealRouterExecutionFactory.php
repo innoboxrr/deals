@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealRouterExecution;
+use Innoboxrr\Deals\Models\DealRouter;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealRouterExecutionFactory extends Factory
@@ -17,7 +18,9 @@ class DealRouterExecutionFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'start_execution' => $this->faker->dateTimeThisMonth(),
+            'assignment_log' => [],
+            'deal_router_id' => DealRouter::factory(),
         ];
     }
 

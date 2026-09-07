@@ -50,7 +50,6 @@ class DealRouter extends Model
     protected $casts = [
         'queue'    => Queue::class,
         'last_run' => 'datetime',
-        'queue'    => 'array',
         'deal_id'  => 'integer',
     ];
     
@@ -79,11 +78,9 @@ class DealRouter extends Model
         'executions',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealRouterFactory::new();
     }
-    */
 
 }

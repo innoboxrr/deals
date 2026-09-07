@@ -39,8 +39,7 @@ trait DealStorage
 
     public function forceDeleteModel()
     {
-        abort(403);
-        $this->forceDelete();
+        abort(403, 'Force delete is not allowed');
     }
 
 }

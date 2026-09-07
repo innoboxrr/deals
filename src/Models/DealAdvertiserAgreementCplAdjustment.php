@@ -31,27 +31,27 @@ class DealAdvertiserAgreementCplAdjustment extends Model
     protected $fillable = [
         'before',
         'after',
-        'deal_cpl_monitor_run_io',
+        'deal_performance_snapshot_id',
         'deal_advertiser_agreement_id',
     ];
     
     protected $creatable = [
         'before',
         'after',
-        'deal_cpl_monitor_run_io',
+        'deal_performance_snapshot_id',
         'deal_advertiser_agreement_id',
     ];
     
     protected $updatable = [
         'before',
         'after',
-        'deal_cpl_monitor_run_io',
+        'deal_performance_snapshot_id',
     ];
     
     protected $casts = [
         'before'                       => 'decimal:2',
         'after'                        => 'decimal:2',
-        'deal_cpl_monitor_run_io'      => 'string',
+        'deal_performance_snapshot_id'      => 'string',
         'deal_advertiser_agreement_id' => 'integer',
     ];
     
@@ -65,7 +65,7 @@ class DealAdvertiserAgreementCplAdjustment extends Model
         'id',
         'before',
         'after',
-        'deal_cpl_monitor_run_io',
+        'deal_performance_snapshot_id',
         'deal_advertiser_agreement_id',
         'created_at',
         'updated_at',
@@ -79,11 +79,9 @@ class DealAdvertiserAgreementCplAdjustment extends Model
         'advertiserAgreement'
     ];
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdvertiserAgreementCplAdjustmentFactory::new();
     }
-    */
 
 }

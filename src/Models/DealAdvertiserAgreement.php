@@ -168,30 +168,20 @@ class DealAdvertiserAgreement extends Model
         'metas',
         'advertiser',
         'invoices',
-        'constraints',
-        'postbacks',
-        'integrations',
-        'configs',
         'dailies',
         'cplAdjustments',
         'deal',
     ];
-    
+
     public static $loadable_counts = [
         'invoices',
-        'constraints',
-        'postbacks',
-        'integrations',
-        'configs',
         'dailies',
         'cplAdjustments',
-        'deal'
+        'deal',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdvertiserAgreementFactory::new();
     }
-    */
 }

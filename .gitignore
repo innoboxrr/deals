@@ -10,3 +10,12 @@
 /resources/vue/.env
 /resources/vue/python/env/*
 docs/~$DevelopChecklist.xlsx
+
+# Credenciales: nunca en el repositorio.
+#
+# La copia vendorizada dentro de la app traia un client_secret de Google OAuth
+# en Services/DealAdPlatform/Platforms/Google/Extra/. GitHub bloqueo el push al
+# detectarlo, con razon.
+client_secret_*.json
+*.credentials.json
+.env

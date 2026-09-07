@@ -98,11 +98,9 @@ class DealRouterExecution extends Model
         'assignments',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealRouterExecutionFactory::new();
     }
-    */
 
 }

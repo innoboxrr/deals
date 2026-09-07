@@ -13,7 +13,7 @@ trait DealAdPlatformRelations
 {
     public function metas()
     {
-        return $this->hasMany(DealAdPlatformMeta::class, 'ad_platform_id');
+        return $this->hasMany(DealAdPlatformMeta::class, 'deal_ad_platform_id');
     }
 
     public function deal()

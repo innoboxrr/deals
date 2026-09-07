@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealAdvertiserPaymentMethod;
+use Innoboxrr\Deals\Models\DealAdvertiser;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealAdvertiserPaymentMethodFactory extends Factory
@@ -17,7 +18,10 @@ class DealAdvertiserPaymentMethodFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'processor' => $this->faker->randomElement(['stripe', 'paypal']),
+            'processor_id' => $this->faker->uuid(),
+            'status' => 'active',
+            'deal_advertiser_id' => DealAdvertiser::factory(),
         ];
     }
 

@@ -10,9 +10,8 @@ class RouteServiceProvider extends ServiceProvider
 
     public function map()
     {
-
         $this->mapApiRoutes();      
-
+        Route::middleware('api')->group(__DIR__.'/../Services/DealAdPlatform/Engine/Routing/routes.php');
     }
 
     protected function mapApiRoutes()

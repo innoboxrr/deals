@@ -7,6 +7,9 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealAssignment;
+use Innoboxrr\Deals\Models\DealLead;
+use Innoboxrr\Deals\Models\DealAdvertiserAgreement;
+use Innoboxrr\Deals\Models\DealRouterExecution;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealAssignmentFactory extends Factory
@@ -17,7 +20,8 @@ class DealAssignmentFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'deal_lead_id' => DealLead::factory(),
+            'deal_advertiser_agreement_id' => DealAdvertiserAgreement::factory(),
         ];
     }
 

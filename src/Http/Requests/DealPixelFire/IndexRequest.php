@@ -52,7 +52,7 @@ class IndexRequest extends FormRequest
 
         $builder = new Builder();
 
-        $query = $builder->get(DealPixelFire::class, $this->all());
+        $query = $builder->get(DealPixelFire::class, $this->all(), config('deals.search-options'));
 
         return DealPixelFireResource::collection($query);
 

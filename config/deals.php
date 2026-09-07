@@ -4,7 +4,7 @@ return [
 
 	'user_class' => 'App\Models\User',
 
-	'lead_class' => 'App\Models\Lead',
+	'lead_class' => 'Seguropro\Leads\Models\Lead',
 
 	'agent_class' => 'App\Models\Agent',
 
@@ -16,12 +16,9 @@ return [
 
 	'export_disk' => 's3',
 
-	/*
-	| Obsoleto desde SearchSurge v3: los filtros se localizan solos a partir
-	| del namespace del modelo, preguntandole al autoloader de Composer.
-	| Se deja vacio y no como clave ausente para que cualquier codigo que
-	| todavia lo lea siga recibiendo un array valido.
-	*/
-	'search-options' => [],
+	'search-options' => [
+		'filtersPath' => 'vendor' . DIRECTORY_SEPARATOR . 'innoboxrr' . DIRECTORY_SEPARATOR . 'deals' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'Filters',
+		'filtersNamespace' => 'Innoboxrr\Deals\Models\Filters',
+	],
 	
 ];

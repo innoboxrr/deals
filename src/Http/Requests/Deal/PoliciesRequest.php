@@ -4,6 +4,7 @@ namespace Innoboxrr\Deals\Http\Requests\Deal;
 
 use Innoboxrr\Deals\Models\Deal;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PoliciesRequest extends FormRequest
 {
@@ -21,7 +22,11 @@ class PoliciesRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'nullable|numeric|exists:Innoboxrr\Deals\Models\Deal,id'
+            'id' => [
+                'nullable',
+                'numeric',
+                Rule::exists(Deal::class, 'id'),
+            ],
         ];
     }
 

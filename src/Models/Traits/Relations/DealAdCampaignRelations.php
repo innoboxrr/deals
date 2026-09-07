@@ -13,21 +13,21 @@ trait DealAdCampaignRelations
 {
     public function metas()
     {
-        return $this->hasMany(DealAdCampaignMeta::class, 'ad_campaign_id');
+        return $this->hasMany(DealAdCampaignMeta::class, 'deal_ad_campaign_id');
     }
 
     public function adPlatform()
     {
-        return $this->belongsTo(DealAdPlatform::class, 'ad_platform_id');
+        return $this->belongsTo(DealAdPlatform::class, 'deal_ad_platform_id');
     }
 
     public function adCampaignRules()
     {
-        return $this->hasMany(DealAdCampaignRule::class, 'ad_campaign_id');
+        return $this->hasMany(DealAdCampaignRule::class, 'deal_ad_campaign_id');
     }
 
     public function adGroups()
     {
-        return $this->hasMany(DealAdGroup::class, 'ad_campaign_id');
+        return $this->hasMany(DealAdGroup::class, 'deal_ad_campaign_id');
     }
 }

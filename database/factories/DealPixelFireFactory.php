@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealPixelFire;
+use Innoboxrr\Deals\Models\DealLeadTrackingEvent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealPixelFireFactory extends Factory
@@ -17,7 +18,10 @@ class DealPixelFireFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'fired_at' => $this->faker->dateTimeThisMonth(),
+            'platform_type' => $this->faker->randomElement(['facebook', 'google', 'tiktok']),
+            'platform_id' => $this->faker->uuid(),
+            'deal_lead_tracking_event_id' => DealLeadTrackingEvent::factory(),
         ];
     }
 

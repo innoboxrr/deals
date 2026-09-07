@@ -20,10 +20,7 @@ class DealGatewaysExports implements FromView
     public function view(): View
     {
         return view(
-            config(
-                'innoboxrrdeals.excel_view', 
-                'innoboxrrdeals::excel.'
-            ) . 'deal_gateway', 
+            config('deals.excel_view', 'deals::excel.') . 'deal_gateway', 
             [
                 'deal_gateways' => $this->getQuery(),
                 'exportCols' => DealGateway::$export_cols
@@ -34,9 +31,7 @@ class DealGatewaysExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        // lazy() en vez de get(): un export recorre la tabla entera y
-        // hidratar todas las filas a la vez es lo que revienta la memoria.
-        return $builder->lazy(DealGateway::class, $this->data);
+        return $builder->get(DealGateway::class, $this->data, config('deals.search-options'));
     }
 
 }

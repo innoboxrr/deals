@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealAdPlatform;
+use Innoboxrr\Deals\Models\Deal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealAdPlatformFactory extends Factory
@@ -17,7 +18,8 @@ class DealAdPlatformFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'name' => $this->faker->randomElement(['Google Ads', 'Facebook Ads', 'TikTok Ads', 'LinkedIn Ads']),
+            'deal_id' => Deal::factory(),
         ];
     }
 

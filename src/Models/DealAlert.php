@@ -85,11 +85,9 @@ class DealAlert extends Model
         //LOADABLECOUNTS//
     ];
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAlertFactory::new();
     }
-    */
 
 }

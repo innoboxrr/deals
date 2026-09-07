@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealAlert;
+use Innoboxrr\Deals\Models\Deal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealAlertFactory extends Factory
@@ -17,7 +18,11 @@ class DealAlertFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'type' => $this->faker->randomElement(['high_cpl', 'low_cpl', 'leads_stuck', 'sla_breach']),
+            'message' => $this->faker->sentence(),
+            'detected_at' => $this->faker->dateTimeThisMonth(),
+            'status' => 'unresolved',
+            'deal_id' => Deal::factory(),
         ];
     }
 

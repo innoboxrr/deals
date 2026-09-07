@@ -95,11 +95,9 @@ class DealPerformanceSnapshot extends Model
         'deal'
     ];
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealPerformanceSnapshotFactory::new();
     }
-    */
 
 }

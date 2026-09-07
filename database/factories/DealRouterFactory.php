@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealRouter;
+use Innoboxrr\Deals\Models\Deal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealRouterFactory extends Factory
@@ -17,7 +18,7 @@ class DealRouterFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'deal_id' => Deal::factory(),
         ];
     }
 

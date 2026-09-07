@@ -102,11 +102,9 @@ class DealAssignment extends Model
         // No relaciones hasMany que ameriten conteo en este modelo.
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAssignmentFactory::new();
     }
-    */
 
 }

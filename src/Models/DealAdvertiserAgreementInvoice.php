@@ -105,11 +105,9 @@ class DealAdvertiserAgreementInvoice extends Model
         // No relaciones tipo hasMany que ameriten conteo.
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdvertiserAgreementInvoiceFactory::new();
     }
-    */
 
 }

@@ -17,7 +17,7 @@ class DealLeadFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'status' => 'unprocessed',
         ];
     }
 

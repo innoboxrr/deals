@@ -20,10 +20,7 @@ class DealAdvertiserPaymentMethodsExports implements FromView
     public function view(): View
     {
         return view(
-            config(
-                'innoboxrrdeals.excel_view', 
-                'innoboxrrdeals::excel.'
-            ) . 'deal_advertiser_payment_method', 
+            config('deals.excel_view', 'deals::excel.') . 'deal_advertiser_payment_method', 
             [
                 'deal_advertiser_payment_methods' => $this->getQuery(),
                 'exportCols' => DealAdvertiserPaymentMethod::$export_cols
@@ -34,9 +31,7 @@ class DealAdvertiserPaymentMethodsExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        // lazy() en vez de get(): un export recorre la tabla entera y
-        // hidratar todas las filas a la vez es lo que revienta la memoria.
-        return $builder->lazy(DealAdvertiserPaymentMethod::class, $this->data);
+        return $builder->get(DealAdvertiserPaymentMethod::class, $this->data, config('deals.search-options'));
     }
 
 }

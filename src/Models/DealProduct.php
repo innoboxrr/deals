@@ -106,11 +106,9 @@ class DealProduct extends Model
         'metas',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealProductFactory::new();
     }
-    */
 
 }

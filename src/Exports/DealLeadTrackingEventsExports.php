@@ -20,10 +20,7 @@ class DealLeadTrackingEventsExports implements FromView
     public function view(): View
     {
         return view(
-            config(
-                'innoboxrrdeals.excel_view', 
-                'innoboxrrdeals::excel.'
-            ) . 'deal_lead_tracking_event', 
+            config('deals.excel_view', 'deals::excel.') . 'deal_lead_tracking_event', 
             [
                 'deal_lead_tracking_events' => $this->getQuery(),
                 'exportCols' => DealLeadTrackingEvent::$export_cols
@@ -34,9 +31,7 @@ class DealLeadTrackingEventsExports implements FromView
     public function getQuery()
     {   
         $builder = new Builder();
-        // lazy() en vez de get(): un export recorre la tabla entera y
-        // hidratar todas las filas a la vez es lo que revienta la memoria.
-        return $builder->lazy(DealLeadTrackingEvent::class, $this->data);
+        return $builder->get(DealLeadTrackingEvent::class, $this->data, config('deals.search-options'));
     }
 
 }

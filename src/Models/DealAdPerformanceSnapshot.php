@@ -29,7 +29,8 @@ class DealAdPerformanceSnapshot extends Model
         DealAdPerformanceSnapshotMutators;
         
     protected $fillable = [
-        'timestamp',
+        'from_date',
+        'to_date',
         'impressions',
         'clicks',
         'leads',
@@ -37,9 +38,10 @@ class DealAdPerformanceSnapshot extends Model
         'cpl',
         'deal_ad_id',
     ];
-    
+
     protected $creatable = [
-        'timestamp',
+        'from_date',
+        'to_date',
         'impressions',
         'clicks',
         'leads',
@@ -47,18 +49,20 @@ class DealAdPerformanceSnapshot extends Model
         'cpl',
         'deal_ad_id',
     ];
-    
+
     protected $updatable = [
-        'timestamp',
+        'from_date',
+        'to_date',
         'impressions',
         'clicks',
         'leads',
         'spend',
         'cpl',
     ];
-    
+
     protected $casts = [
-        'timestamp'    => 'datetime',
+        'from_date'    => 'integer',
+        'to_date'      => 'integer',
         'impressions'  => 'integer',
         'clicks'       => 'integer',
         'leads'        => 'integer',
@@ -75,7 +79,8 @@ class DealAdPerformanceSnapshot extends Model
     
     public static $export_cols = [
         'id',
-        'timestamp',
+        'from_date',
+        'to_date',
         'impressions',
         'clicks',
         'leads',
@@ -94,11 +99,9 @@ class DealAdPerformanceSnapshot extends Model
         'ad'
     ];
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdPerformanceSnapshotFactory::new();
     }
-    */
 
 }

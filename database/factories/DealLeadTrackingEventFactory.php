@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealLeadTrackingEvent;
+use Innoboxrr\Deals\Models\DealLead;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealLeadTrackingEventFactory extends Factory
@@ -17,7 +18,8 @@ class DealLeadTrackingEventFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'event' => $this->faker->randomElement(['click', 'open', 'delivered', 'bounce', 'spam']),
+            'deal_lead_id' => DealLead::factory(),
         ];
     }
 

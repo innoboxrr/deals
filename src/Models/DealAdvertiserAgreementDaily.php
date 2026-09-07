@@ -104,11 +104,9 @@ class DealAdvertiserAgreementDaily extends Model
         'advertiserAgreement'
     ];
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdvertiserAgreementDailyFactory::new();
     }
-    */
 
 }

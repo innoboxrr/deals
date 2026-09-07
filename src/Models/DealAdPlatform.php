@@ -50,7 +50,11 @@ class DealAdPlatform extends Model
         'deal_id' => 'integer',
     ];
     
-    protected $protected_metas = [];
+    protected $protected_metas = [
+        'type',
+        'credentials',
+        'settings',
+    ];
     
     protected $editable_metas = [
         //EDITABLEMETAS//
@@ -75,11 +79,9 @@ class DealAdPlatform extends Model
         'adCampaigns',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealAdPlatformFactory::new();
     }
-    */
 
 }

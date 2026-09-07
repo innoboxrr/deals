@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealAdGroup;
+use Innoboxrr\Deals\Models\DealAdCampaign;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealAdGroupFactory extends Factory
@@ -17,7 +18,8 @@ class DealAdGroupFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'name' => $this->faker->words(3, true),
+            'deal_ad_campaign_id' => DealAdCampaign::factory(),
         ];
     }
 

@@ -7,6 +7,7 @@ namespace Innoboxrr\Deals\Database\Factories;
  */
 
 use Innoboxrr\Deals\Models\DealGateway;
+use Innoboxrr\Deals\Models\Deal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DealGatewayFactory extends Factory
@@ -17,7 +18,10 @@ class DealGatewayFactory extends Factory
     public function definition()
     {
         return [
-            //EDIT//
+            'deal_id' => Deal::factory(),
+            'gateway_type' => 'App\\Models\\Endpoint',
+            'gateway_id' => $this->faker->randomNumber(3),
+            'status' => 'active',
         ];
     }
 

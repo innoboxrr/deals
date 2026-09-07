@@ -48,7 +48,7 @@ class PolicyRequest extends FormRequest
             ],
             'id' => [
                 'numeric',
-                'exists:Innoboxrr\Deals\Models\Deal,id',
+                Rule::exists(Deal::class, 'id'),
                 Rule::requiredIf(in_array($this->policy, $this->modelPolicies)),
             ]
         ];

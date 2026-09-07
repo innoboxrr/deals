@@ -83,11 +83,9 @@ class DealLeadTrackingEvent extends Model
         'pixelFires',
     ];    
 
-    /*
     protected static function newFactory()
     {
         return \Innoboxrr\Deals\Database\Factories\DealLeadTrackingEventFactory::new();
     }
-    */
 
 }
