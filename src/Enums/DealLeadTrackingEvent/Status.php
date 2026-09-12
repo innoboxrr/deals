@@ -1,6 +1,6 @@
 <?php
 
-namespace Innoboxrr\Deals\Enums\DealLead;
+namespace Innoboxrr\Deals\Enums\DealLeadTrackingEvent;
 
 use Innoboxrr\Deals\Support\Traits\EnumTrait;
 

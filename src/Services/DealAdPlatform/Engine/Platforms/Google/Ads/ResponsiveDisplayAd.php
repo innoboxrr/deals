@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\Google\Ads;
 
+use Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\Google\Abstracts\BaseAdAction;
 use Google\Ads\GoogleAds\V21\Common\AdImageAsset;
 use Google\Ads\GoogleAds\V21\Common\AdTextAsset;
 use Google\Ads\GoogleAds\V21\Common\ResponsiveDisplayAdInfo;

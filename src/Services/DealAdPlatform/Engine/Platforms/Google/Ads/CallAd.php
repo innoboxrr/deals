@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\Google\Ads;
 
+use Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\Google\Abstracts\BaseAdAction;
 use Google\Ads\GoogleAds\V21\Common\CallAdInfo;
 use Google\Ads\GoogleAds\V21\Resources\Ad;
 use Google\Ads\GoogleAds\V21\Resources\AdGroupAd;

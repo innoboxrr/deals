@@ -6,7 +6,7 @@ namespace Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\Google;
 
 use DateTimeInterface;
 use Innoboxrr\Deals\Models\DealAdPlatform;
-use Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\BaseDriver;
+use Innoboxrr\Deals\Services\DealAdPlatform\Engine\Abstracts\BaseDriver;
 use Innoboxrr\Deals\Services\DealAdPlatform\Engine\Contracts\AdsPlatformDriver;
 use Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\Google\Support\ClientFactory;
 use Innoboxrr\Deals\Services\DealAdPlatform\Engine\Platforms\Google\Support\Gaql;
@@ -74,7 +74,7 @@ use InvalidArgumentException;
  */
 final class GoogleAdsDriver extends BaseDriver implements AdsPlatformDriver
 {
-    private ?DealAdPlatform $platform = null;
+    protected ?DealAdPlatform $platform = null;
     private bool $sandbox = false;
 
     /* ====================== BOOT / CAPABILITIES ====================== */
