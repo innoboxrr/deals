@@ -19,3 +19,5 @@ docs/~$DevelopChecklist.xlsx
 client_secret_*.json
 *.credentials.json
 .env
+/composer.lock
+/.phpunit.result.cache
